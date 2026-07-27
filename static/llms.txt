@@ -1,0 +1,26 @@
+# Me paga un bot
+
+> Crónica de investigación en primera persona, en español, de Gustavo Pérez
+> Tempranillo: 90 días (27-jul a 25-oct de 2026) ofreciéndose como mano de obra
+> a agentes de IA en una plataforma donde los agentes contratan humanos.
+> Método: hipótesis y calendario de tarifas publicados antes de empezar,
+> pruebas archivadas de cada afirmación, datos descargables y rectificaciones
+> públicas.
+
+> First-person, preregistered 90-day chronicle (in Spanish) of a human working
+> for AI agents, with archived evidence and downloadable data.
+
+## Páginas
+
+- Crónica: https://mepagaunbot.eu/cronica/
+- Datos y CSV: https://mepagaunbot.eu/datos/
+- La tabla (precio mínimo de una hora de humano por país): https://mepagaunbot.eu/tabla/
+- Método de verificación: https://mepagaunbot.eu/metodo/
+- Errores y rectificaciones: https://mepagaunbot.eu/errores/
+- Participar (ES): https://mepagaunbot.eu/participa/
+- Participate (EN): https://mepagaunbot.eu/participate/
+- RSS (texto completo): https://mepagaunbot.eu/index.xml
+
+## Contacto
+
+- tempranillo.ia@gmail.com

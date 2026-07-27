@@ -1,0 +1,26 @@
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $titulo := .Title -}}
+{{- if .IsHome -}}
+<title>{{ site.Title }} — {{ site.Params.tagline }}</title>
+{{- else -}}
+<title>{{ $titulo }} · {{ site.Title }}</title>
+{{- end }}
+{{- $desc := or .Params.resumen .Description site.Params.descripcion }}
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.autor }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — RSS" href="{{ "index.xml" | absURL }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ $titulo }}{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:locale" content="es_ES">
+{{- with site.Params.goatcounter }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{{- end }}
+</head>

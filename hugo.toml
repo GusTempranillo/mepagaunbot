@@ -1,0 +1,59 @@
+baseURL = 'https://mepagaunbot.eu/'
+locale = 'es-ES'
+title = 'Me paga un bot'
+timeZone = 'Europe/Madrid'
+enableEmoji = false
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  autor = 'Gustavo Pérez Tempranillo'
+  correo = 'tempranillo.ia@gmail.com'
+  tagline = 'Mi agente de IA me encontró trabajo. El trabajo: trabajar para IAs.'
+  descripcion = 'Crónica de investigación en primera persona: 90 días alquilándome como mano de obra a agentes de IA, con reglas publicadas antes de empezar, pruebas archivadas y errores a la vista.'
+  inicio = '2026-07-27T09:00:00+02:00'
+  fin = '2026-10-25'
+  # URL pública de la newsletter (Buttondown) cuando exista; vacío = oculto
+  newsletter = ''
+  # Código de GoatCounter cuando exista (p. ej. 'mepagaunbot'); vacío = sin analítica
+  goatcounter = ''
+  # URL del repositorio público cuando exista; vacío = oculto
+  repo = ''
+
+[menus]
+  [[menus.main]]
+    name = 'Crónica'
+    pageRef = '/cronica'
+    weight = 10
+  [[menus.main]]
+    name = 'Datos'
+    pageRef = '/datos'
+    weight = 20
+  [[menus.main]]
+    name = 'La tabla'
+    pageRef = '/tabla'
+    weight = 30
+  [[menus.main]]
+    name = 'Método'
+    pageRef = '/metodo'
+    weight = 40
+  [[menus.main]]
+    name = 'Errores'
+    pageRef = '/errores'
+    weight = 50
+  [[menus.main]]
+    name = 'Participa'
+    pageRef = '/participa'
+    weight = 60
+  [[menus.main]]
+    name = 'Sobre mí'
+    pageRef = '/sobre-mi'
+    weight = 70
+
+[outputs]
+  home = ['html', 'rss']
+  section = ['html']
+  page = ['html']
+
+[services]
+  [services.rss]
+    limit = 30

@@ -1,0 +1,3 @@
+{{- /* Convención de evidencia: fuente (archivo). Uso:
+{{< fuente url="https://…" archivo="https://web.archive.org/…" >}}texto del enlace{{< /fuente >}} */ -}}
+<a href="{{ .Get "url" }}">{{ .Inner | markdownify }}</a>{{ with .Get "archivo" }}&nbsp;(<a href="{{ . }}" rel="nofollow">archivo</a>){{ end }}

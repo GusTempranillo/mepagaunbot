@@ -1,0 +1,5 @@
+# Estado acumulado del experimento. Actualizar con el registro diario.
+# Estos valores alimentan la caja "El experimento, hoy" de la portada.
+encargos: 0
+cobrado: 0
+actualizado: "27-07-2026"

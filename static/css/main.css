@@ -1,0 +1,198 @@
+/* Me paga un bot — hoja de estilos única.
+   Austeridad con una tinta: texto negro, fondo blanco, rojo tempranillo. */
+
+:root {
+  --tinta: #1a1a1a;
+  --tinta-suave: #555;
+  --fondo: #ffffff;
+  --fondo-suave: #f6f4f2;
+  --acento: #722f37;        /* rojo tempranillo */
+  --linea: #ddd8d4;
+  --ancho: 44rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tinta: #e8e6e3;
+    --tinta-suave: #a9a49e;
+    --fondo: #121212;
+    --fondo-suave: #1d1b1a;
+    --acento: #d98a94;      /* tempranillo aclarado para fondo oscuro */
+    --linea: #3a3634;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+  max-width: var(--ancho);
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.55;
+  color: var(--tinta);
+  background: var(--fondo);
+}
+
+/* ——— Accesibilidad ——— */
+.salto {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--acento);
+  color: #fff;
+  padding: .5rem 1rem;
+}
+.salto:focus { left: 0; z-index: 10; }
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+/* ——— Cabecera ——— */
+.cabecera { margin-bottom: 2rem; }
+.titulo-sitio {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: bold;
+  letter-spacing: -.02em;
+}
+.titulo-sitio a { color: var(--tinta); text-decoration: none; }
+.titulo-sitio a:hover { color: var(--acento); }
+.tagline { margin: .2rem 0 0; font-style: italic; color: var(--tinta-suave); }
+.firma { margin: .1rem 0 0; font-size: .92rem; color: var(--tinta-suave); }
+.firma strong { color: var(--tinta); }
+
+.cabecera nav ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: .55rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.1rem;
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: .92rem;
+}
+.cabecera nav a { text-decoration: none; }
+.cabecera nav a[aria-current="page"] { font-weight: bold; color: var(--tinta); }
+
+/* ——— Texto ——— */
+a { color: var(--acento); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+h1 { font-size: 1.65rem; line-height: 1.2; margin: 1.6rem 0 .8rem; letter-spacing: -.01em; }
+h2 { font-size: 1.25rem; margin: 1.8rem 0 .6rem; }
+h3 { font-size: 1.05rem; margin: 1.4rem 0 .4rem; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: .2rem 0 .2rem 1rem;
+  border-left: 3px solid var(--acento);
+  color: var(--tinta);
+  font-style: italic;
+}
+blockquote em, blockquote i { font-style: normal; }
+
+hr { border: 0; border-top: 1px solid var(--linea); margin: 2rem 0; }
+
+code, pre, .sello {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+code { font-size: .92em; background: var(--fondo-suave); padding: .08em .3em; border-radius: 3px; }
+pre { background: var(--fondo-suave); padding: .8rem 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { background: none; padding: 0; }
+
+/* ——— Tablas: las protagonistas ——— */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.3rem 0;
+  font-size: .95rem;
+  font-variant-numeric: tabular-nums;
+}
+caption {
+  text-align: left;
+  font-size: .88rem;
+  color: var(--tinta-suave);
+  padding-bottom: .4rem;
+}
+th, td {
+  text-align: left;
+  padding: .45rem .6rem;
+  border-bottom: 1px solid var(--linea);
+  vertical-align: top;
+}
+thead th { border-bottom: 2px solid var(--tinta); font-family: system-ui, sans-serif; font-size: .85rem; }
+tbody tr:hover { background: var(--fondo-suave); }
+
+/* ——— El sello de bitácora ——— */
+.sello {
+  font-size: .85rem;
+  background: var(--fondo-suave);
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  padding: .45rem .7rem;
+  display: inline-block;
+  color: var(--tinta);
+}
+
+.meta { font-size: .88rem; color: var(--tinta-suave); margin: .2rem 0; }
+.entradilla { font-size: 1.1rem; font-style: italic; }
+
+/* ——— Caja de estado (portada) ——— */
+.estado {
+  background: var(--fondo-suave);
+  border: 1px solid var(--linea);
+  border-left: 4px solid var(--acento);
+  border-radius: 4px;
+  padding: .9rem 1.1rem;
+  margin: 1.6rem 0;
+}
+.estado h2 { margin: 0 0 .5rem; font-size: 1.05rem; }
+.estado p { margin: .3rem 0; }
+.peq { font-size: .82rem; color: var(--tinta-suave); }
+
+/* ——— Listas de posts ——— */
+ul.posts { list-style: none; padding: 0; }
+ul.posts li { margin: .9rem 0; }
+ul.posts time {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: .82rem;
+  color: var(--tinta-suave);
+  display: block;
+}
+ul.posts .resumen { margin: .15rem 0 0; font-size: .95rem; color: var(--tinta-suave); }
+
+.aviso {
+  background: var(--fondo-suave);
+  border: 1px dashed var(--linea);
+  border-radius: 4px;
+  padding: .8rem 1rem;
+}
+
+/* ——— Pie ——— */
+.pie {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--linea);
+  font-size: .9rem;
+  color: var(--tinta-suave);
+}
+.declaracion { color: var(--tinta); }
+.colofon { font-size: .82rem; }
+.pie-post { margin-top: 2rem; font-size: .9rem; color: var(--tinta-suave); }
+
+/* ——— Tablas anchas en móvil ——— */
+@media (max-width: 40rem) {
+  body { font-size: 1rem; padding: 1rem 1rem 2.5rem; }
+  table { display: block; overflow-x: auto; }
+}
+
+/* ——— Impresión ——— */
+@media print {
+  .cabecera nav, .salto, .seguir { display: none; }
+  body { max-width: none; }
+  a { color: inherit; text-decoration: none; }
+}

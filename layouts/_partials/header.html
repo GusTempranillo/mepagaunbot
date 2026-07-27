@@ -1,0 +1,12 @@
+<header class="cabecera">
+  <p class="titulo-sitio"><a href="/">Me paga un bot</a></p>
+  <p class="tagline">{{ site.Params.tagline }}</p>
+  <p class="firma">Una crónica de <strong>{{ site.Params.autor }}</strong></p>
+  <nav aria-label="Principal">
+    <ul>
+    {{- range site.Menus.main }}
+      <li><a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+    {{- end }}
+    </ul>
+  </nav>
+</header>

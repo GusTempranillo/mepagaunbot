@@ -1,0 +1,11 @@
+<footer class="pie">
+  <p class="declaracion"><strong>Sin publicidad. Sin cookies. Sin IA en la redacción de la crónica.</strong></p>
+  <p>
+    <a href="{{ "index.xml" | absURL }}">RSS</a> ·
+    <a href="mailto:{{ site.Params.correo }}">{{ site.Params.correo }}</a> ·
+    <a href="/privacidad/">Privacidad</a> ·
+    <a href="/metodo/">Método</a>
+    {{- with site.Params.repo }} · <a href="{{ . }}">Repositorio</a>{{ end }}
+  </p>
+  <p class="colofon">© 2026 {{ site.Params.autor }}. La carpintería de este sitio la hizo un asistente de IA por encargo del autor; la crónica la escribe él. Cada palabra.</p>
+</footer>

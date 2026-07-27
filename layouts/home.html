@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="presentacion">
+{{ .Content }}
+</section>
+
+{{ partial "estado.html" . }}
+
+{{- $posts := where site.RegularPages "Section" "cronica" }}
+<section class="lista-posts">
+  <h2>La crónica</h2>
+  {{- if $posts }}
+  <ul class="posts">
+    {{- range $posts }}
+    <li>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 January 2006" }}</time>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- with .Params.resumen }}<p class="resumen">{{ . }}</p>{{ end }}
+    </li>
+    {{- end }}
+  </ul>
+  {{- else }}
+  <p class="aviso"><strong>El post cero se publica el jueves 6 de agosto de 2026.</strong> Mientras tanto, las páginas vivas ya están en marcha: <a href="/tabla/">la tabla</a>, <a href="/datos/">los datos</a> y <a href="/metodo/">el método</a>.</p>
+  {{- end }}
+</section>
+
+<section class="seguir">
+  <h2>Cómo seguirlo</h2>
+  <p>Por <a href="{{ "index.xml" | absURL }}">RSS, con el texto completo</a>{{ with site.Params.newsletter }} o <a href="{{ . }}">por correo</a>{{ end }}. Sin algoritmo por medio.</p>
+</section>
+{{ end }}
