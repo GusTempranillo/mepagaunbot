@@ -1,21 +1,30 @@
 {{ define "main" }}
-<article>
-  <header>
-    <h1>{{ .Title }}</h1>
-    {{- if eq .Section "cronica" }}
-    <p class="meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 January 2006" }}</time>
-      {{- if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }} · actualizado el {{ .Lastmod | time.Format "2 January 2006" }}{{ end }}
-    </p>
-    {{ partial "sello.html" . }}
-    {{- with .Params.resumen }}<p class="entradilla">{{ . }}</p>{{ end }}
-    {{- end }}
-  </header>
-  {{ .Content }}
-  {{- if eq .Section "cronica" }}
-  <footer class="pie-post">
-    <p>¿He metido la pata? Aquí se tacha en público: <a href="/errores/">errores y rectificaciones</a>.</p>
-  </footer>
-  {{- end }}
-</article>
+{{ $e := partial "estado.html" . }}
+{{/* Rótulo de sección. Nunca repite el título de la página: en la crónica
+     dice "Crónica"; en el resto, solo aparece si la página lo pide con
+     el parámetro "rotulo" del front matter. */}}
+{{ $rotulo := .Params.rotulo }}
+{{ if eq .Section "cronica" }}{{ $rotulo = "Crónica" }}{{ end }}
+<div class="wrap">
+  <article class="prose">
+    {{ with $rotulo }}
+    <div class="sechead">
+      <h2>{{ . }}</h2>
+      {{ if and (eq $.Section "cronica") (not $.Date.IsZero) }}
+        <span class="note" style="margin:0"><time datetime="{{ $.Date.Format "2006-01-02" }}">{{ partial "fecha.html" (dict "t" $.Date "f" "largo") }}</time>{{ if ne ($.Lastmod.Format "2006-01-02") ($.Date.Format "2006-01-02") }} · actualizado el {{ partial "fecha.html" (dict "t" $.Lastmod "f" "largo") }}{{ end }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
+    {{ if eq .Section "cronica" }}{{ partial "sello.html" . }}{{ end }}
+    {{ .Content }}
+    {{ if .Params.sellos }}{{ partial "sellos.html" . }}{{ end }}
+    {{ if eq .Section "cronica" }}
+      <div class="pie-post">
+        <p>¿He metido la pata? Aquí se tacha en público: <a href="/errores/">errores y rectificaciones</a>.</p>
+      </div>
+    {{ end }}
+  </article>
+</div>
 {{ end }}

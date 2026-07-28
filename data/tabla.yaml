@@ -1,0 +1,43 @@
+# Mínimos por hora que RentAHuman (rentahuman.ai) impone por país.
+# Fuente: campo de tarifa de RentAHuman, consultado país por país,
+# con captura archivada de cada uno. Contraste: Eurostat.
+#
+# La portada agrupa los nueve países con $50 por defecto en una sola fila.
+# La página /tabla/ los lista uno a uno.
+
+consultado: 2026-07-27
+maximo: 50.00
+version: "2026-07-27 — versión inicial, 25 países"
+
+# La lista NO es exhaustiva: es una muestra de 25 países tomada al azar
+# sobre el total que ofrece la plataforma. Los máximos y mínimos que
+# aparecen aquí son los de la muestra, no los del mundo.
+muestra: true
+muestra_nota: "Muestra de 25 países tomada al azar. No es la lista completa de RentAHuman."
+
+paises:
+  - { nombre: "Austria",        codigo: "AT", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Dinamarca",      codigo: "DK", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Finlandia",      codigo: "FI", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Islandia",       codigo: "IS", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Italia",         codigo: "IT", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Noruega",        codigo: "NO", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Suecia",         codigo: "SE", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Suiza",          codigo: "CH", tarifa: 50.00, tipo: defecto, legal: "No a nivel federal" }
+  - { nombre: "Tokelau",        codigo: "TK", tarifa: 50.00, tipo: defecto, legal: "Sin cifra publicada" }
+  - { nombre: "Australia",      codigo: "AU", tarifa: 17.35, tipo: legal,   legal: "Sí" }
+  - { nombre: "Luxemburgo",     codigo: "LU", tarifa: 17.24, tipo: legal,   legal: "Sí" }
+  - { nombre: "Alemania",       codigo: "DE", tarifa: 16.13, tipo: legal,   legal: "Sí" }
+  - { nombre: "Francia",        codigo: "FR", tarifa: 13.95, tipo: legal,   legal: "Sí" }
+  - { nombre: "Andorra",        codigo: "AD", tarifa:  9.69, tipo: legal,   legal: "Sí" }
+  - { nombre: "España",         codigo: "ES", tarifa:  9.24, tipo: yo,      legal: "Sí", detalle: "aquí trabajo yo" }
+  - { nombre: "Estados Unidos", codigo: "US", tarifa:  7.25, tipo: legal,   legal: "Sí", detalle: "federal, congelado desde 2009" }
+  - { nombre: "Portugal",       codigo: "PT", tarifa:  5.84, tipo: legal,   legal: "Sí" }
+  - { nombre: "Argentina",      codigo: "AR", tarifa:  1.64, tipo: legal,   legal: "Sí" }
+  - { nombre: "Filipinas",      codigo: "PH", tarifa:  1.61, tipo: legal,   legal: "Sí" }
+  - { nombre: "Pakistán",       codigo: "PK", tarifa:  0.57, tipo: legal,   legal: "Sí" }
+  - { nombre: "Kenia",          codigo: "KE", tarifa:  0.57, tipo: legal,   legal: "Sí" }
+  - { nombre: "Yemen",          codigo: "YE", tarifa:  0.51, tipo: legal,   legal: "Sí" }
+  - { nombre: "Afganistán",     codigo: "AF", tarifa:  0.46, tipo: legal,   legal: "Sí" }
+  - { nombre: "India",          codigo: "IN", tarifa:  0.28, tipo: legal,   legal: "Sí" }
+  - { nombre: "Bután",          codigo: "BT", tarifa:  0.21, tipo: legal,   legal: "Sí" }

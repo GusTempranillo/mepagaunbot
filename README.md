@@ -2,7 +2,7 @@
 
 Repositorio del blog **Me paga un bot** — crónica de investigación en primera
 persona de Gustavo Pérez Tempranillo: 90 días (27-jul → 25-oct de 2026)
-ofreciéndose como mano de obra a agentes de IA, con prerregistro, pruebas
+ofreciéndose como mano de obra a agentes de IA, con registro previo, pruebas
 archivadas y errores en público.
 
 **Transparencia:** la carpintería de este sitio (plantillas, estilos,
@@ -54,19 +54,33 @@ Enlace probatorio = «fuente (archivo)». Hay un shortcode:
 
 ---
 
-## El prerregistro (pendiente, una sola vez)
+## El registro previo (pendiente, una sola vez)
 
-`content/prerregistro.md` está en `draft: true` con **cifras candidatas que
-NO valen**: son propuestas del asistente. Antes del post cero:
+`content/registro-previo.md` contiene las siete hipótesis y el calendario de
+tarifas, ya con las cifras del autor. Antes del post cero:
 
-1. Sustituir cada `[X]` por la cifra propia y añadir la apuesta arriesgada.
-2. Borrar el aviso de borrador, poner la fecha y `draft: false`.
-3. Commit y push. Cuando la página esté en línea:
-4. **Sello Wayback:** abrir `https://web.archive.org/save/https://mepagaunbot.eu/prerregistro/` y guardar el enlace resultante en la sección «Sellado».
-5. **Sello OpenTimestamps:** `pip install opentimestamps-client` y
-   `ots stamp content/prerregistro.md` → añadir el fichero `.ots` al repo
-   (`git add content/prerregistro.md.ots`). Días después, `ots upgrade` y
-   commit del `.ots` actualizado.
+1. Última lectura. **Después del sello no se toca ni una coma:** cualquier
+   cambio invalida la prueba.
+2. `git add -A && git commit -m "Registro previo" && git push`
+3. **Sello OpenTimestamps** (prueba de fecha, independiente de este servidor):
+
+   ```bash
+   pip install opentimestamps-client
+   ots stamp content/registro-previo.md
+   git add content/registro-previo.md.ots && git commit -m "Sello OTS" && git push
+   ```
+
+   Uno o dos días después, cuando el sello haya entrado en un bloque de Bitcoin:
+
+   ```bash
+   ots upgrade content/registro-previo.md.ots
+   ots verify content/registro-previo.md.ots
+   ```
+
+   y commit del `.ots` actualizado. Sin este segundo paso el sello se queda a medias.
+4. **Sello Wayback**, cuando la página esté en línea: abrir
+   `https://web.archive.org/save/https://mepagaunbot.eu/registro-previo/` y
+   guardar el enlace resultante en la sección «Sellado» de la página.
 
 ---
 

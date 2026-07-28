@@ -1,0 +1,42 @@
+{{ $t := hugo.Data.tabla }}
+{{ $max := $t.maximo | default 50.0 }}
+{{ $defecto := where $t.paises "tipo" "defecto" }}
+{{ $resto := sort (where $t.paises "tipo" "!=" "defecto") "tarifa" "desc" }}
+{{ $min := index (sort $t.paises "tarifa" "asc") 0 }}
+{{ $ratio := printf "%.0f" (div $max $min.tarifa) }}
+{{ $codigos := slice }}{{ range $defecto }}{{ $codigos = $codigos | append .codigo }}{{ end }}
+
+<section id="tabla">
+  <div class="sechead">
+    <h2>Gráfico 2 · La tabla</h2>
+    <span class="note" style="margin:0">Consultado país por país el {{ partial "fecha.html" (dict "t" (time.AsTime $t.consultado) "f" "iso") }} · capturas archivadas</span>
+  </div>
+  <h3>Lo que cuesta una hora de ser humano</h3>
+  <p class="deck">RentAHuman no deja fijar el precio libremente: pone un suelo por país, y ese suelo es el salario mínimo legal de cada uno. Donde no hay mínimo legal estatal, planta {{ partial "num.html" (dict "valor" $max "compacto" true) }} dólares por defecto. En una muestra de {{ len $t.paises }} países tomada al azar, entre el suelo más bajo y el más alto hay <strong>{{ $ratio }} veces de diferencia</strong> por la misma hora de vida.</p>
+
+  <div class="ladder">
+    {{ if $defecto }}
+      <div class="row dflt">
+        <div class="country">{{ len $defecto }} países<em>{{ delimit $codigos " · " }}</em></div>
+        <div class="track" title="Sin salario mínimo legal estatal: la plataforma impone ${{ partial "num.html" (dict "valor" $max) }}/h por defecto"><i style="width:100%"></i></div>
+        <div class="amount">${{ partial "num.html" (dict "valor" $max) }}</div>
+      </div>
+    {{ end }}
+    {{ range $resto }}
+      {{ $w := printf "%.2f" (mul (div .tarifa $max) 100) }}
+      <div class="row{{ if eq .tipo "yo" }} me{{ end }}">
+        <div class="country">{{ .nombre }}{{ with .detalle }}<em>{{ . }}</em>{{ end }}</div>
+        <div class="track" title="{{ .nombre }}: ${{ partial "num.html" (dict "valor" .tarifa) }}/h"><i style="width:{{ $w }}%"></i></div>
+        <div class="amount">${{ partial "num.html" (dict "valor" .tarifa) }}</div>
+      </div>
+    {{ end }}
+  </div>
+
+  <div class="legend">
+    <span><b style="background:var(--accent)"></b>España, mi suelo</span>
+    <span><b style="background:var(--bar)"></b>Mínimo legal del país</span>
+    <span><b style="background:var(--bar-2)"></b>${{ partial "num.html" (dict "valor" $max "compacto" true) }} por defecto, sin mínimo legal</span>
+    <span>Escala lineal, máximo ${{ partial "num.html" (dict "valor" $max) }}/h</span>
+  </div>
+  <p class="note">Muestra al azar; la plataforma ofrece más países. Las {{ len $t.paises }} cifras, con fuente, capturas archivadas y el contraste con Eurostat → <a href="/tabla/">La tabla entera</a>.</p>
+</section>

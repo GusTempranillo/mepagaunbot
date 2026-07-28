@@ -1,11 +1,14 @@
-<footer class="pie">
-  <p class="declaracion"><strong>Sin publicidad. Sin cookies. Sin IA en la redacción de la crónica.</strong></p>
-  <p>
-    <a href="{{ "index.xml" | absURL }}">RSS</a> ·
-    <a href="mailto:{{ site.Params.correo }}">{{ site.Params.correo }}</a> ·
-    <a href="/privacidad/">Privacidad</a> ·
-    <a href="/metodo/">Método</a>
-    {{- with site.Params.repo }} · <a href="{{ . }}">Repositorio</a>{{ end }}
-  </p>
-  <p class="colofon">© 2026 {{ site.Params.autor }}. La carpintería de este sitio la hizo un asistente de IA por encargo del autor; la crónica la escribe él. Cada palabra.</p>
+<footer>
+  <div class="wrap">
+    <p class="creed">Sin publicidad. Sin cookies. La crónica la escribo yo. Cada palabra.</p>
+    <div class="foot-links">
+      <a href="{{ "index.xml" | absURL }}">RSS</a>
+      <a href="mailto:{{ site.Params.correo }}">{{ site.Params.correo }}</a>
+      <a href="/privacidad/">Privacidad</a>
+      <a href="/metodo/">Método</a>
+      <a href="/participa/">Participa</a>
+      {{- with site.Params.repo }}<a href="{{ . }}">Repositorio</a>{{ end }}
+    </div>
+    <p class="colofon">© {{ now.Format "2006" }} {{ site.Params.autor }}. La carpintería de este sitio la hizo un asistente de IA por encargo del autor; la crónica la escribe él.</p>
+  </div>
 </footer>

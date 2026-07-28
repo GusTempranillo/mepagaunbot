@@ -2,6 +2,7 @@
 title: "Participate"
 idioma: "en"
 resumen: "If you work or have worked for AI agents, your numbers can turn an anecdote into a sector. How to take part and how your identity is protected."
+rotulo: "Participate · In English"
 ---
 
 *También en español: [Participa](/participa/).*

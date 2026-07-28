@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ $e := partial "estado.html" . }}
+<div class="wrap">
+  <article class="prose">
+    <div class="sechead">
+      <h2>Datos · página viva</h2>
+      <span class="note" style="margin:0">Actualizado {{ $e.actualizado }}</span>
+    </div>
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
+  </article>
+
+  {{ partial "marcador.html" . }}
+
+  <article class="prose">{{ .Content }}</article>
+
+  {{ partial "descenso.html" . }}
+
+  <section id="descenso-tabla">
+    <h2>El descenso, en cifras</h2>
+    <div class="prose" style="max-width:none">
+      <table>
+        <thead><tr><th>Tramo</th><th>Tarifa</th><th>Desde</th><th>Hasta</th><th>Estado</th></tr></thead>
+        <tbody>
+          {{ range $e.tramos }}
+            {{ $activo := eq .numero $e.tramo.numero }}
+            <tr>
+              <td>{{ .numero }}</td>
+              <td>${{ partial "num.html" (dict "valor" .tarifa) }}/h</td>
+              <td>{{ partial "fecha.html" (dict "t" (time.AsTime .desde) "f" "iso") }}</td>
+              <td>{{ partial "fecha.html" (dict "t" (time.AsTime .hasta) "f" "iso") }}</td>
+              <td>{{ if $activo }}vigente{{ else if gt (time.AsTime .desde).Unix now.Unix }}pendiente{{ else }}cerrado{{ end }}{{ with .nota }} · {{ . }}{{ end }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+      <p class="note">Publicado y fechado el {{ partial "fecha.html" (dict "t" $e.inicio "f" "iso") }}, antes del primer encargo. Esta tabla no se edita: si cambiara, sería un error y saldría en <a href="/errores/">Errores</a>.</p>
+    </div>
+  </section>
+</div>
+{{ end }}

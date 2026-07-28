@@ -1,31 +1,20 @@
 ---
-title: "Aviso de privacidad"
-resumen: "Quién trata tus datos en mepagaunbot.eu, para qué, con qué base y qué derechos tienes."
+title: "Privacidad, en corto"
+resumen: "Este sitio no usa cookies ni rastreadores y no muestra publicidad. Lo demás cabe en media página."
+date: 2026-07-27
+rotulo: "Privacidad · Media página"
 ---
 
-*Publicado el 27 de julio de 2026, antes de recabar el primer consentimiento.*
+**Este sitio no usa cookies ni rastreadores y no muestra publicidad.** No hay nada que aceptar al entrar porque no hay nada que recoger.
 
-- **Responsable:** Gustavo Pérez Tempranillo.
-- **Finalidad:** gestión del proyecto mepagaunbot.eu, publicación de crónicas
-  y elaboración de estadísticas del sector.
-- **Legitimación:** consentimiento expreso.
-- **Conservación:** hasta la revocación del consentimiento o la finalización
-  del proyecto.
-- **Destinatarios:** sin cesión a terceros.
-- **Derechos:** acceso, rectificación, supresión, oposición y reclamación
-  ante la [AEPD](https://www.aepd.es/).
+Si algún día añado una medición de visitas, será una que no identifique a nadie, y lo diré aquí antes de ponerla.
 
-Para ejercer cualquier derecho o retirar un consentimiento:
-[tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com). Si retiras un
-consentimiento, se elimina tu testimonio y tus datos identificables de las
-publicaciones; los datos ya integrados en agregados anónimos no pueden
-deshacerse (dejan de ser datos personales al ser irreversiblemente anónimos).
+## Si me escribes
 
-## Sobre este sitio web
+El único canal es el correo: [tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com). Uso lo que me mandes para contestarte y para nada más, salvo que entres en el proceso de permiso explicado en [Participa](/participa/), donde te digo por escrito qué publico y dónde antes de publicarlo.
 
-- Este sitio **no usa cookies ni rastreadores** y no muestra publicidad.
-- No hay comentarios ni formularios: el único canal es el correo, y lo que me
-  escribas se usa solo para responderte, salvo el proceso de consentimiento
-  descrito en [Participa](/participa/).
-- Si algún día se añade una herramienta de estadísticas, será sin cookies ni
-  identificación de visitantes, y se explicará en esta página.
+## Tus datos
+
+Responsable: Gustavo Pérez Tempranillo. Finalidad: gestionar este proyecto, publicar la crónica y elaborar estadísticas del sector. Base legal: tu consentimiento. No cedo datos a terceros.
+
+Puedes pedirme acceso, rectificación, supresión u oposición, o retirar tu consentimiento, escribiendo a la dirección de arriba. La única excepción es la de siempre: un dato ya sumado a un agregado anónimo, sin vínculo contigo, no se puede extraer de ahí.

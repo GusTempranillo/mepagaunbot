@@ -1,18 +1,28 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ .Content }}
-{{- $posts := .RegularPages }}
-{{- if $posts }}
-<ul class="posts">
-  {{- range $posts }}
-  <li>
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 January 2006" }}</time>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{- with .Params.resumen }}<p class="resumen">{{ . }}</p>{{ end }}
-  </li>
-  {{- end }}
-</ul>
-{{- else }}
-<p class="aviso"><strong>El post cero se publica el jueves 6 de agosto de 2026.</strong> Reglas e hipótesis, publicadas antes de empezar: así se distingue un estudio de una anécdota.</p>
-{{- end }}
+{{ $e := partial "estado.html" . }}
+<div class="wrap">
+  <section>
+    <div class="sechead">
+      <h2>{{ .Params.rotulo | default .Title }}</h2>
+      <span class="note" style="margin:0">{{ len .RegularPages }} entradas</span>
+    </div>
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    {{ $posts := .RegularPages }}
+    {{ if $posts }}
+      <ul class="postlist postlist--big">
+        {{ range $posts.ByDate.Reverse }}
+          <li>
+            <span class="pdate">{{ .Date.Format "2006-01-02" }}</span>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ with .Params.resumen }}<em>{{ . }}</em>{{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p class="big-date">Post cero:<br>{{ partial "fecha.html" (dict "t" $e.postCero "f" "dia") }}</p>
+      <p class="deck">Reglas e hipótesis publicadas antes de empezar: así se distingue un estudio de una anécdota. Después del post cero, un parte corto cada día y una pieza cada semana.</p>
+    {{ end }}
+  </section>
+</div>
 {{ end }}

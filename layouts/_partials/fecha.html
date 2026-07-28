@@ -1,0 +1,27 @@
+{{- /*
+  fecha.html — fechas en español sin depender de la locale del sistema.
+  {{ partial "fecha.html" (dict "t" $t) }}              → 27 jul
+  {{ partial "fecha.html" (dict "t" $t "f" "largo") }}  → 27 de julio de 2026
+  {{ partial "fecha.html" (dict "t" $t "f" "dia") }}    → jueves 6 de agosto
+  {{ partial "fecha.html" (dict "t" $t "f" "iso") }}    → 2026-07-27
+*/ -}}
+{{- $t := .t -}}
+{{- $f := .f | default "corto" -}}
+{{- $cortos := slice "ene" "feb" "mar" "abr" "may" "jun" "jul" "ago" "sep" "oct" "nov" "dic" -}}
+{{- $largos := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre" -}}
+{{- $diasEN := slice "Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" -}}
+{{- $diasES := slice "domingo" "lunes" "martes" "miércoles" "jueves" "viernes" "sábado" -}}
+{{- $i := sub (int ($t.Format "1")) 1 -}}
+{{- $d := $t.Format "2" -}}
+{{- if eq $f "iso" -}}
+  {{- $t.Format "2006-01-02" -}}
+{{- else if eq $f "largo" -}}
+  {{- printf "%s de %s de %s" $d (index $largos $i) ($t.Format "2006") -}}
+{{- else if eq $f "dia" -}}
+  {{- $wd := $t.Format "Monday" -}}
+  {{- $nombre := "" -}}
+  {{- range $k, $v := $diasEN -}}{{- if eq $v $wd -}}{{- $nombre = index $diasES $k -}}{{- end -}}{{- end -}}
+  {{- printf "%s %s de %s" $nombre $d (index $largos $i) -}}
+{{- else -}}
+  {{- printf "%s %s" $d (index $cortos $i) -}}
+{{- end -}}

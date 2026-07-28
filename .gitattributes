@@ -1,0 +1,14 @@
+# Finales de línea fijos en LF para todo el texto del repositorio.
+#
+# Importa por un motivo concreto: el sello de OpenTimestamps certifica los
+# bytes exactos de content/registro-previo.md. Si Git convirtiera los finales
+# de línea al clonar en Windows, el archivo cambiaría y el sello dejaría de
+# verificar sin que nadie hubiera tocado una palabra.
+* text=auto eol=lf
+
+# El documento sellado, además, se marca como binario: Git no lo toca jamás.
+content/registro-previo.md -text
+
+*.woff2 binary
+*.png binary
+*.jpg binary

@@ -1,0 +1,62 @@
+{{ define "main" }}
+{{ $t := hugo.Data.tabla }}
+{{ $max := $t.maximo | default 50.0 }}
+{{ $orden := sort $t.paises "tarifa" "desc" }}
+{{ $min := index (sort $t.paises "tarifa" "asc") 0 }}
+{{ $ratio := div $max $min.tarifa }}
+
+<div class="wrap">
+  <article class="prose">
+    <div class="sechead">
+      <h2>La tabla · página viva</h2>
+      <span class="note" style="margin:0">Consultado país por país el {{ partial "fecha.html" (dict "t" (time.AsTime $t.consultado) "f" "iso") }} · capturas archivadas</span>
+    </div>
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
+    {{ .Content }}
+  </article>
+
+  <section>
+    <div class="ladder">
+      {{ range $orden }}
+        {{ $w := printf "%.2f" (mul (div .tarifa $max) 100) }}
+        <div class="row{{ if eq .tipo "yo" }} me{{ end }}{{ if eq .tipo "defecto" }} dflt{{ end }}">
+          <div class="country">{{ .nombre }}{{ with .detalle }}<em>{{ . }}</em>{{ end }}</div>
+          <div class="track" title="{{ .nombre }}: ${{ partial "num.html" (dict "valor" .tarifa) }}/h · mínimo legal: {{ .legal }}"><i style="width:{{ $w }}%"></i></div>
+          <div class="amount">${{ partial "num.html" (dict "valor" .tarifa) }}</div>
+        </div>
+      {{ end }}
+    </div>
+    <div class="legend">
+      <span><b style="background:var(--accent)"></b>España, mi suelo</span>
+      <span><b style="background:var(--bar)"></b>Mínimo legal del país</span>
+      <span><b style="background:var(--bar-2)"></b>$50 por defecto, sin mínimo legal</span>
+      <span>Escala lineal, máximo ${{ partial "num.html" (dict "valor" $max) }}/h</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>La tabla completa</h2>
+    <div class="prose" style="max-width:none">
+      <table>
+        <thead><tr><th>País</th><th>Mínimo impuesto</th><th>¿Salario mínimo legal?</th></tr></thead>
+        <tbody>
+          {{ range $orden }}
+            <tr{{ if eq .tipo "yo" }} class="me"{{ end }}>
+              <td>{{ .nombre }}</td>
+              <td>${{ partial "num.html" (dict "valor" .tarifa) }}/h</td>
+              <td>{{ .legal }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+      <p class="note">
+        Muestra de {{ len $t.paises }} países tomada al azar; no es la lista completa de la plataforma ·
+        dentro de la muestra, de ${{ partial "num.html" (dict "valor" $min.tarifa) }} ({{ $min.nombre }}) a
+        ${{ partial "num.html" (dict "valor" $max) }}: {{ printf "%.0f" $ratio }} veces de diferencia ·
+        registro de cambios: {{ $t.version }}
+      </p>
+    </div>
+  </section>
+</div>
+{{ end }}

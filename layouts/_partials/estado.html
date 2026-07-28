@@ -1,23 +1,44 @@
-{{- $inicio := time.AsTime site.Params.inicio }}
-{{- $ahora := now }}
-{{- $dia := add 1 (div (sub $ahora.Unix $inicio.Unix) 86400) }}
-{{- if lt $dia 1 }}{{ $dia = 1 }}{{ end }}
-{{- $t2 := time.AsTime "2026-08-17T00:00:00+02:00" }}
-{{- $t3 := time.AsTime "2026-09-07T00:00:00+02:00" }}
-{{- $t4 := time.AsTime "2026-09-28T00:00:00+02:00" }}
-{{- $fin := time.AsTime "2026-10-26T00:00:00+02:00" }}
-{{- $tramo := 1 }}{{ $tarifa := "45" }}
-{{- if $ahora.After $t2 }}{{ $tramo = 2 }}{{ $tarifa = "28" }}{{ end }}
-{{- if $ahora.After $t3 }}{{ $tramo = 3 }}{{ $tarifa = "16" }}{{ end }}
-{{- if $ahora.After $t4 }}{{ $tramo = 4 }}{{ $tarifa = "9.24" }}{{ end }}
-{{- $e := hugo.Data.estado }}
-<aside class="estado" aria-label="Estado del experimento">
-  <h2>El experimento, hoy</h2>
-  {{- if $ahora.After $fin }}
-  <p><strong>Terminó el 25 de octubre de 2026.</strong> Las cifras finales, en <a href="/datos/">Datos</a>.</p>
-  {{- else }}
-  <p><strong>Día {{ $dia }} de 90.</strong> Tarifa vigente: <strong>${{ $tarifa }}/hora</strong> (tramo {{ $tramo }} de 4 del <a href="/datos/#descenso">descenso prerregistrado</a>).</p>
-  {{- end }}
-  <p>Encargos: <strong>{{ $e.encargos }}</strong> · Cobrado: <strong>{{ $e.cobrado }} €</strong> <span class="peq">(a {{ $e.actualizado }})</span></p>
-  <p><a href="/datos/">Todos los datos →</a></p>
-</aside>
+{{/*
+  estado.html — calcula el estado del experimento y lo devuelve como dict.
+  Uso:  {{ $e := partial "estado.html" . }}
+  Fuentes: data/estado.yaml (encargos, cobrado, tramos) y params.inicio/fin.
+*/}}
+{{- $d := hugo.Data.estado -}}
+{{- $inicio := time.AsTime site.Params.inicio -}}
+{{- $fin := time.AsTime site.Params.fin -}}
+{{- $total := 90 -}}
+
+{{- $dia := add 1 (div (sub now.Unix $inicio.Unix) 86400) -}}
+{{- if lt $dia 1 }}{{ $dia = 1 }}{{ end -}}
+{{- if gt $dia $total }}{{ $dia = $total }}{{ end -}}
+
+{{- $tramo := index $d.tramos 0 -}}
+{{- $siguiente := false -}}
+{{- range $d.tramos -}}
+  {{- $desde := time.AsTime .desde -}}
+  {{- $hasta := (time.AsTime .hasta).Add (time.ParseDuration "23h59m") -}}
+  {{- if and (ge now.Unix $desde.Unix) (le now.Unix $hasta.Unix) -}}
+    {{- $tramo = . -}}
+  {{- end -}}
+{{- end -}}
+{{- range $d.tramos -}}
+  {{- if and (not $siguiente) (gt (time.AsTime .desde).Unix now.Unix) -}}
+    {{- $siguiente = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return dict
+      "dia" $dia
+      "total" $total
+      "tramo" $tramo
+      "tramoSiguiente" $siguiente
+      "tramos" $d.tramos
+      "encargos" ($d.encargos | default 0)
+      "cobrado" ($d.cobrado | default 0)
+      "actualizado" $d.actualizado
+      "inicio" $inicio
+      "fin" $fin
+      "postCero" (time.AsTime site.Params.post_cero)
+      "empezado" (ge now.Unix $inicio.Unix)
+      "terminado" (gt now.Unix ($fin.Add (time.ParseDuration "23h59m")).Unix)
+-}}

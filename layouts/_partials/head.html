@@ -12,7 +12,10 @@
 <meta name="author" content="{{ site.Params.autor }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/main.css">
+{{/* Fuentes autoalojadas: ni una peticion a terceros desde este sitio. */}}
+<link rel="preload" href="/fonts/source-serif-4-400-600-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/main.css?v=3">
 <link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — RSS" href="{{ "index.xml" | absURL }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ $titulo }}{{ end }}">

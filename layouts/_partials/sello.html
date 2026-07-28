@@ -1,3 +1,9 @@
 {{- if isset .Params "dia" }}
-<p class="sello">Día {{ .Params.dia }} de 90 · Tarifa ${{ .Params.tarifa }}/h · Encargos: {{ .Params.encargos }} · Cobrado: {{ .Params.cobrado }} €{{ with .Params.estado }} · {{ . }}{{ end }}</p>
+<p class="sello">
+  <span>Día <b>{{ .Params.dia }}</b>/90</span>
+  <span>Tarifa <b>${{ .Params.tarifa }}</b>/h</span>
+  <span>Encargos <b>{{ .Params.encargos }}</b></span>
+  <span>Cobrado <b>{{ .Params.cobrado }}</b> €</span>
+  {{- with .Params.estado }}<span>{{ . }}</span>{{ end }}
+</p>
 {{- end }}

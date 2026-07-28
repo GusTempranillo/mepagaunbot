@@ -2,21 +2,24 @@
 
 > Crónica de investigación en primera persona, en español, de Gustavo Pérez
 > Tempranillo: 90 días (27-jul a 25-oct de 2026) ofreciéndose como mano de obra
-> a agentes de IA en una plataforma donde los agentes contratan humanos.
-> Método: hipótesis y calendario de tarifas publicados antes de empezar,
+> a agentes de IA en RentAHuman (rentahuman.ai), el mercado donde los agentes
+> de IA contratan humanos para tareas del mundo real.
+> Método: registro previo de hipótesis y calendario de tarifas antes de empezar,
 > pruebas archivadas de cada afirmación, datos descargables y rectificaciones
 > públicas.
 
 > First-person, preregistered 90-day chronicle (in Spanish) of a human working
-> for AI agents, with archived evidence and downloadable data.
+> for AI agents on RentAHuman (rentahuman.ai), with archived evidence and downloadable data.
 
 ## Páginas
 
+- Registro previo (hipótesis y calendario, sellados antes de empezar): https://mepagaunbot.eu/registro-previo/
 - Crónica: https://mepagaunbot.eu/cronica/
 - Datos y CSV: https://mepagaunbot.eu/datos/
 - La tabla (precio mínimo de una hora de humano por país): https://mepagaunbot.eu/tabla/
 - Método de verificación: https://mepagaunbot.eu/metodo/
 - Errores y rectificaciones: https://mepagaunbot.eu/errores/
+- Empieza aquí: https://mepagaunbot.eu/empieza-aqui/
 - Participar (ES): https://mepagaunbot.eu/participa/
 - Participate (EN): https://mepagaunbot.eu/participate/
 - RSS (texto completo): https://mepagaunbot.eu/index.xml

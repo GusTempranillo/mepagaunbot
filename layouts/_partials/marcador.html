@@ -1,0 +1,23 @@
+{{ $e := partial "estado.html" . }}
+<div class="scoreboard">
+  <div class="tile">
+    <span class="lbl">Día</span>
+    <div class="val">{{ $e.dia }}<small>/{{ $e.total }}</small></div>
+  </div>
+  <div class="tile hot">
+    <span class="lbl">Tarifa vigente</span>
+    <div class="val">${{ partial "num.html" (dict "valor" $e.tramo.tarifa "compacto" true) }}<small>/h</small></div>
+  </div>
+  <div class="tile">
+    <span class="lbl">Encargos</span>
+    <div class="val">{{ $e.encargos }}</div>
+  </div>
+  <div class="tile">
+    <span class="lbl">Cobrado</span>
+    <div class="val">{{ $e.cobrado }}<small>€</small></div>
+  </div>
+</div>
+<p class="stamp">
+  Actualizado {{ $e.actualizado }} · Tramo {{ $e.tramo.numero }} de {{ len $e.tramos }}{{ with $e.tramoSiguiente }} · próximo recorte {{ partial "fecha.html" (dict "t" (time.AsTime .desde)) }}, ${{ partial "num.html" (dict "valor" .tarifa) }}/h{{ end }} ·
+  <a href="/datos/">Todos los datos →</a>
+</p>

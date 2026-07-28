@@ -1,0 +1,24 @@
+{{/* Sellos del registro previo. Los enlaces viven en data/sellos.yaml y no
+     dentro del documento, para que el archivo sellado no cambie nunca. */}}
+{{ $s := index hugo.Data "sellos" }}
+<div class="sellos">
+  <h2>Sellado</h2>
+  <p class="deck">Lo que se sella es el archivo de este documento, no esta página. Los enlaces de abajo viven fuera de él a propósito: si estuvieran dentro, añadirlos habría cambiado el archivo y habría invalidado su propio sello.</p>
+  <ul class="sellolist">
+    <li>
+      <span class="lbl">Sello OpenTimestamps</span>
+      {{ with $s.ots }}<a href="{{ . }}">fichero .ots{{ with $s.ots_fecha }} · {{ . }}{{ end }}</a>
+      {{ else }}<span class="pend">pendiente</span>{{ end }}
+    </li>
+    <li>
+      <span class="lbl">Instantánea en Internet Archive</span>
+      {{ with $s.wayback }}<a href="{{ . }}">ver copia archivada</a>
+      {{ else }}<span class="pend">pendiente</span>{{ end }}
+    </li>
+    <li>
+      <span class="lbl">Historial de cambios</span>
+      {{ with $s.historial }}<a href="{{ . }}">ver en el repositorio</a>
+      {{ else }}<span class="pend">pendiente</span>{{ end }}
+    </li>
+  </ul>
+</div>

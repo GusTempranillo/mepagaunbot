@@ -1,12 +1,33 @@
-<header class="cabecera">
-  <p class="titulo-sitio"><a href="/">Me paga un bot</a></p>
-  <p class="tagline">{{ site.Params.tagline }}</p>
-  <p class="firma">Una crónica de <strong>{{ site.Params.autor }}</strong></p>
-  <nav aria-label="Principal">
-    <ul>
-    {{- range site.Menus.main }}
-      <li><a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
-    {{- end }}
-    </ul>
-  </nav>
+{{ $e := partial "estado.html" . }}
+<header class="masthead{{ if not .IsHome }} masthead--interior{{ end }}">
+  <div class="wrap">
+
+    <div class="kicker">
+      {{ if $e.terminado }}
+        <span class="live live--off">● TERMINADA</span>
+      {{ else if $e.empezado }}
+        <span class="live">● EN CURSO</span>
+      {{ else }}
+        <span class="live live--off">● SIN EMPEZAR</span>
+      {{ end }}
+      <span>Crónica de {{ $e.total }} días</span>
+      <span>{{ partial "fecha.html" (dict "t" $e.inicio) }} → {{ partial "fecha.html" (dict "t" $e.fin) }} {{ $e.fin.Format "2006" }}</span>
+      <span>Con registro previo</span>
+    </div>
+
+    {{ if .IsHome }}
+      <h1 class="logo">Me paga<span class="l2" data-eco="un bot">un bot</span></h1>
+      <p class="dek">{{ site.Params.tagline }}</p>
+      <p class="byline">{{ site.Params.autor }} · {{ site.Params.oficio }}</p>
+    {{ else }}
+      <a class="logo logo--small" href="/">Me paga <span class="l2">un bot</span></a>
+    {{ end }}
+
+    <nav class="top" aria-label="Principal">
+      {{ range site.Menus.main }}
+        <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+
+  </div>
 </header>

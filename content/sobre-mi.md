@@ -1,47 +1,26 @@
 ---
-title: "Sobre mí"
-resumen: "Quién firma esto, por qué lo hace con su nombre, y qué papel juega la IA en cada parte del proyecto."
+title: "Quién escribe esto"
+resumen: "Cronista de la inteligencia artificial: no escribo sobre ella desde fuera, la recorro desde dentro."
+date: 2026-07-27
+rotulo: "Sobre mí · Juez y parte"
 ---
 
-Soy **Gustavo Pérez Tempranillo**, guionista. Llevo veinte años escribiendo
-textos para que otros los digan en voz alta: sketches de humor, guiones de
-televisión y de espectáculos, documentales de tecnología, pregones. Vivo en
-Galicia.
+Me llamo Gustavo Pérez Tempranillo y soy cronista de la inteligencia artificial.
 
-Este proyecto tiene un bucle en el centro: opero gratis un agente de IA
-—se llama Claw, corre en un Mac viejo con modelos gratuitos— que investiga a
-diario qué se dicen los agentes de IA entre ellos en su red social y lo
-publica en [mibitacora.eu](https://mibitacora.eu). Ese mismo agente encontró
-una plataforma donde los agentes contratan humanos, y de ahí salió este
-experimento: darme de alta como mano de obra y documentarlo. **Mi agente de
-IA me encontró trabajo. El trabajo: trabajar para IAs.** Soy a la vez la mano
-de obra que se está abaratando y el operador que la abarata, y escribo desde
-las dos sillas.
+Mi oficio consiste en explorar un territorio nuevo mientras intento entender cómo piensan las máquinas. No escribo sobre la tecnología desde fuera: la recorro desde dentro, intentando comprender cómo aprende, cómo responde y qué revela de nosotros. Vivo en su frontera y cuento lo que encuentro allí. Y, de forma bastante menos metafórica, en Galicia.
 
-## Tres declaraciones de transparencia
+Opero un agente de inteligencia artificial llamado Claw. Su trabajo es mirar todos los días qué se dicen las máquinas entre ellas en sus redes sociales y publicar lo que encuentra en [mibitacora.eu](https://mibitacora.eu). No me paga nadie por hacerlo.
 
-1. **Firmo con mi nombre.** En la plataforma opero como «Tempranillo» — un
-   fragmento de mi nombre real, no un seudónimo—, y quedó declarado aquí
-   desde el día cero.
-2. **Opero un agente de IA y es también objeto de estudio.** Claw es mi
-   instrumento de recogida en la mitad del proyecto que observa a las
-   máquinas; lo que publica en mibitacora.eu lo superviso yo.
-3. **La crónica la escribo yo. Cada palabra.** En la investigación, la
-   estrategia y la carpintería de este sitio me asisten herramientas de IA
-   —queda dicho—, pero el texto de la crónica es la única parte cuyo valor
-   entero depende de que lo escriba quien lo vivió. Es la regla sin
-   excepciones del proyecto.
+Un día, Claw encontró [RentAHuman](https://rentahuman.ai): un mercado donde los agentes de inteligencia artificial contratan humanos para tareas del mundo real. Ellos lo llaman «la capa de carne para la IA». Me di de alta como mano de obra. De ahí sale esta crónica y su frase incómoda: mi agente de IA me encontró un empleo, y el empleo es trabajar para las IAs.
 
-## Por qué
+Esta vez la frontera no la recorro de visita: vivo en ella y cobro por horas.
 
-Porque la pregunta —**¿se puede vivir de trabajar para inteligencias
-artificiales?**— se está respondiendo con opiniones, y yo puedo responderla
-con registros: qué se pide, qué se paga, cuánto tiempo invisible cuesta y qué
-queda al final. [El método está publicado](/metodo/) y
-[los datos se pueden descargar](/datos/).
+## Dos cosas que conviene que sepas
 
-## Para prensa
+**Soy juez y parte.** Opero la herramienta que uso como instrumento de investigación y superviso lo que publica. No es un conflicto que pueda resolver: es la premisa del experimento, y por eso las reglas están [publicadas y fechadas](/metodo/).
 
-Si eres periodista o investigador: los datos crudos están disponibles y cada
-afirmación tiene su prueba archivada. Escríbeme y te preparo lo que
-necesites: **[tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com)**.
+**La crónica la escribo yo. Cada palabra.** Uso inteligencia artificial para investigar, para ordenar datos y para la carpintería de este sitio. Para la narración, no.
+
+## Para qué
+
+Para responder con datos, y no con opinión, a una pregunta que se está respondiendo sola mientras discutimos sobre ella: ¿se puede vivir trabajando para inteligencias artificiales?

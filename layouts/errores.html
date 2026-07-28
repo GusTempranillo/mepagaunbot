@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ $errs := hugo.Data.errores.errores }}
+<div class="wrap">
+  <article class="prose">
+    <div class="sechead">
+      <h2>Errores · página viva</h2>
+      <span class="note" style="margin:0">{{ len $errs }} errores sustanciales · ninguno borrado</span>
+    </div>
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
+    {{ .Content }}
+  </article>
+
+  <section>
+    <ol class="errlist">
+      {{ range $errs }}
+        <li class="err">
+          <div class="err-id">{{ .id }}</div>
+          <div class="err-body">
+            <p class="err-dije"><span class="err-lbl">Dije</span> <del>{{ .dije }}</del></p>
+            <p class="err-pasa"><span class="err-lbl">Lo que pasa</span> {{ .pasa }}</p>
+            {{ with .como }}<p class="err-como"><span class="err-lbl">Cómo me equivoqué</span> {{ . }}</p>{{ end }}
+            {{ if or .fecha .corregido }}
+              <p class="err-fechas">
+                {{ with .fecha }}Publicado el {{ partial "fecha.html" (dict "t" (time.AsTime .) "f" "iso") }}{{ end }}
+                {{ with .corregido }} · corregido el {{ partial "fecha.html" (dict "t" (time.AsTime .) "f" "iso") }}{{ end }}
+              </p>
+            {{ end }}
+          </div>
+        </li>
+      {{ end }}
+    </ol>
+  </section>
+</div>
+{{ end }}

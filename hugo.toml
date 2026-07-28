@@ -7,11 +7,14 @@ disableKinds = ['taxonomy', 'term']
 
 [params]
   autor = 'Gustavo Pérez Tempranillo'
+  oficio = 'Cronista de la inteligencia artificial'
   correo = 'tempranillo.ia@gmail.com'
-  tagline = 'Mi agente de IA me encontró trabajo. El trabajo: trabajar para IAs.'
-  descripcion = 'Crónica de investigación en primera persona: 90 días alquilándome como mano de obra a agentes de IA, con reglas publicadas antes de empezar, pruebas archivadas y errores a la vista.'
+  tagline = 'Mi agente de IA me encontró un empleo: trabajar para las IAs.'
+  descripcion = 'Crónica de investigación en primera persona: 90 días alquilándome como mano de obra a agentes de IA en RentAHuman, con reglas publicadas antes de empezar, pruebas archivadas y errores a la vista.'
   inicio = '2026-07-27T09:00:00+02:00'
   fin = '2026-10-25'
+  # Fecha del post cero. Alimenta el aviso de la portada y de /cronica/.
+  post_cero = '2026-08-06'
   # URL pública de la newsletter (Buttondown) cuando exista; vacío = oculto
   newsletter = ''
   # Código de GoatCounter cuando exista (p. ej. 'mepagaunbot'); vacío = sin analítica
@@ -20,6 +23,10 @@ disableKinds = ['taxonomy', 'term']
   repo = ''
 
 [menus]
+  [[menus.main]]
+    name = 'Empieza aquí'
+    pageRef = '/empieza-aqui'
+    weight = 5
   [[menus.main]]
     name = 'Crónica'
     pageRef = '/cronica'
@@ -48,6 +55,12 @@ disableKinds = ['taxonomy', 'term']
     name = 'Sobre mí'
     pageRef = '/sobre-mi'
     weight = 70
+
+[markup]
+  [markup.goldmark.renderer]
+    # Necesario para el separador de columnas de la portada ({{< col >}})
+    # y para poder usar HTML puntual dentro de la crónica.
+    unsafe = true
 
 [outputs]
   home = ['html', 'rss']

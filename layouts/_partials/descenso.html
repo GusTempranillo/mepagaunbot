@@ -1,0 +1,29 @@
+{{ $e := partial "estado.html" . }}
+{{ $max := 0.0 }}
+{{ range $e.tramos }}{{ if gt .tarifa $max }}{{ $max = .tarifa }}{{ end }}{{ end }}
+
+<section id="descenso">
+  <div class="sechead">
+    <h2>Gráfico 1 · Registrado de antemano</h2>
+    <span class="note" style="margin:0">Fijado el {{ partial "fecha.html" (dict "t" $e.inicio "f" "largo") }}, antes del primer encargo</span>
+  </div>
+  <h3>Mi propio descenso, con fecha</h3>
+  <p class="deck">Cuatro tramos publicados antes de empezar. Cada veintiún días me abarato solo, llueva o truene, hasta tocar el mínimo que RentAHuman impone a un trabajador español.</p>
+
+  <div class="descent">
+    {{ range $e.tramos }}
+      {{ $activo := eq .numero $e.tramo.numero }}
+      {{ $h := printf "%.1f" (mul (div .tarifa $max) 100) }}
+      <div class="step{{ if $activo }} now{{ end }}">
+        <div class="tip">Tramo {{ .numero }} · ${{ partial "num.html" (dict "valor" .tarifa) }}/h · {{ partial "fecha.html" (dict "t" (time.AsTime .desde)) }} – {{ partial "fecha.html" (dict "t" (time.AsTime .hasta)) }}{{ with .nota }} · {{ . }}{{ end }}{{ if $activo }} · vigente{{ end }}</div>
+        <div class="cap">${{ partial "num.html" (dict "valor" .tarifa) }}<span>/h</span></div>
+        <div class="block" style="height:{{ $h }}%"></div>
+        <div class="tag">
+          <b>Tramo {{ .numero }}{{ if $activo }} · hoy{{ else if .nota }} · suelo{{ end }}</b>
+          {{ partial "fecha.html" (dict "t" (time.AsTime .desde)) }} – {{ partial "fecha.html" (dict "t" (time.AsTime .hasta)) }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+  <p class="note">Altura proporcional a la tarifa · escala lineal · fuente: el descenso registrado de antemano, publicado y fechado en <a href="/datos/#descenso">Datos</a>.</p>
+</section>

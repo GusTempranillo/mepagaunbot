@@ -1,0 +1,34 @@
+# Registro numerado de errores sustanciales. Se tachan, no se borran.
+# Las erratas y los typos no entran aquí.
+#
+# Los cuatro se cometieron el mismo día, durante la investigación previa
+# al lanzamiento: por eso llevan orden y no hora. El orden importa —E2 es
+# la corrección excesiva de E1—, la hora exacta no la puedo probar.
+
+fecha_comun: 2026-07-27
+contexto: "Los cuatro se cometieron el 27 de julio de 2026, durante la investigación previa, y se corrigieron antes de publicar el sitio. Van en el orden en que ocurrieron."
+
+errores:
+  - id: E1
+    orden: 1
+    dije: "La plataforma no tiene taxonomía propia de habilidades: cada cual escribe lo que quiere."
+    pasa: "Sí la tiene. Hay dos niveles —un catálogo cerrado y un campo libre— y yo solo había visto el segundo."
+    como: ""   # ← una línea: cómo llegaste a equivocarte
+
+  - id: E2
+    orden: 2
+    dije: "Las habilidades salen únicamente de un catálogo cerrado."
+    pasa: "El error contrario al anterior. El campo de texto libre existe, pero está en ajustes, no en el alta."
+    como: ""
+
+  - id: E3
+    orden: 3
+    dije: "Los horarios de disponibilidad no se pueden editar."
+    pasa: "Sí se pueden. El editor solo aparece una vez activas la disponibilidad."
+    como: ""
+
+  - id: E4
+    orden: 4
+    dije: "Las condiciones de la plataforma son hostiles a operar con agentes de IA."
+    pasa: "Las permiten de forma explícita."
+    como: ""

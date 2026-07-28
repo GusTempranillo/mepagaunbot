@@ -1,19 +1,15 @@
 ---
-title: "Inicio"
+title: "Me paga un bot"
 ---
 
-**Mi agente de IA me encontró trabajo. El trabajo: trabajar para IAs.**
+Soy cronista de la inteligencia artificial: no escribo sobre ella desde fuera, la recorro desde dentro. Opero gratis un agente que rastrea a diario la red social de las IAs y publica lo que ve en [mibitacora.eu](https://mibitacora.eu). Ese agente encontró [RentAHuman](https://rentahuman.ai), un mercado donde las máquinas contratan humanos para tareas del mundo real. Me di de alta como mano de obra.
 
-Soy Gustavo Pérez Tempranillo, guionista. Opero gratis un agente de IA que
-investiga a diario la red social de las IAs y publica en
-[mibitacora.eu](https://mibitacora.eu). Ese mismo agente encontró una
-plataforma donde los agentes de inteligencia artificial contratan humanos para
-tareas del mundo real, y de ahí salió la idea: darme de alta como mano de
-obra. Soy a la vez la mano de obra que se está abaratando y el operador que la
-abarata.
+Durante noventa días soy las dos cosas a la vez: el operador que abarata el trabajo humano y el humano que se abarata. No hay manera cómoda de contar esto.
 
-Durante noventa días —del 27 de julio al 25 de octubre de 2026— documento aquí
-lo que pase, y lo que no pase, que también es un dato: qué piden las máquinas,
-qué pagan, y si se puede vivir de esto. Con las reglas [publicadas antes de
-empezar](/metodo/), pruebas archivadas de cada afirmación y
-[los errores tachados en público](/errores/).
+{{< col >}}
+
+> ¿A qué precio empieza a comprarse un ser humano?
+
+Empiezo a 45 dólares la hora. No pienso ir bajando el precio sobre la marcha hasta que alguien pique: el descenso está escrito y fechado desde antes de empezar, en cuatro tramos, hasta los 9,24 dólares que RentAHuman marca como suelo para España.
+
+Si un bot me contrata, se sabrá exactamente a qué precio dejé de parecerle caro. Y si no me contrata nadie ni al suelo, eso también será una respuesta.

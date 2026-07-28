@@ -1,0 +1,13 @@
+{{- /*
+  num.html — formato español sin depender de la locale: 45.00 → 45,00
+  {{ partial "num.html" (dict "valor" 9.24) }}                   → 9,24
+  {{ partial "num.html" (dict "valor" 45.0 "compacto" true) }}   → 45
+  {{ partial "num.html" (dict "valor" 9.24 "dec" 1) }}           → 9,2
+*/ -}}
+{{- $v := .valor -}}
+{{- $d := 2 -}}
+{{- if isset . "dec" }}{{ $d = .dec }}{{ end -}}
+{{- if and (isset . "compacto") .compacto -}}
+  {{- if eq (math.Round (float $v)) (float $v) }}{{ $d = 0 }}{{ end -}}
+{{- end -}}
+{{- replace (printf (printf "%%.%df" $d) $v) "." "," -}}

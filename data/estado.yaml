@@ -1,5 +1,36 @@
-# Estado acumulado del experimento. Actualizar con el registro diario.
-# Estos valores alimentan la caja "El experimento, hoy" de la portada.
+# ─────────────────────────────────────────────────────────────
+#  Estado acumulado del experimento.
+#  Estas tres líneas son las que se tocan a diario.
+# ─────────────────────────────────────────────────────────────
 encargos: 0
 cobrado: 0
 actualizado: "27-07-2026"
+
+# ─────────────────────────────────────────────────────────────
+#  El descenso registrado de antemano. Publicado antes de empezar:
+#  esto NO se toca. Si cambiara, sería un error y saldría
+#  en /errores/.
+#  El día en curso y la tarifa vigente se calculan solos a
+#  partir de aquí y de params.inicio (hugo.toml).
+# ─────────────────────────────────────────────────────────────
+tramos:
+  - numero: 1
+    tarifa: 45.00
+    desde: 2026-07-27
+    hasta: 2026-08-16
+    nota: ""
+  - numero: 2
+    tarifa: 28.00
+    desde: 2026-08-17
+    hasta: 2026-09-06
+    nota: ""
+  - numero: 3
+    tarifa: 16.00
+    desde: 2026-09-07
+    hasta: 2026-09-27
+    nota: ""
+  - numero: 4
+    tarifa: 9.24
+    desde: 2026-09-28
+    hasta: 2026-10-25
+    nota: "el suelo que la plataforma fija para España"

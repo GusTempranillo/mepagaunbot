@@ -1,43 +1,26 @@
 ---
-title: "Participa"
-resumen: "Si trabajas o has trabajado para agentes de IA, tus cifras pueden convertir una anécdota en un sector. Cómo participar y cómo se protege tu identidad."
+title: "Si tú también estás dado de alta"
+resumen: "Una persona documentando noventa días es una anécdota. Diez personas contando lo mismo, con cifras, son un sector."
+date: 2026-07-27
+rotulo: "Participa · Convocatoria abierta"
 ---
 
-*Also available in English: [Participate](/participate/).*
+Una persona documentando noventa días es una anécdota. Diez personas contando lo mismo, con cifras, son un sector.
 
-Una persona documentando noventa días es una anécdota. Diez personas contando
-lo mismo, con cifras, son un sector del que ya se puede hablar en serio.
+Si trabajas o has trabajado para agentes de inteligencia artificial en [RentAHuman](https://rentahuman.ai) o en una plataforma parecida, me interesa lo que has visto. No hace falta que lleves un registro ordenado: con lo que recuerdes y puedas comprobar es suficiente para empezar.
 
-Si trabajas o has trabajado para agentes de IA —en cualquier plataforma, en
-cualquier país—, esto te incluye.
+## Qué te doy
 
-## El trato
+Un esquema de medición para que lo que anotes sea comparable: ofertas recibidas, importes, tiempo invertido, cobros y, sobre todo, impagos. Publicación agregada de los datos junto a los del resto. Y la decisión sobre tu nombre es tuya: puedes aparecer con nombre y apellidos, con seudónimo o en completo anonimato.
 
-- **Te doy el esquema de medición** que uso yo (qué apuntar: ofertas, importes,
-  tiempo real incluido el invisible, cobros e impagos), por si quieres llevar
-  tu propio registro.
-- **Publico el agregado** con tus cifras y las de otros: los datos juntos
-  valen más que por separado, también para ti.
-- **Tú eliges cómo aparecer:** con tu nombre, con un alias, o de forma anónima
-  (solo en datos agregados, cuidando que no seas identificable).
+## Cómo escribirme
 
-No pido nada más. No hay que apuntarse a nada ni instalar nada.
+A [tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com), en castellano, gallego o inglés.
+
+Una petición concreta: **si nos conocimos dentro de una plataforma, escríbeme por correo y no por su mensajería interna.** No es paranoia, es respetar sus condiciones de uso — y no quiero que participar aquí te cause un problema allí.
 
 ## Cómo funciona el permiso
 
-Antes de citar nada tuyo te envío por escrito qué datos quiero publicar y
-dónde. Solo se publica si respondes indicando la opción que eliges (nombre,
-alias o anónimo) y la palabra **ACEPTO**. Puedes retirar el permiso cuando
-quieras y eliminaré tu testimonio y tus datos identificables; lo ya integrado
-en agregados anónimos no puede deshacerse, porque deja de ser tuyo y de
-cualquiera. Los detalles, en el [aviso de privacidad](/privacidad/).
+Antes de publicar nada tuyo te mando por escrito qué dato exacto voy a publicar y en qué página va. Solo lo publico si respondes diciendo cómo quieres aparecer y añades la palabra **ACEPTO**.
 
-## Escríbeme
-
-**[tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com)** — en español,
-gallego o inglés. Leo el correo cada día.
-
-Una cosa importante: si nos conocimos dentro de una plataforma, escríbeme por
-correo, no por su mensajería interna. Las normas de uso de estos sitios suelen
-prohibir derivar contactos fuera, y este proyecto se toma las normas en serio
-— incluso cuando las critica.
+Puedes retirar el permiso cuando quieras y retiro tus datos. Lo único que no puedo deshacer es un agregado ya anonimizado: una vez tu cifra se ha sumado a las de otros y ha perdido el vínculo contigo, ya no hay forma de sacarla de ahí. Prefiero decirlo antes que descubrirlo después.

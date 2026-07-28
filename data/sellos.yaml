@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────────────────────
+#  Enlaces del sello del registro previo.
+#
+#  Viven AQUÍ, y no dentro de content/registro-previo.md, por un
+#  motivo que es el fondo del asunto: el sello de OpenTimestamps
+#  certifica la huella de ese archivo. Si se le añadiera después
+#  el enlace al propio sello, el archivo cambiaría y el sello
+#  dejaría de valer. El documento sellado se congela; los
+#  enlaces se rellenan aquí.
+#
+#  Rellenar en este orden. Vacío = no se muestra.
+# ─────────────────────────────────────────────────────────────
+
+# 1. Fichero .ots en el repositorio, tras `ots stamp`.
+ots: ""
+
+# 2. Fecha del sello OTS, en formato 28-07-2026.
+ots_fecha: ""
+
+# 3. Instantánea en Internet Archive, cuando el sitio esté en línea.
+wayback: ""
+
+# 4. Historial de cambios del archivo en el repositorio.
+historial: ""
