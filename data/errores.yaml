@@ -12,8 +12,9 @@ errores:
   - id: E1
     orden: 1
     dije: "La plataforma no tiene taxonomía propia de habilidades: cada cual escribe lo que quiere."
-    pasa: "Sí la tiene. Hay dos niveles —un catálogo cerrado y un campo libre— y yo solo había visto el segundo."
-    como: ""   # ← una línea: cómo llegaste a equivocarte
+    pasa: "Sí la tiene. Hay dos niveles (un catálogo cerrado y un campo libre) y yo solo había visto el segundo."
+    como: "El alta pide las habilidades en un campo de texto libre, donde se puede escribir cualquier cosa, y di por hecho que no había catálogo. Las ocho categorías cerradas estaban dos pantallas más adelante."
+
 
   - id: E2
     orden: 2

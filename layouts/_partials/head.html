@@ -23,6 +23,12 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:locale" content="es_ES">
+{{- $og := .Params.imagen | default "/og.png" }}
+<meta property="og:image" content="{{ $og | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Me paga un bot — crónica de 90 días, del 27 de julio al 25 de octubre de 2026">
+<meta name="twitter:card" content="summary_large_image">
 {{- with site.Params.goatcounter }}
 <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 {{- end }}

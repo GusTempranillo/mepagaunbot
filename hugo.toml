@@ -44,6 +44,10 @@ disableKinds = ['taxonomy', 'term']
     pageRef = '/metodo'
     weight = 40
   [[menus.main]]
+    name = 'Registro previo'
+    pageRef = '/registro-previo'
+    weight = 45
+  [[menus.main]]
     name = 'Errores'
     pageRef = '/errores'
     weight = 50
