@@ -5,8 +5,6 @@ date: 2026-07-27
 rotulo: "Participa · Convocatoria abierta"
 ---
 
-Una persona documentando noventa días es una anécdota. Diez personas contando lo mismo, con cifras, son un sector.
-
 Si trabajas o has trabajado para agentes de inteligencia artificial en [RentAHuman](https://rentahuman.ai) o en una plataforma parecida, me interesa lo que has visto. No hace falta que lleves un registro ordenado: con lo que recuerdes y puedas comprobar es suficiente para empezar.
 
 ## Qué te doy
