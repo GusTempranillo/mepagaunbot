@@ -1,0 +1,5 @@
+{{- /* Caja de método. Uso: {{< comose >}}Cómo se obtuvo esta cifra.{{< /comose >}} */ -}}
+<div class="comose">
+  <span class="lbl">{{ with .Get "titulo" }}{{ . }}{{ else }}Cómo se midió{{ end }}</span>
+  {{ .Inner | markdownify }}
+</div>

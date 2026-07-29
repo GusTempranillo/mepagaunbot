@@ -1,0 +1,18 @@
+{{- /* Cita con su procedencia archivada. Uso:
+       {{< cita quien="AUP · cláusula (w) · 20 jul 2026"
+                original="https://…" wayback="https://…" local="/pruebas/aup.pdf" >}}
+       Texto citado.
+       {{< /cita >}} */ -}}
+<blockquote class="cita">
+  {{ .Inner | markdownify }}
+  <footer>
+    {{- with .Get "quien" }}<span class="quien">{{ . }}</span>{{ end }}
+    {{- if or (.Get "original") (.Get "wayback") (.Get "local") }}
+    <span class="chips">
+      {{- with .Get "original" }}<a href="{{ . }}" rel="nofollow">original</a>{{ end }}
+      {{- with .Get "wayback" }}<a href="{{ . }}" rel="nofollow">wayback</a>{{ end }}
+      {{- with .Get "local" }}<a href="{{ . }}">copia local</a>{{ end }}
+    </span>
+    {{- end }}
+  </footer>
+</blockquote>

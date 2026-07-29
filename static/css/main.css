@@ -267,7 +267,9 @@ h3{
 .postlist--big a{font-size:21px;font-weight:600}
 
 /* ── PÁGINAS DE TEXTO ───────────────────────────────────── */
-.prose{padding:38px 0;max-width:68ch}
+.prose{padding:38px 0;counter-reset:nota}
+.prose > *{max-width:68ch}
+.prose > .ancho,.prose > .columnas,.prose > .figura,.prose > .comose{max-width:none}
 .prose .title{max-width:24ch}
 .prose h2:not(.sechead h2){font-family:"Anton",Impact,sans-serif;font-size:26px;letter-spacing:0;color:var(--ink);text-transform:uppercase;margin:36px 0 10px}
 .prose h4{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:32px 0 10px}
@@ -371,4 +373,96 @@ tr.me td{font-weight:600}
 .sellolist .pend{
   font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-3);
+}
+
+
+/* ═══ PLANTILLA DE ARTÍCULO ══════════════════════════════
+   Notas al margen, citas con procedencia, capturas
+   enmarcadas, caja de método y rectificaciones. Cero JS. */
+
+/* Notas al margen (Tufte). El número lo lleva un contador CSS. */
+.nota-ref::after{
+  counter-increment:nota;content:counter(nota);
+  font-family:"JetBrains Mono",monospace;font-size:.62em;vertical-align:super;
+  color:var(--accent);margin-left:1px;font-weight:700;
+}
+.nota{
+  float:right;clear:right;width:min(270px,32%);margin:6px 0 20px 36px;
+  font-size:15px;line-height:1.5;color:var(--ink-2);
+  border-top:1.5px solid var(--rule);padding-top:8px;
+}
+.nota p{margin:0 0 8px}
+.nota p:last-child{margin-bottom:0}
+.nota-num::before{
+  counter-increment:none;content:counter(nota);
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+  color:var(--accent);font-weight:700;margin-right:8px;
+}
+@media (max-width:1020px){
+  .nota{float:none;width:auto;margin:0 0 22px;border-left:3px solid var(--accent);
+        border-top:0;padding:2px 0 2px 16px;background:none}
+}
+
+/* Chips de procedencia: original · wayback · copia local */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips a{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;border:1px solid var(--bar);padding:4px 9px;
+  box-shadow:none;color:var(--ink-2);
+}
+.chips a:hover{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+
+/* Cita con procedencia */
+.cita{border-left:5px solid var(--accent);margin:0 0 26px;padding:2px 0 2px 20px}
+.cita p{font-size:20px;line-height:1.4;font-style:italic;font-weight:400;margin:0 0 10px}
+.cita footer{border-top:0;padding:0;margin-top:8px;background:none}
+.cita .quien{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);display:block;
+}
+
+/* Captura enmarcada */
+.figura{margin:30px 0 28px}
+.figura img{width:100%;height:auto;display:block;border:1.5px solid var(--rule);background:var(--paper-2)}
+.figura figcaption{margin-top:9px;max-width:68ch}
+.figura .pie{font-size:15.5px;color:var(--ink-2);display:block}
+
+/* Caja de método */
+.comose{border:1.5px solid var(--rule);padding:20px 22px 6px;margin:30px 0}
+.comose .lbl{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px;
+}
+.comose p{font-size:16.5px;margin:0 0 14px}
+.comose > *{max-width:62ch}
+
+/* Rectificación a la vista */
+.rect del{color:var(--ink-3);text-decoration-thickness:1.5px}
+.rect ins{text-decoration:none;background:var(--bar-2);padding:0 3px}
+.rect-id{
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;
+  vertical-align:super;margin-left:4px;color:var(--accent);box-shadow:none;
+}
+
+/* Ritmo de periódico: dos columnas y bloques de margen a margen */
+.columnas{display:grid;grid-template-columns:1fr 1fr;gap:0 54px;margin:8px 0 6px}
+.columnas > div > p:last-child{margin-bottom:20px}
+.ancho{margin:30px 0}
+.ancho > *{max-width:none}
+@media (max-width:820px){ .columnas{grid-template-columns:1fr;gap:0} }
+
+/* Los globos del gráfico no deben ensanchar la página en móvil.
+   (Provocaban 453 px de desborde horizontal en 375 y 320.) */
+.step .tip{max-width:min(240px,72vw);white-space:normal}
+@media (max-width:820px){
+  .step .tip{display:none}
+}
+
+/* Tablas de markdown: se desplazan en pantalla estrecha, no ensanchan. */
+.tabla-scroll{max-width:68ch}
+.prose[style] .tabla-scroll{max-width:none}
+.prose > .ancho .tabla-scroll{max-width:none}
+@media (max-width:640px){
+  .tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tabla-scroll table{min-width:min(520px,100%)}
 }

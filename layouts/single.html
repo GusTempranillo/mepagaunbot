@@ -11,7 +11,7 @@
     <div class="sechead">
       <h2>{{ . }}</h2>
       {{ if and (eq $.Section "cronica") (not $.Date.IsZero) }}
-        <span class="note" style="margin:0"><time datetime="{{ $.Date.Format "2006-01-02" }}">{{ partial "fecha.html" (dict "t" $.Date "f" "largo") }}</time>{{ if ne ($.Lastmod.Format "2006-01-02") ($.Date.Format "2006-01-02") }} · actualizado el {{ partial "fecha.html" (dict "t" $.Lastmod "f" "largo") }}{{ end }}</span>
+        <span class="note" style="margin:0"><time datetime="{{ $.Date.Format "2006-01-02" }}">{{ partial "fecha.html" (dict "t" $.Date "f" "largo") }}</time>{{ if ne ($.Lastmod.Format "2006-01-02") ($.Date.Format "2006-01-02") }} · actualizado el {{ partial "fecha.html" (dict "t" $.Lastmod "f" "largo") }}{{ end }} · {{ $.ReadingTime }} min de lectura{{ with $.Params.estado }} · {{ . }}{{ end }}</span>
       {{ end }}
     </div>
     {{ end }}

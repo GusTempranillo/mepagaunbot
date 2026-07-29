@@ -1,0 +1,3 @@
+{{- /* Rectificación a la vista: lo viejo tachado, lo nuevo al lado. Uso:
+       {{< rect id="E5" nuevo="lo que pasa en realidad" >}}lo que dije{{< /rect >}} */ -}}
+<span class="rect"><del>{{ .Inner | markdownify }}</del> <ins>{{ .Get "nuevo" }}</ins><a class="rect-id" href="/errores/#{{ .Get "id" | lower }}">{{ .Get "id" }}</a></span>

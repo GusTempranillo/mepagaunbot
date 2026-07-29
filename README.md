@@ -44,12 +44,62 @@ se quiere: `hugo server -D` y abrir http://localhost:1313
    endpoint del perfil.
 3. La tabla de la serie en `content/datos.md` (misma información que el CSV).
 
-### Convención de evidencia
+### Piezas de la plantilla de artículo
 
-Enlace probatorio = «fuente (archivo)». Hay un shortcode:
+Todas se escriben dentro del markdown de la crónica. Hay una página de muestra
+con todas juntas en `content/cronica/demo-plantilla.md` (borrador, no se
+publica): arráncala con `hugo server -D` y míralas funcionando.
+
+**Enlace probatorio** = «fuente (archivo)»:
 
 ```
 {{</* fuente url="https://original" archivo="https://web.archive.org/..." */>}}texto{{</* /fuente */>}}
+```
+
+**Nota al margen** (se numera sola, sin JavaScript; en móvil se intercala):
+
+```
+…una tarifa que no elegí yo.{{</* nota */>}}Me pusieron precio sin preguntar.{{</* /nota */>}}
+```
+
+**Cita con su procedencia archivada** (chips original · wayback · copia local):
+
+```
+{{</* cita quien="AUP · cláusula (w) · 20 jul 2026" original="https://…" wayback="https://…" local="/pruebas/aup.pdf" */>}}
+Texto citado.
+{{</* /cita */>}}
+```
+
+**Captura enmarcada**, con pie y cadena de pruebas:
+
+```
+{{</* figura src="/pruebas/x.png" alt="…" pie="Qué se ve." original="…" wayback="…" local="…" */>}}
+```
+
+**Caja de método**, para explicar de dónde sale una cifra:
+
+```
+{{</* comose */>}}El porcentaje sale de contar…{{</* /comose */>}}
+```
+
+**Rectificación a la vista**, tachada y enlazada a `/errores`:
+
+```
+{{</* rect id="E1" nuevo="sí la tiene, en dos niveles" */>}}No tiene taxonomía propia{{</* /rect */>}}
+```
+
+**Ritmo de periódico:** dos columnas, o un bloque de margen a margen.
+
+```
+{{</* columnas */>}}
+Primera columna.
+{{</* col */>}}
+Segunda columna.
+{{</* /columnas */>}}
+
+{{</* ancho */>}}
+(una tabla, una figura o lo que sea, a todo lo ancho)
+{{</* /ancho */>}}
 ```
 
 ---

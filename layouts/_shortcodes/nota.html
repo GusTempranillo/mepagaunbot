@@ -1,0 +1,4 @@
+{{- /* Nota al margen, sin JavaScript. Uso:
+       Texto de la crónica{{< nota >}}Lo que va al margen.{{< /nota >}}
+       En pantalla ancha se coloca en el margen derecho; en móvil, intercalada. */ -}}
+<span class="nota-ref" aria-hidden="true"></span><aside class="nota"><span class="nota-num" aria-hidden="true"></span>{{ .Inner | markdownify }}</aside>

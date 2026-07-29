@@ -1,0 +1,18 @@
+{{- /* Captura con marco, pie y cadena de pruebas. Uso:
+       {{< figura src="/pruebas/x.png" alt="…" pie="Qué se ve aquí."
+                  original="https://…" wayback="https://web.archive.org/…" local="/pruebas/x.png" >}} */ -}}
+<figure class="figura">
+  <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" loading="lazy">
+  {{- if or (.Get "pie") (.Get "original") (.Get "wayback") (.Get "local") }}
+  <figcaption>
+    {{- with .Get "pie" }}<span class="pie">{{ . | markdownify }}</span>{{ end }}
+    {{- if or (.Get "original") (.Get "wayback") (.Get "local") }}
+    <span class="chips">
+      {{- with .Get "original" }}<a href="{{ . }}" rel="nofollow">original</a>{{ end }}
+      {{- with .Get "wayback" }}<a href="{{ . }}" rel="nofollow">wayback</a>{{ end }}
+      {{- with .Get "local" }}<a href="{{ . }}">copia local</a>{{ end }}
+    </span>
+    {{- end }}
+  </figcaption>
+  {{- end }}
+</figure>

@@ -1,0 +1,11 @@
+{{- /* Dos columnas de periódico. Se parten con {{< col >}}. Uso:
+       {{< columnas >}}
+       Primera columna.
+       {{< col >}}
+       Segunda columna.
+       {{< /columnas >}} */ -}}
+{{- $partes := split (.Inner | markdownify) "<span class=\"col-split\" hidden></span>" -}}
+<div class="columnas">
+  <div>{{ index $partes 0 | safeHTML }}</div>
+  <div>{{ if gt (len $partes) 1 }}{{ index $partes 1 | safeHTML }}{{ end }}</div>
+</div>
