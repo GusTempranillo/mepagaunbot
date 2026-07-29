@@ -197,6 +197,13 @@ h3{
   font-size:clamp(28px,4.4vw,48px);line-height:1.02;letter-spacing:-.01em;margin:10px 0 14px;max-width:20ch;
 }
 .deck{max-width:62ch;color:var(--ink-2);margin:0 0 26px}
+/* La entradilla de una página: la que va justo debajo del titular.
+   Va más grande y más gruesa que el cuerpo, para que se lea como
+   entradilla de periódico y no como el primer párrafo del texto. */
+.title + .deck{
+  font-size:clamp(20px,2.2vw,23.5px);line-height:1.34;font-weight:600;
+  color:var(--ink-2);max-width:46ch;margin:2px 0 30px;text-wrap:balance;
+}
 .note{
   font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.6;letter-spacing:.03em;
   color:var(--ink-3);text-transform:uppercase;margin-top:18px;
@@ -360,7 +367,7 @@ tr.me td{font-weight:600}
 
 /* ── SELLOS DEL REGISTRO PREVIO ─────────────────────────── */
 .sellos{margin-top:44px;border-top:1.5px solid var(--rule);padding-top:18px}
-.sellos .deck{font-size:16px;margin-bottom:18px}
+.sellos .deck{font-size:16px;font-weight:400;margin-bottom:18px}
 .sellolist{list-style:none;padding:0;margin:0;border-top:1px solid var(--bar)}
 .sellolist li{
   display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;
