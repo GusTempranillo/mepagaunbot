@@ -12,13 +12,13 @@
 # ─────────────────────────────────────────────────────────────
 
 # 1. Fichero .ots en el repositorio, tras `ots stamp`.
-ots: ""
+ots: "https://github.com/GusTempranillo/mepagaunbot/blob/main/content/registro-previo.md.ots"
 
 # 2. Fecha del sello OTS, en formato 28-07-2026.
-ots_fecha: ""
+ots_fecha: "28-07-2026"
 
 # 3. Instantánea en Internet Archive, cuando el sitio esté en línea.
-wayback: ""
+wayback: "https://web.archive.org/web/20260729124112/https://mepagaunbot.eu/registro-previo/"
 
 # 4. Historial de cambios del archivo en el repositorio.
-historial: ""
+historial: "https://github.com/GusTempranillo/mepagaunbot/commits/main/content/registro-previo.md"
