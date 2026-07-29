@@ -3,6 +3,7 @@ locale = 'es-ES'
 title = 'Me paga un bot'
 timeZone = 'Europe/Madrid'
 enableEmoji = false
+enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term']
 
 [params]
@@ -20,7 +21,7 @@ disableKinds = ['taxonomy', 'term']
   # Código de GoatCounter cuando exista (p. ej. 'mepagaunbot'); vacío = sin analítica
   goatcounter = ''
   # URL del repositorio público cuando exista; vacío = oculto
-  repo = ''
+  repo = 'https://github.com/GusTempranillo/mepagaunbot'
 
 [menus]
   [[menus.main]]
@@ -67,7 +68,7 @@ disableKinds = ['taxonomy', 'term']
     unsafe = true
 
 [outputs]
-  home = ['html', 'rss']
+  home = ['html', 'rss', 'robots']
   section = ['html']
   page = ['html']
 
