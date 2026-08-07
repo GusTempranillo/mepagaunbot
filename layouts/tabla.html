@@ -37,7 +37,8 @@
 
   <section>
     <h2>La tabla completa</h2>
-    <div class="prose" style="max-width:none">
+    <div class="prose">
+      <div class="ancho tablon tablon--paises">
       <table>
         <thead><tr><th>País</th><th>Mínimo impuesto</th><th>¿Salario mínimo legal?</th></tr></thead>
         <tbody>
@@ -50,6 +51,7 @@
           {{ end }}
         </tbody>
       </table>
+      </div>
       <p class="note">
         Muestra de {{ len $t.paises }} países tomada al azar; no es la lista completa de la plataforma ·
         dentro de la muestra, de ${{ partial "num.html" (dict "valor" $min.tarifa) }} ({{ $min.nombre }}) a

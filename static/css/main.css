@@ -296,6 +296,9 @@ h3{
 .tablon th,.tablon td{vertical-align:top;padding-right:18px}
 .tablon td:nth-child(2){min-width:290px}
 .tablon td:nth-child(6),.tablon td:nth-child(7){min-width:150px}
+/* La tabla de países solo tiene tres columnas: no necesita tanto suelo. */
+.tablon--paises table{min-width:480px}
+.tablon--paises td:nth-child(2),.tablon--paises td:nth-child(6),.tablon--paises td:nth-child(7){min-width:0}
 
 .fuentes{border-top:1.5px solid var(--rule);margin-top:36px;padding-top:8px}
 .fuentes ul{padding-left:18px;font-size:16px}
