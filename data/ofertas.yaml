@@ -373,8 +373,8 @@ ofertas:
     disponible_es: "si"
     motivo: ""
     modalidad: "remota"
-    compatible: "no"
-    motivo_compat: "exige un iPhone físico y TestFlight"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-06
     id: "6H1Osi3kkGw1EkdNwVJx"
@@ -389,8 +389,8 @@ ofertas:
     disponible_es: "si"
     motivo: ""
     modalidad: "remota"
-    compatible: "no"
-    motivo_compat: "exige experiencia profesional probada con Photoshop"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"

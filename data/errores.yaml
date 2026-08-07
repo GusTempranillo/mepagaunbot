@@ -33,3 +33,21 @@ errores:
     dije: "Las condiciones de la plataforma son hostiles a operar con agentes de IA."
     pasa: "Las permiten de forma explícita."
     como: ""
+
+  - id: E5
+    orden: 5
+    dije: "Mi perfil de RentAHuman declaraba el inglés entre mis idiomas."
+    pasa: >
+      No era cierto. Leo y escribo inglés con ayuda, y no lo hablo con
+      fluidez. El 7 de agosto de 2026, a las 13:30, lo quité del perfil:
+      quedan español y gallego.
+    como: >
+      El formulario no permite indicar el nivel ni distinguir entre hablado
+      y escrito: o pones el idioma o no lo pones. Lo puse pensando en que lo
+      leo, y al ponerlo estaba afirmando que lo manejo. No era inocuo: cuatro
+      de las veinticinco ofertas que me habían llegado exigían inglés nativo.
+      Cambiar el perfil a mitad del experimento cambia lo que la plataforma
+      me ofrece, así que la serie de ofertas queda partida en esta fecha y
+      los recuentos de antes y de después no se mezclan.
+    fecha: 2026-07-26
+    corregido: 2026-08-07

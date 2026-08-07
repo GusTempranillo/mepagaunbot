@@ -289,6 +289,14 @@ h3{
 }
 .prose td{padding:7px 10px 7px 0;border-bottom:1px solid var(--bar)}
 .prose blockquote{border-left:5px solid var(--accent);margin:0 0 22px;padding:2px 0 2px 20px;font-size:21px;font-weight:600;line-height:1.35}
+/* Tabla de margen a margen, con desplazamiento lateral en pantallas
+   estrechas en vez de amontonar el texto dentro de las celdas. */
+.tablon{margin:24px 0;overflow-x:auto}
+.tablon table{min-width:900px;margin:0}
+.tablon th,.tablon td{vertical-align:top;padding-right:18px}
+.tablon td:nth-child(2){min-width:290px}
+.tablon td:nth-child(6),.tablon td:nth-child(7){min-width:150px}
+
 .fuentes{border-top:1.5px solid var(--rule);margin-top:36px;padding-top:8px}
 .fuentes ul{padding-left:18px;font-size:16px}
 

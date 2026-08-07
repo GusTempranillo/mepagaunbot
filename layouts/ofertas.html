@@ -60,8 +60,9 @@
   </section>
 
   <section>
-    <h2>Todas las ofertas registradas</h2>
-    <div class="prose" style="max-width:none">
+    <h2>Todas las ofertas recibidas</h2>
+    <div class="prose">
+      <div class="ancho tablon">
       <table>
         <thead>
           <tr>
@@ -91,6 +92,7 @@
           {{ end }}
         </tbody>
       </table>
+      </div>
       <p class="note">
         Fuente: las alertas de oferta que la plataforma envía por correo, del
         {{ (index (sort $o "fecha" "asc") 0).fecha }} al {{ (index (sort $o "fecha" "desc") 0).fecha }}.
