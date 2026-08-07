@@ -43,6 +43,11 @@ se quiere: `hugo server -D` y abrir http://localhost:1313
 2. `static/datos/serie-diaria.csv` — una fila por día con la lectura del
    endpoint del perfil.
 3. La tabla de la serie en `content/datos.md` (misma información que el CSV).
+4. `data/ofertas.yaml` — una entrada por oferta vista, del listado y de la
+   bandeja. Las nueve primeras columnas salen de la propia alerta; las dos
+   últimas, `disponible_es` y `motivo`, las decide el autor. De ahí salen la
+   página `/ofertas/`, el CSV `/datos/ofertas.csv` (se genera solo al
+   construir) y el numerador y el denominador de la hipótesis 5.
 
 ### Piezas de la plantilla de artículo
 

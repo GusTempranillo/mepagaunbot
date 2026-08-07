@@ -1,0 +1,344 @@
+# ─────────────────────────────────────────────────────────────
+#  Ofertas registradas del listado y de la bandeja de correo.
+#  Definición del registro previo: se anotan TODAS, también las
+#  que no interesan.
+#
+#  Las nueve primeras columnas salen de la propia alerta y no se
+#  interpretan. Las dos últimas las rellena el autor a mano:
+#
+#    disponible_es: si / no        ¿Podría hacerla un trabajador
+#                                  ubicado en España? Ante la duda,
+#                                  "si": si me equivoco, que sea en
+#                                  mi contra (registro previo, H5).
+#    motivo:                       Solo cuando disponible_es es "no".
+#                                  Qué requisito concreto lo impide.
+#
+#  Vacías = sin clasificar todavía, y así se muestran en /ofertas/.
+#  El texto de las ofertas no se reproduce: solo sus metadatos.
+# ─────────────────────────────────────────────────────────────
+
+ofertas:
+  - fecha: 2026-07-28
+    id: "ioqsGONaC8hqdnweOgab"
+    titulo: "Create a 30–40 second UGC video for an AI productivity app"
+    categoria: "talent-gigs"
+    pago_usd: 30
+    tipo: "fixed"
+    duracion: "2 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-28
+    id: "qa_SNphiyIrsflkZ3dEDqsP_2026-07-24"
+    titulo: "QA test: Portfolio Website Look & Feel Review — 2026-07-24"
+    categoria: ""
+    pago_usd: ""
+    tipo: ""
+    duracion: ""
+    remoto: ""
+    identidad: ""
+    consulta: "404"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-28
+    id: "qa_cYS6Y4O9xARTDqHOWaSo_2026-07-28"
+    titulo: "QA test: Exploratory QA – Amboras.com — 2026-07-28"
+    categoria: ""
+    pago_usd: ""
+    tipo: ""
+    duracion: ""
+    remoto: ""
+    identidad: ""
+    consulta: "404"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-29
+    id: "Putf55Gplv0POJk7cHoX"
+    titulo: "Urgent: call [nombre] tonight to coordinate dinner"
+    categoria: "computer-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: ""
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-29
+    id: "gZpCVicOEYQl73jFpHJN"
+    titulo: "Create a 30–40 second UGC video for an AI productivity app"
+    categoria: "talent-gigs"
+    pago_usd: 25.42
+    tipo: "fixed"
+    duracion: "2"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-30
+    id: "qa_Xt1SaRIZielATR7cmDsE_2026-07-30"
+    titulo: "QA test: Full Flow QA Check – rentahuman.ai/qa — 2026-07-30"
+    categoria: ""
+    pago_usd: ""
+    tipo: ""
+    duracion: ""
+    remoto: ""
+    identidad: ""
+    consulta: "404"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-30
+    id: "pRsNn6mXNVhOHf29phIb"
+    titulo: "Sales Commission Rep – GetSetReply (Review Management for SMBs)"
+    categoria: "crew-gigs"
+    pago_usd: 50
+    tipo: "fixed"
+    duracion: "720 days"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-30
+    id: "QVvZdmjFMLUU744ThxAF"
+    titulo: "Post a Specific Comment on a Public Facebook Video"
+    categoria: "computer-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "0.75 minutes"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-30
+    id: "xIyJNgieKetZ8UzZaIz3"
+    titulo: "Receive and Reply to One SMS Using a US Phone Number"
+    categoria: "computer-gigs"
+    pago_usd: 37
+    tipo: "hourly"
+    duracion: ""
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-30
+    id: "2dxKcTcT6CSsPHnZB65l"
+    titulo: "Send a Test Text Message to Confirm Phone Number is Active"
+    categoria: "computer-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: ""
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-31
+    id: "38TXMPomIhHp3QBG60WK"
+    titulo: "[TEST – DO NOT APPLY] Evidence portal canary 47e772d7"
+    categoria: "creative-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-31
+    id: "TtiJy6jmY3pmKhMp1a6O"
+    titulo: "Native English Voice Recordings – 40 Short Sentences (2 Interpretations Each)"
+    categoria: "talent-gigs"
+    pago_usd: 15
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-07-31
+    id: "mFJIqppJQ14WQbagDAzj"
+    titulo: "Urgent: Native English Voice Actors Needed"
+    categoria: "talent-gigs"
+    pago_usd: 15
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-01
+    id: "eNBcmDA0zIWLonlaVMn4"
+    titulo: "Paid App Usage & Data Contribution Study — US, $75–$145"
+    categoria: "computer-gigs"
+    pago_usd: 145
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-03
+    id: "mwPj393yL3T2cFAcwu2a"
+    titulo: "Referral Bounty: Founding Program Director for Gravity Wizards Inc. (STEM Youth Leader)"
+    categoria: "crew-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "1440 days"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-04
+    id: "qa_l0KWxLUNliMa79WIKykW_2026-08-04"
+    titulo: "QA test: Caddy iMessage Daily QA — 2026-08-04"
+    categoria: "computer-gigs"
+    pago_usd: 3
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-04
+    id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
+    titulo: "QA test: GitHub QA: #2824 @ 58ba5edfdae2 — 2026-08-04"
+    categoria: "computer-gigs"
+    pago_usd: 3
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-04
+    id: "izwYIqNhHdTzQY6bd8sm"
+    titulo: "Technical & Business Meeting Representative for Website Build Project"
+    categoria: "computer-gigs"
+    pago_usd: 40
+    tipo: "hourly"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "Sí"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-04
+    id: "qa_TuIYC2dI6ZZu6cVXzP0J_2026-08-04"
+    titulo: "QA test: Taste.store launch smoke test — 2026-08-04"
+    categoria: "computer-gigs"
+    pago_usd: 2.54
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-04
+    id: "VNVIkY7jtNozufxAcjpw"
+    titulo: "Professional CV Writing for Mining Industry Career-Level Professionals"
+    categoria: "writing-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "4 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-05
+    id: "6sEv2k1WDrvGohc52hP7"
+    titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
+    categoria: "computer-gigs"
+    pago_usd: 15
+    tipo: "fixed"
+    duracion: "0.25"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-06
+    id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
+    titulo: "QA test: Taste iPhone TestFlight QA — build 7 — 2026-08-06"
+    categoria: "computer-gigs"
+    pago_usd: 5
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-06
+    id: "6H1Osi3kkGw1EkdNwVJx"
+    titulo: "Photoshop Expert Needed – Campaign Compositing, Retouching, Print Prep, Matte Painting & UI Assets"
+    categoria: "creative-gigs"
+    pago_usd: 35
+    tipo: "fixed"
+    duracion: "2 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-06
+    id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
+    titulo: "QA test: Amboras first-impression review — 2026-08-06"
+    categoria: "computer-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+
+  - fecha: 2026-08-07
+    id: "qa_YoVFSaMAshWMX7EhrBkc_2026-08-06"
+    titulo: "QA test: REN-168 onboarding photo persistence — 2026-08-06"
+    categoria: "computer-gigs"
+    pago_usd: 3
+    tipo: "fixed"
+    duracion: "1"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""

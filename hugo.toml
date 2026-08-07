@@ -37,6 +37,10 @@ disableKinds = ['taxonomy', 'term']
     pageRef = '/datos'
     weight = 20
   [[menus.main]]
+    name = 'Ofertas'
+    pageRef = '/ofertas'
+    weight = 25
+  [[menus.main]]
     name = 'La tabla'
     pageRef = '/tabla'
     weight = 30
@@ -71,6 +75,15 @@ disableKinds = ['taxonomy', 'term']
   home = ['html', 'rss', 'robots']
   section = ['html']
   page = ['html']
+
+# El CSV descargable de /ofertas/ se genera de data/ofertas.yaml al construir,
+# para que la tabla de la página y el fichero nunca puedan discrepar.
+[outputFormats]
+  [outputFormats.csv]
+    mediaType = 'text/csv'
+    path = 'datos'
+    baseName = 'ofertas'
+    isPlainText = true
 
 [services]
   [services.rss]

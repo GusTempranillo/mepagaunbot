@@ -1,0 +1,95 @@
+{{ define "main" }}
+{{ $o := hugo.Data.ofertas.ofertas }}
+{{ $total := len $o }}
+{{/* Los pagos vienen como número cuando los hay y como cadena vacía cuando no,
+     así que la lista se arma a mano: "where" no compara tipos mezclados. */}}
+{{ $precios := slice }}
+{{ range $o }}{{ with .pago_usd }}{{ $precios = $precios | append (float .) }}{{ end }}{{ end }}
+{{ $precios = sort $precios }}
+{{ $clasificadas := where $o "disponible_es" "!=" "" }}
+{{ $disponibles := where $o "disponible_es" "si" }}
+{{ $caidas := where $o "consulta" "404" }}
+{{ $remotas := where $o "remoto" "Sí" }}
+
+<div class="wrap">
+  <article class="prose">
+    <div class="sechead">
+      <h2>Ofertas · página viva</h2>
+      <span class="note" style="margin:0">{{ $total }} ofertas registradas · {{ len $clasificadas }} clasificadas</span>
+    </div>
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
+    {{ .Content }}
+  </article>
+
+  <section>
+    <div class="scoreboard">
+      <div class="tile">
+        <span class="lbl">Registradas</span>
+        <div class="val">{{ $total }}</div>
+      </div>
+      <div class="tile">
+        <span class="lbl">Remoto permitido</span>
+        <div class="val">{{ len $remotas }}<small>/{{ $total }}</small></div>
+      </div>
+      <div class="tile{{ if $clasificadas }} hot{{ end }}">
+        <span class="lbl">Disponibles para España</span>
+        <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
+      </div>
+      <div class="tile">
+        <span class="lbl">Pago mediano</span>
+        <div class="val">{{ if $precios }}${{ partial "num.html" (dict "valor" (index $precios (div (len $precios) 2)) "compacto" true) }}{{ else }}—{{ end }}</div>
+      </div>
+    </div>
+    <p class="stamp">
+      {{ if $clasificadas }}
+        Numerador {{ len $disponibles }}, denominador {{ len $clasificadas }}
+        ({{ printf "%.1f" (mul (div (float (len $disponibles)) (float (len $clasificadas))) 100) }} %) ·
+        {{ if lt (len $clasificadas) $total }}quedan {{ sub $total (len $clasificadas) }} sin clasificar ·{{ end }}
+      {{ else }}
+        Sin clasificar todavía: el numerador y el denominador de la hipótesis 5 aparecen aquí en cuanto haya filas codificadas ·
+      {{ end }}
+      {{ with $precios }}de ${{ partial "num.html" (dict "valor" (index . 0)) }} a ${{ partial "num.html" (dict "valor" (index . (sub (len .) 1))) }} ·{{ end }}
+      <a href="{{ with .OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}">Descargar en CSV →</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Todas las ofertas registradas</h2>
+    <div class="prose" style="max-width:none">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
+            <th>Duración</th><th>Remoto</th><th>¿Disponible para España?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range sort $o "fecha" "desc" }}
+            <tr>
+              <td>{{ .fecha }}</td>
+              <td>{{ .titulo }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}</td>
+              <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
+              <td>{{ if .pago_usd }}${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}/h{{ end }}{{ else }}—{{ end }}</td>
+              <td>{{ with .duracion }}{{ . }}{{ else }}—{{ end }}</td>
+              <td>{{ with .remoto }}{{ . }}{{ else }}—{{ end }}</td>
+              <td>
+                {{ if eq .disponible_es "si" }}Sí
+                {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
+                {{ else }}<span class="note">sin clasificar</span>{{ end }}
+              </td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+      <p class="note">
+        Fuente: las alertas de oferta que la plataforma envía por correo, del
+        {{ (index (sort $o "fecha" "asc") 0).fecha }} al {{ (index (sort $o "fecha" "desc") 0).fecha }}.
+        Se registran todas, también las que no interesan.
+        {{ with $caidas }}{{ len . }} de ellas ya devolvían un error 404 al consultarlas.{{ end }}
+        Se publican los metadatos, no el texto de las ofertas.
+      </p>
+    </div>
+  </section>
+</div>
+{{ end }}

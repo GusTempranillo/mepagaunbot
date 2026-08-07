@@ -1,0 +1,4 @@
+fecha,id,titulo,categoria,pago_usd,tipo,duracion,remoto,identidad_verificada,consulta,disponible_es,motivo
+{{- range sort hugo.Data.ofertas.ofertas "fecha" "asc" }}
+{{ .fecha }},{{ .id }},"{{ replace .titulo "\"" "\"\"" }}",{{ .categoria }},{{ .pago_usd }},{{ .tipo }},"{{ .duracion }}",{{ .remoto }},{{ .identidad }},{{ .consulta }},{{ .disponible_es }},"{{ replace .motivo "\"" "\"\"" }}"
+{{- end }}
