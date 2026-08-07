@@ -8,6 +8,7 @@
 {{ $precios = sort $precios }}
 {{ $clasificadas := where $o "disponible_es" "!=" "" }}
 {{ $disponibles := where $o "disponible_es" "si" }}
+{{ $compatibles := where $o "compatible" "!=" "" }}
 {{ $caidas := where $o "consulta" "404" }}
 {{ $remotas := where $o "remoto" "Sí" }}
 
@@ -33,12 +34,16 @@
         <div class="val">{{ len $remotas }}<small>/{{ $total }}</small></div>
       </div>
       <div class="tile{{ if $clasificadas }} hot{{ end }}">
-        <span class="lbl">Disponibles para España</span>
+        <span class="lbl">Me dejan entrar</span>
         <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
       </div>
       <div class="tile">
-        <span class="lbl">Pago mediano</span>
-        <div class="val">{{ if $precios }}${{ partial "num.html" (dict "valor" (index $precios (div (len $precios) 2)) "compacto" true) }}{{ else }}—{{ end }}</div>
+        <span class="lbl">Puedo hacerla</span>
+        <div class="val">{{ if $compatibles }}{{ len (where $o "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
+      </div>
+      <div class="tile">
+        <span class="lbl">Presencial en Galicia</span>
+        <div class="val">{{ len (where $o "modalidad" "presencial en Galicia") }}<small>/{{ $total }}</small></div>
       </div>
     </div>
     <p class="stamp">
@@ -61,7 +66,7 @@
         <thead>
           <tr>
             <th>Fecha</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
-            <th>Duración</th><th>Remoto</th><th>¿Disponible para España?</th>
+            <th>Modalidad</th><th>¿Me dejan entrar?</th><th>¿Puedo hacerla?</th>
           </tr>
         </thead>
         <tbody>
@@ -71,11 +76,15 @@
               <td>{{ .titulo }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}</td>
               <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
               <td>{{ if .pago_usd }}${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}/h{{ end }}{{ else }}—{{ end }}</td>
-              <td>{{ with .duracion }}{{ . }}{{ else }}—{{ end }}</td>
-              <td>{{ with .remoto }}{{ . }}{{ else }}—{{ end }}</td>
+              <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">—</span>{{ end }}</td>
               <td>
                 {{ if eq .disponible_es "si" }}Sí
                 {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
+                {{ else }}<span class="note">sin clasificar</span>{{ end }}
+              </td>
+              <td>
+                {{ if eq .compatible "si" }}Sí
+                {{ else if eq .compatible "no" }}No{{ with .motivo_compat }} <span class="note">· {{ . }}</span>{{ end }}
                 {{ else }}<span class="note">sin clasificar</span>{{ end }}
               </td>
             </tr>

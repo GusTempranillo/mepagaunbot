@@ -1,20 +1,26 @@
 # ─────────────────────────────────────────────────────────────
-#  Ofertas registradas del listado y de la bandeja de correo.
-#  Definición del registro previo: se anotan TODAS, también las
-#  que no interesan.
+#  Ofertas registradas. Definición del registro previo: se anotan
+#  TODAS, también las que no interesan.
 #
-#  Las nueve primeras columnas salen de la propia alerta y no se
-#  interpretan. Las dos últimas las rellena el autor a mano:
+#  Las columnas de la alerta no se interpretan. Las cuatro últimas
+#  las decide el autor, y miden cosas distintas:
 #
-#    disponible_es: si / no        ¿Podría hacerla un trabajador
-#                                  ubicado en España? Ante la duda,
-#                                  "si": si me equivoco, que sea en
-#                                  mi contra (registro previo, H5).
-#    motivo:                       Solo cuando disponible_es es "no".
-#                                  Qué requisito concreto lo impide.
+#    disponible_es   ¿Me dejan entrar? Hipótesis 5. Solo cuenta
+#                    presencia física fuera de España o una
+#                    verificación, documentación o residencia que no
+#                    pueda cumplir viviendo aquí. Ante la duda, "si":
+#                    si me equivoco, que sea en mi contra.
+#    motivo          El requisito literal que cierra la puerta.
+#    modalidad       Hipótesis 4: remota | presencial en Galicia |
+#                    presencial fuera de Galicia.
+#    compatible      Hipótesis 4: ¿puedo hacerla? Habilidades y
+#                    equipo. Una oferta puede estar abierta y ser
+#                    incompatible: eso es justo lo que se quiere ver.
+#    motivo_compat   Qué me falta, en corto.
 #
-#  Vacías = sin clasificar todavía, y así se muestran en /ofertas/.
-#  El texto de las ofertas no se reproduce: solo sus metadatos.
+#  Vacío = sin clasificar, y así se muestra en /ofertas/.
+#  Codificado el 2026-08-07. El texto de las ofertas no se reproduce:
+#  solo sus metadatos.
 # ─────────────────────────────────────────────────────────────
 
 ofertas:
@@ -28,8 +34,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige inglés hablado con fluidez y aparecer en cámara"
 
   - fecha: 2026-07-28
     id: "qa_SNphiyIrsflkZ3dEDqsP_2026-07-24"
@@ -41,8 +50,11 @@ ofertas:
     remoto: ""
     identidad: ""
     consulta: "404"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: ""
+    compatible: ""
+    motivo_compat: ""
 
   - fecha: 2026-07-28
     id: "qa_cYS6Y4O9xARTDqHOWaSo_2026-07-28"
@@ -54,8 +66,11 @@ ofertas:
     remoto: ""
     identidad: ""
     consulta: "404"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: ""
+    compatible: ""
+    motivo_compat: ""
 
   - fecha: 2026-07-29
     id: "Putf55Gplv0POJk7cHoX"
@@ -67,8 +82,11 @@ ofertas:
     remoto: "Sí"
     identidad: ""
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-07-29
     id: "gZpCVicOEYQl73jFpHJN"
@@ -80,8 +98,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige inglés hablado con fluidez y aparecer en cámara"
 
   - fecha: 2026-07-30
     id: "qa_Xt1SaRIZielATR7cmDsE_2026-07-30"
@@ -93,8 +114,11 @@ ofertas:
     remoto: ""
     identidad: ""
     consulta: "404"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: ""
+    compatible: ""
+    motivo_compat: ""
 
   - fecha: 2026-07-30
     id: "pRsNn6mXNVhOHf29phIb"
@@ -106,8 +130,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige experiencia probada en ventas B2B"
 
   - fecha: 2026-07-30
     id: "QVvZdmjFMLUU744ThxAF"
@@ -119,8 +146,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-07-30
     id: "xIyJNgieKetZ8UzZaIz3"
@@ -132,8 +162,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
-    motivo: ""
+    disponible_es: "no"
+    motivo: "exige un número de teléfono de EE. UU. real, no VoIP"
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "no dispongo de número de EE. UU."
 
   - fecha: 2026-07-30
     id: "2dxKcTcT6CSsPHnZB65l"
@@ -145,8 +178,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-07-31
     id: "38TXMPomIhHp3QBG60WK"
@@ -158,8 +194,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
-    motivo: ""
+    disponible_es: "no"
+    motivo: "reservada a la cuenta «Jackie QA» de la plataforma"
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "reservada a otra cuenta"
 
   - fecha: 2026-07-31
     id: "TtiJy6jmY3pmKhMp1a6O"
@@ -171,8 +210,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige inglés nativo"
 
   - fecha: 2026-07-31
     id: "mFJIqppJQ14WQbagDAzj"
@@ -184,8 +226,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige inglés nativo"
 
   - fecha: 2026-08-01
     id: "eNBcmDA0zIWLonlaVMn4"
@@ -197,8 +242,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
-    motivo: ""
+    disponible_es: "no"
+    motivo: "exige estar ubicado en Estados Unidos"
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "no resido en Estados Unidos"
 
   - fecha: 2026-08-03
     id: "mwPj393yL3T2cFAcwu2a"
@@ -210,8 +258,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
-    motivo: ""
+    disponible_es: "no"
+    motivo: "exige residencia legal en Estados Unidos"
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "no resido en Estados Unidos"
 
   - fecha: 2026-08-04
     id: "qa_l0KWxLUNliMa79WIKykW_2026-08-04"
@@ -223,8 +274,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-04
     id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
@@ -236,8 +290,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-04
     id: "izwYIqNhHdTzQY6bd8sm"
@@ -249,8 +306,11 @@ ofertas:
     remoto: "Sí"
     identidad: "Sí"
     consulta: "ok"
-    disponible_es: ""
-    motivo: ""
+    disponible_es: "no"
+    motivo: "exige residir en Estados Unidos o Reino Unido"
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige inglés nativo y perfil de desarrollo web"
 
   - fecha: 2026-08-04
     id: "qa_TuIYC2dI6ZZu6cVXzP0J_2026-08-04"
@@ -262,8 +322,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-04
     id: "VNVIkY7jtNozufxAcjpw"
@@ -275,8 +338,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige experiencia probada redactando CV y conocimiento del sector minero"
 
   - fecha: 2026-08-05
     id: "6sEv2k1WDrvGohc52hP7"
@@ -288,8 +354,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-06
     id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
@@ -301,8 +370,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige un iPhone físico y TestFlight"
 
   - fecha: 2026-08-06
     id: "6H1Osi3kkGw1EkdNwVJx"
@@ -314,8 +386,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "exige experiencia profesional probada con Photoshop"
 
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
@@ -327,8 +402,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""
 
   - fecha: 2026-08-07
     id: "qa_YoVFSaMAshWMX7EhrBkc_2026-08-06"
@@ -340,5 +418,8 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
+    modalidad: "remota"
+    compatible: "si"
+    motivo_compat: ""

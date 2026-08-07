@@ -1,4 +1,4 @@
-fecha,id,titulo,categoria,pago_usd,tipo,duracion,remoto,identidad_verificada,consulta,disponible_es,motivo
+fecha,id,titulo,categoria,pago_usd,tipo,duracion,remoto,identidad_verificada,consulta,disponible_es,motivo,modalidad,compatible,motivo_compat
 {{- range sort hugo.Data.ofertas.ofertas "fecha" "asc" }}
-{{ .fecha }},{{ .id }},"{{ replace .titulo "\"" "\"\"" }}",{{ .categoria }},{{ .pago_usd }},{{ .tipo }},"{{ .duracion }}",{{ .remoto }},{{ .identidad }},{{ .consulta }},{{ .disponible_es }},"{{ replace .motivo "\"" "\"\"" }}"
+{{ .fecha }},{{ .id }},"{{ replace .titulo "\"" "\"\"" }}",{{ .categoria }},{{ .pago_usd }},{{ .tipo }},"{{ .duracion }}",{{ .remoto }},{{ .identidad }},{{ .consulta }},{{ .disponible_es }},"{{ replace .motivo "\"" "\"\"" }}","{{ .modalidad }}",{{ .compatible }},"{{ replace .motivo_compat "\"" "\"\"" }}"
 {{- end }}
