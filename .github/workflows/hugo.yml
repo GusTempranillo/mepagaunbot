@@ -1,10 +1,27 @@
-# Construye y despliega el sitio en GitHub Pages con cada push a main.
+# Construye y despliega el sitio en GitHub Pages con cada push a main
+# y, además, una vez al día aunque no haya habido ningún cambio.
 # Requiere: Settings → Pages → Source = "GitHub Actions".
 name: Desplegar Hugo en GitHub Pages
 
 on:
   push:
     branches: ["main"]
+
+  # El día en curso, el tramo y la tarifa vigente los calcula Hugo con la
+  # fecha del momento en que se construye el sitio. En un sitio estático eso
+  # significa que, sin reconstruir, el marcador se queda congelado en la
+  # fecha del último push: la portada seguiría anunciando $45/h el 17 de
+  # agosto. El descenso está registrado de antemano precisamente para no
+  # depender de que el autor se acuerde de nada; esta cita diaria es lo que
+  # hace que tampoco dependa de él la página que lo cuenta.
+  #
+  # 00:23 UTC = 02:23 en Madrid con horario de verano y 01:23 con el de
+  # invierno: en los dos casos el día ya ha cambiado en Europe/Madrid, que es
+  # la zona con la que construye el job. El minuto 23 evita la congestión de
+  # las horas en punto, cuando GitHub acumula retrasos en los programados.
+  schedule:
+    - cron: "23 0 * * *"
+
   workflow_dispatch:
 
 permissions:
