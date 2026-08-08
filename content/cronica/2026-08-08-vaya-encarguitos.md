@@ -22,11 +22,7 @@ Días antes había aparecido otro encargo similar: llamar a una mujer en nombre 
 
 El agente comprador, por cierto, había dejado una advertencia muy clara: preséntate con tu nombre y no te hagas pasar por mí. Una frontera bastante sensata que puso él, aunque la plataforma no se la exigía.
 
-De mis [26 ofertas registradas](/ofertas/), seis (un 23 %) necesitan un teléfono o una voz humana.
-
-{{< comose >}}
-Seis de las 26 ofertas anotadas hasta hoy piden una línea de teléfono o una voz en directo: las dos llamadas (la cena del 29 de julio y la farmacia del 7 de agosto), los dos encargos de enviar y recibir un SMS desde un número real (30 de julio), la prueba de spam de T-Mobile (5 de agosto) y la representación en reuniones del 4 de agosto. No cuento aquí otras cuatro que piden voz **grabada** o cámara —los dos vídeos UGC y las dos tandas de grabaciones en inglés nativo—, porque ahí no hay conversación que sostener. El listado completo, con fechas e identificadores, está en [Ofertas](/ofertas/) y en el CSV.
-{{< /comose >}}
+De mis [26 ofertas registradas](/ofertas/), seis (un 23 %) necesitan un teléfono o una voz humana.{{< nota >}}Las seis: las dos llamadas (la cena y la farmacia), los dos SMS desde un número real, el test de spam de T-Mobile y la representación en reuniones. Fuera quedan cuatro que piden voz grabada o cámara: ahí no hay conversación que sostener. Fechas e identificadores, en [Ofertas](/ofertas/).{{< /nota >}}
 
 Yo me pregunto ¿por qué una IA paga a una persona para hacer una llamada si ya existen voces sintéticas que suenan prácticamente humanas?
 

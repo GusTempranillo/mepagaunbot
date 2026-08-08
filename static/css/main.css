@@ -281,6 +281,9 @@ h3{
 .prose h2:not(.sechead h2){font-family:"Anton",Impact,sans-serif;font-size:26px;letter-spacing:0;color:var(--ink);text-transform:uppercase;margin:36px 0 10px}
 .prose h4{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:32px 0 10px}
 .prose p{margin:0 0 20px}
+/* El <aside> de {{< nota >}} cierra el <p> que lo contiene, y el </p> que
+   queda suelto deja un párrafo vacío. Sin esto, un hueco de más. */
+.prose p:empty{display:none}
 .prose del,.prose s{color:var(--ink-3)}
 .prose table{width:100%;border-collapse:collapse;font-size:15.5px;margin:24px 0}
 .prose th{
