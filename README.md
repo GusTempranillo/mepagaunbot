@@ -182,23 +182,19 @@ en el repo: no tocarlo.)
 - **Newsletter:** cuenta gratuita en [Buttondown](https://buttondown.com)
   (hasta 100 suscriptores) y poner la URL pública en `hugo.toml` →
   `params.newsletter`. El enlace aparece solo en la portada.
-- **Estadísticas sin cookies:** cuenta en
-  [GoatCounter](https://www.goatcounter.com) y poner el código en
+- **Estadísticas sin cookies:** ya activado, código `tempranillo` en
   `hugo.toml` → `params.goatcounter`. Sirve sobre todo para ver *referrers*
-  (quién te cita). Si se activa, añadir una línea en `/privacidad`.
-- **Alertas de menciones:** [F5Bot](https://f5bot.com) (Reddit/HN),
-  Google Alerts («mepagaunbot» y «Gustavo Pérez Tempranillo») y Google
-  Search Console.
-- **Repo visible en el pie:** poner la URL del repositorio en `hugo.toml` →
-  `params.repo`.
+  (quién te cita). La línea correspondiente ya está en `/privacidad`.
+- **Alertas de menciones:** ya activas — [F5Bot](https://f5bot.com)
+  (Reddit/HN), Google Alerts («mepagaunbot» y «Gustavo Pérez Tempranillo») y
+  Google Search Console.
+- **Repo visible en el pie:** ya puesto, en `hugo.toml` → `params.repo`.
 
 ---
 
 ## Pendiente de revisión por el autor
 
-- `content/sobre-mi.md` y `content/participa.md` / `participate.md`: hablan
-  en su voz; ensamblados desde los documentos aprobados del proyecto, pero
-  debe leerlos y hacerlos suyos antes de difundir el blog.
-- `content/cronica/ejemplo-parte-semanal.md`: plantilla de ejemplo
-  (`draft: true`), borrar cuando ya no haga falta.
+- `content/participate.md`: es la versión en inglés de `content/participa.md`.
+  Este último ya está reescrito en su voz; `participate.md` sigue con el
+  texto anterior y hay que traducirlo o reescribirlo a juego.
 - El tagline de la cabecera se cambia en `hugo.toml` → `params.tagline`.
