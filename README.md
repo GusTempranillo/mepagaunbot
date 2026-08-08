@@ -189,12 +189,3 @@ en el repo: no tocarlo.)
   (Reddit/HN), Google Alerts («mepagaunbot» y «Gustavo Pérez Tempranillo») y
   Google Search Console.
 - **Repo visible en el pie:** ya puesto, en `hugo.toml` → `params.repo`.
-
----
-
-## Pendiente de revisión por el autor
-
-- `content/participate.md`: es la versión en inglés de `content/participa.md`.
-  Este último ya está reescrito en su voz; `participate.md` sigue con el
-  texto anterior y hay que traducirlo o reescribirlo a juego.
-- El tagline de la cabecera se cambia en `hugo.toml` → `params.tagline`.

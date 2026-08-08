@@ -15,7 +15,7 @@ Publicaré los resultados de forma agregada junto a los del resto. Tú decides c
 
 ## Cómo escribirme
 
-Escríbeme a [tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com), en castellano, gallego o inglés.
+Escríbeme a [tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com).
 
 Una petición concreta. Si nos conocimos dentro de una plataforma, escríbeme por correo y no mediante su mensajería interna. No es paranoia. Es una forma de respetar sus condiciones de uso y evitar que participar aquí te cause un problema allí.
 
