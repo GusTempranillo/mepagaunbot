@@ -1,0 +1,31 @@
+{{- /* Compartir al pie de la crónica. Son enlaces corrientes ("intent"):
+       un href con el título y el permalink, y nada más. Ni un script de
+       terceros, ni un iframe, ni una cookie. Mientras no se pulsen, no
+       hacen ninguna petición a nadie.
+       El desplegable dice eso mismo en corto; el detalle, en /privacidad/.
+
+       Las URL se arman enteras y se marcan safeURL: si se interpola la
+       query dentro del href, Go la vuelve a escapar y llega rota. */ -}}
+{{- $url := .Permalink -}}
+{{- $titulo := .Title -}}
+{{- $texto := printf "%s — %s" $titulo $url -}}
+{{- /* querify codifica los espacios como "+". Vale en casi todas partes, pero
+       algunos clientes de WhatsApp lo enseñan literal, así que van como %20. */ -}}
+{{- $q := replace (querify "text" $texto) "+" "%20" -}}
+{{- $bluesky := printf "https://bsky.app/intent/compose?%s" $q -}}
+{{- $x := printf "https://x.com/intent/post?%s" (replace (querify "url" $url "text" $titulo) "+" "%20") -}}
+{{- $linkedin := printf "https://www.linkedin.com/sharing/share-offsite/?%s" (querify "url" $url) -}}
+{{- $whatsapp := printf "https://wa.me/?%s" $q -}}
+<div class="compartir">
+  <span class="lbl">Compartir</span>
+  <span class="chips">
+    <a href="{{ $bluesky | safeURL }}" target="_blank" rel="nofollow noopener">Bluesky</a>
+    <a href="{{ $x | safeURL }}" target="_blank" rel="nofollow noopener">X</a>
+    <a href="{{ $linkedin | safeURL }}" target="_blank" rel="nofollow noopener">LinkedIn</a>
+    <a href="{{ $whatsapp | safeURL }}" target="_blank" rel="nofollow noopener">WhatsApp</a>
+  </span>
+  <details class="sinrastreo">
+    <summary>enlaces sin rastreo</summary>
+    <p>Son enlaces corrientes: este sitio no carga nada de esas redes ni deja cookies. Si pulsas uno, lo que pase a partir de ahí es cosa suya. <a href="/privacidad/">Más en Privacidad</a>.</p>
+  </details>
+</div>

@@ -9,6 +9,8 @@ rotulo: "Privacidad · Media página"
 
 Si algún día añado una medición de visitas, será una que no identifique a nadie, y lo diré aquí antes de ponerla.
 
+Al pie de cada crónica hay enlaces para compartirla. Son enlaces corrientes, como cualquier otro del texto: no cargan nada de esas redes, no dejan cookies y, mientras no los pulses, no le cuentan a nadie que has pasado por aquí. Si pulsas uno, a partir de ahí ya estás en su casa y lo que hagan allí es cosa suya.
+
 ## Si me escribes
 
 El único canal es el correo: [tempranillo.ia@gmail.com](mailto:tempranillo.ia@gmail.com). Uso lo que me mandes para contestarte y para nada más, salvo que entres en el proceso de permiso explicado en [Participa](/participa/), donde te digo por escrito qué publico y dónde antes de publicarlo.

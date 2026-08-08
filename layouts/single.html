@@ -21,6 +21,7 @@
     {{ .Content }}
     {{ if .Params.sellos }}{{ partial "sellos.html" . }}{{ end }}
     {{ if eq .Section "cronica" }}
+      {{ partial "compartir.html" . }}
       <div class="pie-post">
         <p>¿He metido la pata? Aquí se tacha en público: <a href="/errores/">errores y rectificaciones</a>.</p>
       </div>
