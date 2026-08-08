@@ -146,8 +146,9 @@ nav.top a.top-featured{
   color:var(--accent);font-weight:700;border:1.5px solid var(--accent);
   padding:3px 10px;margin-right:14px;
 }
-nav.top a.top-featured:hover{background:var(--accent);color:var(--paper)}
 nav.top a.top-featured[aria-current]{color:var(--accent)}
+nav.top a.top-featured:hover,
+nav.top a.top-featured[aria-current]:hover{background:var(--accent);color:var(--paper)}
 
 /* ── MARCADOR ───────────────────────────────────────────── */
 .scoreboard{border-bottom:1.5px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr)}
