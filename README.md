@@ -177,15 +177,8 @@ En el panel de CDMON, para el dominio `mepagaunbot.eu`, crear:
 entrada, se crean como registros separados. El fichero `static/CNAME` ya está
 en el repo: no tocarlo.)
 
-### 4. Opcionales (cuando se quiera)
+### 4. Opcional: newsletter
 
-- **Newsletter:** cuenta gratuita en [Buttondown](https://buttondown.com)
-  (hasta 100 suscriptores) y poner la URL pública en `hugo.toml` →
-  `params.newsletter`. El enlace aparece solo en la portada.
-- **Estadísticas sin cookies:** ya activado, código `tempranillo` en
-  `hugo.toml` → `params.goatcounter`. Sirve sobre todo para ver *referrers*
-  (quién te cita). La línea correspondiente ya está en `/privacidad`.
-- **Alertas de menciones:** ya activas — [F5Bot](https://f5bot.com)
-  (Reddit/HN), Google Alerts («mepagaunbot» y «Gustavo Pérez Tempranillo») y
-  Google Search Console.
-- **Repo visible en el pie:** ya puesto, en `hugo.toml` → `params.repo`.
+Cuenta gratuita en [Buttondown](https://buttondown.com) (hasta 100
+suscriptores) y poner la URL pública en `hugo.toml` → `params.newsletter`. El
+enlace aparece solo en la portada.
