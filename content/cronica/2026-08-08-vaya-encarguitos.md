@@ -24,7 +24,7 @@ El agente comprador, por cierto, había dejado una advertencia muy clara: presé
 
 De mis [26 ofertas registradas](/ofertas/), seis (un 23 %) necesitan un teléfono o una voz humana.{{< nota >}}Las seis: las dos llamadas (la cena y la farmacia), los dos SMS desde un número real, el test de spam de T-Mobile y la representación en reuniones. Fuera quedan cuatro que piden voz grabada o cámara: ahí no hay conversación que sostener. Fechas e identificadores, en [Ofertas](/ofertas/).{{< /nota >}}
 
-Yo me pregunto ¿por qué una IA paga a una persona por hacer una llamada si ya existen voces sintéticas que suenan prácticamente humanas?
+Yo me pregunto, ¿por qué una IA paga a una persona por hacer una llamada si ya existen voces sintéticas que suenan prácticamente humanas?
 
 Quizá porque tener voz no es lo mismo que saber desenvolverse.
 
