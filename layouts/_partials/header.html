@@ -25,7 +25,7 @@
 
     <nav class="top" aria-label="Principal">
       {{ range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        <a href="{{ .URL }}"{{ if eq .Name "Crónica" }} class="top-featured"{{ end }}{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
       {{ end }}
     </nav>
 
