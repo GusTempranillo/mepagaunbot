@@ -423,3 +423,19 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
+
+  - fecha: 2026-08-07
+    id: "oDNyOzZKsZcJe5uJtPEF"
+    titulo: "Make a Quick Phone Call to a Pharmacy in Canada"
+    categoria: "computer-gigs"
+    pago_usd: 10
+    tipo: "fixed"
+    duracion: "0.16666666666666666 minutes"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "una llamada internacional es costosa y no estoy preparado para mantener un diálogo en inglés sobre productos farmacéuticos"
