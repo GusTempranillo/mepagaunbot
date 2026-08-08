@@ -19,7 +19,7 @@ Todo dato lleva enlace a la fuente y enlace a la copia archivada. Si mañana Ren
 
 ## Diez minutos al día, haya o no haya nada
 
-Registro diario del tablón de tareas, el tiempo invertido y el estado del perfil. Un día sin ofertas se anota igual. El cero es el resultado más probable de todo esto y omitirlo sería el sesgo más fácil de colar.
+Registro diario de las ofertas: las que llegan a mi bandeja y las del listado público. De cada encargo que acepte, el tiempo que me lleva de principio a fin. Un día sin ofertas se anota igual. El cero es el resultado más probable de todo esto y omitirlo sería el sesgo más fácil de colar.
 
 ## Lo que no hago
 
