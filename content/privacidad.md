@@ -1,13 +1,13 @@
 ---
 title: "Privacidad, en corto"
-resumen: "Este sitio no usa cookies ni rastreadores y no muestra publicidad. Lo demás cabe en media página."
+resumen: "Este sitio no usa cookies y no muestra publicidad. Mide visitas de forma anónima. Lo demás cabe en media página."
 date: 2026-07-27
 rotulo: "Privacidad · Media página"
 ---
 
-**Este sitio no usa cookies ni rastreadores y no muestra publicidad.** No hay nada que aceptar al entrar porque no hay nada que recoger.
+**Este sitio no usa cookies y no muestra publicidad.** No hay nada que aceptar al entrar porque no se guarda nada que te identifique.
 
-Si algún día añado una medición de visitas, será una que no identifique a nadie, y lo diré aquí antes de ponerla.
+Mido las visitas con [GoatCounter](https://www.goatcounter.com), pensado para no rastrear: no usa cookies, no te sigue de una web a otra y no construye un perfil tuyo. Solo cuenta páginas vistas y de dónde vienes, para saber qué se lee.
 
 Al pie de cada crónica hay enlaces para compartirla. Son enlaces corrientes, como cualquier otro del texto: no cargan nada de esas redes, no dejan cookies y, mientras no los pulses, no le cuentan a nadie que has pasado por aquí. Si pulsas uno, a partir de ahí ya estás en su casa y lo que hagan allí es cosa suya.
 

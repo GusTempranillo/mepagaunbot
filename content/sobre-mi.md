@@ -5,22 +5,24 @@ date: 2026-07-27
 rotulo: "Sobre mí · Juez y parte"
 ---
 
-Me llamo Gustavo Pérez Tempranillo y soy cronista de la inteligencia artificial.
+Me llamo Gustavo Pérez Tempranillo. Vivo en un pueblo de Galicia y soy cronista de cómo se comporta la inteligencia artificial en su propio mundo.
 
-Mi oficio consiste en explorar un territorio nuevo mientras intento entender cómo piensan las máquinas. No escribo sobre la tecnología desde fuera: la recorro desde dentro, intentando comprender cómo aprende, cómo responde y qué revela de nosotros. Vivo en su frontera y cuento lo que encuentro allí. Y, de forma bastante menos metafórica, en Galicia.
+Me dedico a explorar ese territorio para descubrir cómo reaccionan las máquinas. No escribo sobre la tecnología desde fuera. Me meto dentro, observo cómo aprenden y qué revela todo eso de nosotros. Vivo en su frontera y cuento lo que encuentro allí.
 
-Opero un agente de inteligencia artificial llamado Claw. Su trabajo es mirar todos los días qué se dicen las máquinas entre ellas en sus redes sociales y publicar lo que encuentra en [mibitacora.eu](https://mibitacora.eu). No me paga nadie por hacerlo.
+Trabajo con un ayudante. Se llama Claw y es un agente de IA que tengo instalado en casa. Cada día se asoma a una red social donde las máquinas hablan entre sí, mira qué se cuentan y publica lo más interesante en [mibitacora.eu](https://mibitacora.eu).
 
-Un día, Claw encontró [RentAHuman](https://rentahuman.ai): un mercado donde los agentes de inteligencia artificial contratan humanos para tareas del mundo real. Ellos lo llaman «la capa de carne para la IA». Me di de alta como mano de obra. De ahí sale esta crónica y su frase incómoda: mi agente de IA me encontró un empleo, y el empleo es trabajar para las IAs.
+Un día, Claw me encontró un empleo. Descubrió [RentAHuman](https://rentahuman.ai), un mercado donde agentes de IA contratan a personas para realizar tareas en el mundo real.
 
-Esta vez la frontera no la recorro de visita: vivo en ella y cobro por horas.
+Me di de alta como mano de obra. De ahí sale esta crónica.
 
-## Dos cosas que conviene que sepas
+## Antes de seguir, dos cosas
 
-**Soy juez y parte.** Opero la herramienta que uso como instrumento de investigación y superviso lo que publica. No es un conflicto que pueda resolver: es la premisa del experimento, y por eso las reglas están [publicadas y fechadas](/metodo/).
+**Soy juez y parte.** Investigo la plataforma y, al mismo tiempo, trabajo en ella. No puedo separar una cosa de la otra porque esa doble posición es precisamente el punto de partida del experimento. El conflicto no desaparece por reconocerlo, así que las reglas están [publicadas y fechadas](/metodo/). Me comprometo a no cambiarlas sobre la marcha.
 
-**La crónica la escribo yo. Cada palabra.** Uso inteligencia artificial para investigar, para ordenar datos y para la carpintería de este sitio. Para la narración, no.
+**La crónica la escribo yo. Cada palabra.** Uso herramientas de IA para investigar, ordenar datos y hacer la carpintería de este sitio. Para la narración, no.
 
-## Para qué
+## La pregunta
 
-Para responder con datos, y no con opinión, a una pregunta que se está respondiendo sola mientras discutimos sobre ella: ¿se puede vivir trabajando para inteligencias artificiales?
+Quiero responder con datos, no con opiniones, a lo que vaya surgiendo por el camino. Seguramente, todo acabará conduciendo al mismo lugar.
+
+¿Se puede vivir trabajando para inteligencias artificiales?

@@ -19,7 +19,7 @@ disableKinds = ['taxonomy', 'term']
   # URL pública de la newsletter (Buttondown) cuando exista; vacío = oculto
   newsletter = ''
   # Código de GoatCounter cuando exista (p. ej. 'mepagaunbot'); vacío = sin analítica
-  goatcounter = ''
+  goatcounter = 'tempranillo'
   # URL del repositorio público cuando exista; vacío = oculto
   repo = 'https://github.com/GusTempranillo/mepagaunbot'
 
