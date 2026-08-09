@@ -6,17 +6,24 @@
 {{ $precios := slice }}
 {{ range $o }}{{ with .pago_usd }}{{ $precios = $precios | append (float .) }}{{ end }}{{ end }}
 {{ $precios = sort $precios }}
-{{ $clasificadas := where $o "disponible_es" "!=" "" }}
-{{ $disponibles := where $o "disponible_es" "si" }}
-{{ $compatibles := where $o "compatible" "!=" "" }}
-{{ $caidas := where $o "consulta" "404" }}
+{{/* Dos orígenes, dos hipótesis, dos denominadores: no se mezclan.
+     "email" = llega a la bandeja (hipótesis 4: de las que la
+     plataforma cree mías, ¿cuántas puedo aceptar de verdad?).
+     "listado" = listado público entero, encaje conmigo o no
+     (hipótesis 5: ¿me dejan entrar?). */}}
+{{ $alertas := where $o "origen" "email" }}
+{{ $listado := where $o "origen" "listado" }}
+{{ $clasificadas := where $listado "disponible_es" "!=" "" }}
+{{ $disponibles := where $listado "disponible_es" "si" }}
+{{ $compatibles := where $alertas "compatible" "!=" "" }}
+{{ $caidas := where $alertas "consulta" "404" }}
 {{ $remotas := where $o "remoto" "Sí" }}
 
 <div class="wrap">
   <article class="prose">
     <div class="sechead">
       <h2>Ofertas · página viva</h2>
-      <span class="note" style="margin:0">{{ $total }} ofertas registradas · {{ len $clasificadas }} clasificadas</span>
+      <span class="note" style="margin:0">{{ $total }} ofertas registradas · {{ len $alertas }} de bandeja · {{ len $listado }} de listado público</span>
     </div>
     <h3 class="title">{{ .Title }}</h3>
     {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
@@ -34,25 +41,27 @@
         <div class="val">{{ len $remotas }}<small>/{{ $total }}</small></div>
       </div>
       <div class="tile{{ if $clasificadas }} hot{{ end }}">
-        <span class="lbl">Me dejan entrar</span>
+        <span class="lbl">Me dejan entrar <small>· H5, listado</small></span>
         <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
       </div>
       <div class="tile">
-        <span class="lbl">Puedo hacerla</span>
-        <div class="val">{{ if $compatibles }}{{ len (where $o "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
+        <span class="lbl">Puedo hacerla <small>· H4, bandeja</small></span>
+        <div class="val">{{ if $compatibles }}{{ len (where $alertas "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
       </div>
       <div class="tile">
-        <span class="lbl">Presencial en Galicia</span>
-        <div class="val">{{ len (where $o "modalidad" "presencial en Galicia") }}<small>/{{ $total }}</small></div>
+        <span class="lbl">Presencial en Galicia <small>· bandeja</small></span>
+        <div class="val">{{ len (where $alertas "modalidad" "presencial en Galicia") }}<small>/{{ len $alertas }}</small></div>
       </div>
     </div>
     <p class="stamp">
       {{ if $clasificadas }}
-        Numerador {{ len $disponibles }}, denominador {{ len $clasificadas }}
+        H5 — numerador {{ len $disponibles }}, denominador {{ len $clasificadas }}
         ({{ printf "%.1f" (mul (div (float (len $disponibles)) (float (len $clasificadas))) 100) }} %) ·
-        {{ if lt (len $clasificadas) $total }}quedan {{ sub $total (len $clasificadas) }} sin clasificar ·{{ end }}
+        {{ if lt (len $clasificadas) (len $listado) }}quedan {{ sub (len $listado) (len $clasificadas) }} del listado sin clasificar ·{{ end }}
+      {{ else if $listado }}
+        Listado público registrado, sin clasificar todavía: el recuento de la hipótesis 5 aparece aquí en cuanto haya filas codificadas ·
       {{ else }}
-        Sin clasificar todavía: el recuento aparece aquí en cuanto haya filas codificadas ·
+        Todavía no hay lecturas del listado público: la hipótesis 5 se resuelve en cuanto empiece el registro diario ·
       {{ end }}
       {{ with $precios }}de ${{ partial "num.html" (dict "valor" (index . 0)) }} a ${{ partial "num.html" (dict "valor" (index . (sub (len .) 1))) }} ·{{ end }}
       <a href="{{ with .OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}">Descargar en CSV →</a>
@@ -66,7 +75,7 @@
       <table>
         <thead>
           <tr>
-            <th>Fecha</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
+            <th>Fecha</th><th>Origen</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
             <th>Modalidad</th><th>¿Me dejan entrar?</th><th>¿Puedo hacerla?</th>
           </tr>
         </thead>
@@ -74,10 +83,11 @@
           {{ range sort $o "fecha" "desc" }}
             <tr>
               <td>{{ .fecha }}</td>
+              <td>{{ if eq .origen "listado" }}listado{{ else }}bandeja{{ end }}</td>
               <td>{{ .titulo }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}</td>
               <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
               <td>{{ if .pago_usd }}${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}/h{{ end }}{{ else }}—{{ end }}</td>
-              <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">—</span>{{ end }}</td>
+              <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">{{ if eq .origen "listado" }}no aplica{{ else }}—{{ end }}</span>{{ end }}</td>
               <td>
                 {{ if eq .disponible_es "si" }}Sí
                 {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
@@ -86,7 +96,7 @@
               <td>
                 {{ if eq .compatible "si" }}Sí
                 {{ else if eq .compatible "no" }}No{{ with .motivo_compat }} <span class="note">· {{ . }}</span>{{ end }}
-                {{ else }}<span class="note">sin clasificar</span>{{ end }}
+                {{ else }}<span class="note">{{ if eq .origen "listado" }}no aplica{{ else }}sin clasificar{{ end }}</span>{{ end }}
               </td>
             </tr>
           {{ end }}
@@ -94,10 +104,12 @@
       </table>
       </div>
       <p class="note">
-        Fuente: las alertas de oferta que la plataforma envía por correo, del
-        {{ (index (sort $o "fecha" "asc") 0).fecha }} al {{ (index (sort $o "fecha" "desc") 0).fecha }}.
+        Fuente: las alertas de oferta que la plataforma envía por correo
+        ({{ len $alertas }}{{ with $alertas }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ end }})
+        y el listado público de encargos, consultado a diario
+        ({{ len $listado }}{{ with $listado }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ else }}, todavía sin lecturas{{ end }}).
         Se registran todas, también las que no interesan.
-        {{ with $caidas }}{{ len . }} de ellas ya devolvían un error 404 al consultarlas.{{ end }}
+        {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
         Se publican los metadatos, no el texto de las ofertas.
       </p>
     </div>
