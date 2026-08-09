@@ -90,7 +90,12 @@
               {{ if eq .en_email "si" }}{{ $vias = $vias | append "correo" }}{{ end }}
               {{ if eq .en_listado "si" }}{{ $vias = $vias | append "listado" }}{{ end }}
               <td>{{ if $vias }}{{ delimit $vias " + " }}{{ else }}<span class="note">—</span>{{ end }}</td>
-              <td>{{ .titulo }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}</td>
+              <td>
+                {{ if .titulo_es }}{{ .titulo_es }}{{ else }}{{ .titulo }}{{ end }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}
+                {{ with .resumen_es }}<br><span class="note">{{ . }}</span>{{ end }}
+                {{ if and .resumen_es (ne .revisado "si") }} <span class="note">· resumen automático, todavía sin repasar</span>{{ end }}
+                {{ if .titulo_es }}<br><span class="note">Título original: {{ .titulo }}</span>{{ end }}
+              </td>
               <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
               <td>{{ if .pago_usd }}${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}/h{{ end }}{{ else }}—{{ end }}</td>
               <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">{{ if ne .en_email "si" }}no aplica{{ else }}—{{ end }}</span>{{ end }}</td>
@@ -118,6 +123,13 @@
         Se registran todas, también las que no interesan.
         {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
         Se publican los metadatos, no el texto de las ofertas.
+        Casi todas llegan en inglés: el título y el resumen en español los
+        redacta un modelo de lenguaje a partir de la descripción del encargo
+        (<a href="/metodo/">cómo funciona eso</a>). Se publican en cuanto los
+        escribe, sin esperar a que yo los lea, y hasta que paso por la fila
+        van marcados como «sin repasar»; la clasificación, en cambio, no sale
+        de aquí sin mi firma. El título original va debajo de cada uno, sin
+        tocar.
       </p>
     </div>
   </section>

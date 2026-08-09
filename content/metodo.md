@@ -45,6 +45,26 @@ llega a los datos de este sitio. Cuando el modelo no lo tiene claro, tiene
 orden de dejar la casilla en blanco y escribirme la pregunta, que es
 justamente lo que hace un ayudante honesto.
 
+El mismo modelo hace además otra cosa que no es un juicio: traducir. Casi
+todas las ofertas llegan escritas en inglés, y muchas con títulos que no
+dicen nada de lo que hay que hacer, así que de cada una escribe un título y
+un resumen de dos o tres frases en español.
+
+Eso sí se publica sin esperar mi firma, y quiero explicar por qué, porque es
+la única cosa de este sitio que sale sin que yo la haya leído antes. Un
+resumen no decide nada: no entra en ninguna hipótesis, no cuenta en ningún
+denominador, no dice si me dejan entrar ni si puedo hacerla. Solo sirve para
+que la lista se pueda leer. Y una lista de cien ofertas al día en inglés que
+espera a que yo la repase es una lista que nadie lee nunca. A cambio, hasta
+que paso por la fila el resumen va marcado como *sin repasar*, el título
+original se queda debajo sin tocar para que cualquiera compare, y si me
+encuentro uno mal escrito lo corrijo yo en la hoja y al día siguiente sale
+corregido.
+
+Lo que no sale sin firma sigue siendo lo que juzga: los cinco campos de
+clasificación. Y son fichas de un listado, no narración: la crónica la sigo
+escribiendo yo.
+
 Dos cosas que quiero dejar claras. La primera: la oferta se registra
 siempre, esté firmada o no. Lo que espera mi firma es el juicio, nunca el
 recuento; si no, el denominador de la [hipótesis 5](/registro-previo/)

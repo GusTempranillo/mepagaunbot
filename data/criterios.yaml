@@ -1,7 +1,10 @@
 # Criterios de clasificación de ofertas
 #
 # Con esto se rellenan las cinco columnas de juicio de cada oferta:
-# disponible_es, motivo, modalidad, compatible y motivo_compat.
+# disponible_es, motivo, modalidad, compatible y motivo_compat. De paso, el
+# mismo modelo escribe el título y el resumen en español de cada encargo,
+# que no son un juicio sino una traducción: casi todas las ofertas llegan
+# en inglés y sin ellas la lista no hay quien la lea.
 #
 # Un modelo de lenguaje las propone aplicando este fichero. Yo las firmo
 # una por una. Ninguna clasificación llega a la web sin mi firma, y el
@@ -12,7 +15,7 @@
 # son exactamente estos, no otros, y si algún día los cambio el historial
 # de git dice cuándo y en qué.
 
-version: 1
+version: 2
 fecha: 2026-08-09
 
 perfil:
@@ -34,7 +37,9 @@ perfil:
 
   aparatos:
     - "Móvil Android con número de teléfono español."
-    - "iPhone."
+    - >-
+      iPhone 13 Pro. Sirve para los encargos que piden un iPhone 11 o
+      posterior, o iOS reciente.
     - "Ordenador con Windows."
     - "Ordenador Mac."
     - "Cámara de fotos y vídeo de calidad profesional."
@@ -106,12 +111,23 @@ campos:
       o una experiencia acreditable que no está en mi lista, un aparato o
       una documentación que no tengo, o un desplazamiento fuera de España.
       Si lo que pide encaja con el perfil de arriba, es "si".
+    idioma_no_indicado: >-
+      Cuando la oferta pide voz, locución, narración, vídeo hablado,
+      llamada, entrevista o cualquier otra cosa que haya que decir en voz
+      alta, y no dice en qué idioma, se presume el idioma en el que está
+      escrita la oferta. Casi todas están escritas en inglés, así que casi
+      siempre se presume inglés, y entonces compatible es "no": "la
+      locución se presume en inglés y no lo hablo con soltura". Esto no es
+      una duda que haya que consultarme: es la presunción por defecto. Solo
+      cuando la oferta declara el idioma y ese idioma es el español o el
+      gallego, la voz es cosa mía.
     ante_la_duda: >-
       Se deja en blanco y se me pregunta. Aquí sí cabe la abstención: es
       preferible una fila sin clasificar a una clasificación inventada.
     ejemplos_no:
       - "exige inglés nativo"
       - "exige inglés hablado con fluidez y aparecer en cámara"
+      - "la locución se presume en inglés y no lo hablo con soltura"
       - "exige experiencia probada en ventas B2B"
       - "no dispongo de número de EE. UU."
       - "reservada a otra cuenta"
