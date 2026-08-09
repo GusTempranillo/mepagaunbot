@@ -2,25 +2,31 @@
 #  Ofertas registradas. Definición del registro previo: se anotan
 #  TODAS, también las que no interesan.
 #
-#  origen          "email" (llega a la bandeja, «matches your
-#                   skills») o "listado" (listado público de
-#                   encargos, hipótesis 5 — encaje conmigo o no).
-#                   Cada una mide una cosa distinta; no se suman.
+#  en_email        "si" si la oferta llegó a la bandeja como alerta
+#                  («matches your skills»). Denominador de la
+#                  hipótesis 4.
+#  en_listado      "si" si la oferta apareció en el listado público
+#                  de encargos, encajase conmigo o no. Denominador
+#                  de la hipótesis 5.
+#
+#  Los dos pueden ser "si" a la vez: una misma oferta puede llegar
+#  por correo y estar además en el listado. Cuenta en los dos
+#  denominadores, y por eso no se suman entre sí.
 #
 #  Las columnas de la alerta no se interpretan. Las cuatro últimas
 #  las decide el autor, y miden cosas distintas:
 #
-#    disponible_es   ¿Me dejan entrar? Hipótesis 5, sobre origen
-#                    "listado". Solo cuenta presencia física fuera
+#    disponible_es   ¿Me dejan entrar? Hipótesis 5, sobre en_listado
+#                    "si". Solo cuenta presencia física fuera
 #                    de España o una verificación, documentación o
 #                    residencia que no pueda cumplir viviendo aquí.
 #                    Ante la duda, "si": si me equivoco, que sea en
 #                    mi contra.
 #    motivo          El requisito literal que cierra la puerta.
-#    modalidad       Hipótesis 4, solo sobre origen "email": remota
+#    modalidad       Hipótesis 4, solo sobre en_email "si": remota
 #                    | presencial en Galicia | presencial fuera de
 #                    Galicia.
-#    compatible      Hipótesis 4, solo sobre origen "email": ¿puedo
+#    compatible      Hipótesis 4, solo sobre en_email "si": ¿puedo
 #                    hacerla? Habilidades y equipo. Una oferta puede
 #                    estar abierta y ser incompatible: eso es justo
 #                    lo que se quiere ver.
@@ -28,7 +34,8 @@
 #
 #  Vacío = sin clasificar (o no aplica a ese origen), y así se
 #  muestra en /ofertas/.
-#  Codificado el 2026-08-07, ampliado con "origen" el 2026-08-09.
+#  Codificado el 2026-08-07, ampliado con en_email/en_listado el
+#  2026-08-09.
 #  El texto de las ofertas no se reproduce: solo sus metadatos.
 # ─────────────────────────────────────────────────────────────
 
@@ -48,7 +55,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige inglés hablado con fluidez y aparecer en cámara"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-28
     id: "qa_SNphiyIrsflkZ3dEDqsP_2026-07-24"
@@ -65,7 +73,8 @@ ofertas:
     modalidad: ""
     compatible: ""
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-28
     id: "qa_cYS6Y4O9xARTDqHOWaSo_2026-07-28"
@@ -82,7 +91,8 @@ ofertas:
     modalidad: ""
     compatible: ""
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-29
     id: "Putf55Gplv0POJk7cHoX"
@@ -99,7 +109,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-29
     id: "gZpCVicOEYQl73jFpHJN"
@@ -116,7 +127,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige inglés hablado con fluidez y aparecer en cámara"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-30
     id: "qa_Xt1SaRIZielATR7cmDsE_2026-07-30"
@@ -133,7 +145,8 @@ ofertas:
     modalidad: ""
     compatible: ""
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-30
     id: "pRsNn6mXNVhOHf29phIb"
@@ -150,7 +163,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige experiencia probada en ventas B2B"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-30
     id: "QVvZdmjFMLUU744ThxAF"
@@ -167,7 +181,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-30
     id: "xIyJNgieKetZ8UzZaIz3"
@@ -184,7 +199,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "no dispongo de número de EE. UU."
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-30
     id: "2dxKcTcT6CSsPHnZB65l"
@@ -201,7 +217,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-31
     id: "38TXMPomIhHp3QBG60WK"
@@ -218,7 +235,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "reservada a otra cuenta"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-31
     id: "TtiJy6jmY3pmKhMp1a6O"
@@ -235,7 +253,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige inglés nativo"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-07-31
     id: "mFJIqppJQ14WQbagDAzj"
@@ -252,7 +271,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige inglés nativo"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-01
     id: "eNBcmDA0zIWLonlaVMn4"
@@ -269,7 +289,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "no resido en Estados Unidos"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-03
     id: "mwPj393yL3T2cFAcwu2a"
@@ -286,7 +307,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "no resido en Estados Unidos"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-04
     id: "qa_l0KWxLUNliMa79WIKykW_2026-08-04"
@@ -303,7 +325,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-04
     id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
@@ -320,7 +343,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-04
     id: "izwYIqNhHdTzQY6bd8sm"
@@ -337,7 +361,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige inglés nativo y perfil de desarrollo web"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-04
     id: "qa_TuIYC2dI6ZZu6cVXzP0J_2026-08-04"
@@ -354,7 +379,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-04
     id: "VNVIkY7jtNozufxAcjpw"
@@ -371,7 +397,8 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige experiencia probada redactando CV y conocimiento del sector minero"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-05
     id: "6sEv2k1WDrvGohc52hP7"
@@ -388,7 +415,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-06
     id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
@@ -405,7 +433,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-06
     id: "6H1Osi3kkGw1EkdNwVJx"
@@ -422,7 +451,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
@@ -439,7 +469,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-07
     id: "qa_YoVFSaMAshWMX7EhrBkc_2026-08-06"
@@ -456,7 +487,8 @@ ofertas:
     modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"
 
   - fecha: 2026-08-07
     id: "oDNyOzZKsZcJe5uJtPEF"
@@ -473,4 +505,5 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "una llamada internacional es costosa y no estoy preparado para mantener un diálogo en inglés sobre productos farmacéuticos"
-    origen: "email"
+    en_email: "si"
+    en_listado: "no"

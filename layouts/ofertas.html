@@ -6,13 +6,16 @@
 {{ $precios := slice }}
 {{ range $o }}{{ with .pago_usd }}{{ $precios = $precios | append (float .) }}{{ end }}{{ end }}
 {{ $precios = sort $precios }}
-{{/* Dos orígenes, dos hipótesis, dos denominadores: no se mezclan.
-     "email" = llega a la bandeja (hipótesis 4: de las que la
-     plataforma cree mías, ¿cuántas puedo aceptar de verdad?).
-     "listado" = listado público entero, encaje conmigo o no
-     (hipótesis 5: ¿me dejan entrar?). */}}
-{{ $alertas := where $o "origen" "email" }}
-{{ $listado := where $o "origen" "listado" }}
+{{/* Dos vías, dos hipótesis, dos denominadores. Una misma oferta
+     puede venir por las dos, así que estos dos grupos se solapan
+     y no suman el total: eso es correcto, no un error de cuentas.
+     en_email  = llegó a la bandeja (hipótesis 4: de las que la
+                 plataforma cree mías, ¿cuántas puedo aceptar?).
+     en_listado = estaba en el listado público, encaje conmigo o no
+                 (hipótesis 5: ¿me dejan entrar?). */}}
+{{ $alertas := where $o "en_email" "si" }}
+{{ $listado := where $o "en_listado" "si" }}
+{{ $ambas := where $alertas "en_listado" "si" }}
 {{ $clasificadas := where $listado "disponible_es" "!=" "" }}
 {{ $disponibles := where $listado "disponible_es" "si" }}
 {{ $compatibles := where $alertas "compatible" "!=" "" }}
@@ -23,7 +26,7 @@
   <article class="prose">
     <div class="sechead">
       <h2>Ofertas · página viva</h2>
-      <span class="note" style="margin:0">{{ $total }} ofertas registradas · {{ len $alertas }} de bandeja · {{ len $listado }} de listado público</span>
+      <span class="note" style="margin:0">{{ $total }} ofertas registradas · {{ len $alertas }} llegaron por correo · {{ len $listado }} estaban en el listado público{{ with $ambas }} · {{ len . }} por las dos vías{{ end }}</span>
     </div>
     <h3 class="title">{{ .Title }}</h3>
     {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
@@ -45,11 +48,11 @@
         <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
       </div>
       <div class="tile">
-        <span class="lbl">Puedo hacerla <small>· H4, bandeja</small></span>
+        <span class="lbl">Puedo hacerla <small>· H4, correo</small></span>
         <div class="val">{{ if $compatibles }}{{ len (where $alertas "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
       </div>
       <div class="tile">
-        <span class="lbl">Presencial en Galicia <small>· bandeja</small></span>
+        <span class="lbl">Presencial en Galicia <small>· correo</small></span>
         <div class="val">{{ len (where $alertas "modalidad" "presencial en Galicia") }}<small>/{{ len $alertas }}</small></div>
       </div>
     </div>
@@ -75,7 +78,7 @@
       <table>
         <thead>
           <tr>
-            <th>Fecha</th><th>Origen</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
+            <th>Fecha</th><th>Vista en</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
             <th>Modalidad</th><th>¿Me dejan entrar?</th><th>¿Puedo hacerla?</th>
           </tr>
         </thead>
@@ -83,11 +86,14 @@
           {{ range sort $o "fecha" "desc" }}
             <tr>
               <td>{{ .fecha }}</td>
-              <td>{{ if eq .origen "listado" }}listado{{ else }}bandeja{{ end }}</td>
+              {{ $vias := slice }}
+              {{ if eq .en_email "si" }}{{ $vias = $vias | append "correo" }}{{ end }}
+              {{ if eq .en_listado "si" }}{{ $vias = $vias | append "listado" }}{{ end }}
+              <td>{{ if $vias }}{{ delimit $vias " + " }}{{ else }}<span class="note">—</span>{{ end }}</td>
               <td>{{ .titulo }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}</td>
               <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
               <td>{{ if .pago_usd }}${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}/h{{ end }}{{ else }}—{{ end }}</td>
-              <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">{{ if eq .origen "listado" }}no aplica{{ else }}—{{ end }}</span>{{ end }}</td>
+              <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">{{ if ne .en_email "si" }}no aplica{{ else }}—{{ end }}</span>{{ end }}</td>
               <td>
                 {{ if eq .disponible_es "si" }}Sí
                 {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
@@ -96,7 +102,7 @@
               <td>
                 {{ if eq .compatible "si" }}Sí
                 {{ else if eq .compatible "no" }}No{{ with .motivo_compat }} <span class="note">· {{ . }}</span>{{ end }}
-                {{ else }}<span class="note">{{ if eq .origen "listado" }}no aplica{{ else }}sin clasificar{{ end }}</span>{{ end }}
+                {{ else }}<span class="note">{{ if ne .en_email "si" }}no aplica{{ else }}sin clasificar{{ end }}</span>{{ end }}
               </td>
             </tr>
           {{ end }}
@@ -108,6 +114,7 @@
         ({{ len $alertas }}{{ with $alertas }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ end }})
         y el listado público de encargos, consultado a diario
         ({{ len $listado }}{{ with $listado }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ else }}, todavía sin lecturas{{ end }}).
+        {{ with $ambas }}{{ len . }} aparecieron por las dos vías y cuentan en los dos denominadores, así que las dos cifras no suman el total.{{ end }}
         Se registran todas, también las que no interesan.
         {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
         Se publican los metadatos, no el texto de las ofertas.
