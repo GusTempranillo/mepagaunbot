@@ -1,0 +1,126 @@
+# Criterios de clasificación de ofertas
+#
+# Con esto se rellenan las cinco columnas de juicio de cada oferta:
+# disponible_es, motivo, modalidad, compatible y motivo_compat.
+#
+# Un modelo de lenguaje las propone aplicando este fichero. Yo las firmo
+# una por una. Ninguna clasificación llega a la web sin mi firma, y el
+# modelo tiene orden de dejar la fila en blanco y preguntarme cuando dude.
+# El procedimiento entero está descrito en /metodo/.
+#
+# Este fichero es público a propósito. Los criterios que aplica la máquina
+# son exactamente estos, no otros, y si algún día los cambio el historial
+# de git dice cuándo y en qué.
+
+version: 1
+fecha: 2026-08-09
+
+perfil:
+  base: >-
+    Un pueblo de Galicia, España. Trabajador dado de alta en RentAHuman
+    como persona física.
+
+  desplazamiento: >-
+    Puedo desplazarme por toda España si el encargo cubre el viaje. Fuera
+    de España, no.
+
+  idiomas:
+    - "Español: nativo. Escrito y hablado, incluida voz para grabaciones."
+    - "Gallego: nativo. Escrito y hablado, incluida voz para grabaciones."
+    - >-
+      Inglés: lo leo y lo escribo con ayuda de traductor. No lo hablo con
+      soltura. No sirvo para llamadas, entrevistas, reuniones ni
+      grabaciones de voz o vídeo en inglés.
+
+  aparatos:
+    - "Móvil Android con número de teléfono español."
+    - "iPhone."
+    - "Ordenador con Windows."
+    - "Ordenador Mac."
+    - "Cámara de fotos y vídeo de calidad profesional."
+    - "Micrófono decente para grabar voz."
+
+  habilidades:
+    - "Guion: soy guionista profesional."
+    - "Voz: locución nativa en español y en gallego."
+    - "Composición musical."
+    - "Photoshop y edición de imagen: composición, retoque, preparación para imprenta."
+    - "Fotografía y vídeo."
+    - "Pruebas de software (QA): seguir un guion de pruebas, grabar la pantalla, redactar incidencias con pasos de reproducción."
+    - "Redacción e investigación en español."
+    - "Hojas de cálculo y trabajo con datos: etiquetar, clasificar, transcribir, limpiar."
+
+  no_tengo:
+    - "Residencia, documentación, cuenta bancaria ni número de teléfono de Estados Unidos."
+    - "Experiencia acreditable en sectores especializados que no estén en la lista de arriba: ventas B2B, minería, farmacia, desarrollo web, medicina, derecho."
+    - "Acceso a cuentas de terceros ni a encargos reservados a otro trabajador concreto de la plataforma."
+    - "Vehículo comercial, licencias profesionales ni titulaciones regladas de ningún oficio."
+
+campos:
+
+  disponible_es:
+    pregunta: >-
+      ¿Podría hacer esta oferta cualquier persona ubicada en España, sea
+      quien sea? No va de mí: va de la geografía y del papeleo.
+    valores: ["si", "no"]
+    regla: >-
+      Es "no" solo si la oferta exige presencia física fuera de España, o
+      una residencia, documentación, verificación, número de teléfono o
+      cuenta bancaria que no se puede tener viviendo en España. Todo lo
+      demás es "si".
+    ante_la_duda: >-
+      Se cuenta como "si". Esta regla no admite abstención: es la condición
+      que firmé en el registro previo para la hipótesis 5, y el error tiene
+      que caer en mi contra, nunca a mi favor.
+    ejemplos_no:
+      - "Exige estar ubicado en Estados Unidos."
+      - "Exige un número de teléfono de EE. UU. real, no VoIP."
+      - "Exige residencia legal en Estados Unidos o Reino Unido."
+      - "Está reservada a una cuenta concreta de la plataforma."
+
+  motivo:
+    regla: >-
+      Se rellena solo cuando disponible_es es "no". Una frase corta en
+      español, en minúscula, sin punto final, que empiece por el verbo y
+      diga qué puerta cierra: "exige residir en Estados Unidos". Cuando
+      disponible_es es "si", se deja vacío.
+
+  modalidad:
+    pregunta: ¿Dónde hay que estar para hacerla?
+    valores: ["remota", "presencial en Galicia", "presencial fuera de Galicia"]
+    regla: >-
+      "remota" si se puede hacer entera desde casa. Si exige presencia
+      física, "presencial en Galicia" cuando el sitio está en Galicia y
+      "presencial fuera de Galicia" en cualquier otro caso, dentro o fuera
+      de España. Es una clasificación mecánica: sale de la ubicación que
+      declara la oferta.
+
+  compatible:
+    pregunta: >-
+      ¿Puedo hacerla yo, con lo que sé y con lo que tengo? Es una pregunta
+      de capacidad, no de voluntad: si sé hacerla, es "si" aunque no me
+      apetezca.
+    valores: ["si", "no"]
+    regla: >-
+      Es "no" cuando la oferta pide un idioma que no manejo, una habilidad
+      o una experiencia acreditable que no está en mi lista, un aparato o
+      una documentación que no tengo, o un desplazamiento fuera de España.
+      Si lo que pide encaja con el perfil de arriba, es "si".
+    ante_la_duda: >-
+      Se deja en blanco y se me pregunta. Aquí sí cabe la abstención: es
+      preferible una fila sin clasificar a una clasificación inventada.
+    ejemplos_no:
+      - "exige inglés nativo"
+      - "exige inglés hablado con fluidez y aparecer en cámara"
+      - "exige experiencia probada en ventas B2B"
+      - "no dispongo de número de EE. UU."
+      - "reservada a otra cuenta"
+
+  motivo_compat:
+    regla: >-
+      Se rellena solo cuando compatible es "no". Mismo formato que motivo:
+      una frase corta en español, en minúscula, sin punto final, que diga
+      qué me falta. Cuando compatible es "si", se deja vacío.
+
+# La clasificación no juzga si el encargo me parece digno. Eso es la
+# hipótesis 7 del registro previo, se decide en otro sitio y lo decido yo.

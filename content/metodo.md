@@ -21,6 +21,40 @@ Todo dato lleva enlace a la fuente y enlace a la copia archivada. Si mañana Ren
 
 Registro diario de las ofertas: las que llegan a mi bandeja y las del listado público. De cada encargo que acepte, el tiempo que me lleva de principio a fin. Un día sin ofertas se anota igual. El cero es el resultado más probable de todo esto y omitirlo sería el sesgo más fácil de colar.
 
+## La máquina propone, yo firmo
+
+Cada día aparecen más de cien ofertas en el listado público. Clasificarlas
+todas a mano —si dejan entrar a alguien de España, si puedo hacerlas yo, si
+son remotas o presenciales— me llevaría más tiempo del que tengo, y el día
+que no llegue empezaría a mirar solo las que me parecen interesantes. Eso
+sería el sesgo entrando por la puerta de atrás.
+
+Así que lo hace un modelo de lenguaje. Pero no decide: propone.
+
+Mis criterios están escritos en un fichero del repositorio,
+[`data/criterios.yaml`](https://github.com/GusTempranillo/mepagaunbot/blob/main/data/criterios.yaml),
+público y fechado. Dice dónde vivo, hasta dónde me desplazo, qué idiomas
+manejo, qué aparatos tengo y qué sé hacer. El modelo recibe ese fichero
+entero y una oferta, y devuelve una propuesta de clasificación. Aplica mis
+reglas; no inventa las suyas. Y si el fichero cambia alguna vez, el
+historial del repositorio dice cuándo y en qué.
+
+Esa propuesta no se publica. Se queda esperando en la hoja de cálculo hasta
+que la miro, la corrijo si hace falta y la firmo una por una. Solo entonces
+llega a los datos de este sitio. Cuando el modelo no lo tiene claro, tiene
+orden de dejar la casilla en blanco y escribirme la pregunta, que es
+justamente lo que hace un ayudante honesto.
+
+Dos cosas que quiero dejar claras. La primera: la oferta se registra
+siempre, esté firmada o no. Lo que espera mi firma es el juicio, nunca el
+recuento; si no, el denominador de la [hipótesis 5](/registro-previo/)
+dependería de mi ritmo de revisión, y eso lo invalidaría. La segunda: las
+ofertas que me llegan al correo las he clasificado yo a mano, una a una,
+desde el primer día.
+
+Lo que el modelo no toca es si un encargo me parece indigno. Esa es la
+hipótesis 7, va de mí y no de la plataforma, y no pienso delegarla.
+
 ## Lo que no hago
 
 No entro en la mensajería interna de RentAHuman. No sondeo el sistema a ver qué pasa. No me apunto a programas de referidos ni a nada que me pague por traer gente. No cito a nadie sin su permiso escrito. No especulo sobre las intenciones de nadie: describo lo que hace.
