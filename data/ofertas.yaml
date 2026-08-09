@@ -205,8 +205,8 @@ ofertas:
   - fecha: 2026-07-30
     id: "pRsNn6mXNVhOHf29phIb"
     titulo: "Sales Commission Rep – GetSetReply (Review Management for SMBs)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Representante de ventas B2B por comisión para plataforma de reseñas"
+    resumen_es: "Hay que captar pequeñas y medianas empresas de Estados Unidos para una plataforma de gestión de reseñas online. Exige experiencia previa en ventas B2B, generar leads por cuenta propia, contactar de forma ética a negocios como restaurantes o tiendas, y entregar datos de seguimiento de referidos. Parte de la comisión se abona fuera de la plataforma una vez el cliente lleva dos meses pagando."
     categoria: "crew-gigs"
     pago_usd: 50
     tipo: "fixed"
@@ -373,8 +373,8 @@ ofertas:
   - fecha: 2026-08-03
     id: "mwPj393yL3T2cFAcwu2a"
     titulo: "Referral Bounty: Founding Program Director for Gravity Wizards Inc. (STEM Youth Leader)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Recompensa por referir director fundador de programa juvenil STEM"
+    resumen_es: "Hay que identificar y referir candidatos para un puesto de director fundador de programa juvenil STEM. Cada referido debe tener experiencia relevante, perfil profesional y enviar un resumen de 200 palabras. El encargo está abierto solo a residentes legales de Estados Unidos y los referidos deben serlo también."
     categoria: "crew-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -415,8 +415,8 @@ ofertas:
   - fecha: 2026-08-04
     id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
     titulo: "QA test: GitHub QA: #2824 @ 58ba5edfdae2 — 2026-08-04"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Prueba QA de una web con video narrado de pantalla y micrófono"
+    resumen_es: "Hay que probar una web desplegada como usuario real y grabar un video con pantalla y micrófono narrando todo el flujo. Se debe explicar cada error o interacción confusa incluyendo pasos exactos para reproducirlo y una severidad. Se entrega el video narrado, una captura de pantalla y los reportes en el chat del tester."
     categoria: "computer-gigs"
     pago_usd: 3
     tipo: "fixed"
@@ -436,8 +436,8 @@ ofertas:
   - fecha: 2026-08-04
     id: "izwYIqNhHdTzQY6bd8sm"
     titulo: "Technical & Business Meeting Representative for Website Build Project"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "representante en reuniones técnicas y de negocio para proyecto web"
+    resumen_es: "asiste a unas diez reuniones semanales por vídeo como representante del cliente frente a desarrolladores y terceros, hablando de requisitos técnicos y comerciales de un proyecto web. después de cada sesión debe entregar un resumen escrito con los puntos clave, decisiones y acciones pendientes. exige residir en Estados Unidos o Reino Unido, ser nativo inglés y tener experiencia en desarrollo web."
     categoria: "computer-gigs"
     pago_usd: 40
     tipo: "hourly"
@@ -520,8 +520,8 @@ ofertas:
   - fecha: 2026-08-06
     id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
     titulo: "QA test: Taste iPhone TestFlight QA — build 7 — 2026-08-06"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Prueba de QA de la app Taste en iPhone por TestFlight"
+    resumen_es: "Instalar la beta build 7 de la app Taste desde TestFlight en un iPhone físico y probar el flujo de primer uso: votos, registro, perfiles, subida de fotos y rankings. Grabar la pantalla con audio narrando acciones y errores. Entregar el vídeo (máximo 25 MB), una captura y un informe con cada incidencia, su severidad y pasos de reproducción. Requiere indicar modelo de iPhone, versión de iOS y…"
     categoria: "computer-gigs"
     pago_usd: 5
     tipo: "fixed"
@@ -541,8 +541,8 @@ ofertas:
   - fecha: 2026-08-06
     id: "6H1Osi3kkGw1EkdNwVJx"
     titulo: "Photoshop Expert Needed – Campaign Compositing, Retouching, Print Prep, Matte Painting & UI Assets"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Composición, retoque, preprensa, matte painting y assets UI en Photoshop"
+    resumen_es: "Hay que realizar tareas de Photoshop a través de una plataforma propia: composición de imágenes, retoque fotográfico, preparación para impresión, matte painting o creación de assets de interfaz. Cada sesión de trabajo debe grabarse en pantalla y enviarse junto con el archivo final. Todo es remoto y hay que cumplir las normas de calidad de la plataforma dentro del plazo de tres semanas."
     categoria: "creative-gigs"
     pago_usd: 35
     tipo: "fixed"
@@ -562,8 +562,8 @@ ofertas:
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
     titulo: "QA test: Amboras first-impression review — 2026-08-06"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Prueba de QA: revisión de primera impresión de Amboras"
+    resumen_es: "Hay que probar una URL concreta y reportar todos los problemas que surjan, indicando su gravedad y los pasos exactos para reproducirlos. Solo se admite evidencia capturada por el propio tester durante esta ejecución. El trabajo se hace de forma remota."
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -667,8 +667,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "1HHivKXcxBVYd3fa1Uid"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Abrir cuenta en Racct y publicar 10 artículos reales en San Francisco"
+    resumen_es: "Crear cuenta nueva en el marketplace Racct con selfie actual y un perfil social vinculado. Publicar 10 artículos personales reales con fotos originales, descripción exacta y precio razonable, disponibles para recogida y entrega local en San Francisco. Mantenerlas activas 24 horas seguidas. Requisito: residir en San Francisco y no haber tenido cuenta previa."
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
@@ -751,8 +751,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "2BMCLQJlLuwOxNYb7UXH"
     titulo: "Follow me on IG @digishaps, Send me SS with your wallet address I will send payment first 1k applicant"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Seguir cuenta en Instagram y enviar captura con dirección de wallet"
+    resumen_es: "Hay que seguir la cuenta de Instagram @digishaps y enviar una captura de pantalla junto con la dirección de un monedero digital. El cliente enviará el pago primero a los primeros mil participantes que cumplan el requisito. El trabajo se hace de forma remota y no requiere experiencia previa."
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -835,8 +835,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "33j2GfABMv08zutjvv05"
     titulo: "Mix masteing ( Rap , pop , Trap , emo rap , cloud rap , Us rap )"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "mezcla y masterización de pistas de rap, pop y trap"
+    resumen_es: "hay que mezclar y masterizar pistas de voz en bruto para temas de rap, pop, trap y géneros similares. se trabaja con fl studio y plugins de efectos. el cliente pide que las pistas de voz se envíen sin efectos aplicados. la coordinación se hace en inglés escrito."
     categoria: "research"
     pago_usd: 30
     tipo: "fixed"
@@ -856,8 +856,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "4UFQ6XHeON2Yq3zmFWBF"
     titulo: "Chill and vibe with me and brainstorm startup ideas with me"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "brainstorming presencial de ideas de startup en san francisco"
+    resumen_es: "hay que reunirse presencialmente en san francisco para brainstormear ideas de startup. el cliente busca alguien con quien colaborar, intercambiar opiniones o criticar sus propuestas de forma improvisada. la oferta no permite trabajo remoto y requiere estar físicamente en la ubicación indicada"
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "hourly"
@@ -866,7 +866,7 @@ ofertas:
     identidad: "No"
     consulta: "ok"
     disponible_es: "no"
-    motivo: "exige presencia física en Estados Unidos"
+    motivo: "exige presencia física en estados unidos"
     modalidad: ""
     compatible: ""
     motivo_compat: ""
@@ -898,8 +898,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "5wrpfodUndACFfff27Nm"
     titulo: "Tell us your honest opinion about this product! (Fast $1)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Opinión sobre pijama de seda con estampado de corazones"
+    resumen_es: "Hay que visitar la página de un pijama de seda para mujer, ver las fotos y la descripción, y responder dos preguntas escritas en inglés: qué te gusta del diseño y si preferirías otros colores. Las respuestas deben ser detalladas y útiles. El trabajo es remoto y solo requiere conexión a internet."
     categoria: "research"
     pago_usd: 1
     tipo: "fixed"
@@ -1066,8 +1066,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "b4M77a3ttIJYPv503HYQ"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Publicar 10 artículos en Racct desde San Francisco durante 24 horas"
+    resumen_es: "Crear una cuenta nueva en el marketplace Racct usando una selfie actual como foto de perfil y vincular un perfil social propio. Publicar 10 artículos personales reales con fotos originales, descripciones precisas y precio de mercado, disponibles para recogida y entrega local en San Francisco. Mantener los anuncios activos durante al menos 24 horas consecutivas y enviar la prueba solicitada sin…"
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
@@ -1076,7 +1076,7 @@ ofertas:
     identidad: "No"
     consulta: "ok"
     disponible_es: "no"
-    motivo: "exige residir en san francisco"
+    motivo: "exige residir en san francisco, california"
     modalidad: ""
     compatible: ""
     motivo_compat: ""
@@ -1213,8 +1213,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "ECMLQtywJIhHHinKAoYB"
     titulo: "Bug Testing - VertexSender.com"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Pruebas de calidad y reporte de bugs en VertexSender.com"
+    resumen_es: "Hay que probar el sitio web vertexsender.com para encontrar errores funcionales, de seguridad o de usabilidad. Para cada bug encontrado hay que enviar un correo a la dirección indicada con una descripción detallada, los pasos para reproducirlo, el comportamiento esperado frente al real, y capturas o vídeos si es posible. Si se aporta también una solución, se ofrece una recompensa adicional."
     categoria: "tech-dev"
     pago_usd: 1
     tipo: "fixed"
@@ -1633,8 +1633,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "jGEvz7I1r6ncjxt2wiMY"
     titulo: "HITL Transcriber — Sinhalese Conversational Audio"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Transcripción de audio conversacional en cingalés"
+    resumen_es: "Hay que transcribir audios conversacionales en cingalés para entrenar un modelo de inteligencia artificial. Se entrega un archivo JSON por grabación con marcas de tiempo, etiquetas de hablante y orden secuencial de intervenciones, corrigiendo el borrador automático o transcribiendo desde cero cuando el reconocimiento falle. Se requiere ser hablante nativo, tener ordenador y cumplir el calendario…"
     categoria: "research-fieldwork"
     pago_usd: 5
     tipo: "fixed"
@@ -1654,8 +1654,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "jSF10wQlPADTius9wwG3"
     titulo: "HITL Transcriber — Haitian Creole Conversational Audio"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Transcriptor de audio conversacional en criollo haitiano"
+    resumen_es: "Hay que transcribir audio conversacional en criollo haitiano para entrenar un modelo de IA. Se entrega un borrador automático que debe corregirse o rehacerse, y el resultado final debe estar en JSON con marcado temporal, etiquetas por hablante y orden secuencial. Se exige una declaración de que el trabajo es humano o revisado por humanos, y superar el control de calidad por muestreo del cliente."
     categoria: "research-fieldwork"
     pago_usd: 5
     tipo: "fixed"
@@ -1780,8 +1780,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "lfLBauj1z7czPeOw1fTW"
     titulo: "Get Paid to Record Everyday Tasks at Home 📱🏠"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Grabar tareas domésticas en casa con iPhone"
+    resumen_es: "Hay que descargar una app y crear una cuenta. Después, grabar en primera persona con el iPhone mientras se hacen tareas domésticas como limpiar, cocinar o organizar siguiendo las instrucciones de la app y subir los vídeos. Requiere ser mayor de edad, tener un iPhone 11 o posterior y conexión estable a internet"
     categoria: "research-fieldwork"
     pago_usd: 3
     tipo: "hourly"
@@ -1801,8 +1801,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "LiEjhkkWmndLbJdNVXmk"
     titulo: "HITL Transcriber — Oromo Conversational Audio"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Transcriptor de audio conversacional en oromo"
+    resumen_es: "Hay que transcribir grabaciones de audio conversacional en oromo y entregar el resultado en archivos JSON con marca de tiempo, etiquetas por hablante y orden secuencial. Se parte de un borrador automático que debe corregirse al 95 % de precisión mínima, o transcribir desde cero si el reconocimiento falla. Se requiere ser hablante nativo de oromo y firmar una declaración de que el trabajo es…"
     categoria: "research-fieldwork"
     pago_usd: 5
     tipo: "fixed"
@@ -1843,8 +1843,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "LvIKelzbVHUM7AysalAj"
     titulo: "Wish Eli a Happy Birthday on Video! 🎂"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Grabar vídeo de felicitación de cumpleaños para Eli"
+    resumen_es: "Hay que grabar un vídeo corto y personal deseando feliz cumpleaños a Eli de forma entusiasta y cálida. Debes decir que es un tipo genial (geiler Typ) y mantener un tono genuino y energético, no forzado. Se graba desde cualquier lugar con buena calidad de audio y vídeo, incluso con smartphone, y hay que entregarlo en 24 horas."
     categoria: "creative-media"
     pago_usd: 5
     tipo: "fixed"
@@ -1927,8 +1927,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "MtR6RipA5P0QyjoZciuf"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "registrarse en racct y publicar 10 artículos reales en san francisco"
+    resumen_es: "Hay que crear una cuenta nueva en Racct, poner un selfie de perfil, conectar una red social propia y publicar 10 artículos personales reales con fotos originales y precios de mercado. Los artículos deben estar disponibles para recogida y entrega local en San Francisco y mantenerse activos durante 24 horas seguidas. Se entregarán las pruebas solicitadas sin exponer contraseñas ni documentos de…"
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
@@ -1937,7 +1937,7 @@ ofertas:
     identidad: "No"
     consulta: "ok"
     disponible_es: "no"
-    motivo: "exige residir en san francisco"
+    motivo: "exige residir en san francisco, california"
     modalidad: ""
     compatible: ""
     motivo_compat: ""
@@ -2053,8 +2053,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "NsLB3xgw68n98fAnqh0K"
     titulo: "HITL Transcriber — Afrikaans Conversational Audio"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "transcripción de audio conversacional en afrikaans"
+    resumen_es: "Transcribir audio conversacional en afrikaans para entrenar inteligencia artificial. Se entrega un json con marcado de tiempo, diarización de hablantes y orden secuencial de intervenciones, con mínimo un 95 % de precisión. Exige ser hablante nativo, disponer de ordenador y confirmar que el trabajo es humano o revisado por humanos."
     categoria: "research-fieldwork"
     pago_usd: 5
     tipo: "fixed"
@@ -2095,8 +2095,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "OPLdcUI1VpVjge3AQnxL"
     titulo: "Taste test new restaurant menu"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Probar menú de restaurante italiano y escribir reseña"
+    resumen_es: "Hay que acudir a un restaurante italiano nuevo cerca de Union Square en San Francisco para probar sus platos de pasta. Se pide entregar una reseña escrita con feedback detallado sobre sabor, presentación, tamaño de las porciones y relación calidad-precio. Requiere no tener alergias al gluten ni a los lácteos y disponibilidad este fin de semana."
     categoria: "food-tasting"
     pago_usd: 50
     tipo: "hourly"
@@ -2200,8 +2200,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "Qn6YtnY2vA6AeOKsKL9k"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Crear cuenta en Racct y publicar 10 artículos en San Francisco"
+    resumen_es: "Se necesita vivir en San Francisco y no haber tenido nunca una cuenta en Racct. Tras crear una cuenta nueva con una selfie de perfil y vincular una red social propia, hay que publicar diez artículos reales de tu propiedad con fotos originales, descripción fiel y precio de mercado. Los artículos deben estar disponibles para recogida y entrega local y permanecer publicados al menos veinticuatro…"
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
@@ -2210,7 +2210,7 @@ ofertas:
     identidad: "No"
     consulta: "ok"
     disponible_es: "no"
-    motivo: "exige residir en estados unidos"
+    motivo: "exige residir en San Francisco"
     modalidad: ""
     compatible: ""
     motivo_compat: ""
@@ -2284,8 +2284,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "qt6Jf0lWoxfm6lI7BdC3"
     titulo: "Looking for Software Engineers who can handle interviews (English Speaking)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Ingeniero de software para entrevistas técnicas en inglés"
+    resumen_es: "Buscan ingeniero de software con más de cinco años de experiencia para participar en entrevistas técnicas y reuniones diarias en inglés. Exigen dominio verbal nativo o fluido del idioma, conocimientos sólidos de desarrollo moderno y flexibilidad para distintas zonas horarias."
     categoria: "tech-dev"
     pago_usd: 1000
     tipo: "fixed"
@@ -2515,8 +2515,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "tizpckM4lYQSEci80BPw"
     titulo: "Paid 30-minute trial: on-site data entry in our NYC office (ongoing work to follow)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "entrada de datos presencial en oficina de Nueva York"
+    resumen_es: "Hay que configurar cuentas de programas de fidelización de aerolíneas en un ordenador de la empresa, en su oficina del West Village de Manhattan. Se introducen los datos de registro que facilitan, se recuperan códigos de confirmación de un buzón y se anotan los números de cuenta en una hoja compartida. El trabajo es presencial en Nueva York y requiere disponibilidad entre semana."
     categoria: "computer-gigs"
     pago_usd: 15
     tipo: "hourly"
@@ -2599,8 +2599,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "Upoau8DY87WFSHNXHI8r"
     titulo: "Video Editor Needed: 3 Short Videos for X, TikTok & Instagram"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Edición de 3 vídeos cortos para X, TikTok e Instagram"
+    resumen_es: "Hay que editar 3 vídeos de aproximadamente un minuto a partir de material en bruto, adaptando cada pieza a los formatos de X, TikTok e Instagram Reels. El encargo incluye incorporar subtítulos, música y transiciones fluidas. El plazo de entrega es de 3 días y se valora experiencia previa en contenido corto viral."
     categoria: "creative"
     pago_usd: 40
     tipo: "fixed"
@@ -2620,8 +2620,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "UTszfDA2SrKwxjtzu501"
     titulo: "Street DJ outside YC Startup School — Saturday exit (3 spots)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "DJ callejero con equipo propio en San Francisco para evento de salida"
+    resumen_es: "Hay que actuar como DJ en la calle cerca del Chase Center de San Francisco el sábado 25 de julio de 2026 entre las 16:30 y las 18:30. Se requiere equipo propio portátil con batería y tocar un set animado sin contenido explícito. Hay que mostrar un cartel facilitado, tomar fotos y vídeos con marca de tiempo desde el móvil, y cumplir las normas de permisos, ubicación y volumen que indique el…"
     categoria: "marketing-campaigns"
     pago_usd: 250
     tipo: "fixed"
@@ -2725,8 +2725,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "Vn6GHCrypKGRM4GJLKNe"
     titulo: "Leave a tiny artwork where it will be found"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Dejar una pequeña obra de arte donde alguien la encuentre"
+    resumen_es: "Hay que crear una pequeña obra original con materiales propios y dejarla en un espacio comunitario donde sean bienvenidas, como una galería de arte libre o una caja de intercambio. La pieza debe ir protegida del clima y nunca abandonada al aire libre sin protección. Se entrega una foto de prueba sin personas en el encuadre; la tarea debe hacerse en una ciudad de Estados Unidos."
     categoria: "creative-gigs"
     pago_usd: 18
     tipo: "fixed"
@@ -2788,8 +2788,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "wcnxCGrUBoxJ872jMxIf"
     titulo: "HITL Transcriber — Burmese Conversational Audio"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Transcripción de audio conversacional en birmano"
+    resumen_es: "Hay que transcribir audios conversacionales en birmano y entregar las transcripciones en formato JSON con marcas de tiempo, etiquetas por hablante y orden secuencial. El trabajo parte de un borrador generado por máquina que debe corregirse o rehacerse desde cero. Hay que adjuntar una declaración de que el resultado es humano."
     categoria: "research-fieldwork"
     pago_usd: 5
     tipo: "fixed"
@@ -2935,8 +2935,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "Yrui0nCL2xB5gEvWcK2g"
     titulo: "Need someone who is willing to earn money with me (Software Engineer Role)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "desarrollador full stack para colaboración continuada"
+    resumen_es: "se busca socio fiable para colaborar a largo plazo en proyectos de desarrollo full stack. se exige dominio fluido del inglés y experiencia demostrable en desarrollo web. el trabajo se hace en remoto"
     categoria: "tech-dev"
     pago_usd: 60
     tipo: "fixed"
@@ -2956,8 +2956,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "YzO75ecs6i079kqBwqoG"
     titulo: "Native Welsh Speaker — Paid Conversational Audio Recording"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Grabación de audio conversacional en galés para entrenamiento de IA"
+    resumen_es: "Hay que grabar audio conversacional en galés nativo, solo o con otros hablantes, y entregar los archivos en WAV o MP3 con metadatos detallados. Se requiere firmar un formulario de consentimiento y cumplir estándares de calidad de sonido. El proyecto acepta envíos continuos hasta el 14 de septiembre de 2026."
     categoria: "creative-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -2977,8 +2977,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "z22fMWz6DXC3WXjrY5IT"
     titulo: "Personal Assistant – Salt Lake City / Wasatch Front"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Asistente personal para recados en Salt Lake City"
+    resumen_es: "Se busca asistente personal para tareas recurrentes en el área de Salt Lake City y Wasatch Front, Utah. El trabajo incluye hacer recados, gestionar calendarios y citas, recoger y entregar objetos, y coordinar logística. Es un encargo presencial y recurrente que exige residir cerca de la zona."
     categoria: "domestic-gigs"
     pago_usd: 10
     tipo: "hourly"
@@ -2987,7 +2987,7 @@ ofertas:
     identidad: "Sí"
     consulta: "ok"
     disponible_es: "no"
-    motivo: "exige estar ubicado en Estados Unidos"
+    motivo: "exige presencia física en Estados Unidos"
     modalidad: ""
     compatible: ""
     motivo_compat: ""
@@ -2998,8 +2998,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "Zqi6Y4yKVck4lv11oweb"
     titulo: "Need someone who can talk native English in web stacks"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Desarrollador web con inglés nativo"
+    resumen_es: "Se busca desarrollador software con inglés nativo y conocimientos de desarrollo web para una reunión o consulta inicial. Requieren estar en Europa o Norteamérica, tener identidad verificada y conectar de forma remota."
     categoria: "tech-dev"
     pago_usd: 20
     tipo: "hourly"
