@@ -6,10 +6,14 @@
 # que no son un juicio sino una traducción: casi todas las ofertas llegan
 # en inglés y sin ellas la lista no hay quien la lea.
 #
-# Un modelo de lenguaje las propone aplicando este fichero. Yo las firmo
-# una por una. Ninguna clasificación llega a la web sin mi firma, y el
-# modelo tiene orden de dejar la fila en blanco y preguntarme cuando dude.
-# El procedimiento entero está descrito en /metodo/.
+# Un modelo de lenguaje las propone aplicando este fichero, y el modelo
+# tiene orden de dejar la fila en blanco y preguntarme cuando dude.
+#
+# «disponible_es» se publica sin esperar a que yo repase la fila, marcado
+# como automático mientras no lo haya hecho: es el único campo que alimenta
+# una hipótesis y su tasa de acierto está medida contra las ofertas que
+# clasifiqué a mano y publicada en /calibracion/. «compatible» y
+# «modalidad» sí esperan mi firma. El procedimiento entero está en /metodo/.
 #
 # Este fichero es público a propósito. Los criterios que aplica la máquina
 # son exactamente estos, no otros, y si algún día los cambio el historial

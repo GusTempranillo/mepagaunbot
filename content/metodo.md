@@ -39,46 +39,48 @@ entero y una oferta, y devuelve una propuesta de clasificación. Aplica mis
 reglas; no inventa las suyas. Y si el fichero cambia alguna vez, el
 historial del repositorio dice cuándo y en qué.
 
-Esa propuesta no se publica. Se queda esperando en la hoja de cálculo hasta
-que la miro, la corrijo si hace falta y la firmo una por una. Solo entonces
-llega a los datos de este sitio. Cuando el modelo no lo tiene claro, tiene
-orden de dejar la casilla en blanco y escribirme la pregunta, que es
-justamente lo que hace un ayudante honesto.
+Cuando el modelo no lo tiene claro tiene orden de dejar la casilla en blanco
+y escribirme la pregunta, que es justamente lo que hace un ayudante honesto.
 
-El mismo modelo hace además otra cosa que no es un juicio: traducir. Casi
-todas las ofertas llegan escritas en inglés, y muchas con títulos que no
-dicen nada de lo que hay que hacer, así que de cada una escribe un título y
-un resumen de dos o tres frases en español.
+Mi primera idea fue firmar cada fila a mano antes de publicarla. La descarté,
+y conviene que se sepa por qué. Con más de cien ofertas al día, una firma que
+no puede seguir el ritmo acaba siendo un sello de goma: yo despachando filas
+en tanda para vaciar el atasco y este sitio afirmando una revisión que en
+realidad no ha ocurrido. Eso es peor que no prometer nada, porque además no
+se puede comprobar desde fuera.
 
-Eso sí se publica sin esperar mi firma, y quiero explicar por qué, porque es
-la única cosa de este sitio que sale sin que yo la haya leído antes. Un
-resumen no decide nada: no entra en ninguna hipótesis, no cuenta en ningún
-denominador, no dice si me dejan entrar ni si puedo hacerla. Solo sirve para
-que la lista se pueda leer. Y una lista de cien ofertas al día en inglés que
-espera a que yo la repase es una lista que nadie lee nunca. A cambio, hasta
-que paso por la fila el resumen va marcado como *sin repasar*, el título
-original se queda debajo sin tocar para que cualquiera compare, y si me
-encuentro uno mal escrito lo corrijo yo en la hoja y al día siguiente sale
-corregido.
+Así que en vez de prometer, mido. Las ofertas que me llegan al correo las
+clasifiqué yo a mano, una a una, antes de que existiera el clasificador: son
+un patrón etiquetado. Se las doy al modelo sin enseñarle mis respuestas,
+cuento en cuántas coincide y publico el resultado con los desacuerdos uno por
+uno, diciendo en cada caso quién se equivocó. Está en
+[¿Acierta la máquina?](/calibracion/). La primera prueba, del 9 de agosto de
+2026, encontró dos errores míos —dos ofertas que exigían estar en Estados
+Unidos y yo había dado por abiertas—: los he corregido y ahí están contados.
 
-Lo que no sale sin firma sigue siendo lo que juzga: los cinco campos de
-clasificación. Y son fichas de un listado, no narración: la crónica la sigo
+Con ese número delante, esto es lo que sale sin esperarme y lo que no.
+
+**Sale sin esperarme** «¿me dejan entrar?», que es el único campo que
+alimenta una hipótesis y el único cuyo acierto está medido, y va marcado como
+*automático* mientras no haya pasado por la fila. Y el título y el resumen en
+español: casi todas las ofertas llegan en inglés y con títulos que no dicen
+nada de lo que hay que hacer, así que sin ellos la lista no la lee nadie. El
+título original se queda debajo sin tocar, para que cualquiera compare.
+
+**Espera mi firma** «¿puedo hacerla?», porque la misma calibración dice que
+ahí el modelo rechaza más de la cuenta, y porque una oferta del listado que él
+descarte por incompatible no entra en ninguna hipótesis: no hay ninguna prisa
+por publicarla sin mirarla.
+
+Si me encuentro algo mal, lo corrijo en la hoja y al día siguiente sale
+corregido. Y son fichas de un listado, no narración: la crónica la sigo
 escribiendo yo.
 
-Dos cosas que quiero dejar claras. La primera: la oferta se registra
-siempre, esté firmada o no. Lo que espera mi firma es el juicio, nunca el
-recuento; si no, el denominador de la [hipótesis 5](/registro-previo/)
-dependería de mi ritmo de revisión, y eso lo invalidaría. La segunda: las
-ofertas que me llegan al correo las he clasificado yo a mano, una a una,
-desde el primer día.
-
-Nada de esto vale si el que mide no se comprueba. Las ofertas que me llegan
-al correo las clasifiqué yo a mano, una a una, antes de que existiera el
-clasificador automático: son un patrón etiquetado. Se las doy al modelo sin
-enseñarle mis respuestas y publico en cuántas coincide y en cuáles no, con
-el veredicto de cada desacuerdo y diciendo quién se equivocó. Está en
-[¿Acierta la máquina?](/calibracion/). La primera prueba, del 9 de agosto de
-2026, encontró dos errores míos: los he corregido y ahí están contados.
+Y una cosa más, que es la que sostiene todo lo demás: la oferta se registra
+siempre, la haya mirado yo o no. Lo que espera mi firma es como mucho el
+juicio, nunca el recuento; si no, el denominador de la
+[hipótesis 5](/registro-previo/) dependería de mi ritmo de revisión, y eso lo
+invalidaría.
 
 Lo que el modelo no toca es si un encargo me parece indigno. Esa es la
 hipótesis 7, va de mí y no de la plataforma, y no pienso delegarla.

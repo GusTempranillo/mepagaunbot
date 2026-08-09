@@ -18,6 +18,16 @@
 {{ $ambas := where $alertas "en_listado" "si" }}
 {{ $clasificadas := where $listado "disponible_es" "!=" "" }}
 {{ $disponibles := where $listado "disponible_es" "si" }}
+{{/* Desde el 9 de agosto de 2026 «disponible_es» se publica sin esperar
+     a que el autor firme la fila. Hay que decir cuántas van así: es la
+     diferencia entre un dato repasado y uno propuesto por una máquina
+     con una tasa de acierto medida en /calibracion/.
+     Las que llegaron por correo quedan fuera de la cuenta pase lo que
+     pase: esas las clasificó él a mano desde el primer día, y algunas
+     son anteriores a que existiera la columna «revisado». */}}
+{{ $soloListado := where $clasificadas "en_email" "!=" "si" }}
+{{ $repasadas := where $soloListado "revisado" "si" }}
+{{ $automaticas := sub (len $soloListado) (len $repasadas) }}
 {{ $compatibles := where $alertas "compatible" "!=" "" }}
 {{ $caidas := where $alertas "consulta" "404" }}
 {{ $remotas := where $o "remoto" "Sí" }}
@@ -61,6 +71,7 @@
         H5 — numerador {{ len $disponibles }}, denominador {{ len $clasificadas }}
         ({{ printf "%.1f" (mul (div (float (len $disponibles)) (float (len $clasificadas))) 100) }} %) ·
         {{ if lt (len $clasificadas) (len $listado) }}quedan {{ sub (len $listado) (len $clasificadas) }} del listado sin clasificar ·{{ end }}
+        {{ if gt $automaticas 0 }}{{ $automaticas }} las clasificó la máquina y todavía no las he repasado (<a href="/calibracion/">cuánto acierta</a>) ·{{ end }}
       {{ else if $listado }}
         Listado público registrado, sin clasificar todavía: el recuento de la hipótesis 5 aparece aquí en cuanto haya filas codificadas ·
       {{ else }}
@@ -103,6 +114,7 @@
                 {{ if eq .disponible_es "si" }}Sí
                 {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
                 {{ else }}<span class="note">sin clasificar</span>{{ end }}
+                {{ if and .disponible_es (ne .revisado "si") (ne .en_email "si") }} <span class="note">· automático</span>{{ end }}
               </td>
               <td>
                 {{ if eq .compatible "si" }}Sí
@@ -123,12 +135,17 @@
         Se registran todas, también las que no interesan.
         {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
         Se publican los metadatos, no el texto de las ofertas.
+        Las del listado las clasifica un modelo de lenguaje aplicando mis
+        criterios publicados, y las marcadas «automático» son las que todavía
+        no he repasado. Salen sin esperarme a propósito: con más de cien
+        ofertas al día, una firma que no puede seguir el ritmo sería un sello
+        de goma, así que en vez de prometer que las miro todas mido cuánto
+        acierta la máquina y lo publico en <a href="/calibracion/">¿Acierta la
+        máquina?</a>. Lo que sí espera mi firma es «¿puedo hacerla?», donde la
+        misma calibración dice que rechaza de más.
         Casi todas llegan en inglés: el título y el resumen en español los
-        redacta un modelo de lenguaje a partir de la descripción del encargo
-        (<a href="/metodo/">cómo funciona eso</a>). Se publican en cuanto los
-        escribe, sin esperar a que yo los lea, y hasta que paso por la fila
-        van marcados como «sin repasar»; la clasificación, en cambio, no sale
-        de aquí sin mi firma. El título original va debajo de cada uno, sin
+        redacta el mismo modelo y también salen sin esperarme, marcados hasta
+        que paso por la fila. El título original va debajo de cada uno, sin
         tocar.
       </p>
     </div>
