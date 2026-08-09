@@ -103,7 +103,7 @@ ofertas:
 
   - fecha: 2026-07-29
     id: "Putf55Gplv0POJk7cHoX"
-    titulo: "Urgent: call Stephanie tonight to coordinate dinner"
+    titulo: "Urgent: call [nombre] tonight to coordinate dinner"
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -161,7 +161,7 @@ ofertas:
     categoria: "crew-gigs"
     pago_usd: 50
     tipo: "fixed"
-    duracion: "720 days"
+    duracion: "30 days"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -179,7 +179,7 @@ ofertas:
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "0.75 minutes"
+    duracion: "45 minutes"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -197,7 +197,7 @@ ofertas:
     categoria: "computer-gigs"
     pago_usd: 37
     tipo: "hourly"
-    duracion: "0.08333333333333333 minutes"
+    duracion: "5 minutes"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -215,7 +215,7 @@ ofertas:
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "0.08333333333333333 minutes"
+    duracion: "5 minutes"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -247,7 +247,7 @@ ofertas:
 
   - fecha: 2026-07-31
     id: "TtiJy6jmY3pmKhMp1a6O"
-    titulo: "Urgent: Native English Voice Actors Needed for Short Recordings"
+    titulo: "Native English Voice Recordings – 40 Short Sentences (2 Interpretations Each)"
     categoria: "talent-gigs"
     pago_usd: 15
     tipo: "fixed"
@@ -305,7 +305,7 @@ ofertas:
     categoria: "crew-gigs"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "1440 days"
+    duracion: "60 days"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -503,7 +503,7 @@ ofertas:
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "0.16666666666666666 minutes"
+    duracion: "10 minutes"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -557,7 +557,7 @@ ofertas:
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "48 days"
+    duracion: "2 days"
     remoto: "No"
     identidad: "No"
     consulta: "ok"
@@ -629,7 +629,7 @@ ofertas:
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "168 days"
+    duracion: "7 days"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -719,7 +719,7 @@ ofertas:
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "hourly"
-    duracion: "0.16666666666666666 minutes"
+    duracion: "10 minutes"
     remoto: "No"
     identidad: "No"
     consulta: "ok"
@@ -899,7 +899,7 @@ ofertas:
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "48 days"
+    duracion: "2 days"
     remoto: "No"
     identidad: "No"
     consulta: "ok"
@@ -1205,7 +1205,7 @@ ofertas:
     categoria: "delivery-errands"
     pago_usd: 20
     tipo: "fixed"
-    duracion: "0.5 minutes"
+    duracion: "30 minutes"
     remoto: "No"
     identidad: "No"
     consulta: "ok"
@@ -1313,7 +1313,7 @@ ofertas:
     categoria: "other"
     pago_usd: 3
     tipo: "fixed"
-    duracion: "0.08333333333333333 minutes"
+    duracion: "5 minutes"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -1565,7 +1565,7 @@ ofertas:
     categoria: "creative-media"
     pago_usd: 5
     tipo: "fixed"
-    duracion: "0.25 minutes"
+    duracion: "15 minutes"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
@@ -1637,7 +1637,7 @@ ofertas:
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "48 days"
+    duracion: "2 days"
     remoto: "No"
     identidad: "No"
     consulta: "ok"
@@ -1871,7 +1871,7 @@ ofertas:
     categoria: "marketing-campaigns"
     pago_usd: 10
     tipo: "fixed"
-    duracion: "48 days"
+    duracion: "2 days"
     remoto: "No"
     identidad: "No"
     consulta: "ok"
@@ -2429,7 +2429,7 @@ ofertas:
     categoria: "marketing-campaigns"
     pago_usd: 3
     tipo: "fixed"
-    duracion: "168 days"
+    duracion: "7 days"
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
