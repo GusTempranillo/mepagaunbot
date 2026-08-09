@@ -1,0 +1,104 @@
+# Calibración del clasificador automático.
+#
+# Las ofertas que me llegan por correo son las únicas que clasifiqué a
+# mano, antes de que existiera la máquina. Este fichero es el resultado de
+# dársela a clasificar sin enseñarle mis respuestas y contar en cuántas
+# coincide. El procedimiento y el veredicto de cada desacuerdo están en
+# /calibracion/.
+#
+# Los veredictos los escribo yo después de releer el anuncio original:
+#   regla   el desacuerdo viene de un criterio que cambié después de
+#           clasificar esa oferta a mano. La máquina aplica el criterio
+#           vigente; yo apliqué el de entonces.
+#   error   me equivoqué yo y la máquina tenía razón.
+#   maquina se equivocó la máquina.
+#
+# Lo escribe una automatización de n8n, pero los veredictos, no.
+
+fecha: 2026-08-09
+modelo: "kimi-k2.6"
+criterios_version: 2
+patron: "las ofertas que la plataforma me mandó por correo"
+comparadas: 23
+descartadas: 3
+descartadas_motivo: "ya devolvían un error 404 cuando se consultaron: no queda texto que clasificar"
+sin_respuesta: 0
+abstenciones: 0
+
+campos:
+  - campo: disponible_es
+    pregunta: "¿Me dejan entrar?"
+    hipotesis: "5"
+    coinciden: 21
+    comparadas: 23
+    nota: "Es el único campo que el clasificador automático aporta a una hipótesis: la 5 se calcula sobre las ofertas del listado público."
+  - campo: compatible
+    pregunta: "¿Puedo hacerla?"
+    hipotesis: "4"
+    coinciden: 17
+    comparadas: 23
+    nota: "La hipótesis 4 se calcula solo sobre las ofertas de correo, que clasifico yo a mano. Aquí la máquina rechaza más que yo."
+  - campo: modalidad
+    pregunta: "¿Dónde hay que estar?"
+    hipotesis: "4"
+    coinciden: 23
+    comparadas: 23
+    nota: "Las 23 son remotas: sin variación, este acuerdo no demuestra nada."
+
+desacuerdos:
+  - titulo: "Urgent: call [nombre] tonight to coordinate dinner"
+    campo: compatible
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "la llamada se presume en inglés y no lo hablo con soltura"
+    veredicto: regla
+    explicacion: "La oferta es una llamada de teléfono a un número de Estados Unidos y no dice en qué idioma. La regla del idioma presunto, que aprobé el mismo día de esta prueba, dice que se presume inglés. Yo la había clasificado antes de que esa regla existiera."
+  - titulo: "Send a Test Text Message to Confirm Phone Number is Active"
+    campo: disponible_es
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "exige residir en Estados Unidos"
+    veredicto: error
+    explicacion: "El anuncio empieza «I need someone in the US». Me equivoqué yo: lo había dado por disponible."
+  - titulo: "Send a Test Text Message to Confirm Phone Number is Active"
+    campo: compatible
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "no dispongo de número de teléfono de Estados Unidos"
+    veredicto: error
+    explicacion: "Lo mismo. Y en otra oferta casi idéntica sí la había marcado como cerrada, con el motivo «exige un número de teléfono de EE. UU. real, no VoIP». La máquina fue más consistente que yo."
+  - titulo: "QA test: GitHub QA: #2824 @ 58ba5edfdae2 — 2026-08-04"
+    campo: compatible
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "exige narrar vídeo en inglés y no lo hablo con soltura"
+    veredicto: regla
+    explicacion: "La oferta pide grabar la pantalla y el micrófono y «narrate your actions», sin decir en qué idioma. Se presume inglés, y no lo hablo con soltura. Yo la había clasificado antes de que existiera esa regla."
+  - titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
+    campo: disponible_es
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "exige estar en Estados Unidos"
+    veredicto: error
+    explicacion: "Anunciante de Florida que pide usuarios de T-Mobile y que declares tu operadora. Error mío."
+  - titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
+    campo: compatible
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "exige estar en Estados Unidos y tener línea T-Mobile"
+    veredicto: error
+    explicacion: "Lo mismo: no tengo línea de T-Mobile."
+  - titulo: "QA test: Taste iPhone TestFlight QA — build 7 — 2026-08-06"
+    campo: compatible
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "la narración se presume en inglés y no lo hablo con soltura"
+    veredicto: regla
+    explicacion: "La oferta pide grabar la pantalla y el micrófono y «narrate your actions», sin decir en qué idioma. Se presume inglés, y no lo hablo con soltura. Yo la había clasificado antes de que existiera esa regla."
+  - titulo: "QA test: Amboras first-impression review — 2026-08-06"
+    campo: compatible
+    yo: "si"
+    maquina: "no"
+    motivo_maquina: "la narración se presume en inglés y no lo hablo con soltura"
+    veredicto: regla
+    explicacion: "La oferta pide grabar la pantalla y el micrófono y «narrate your actions», sin decir en qué idioma. Se presume inglés, y no lo hablo con soltura. Yo la había clasificado antes de que existiera esa regla."

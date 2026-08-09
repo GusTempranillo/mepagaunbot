@@ -72,6 +72,14 @@ dependería de mi ritmo de revisión, y eso lo invalidaría. La segunda: las
 ofertas que me llegan al correo las he clasificado yo a mano, una a una,
 desde el primer día.
 
+Nada de esto vale si el que mide no se comprueba. Las ofertas que me llegan
+al correo las clasifiqué yo a mano, una a una, antes de que existiera el
+clasificador automático: son un patrón etiquetado. Se las doy al modelo sin
+enseñarle mis respuestas y publico en cuántas coincide y en cuáles no, con
+el veredicto de cada desacuerdo y diciendo quién se equivocó. Está en
+[¿Acierta la máquina?](/calibracion/). La primera prueba, del 9 de agosto de
+2026, encontró dos errores míos: los he corregido y ahí están contados.
+
 Lo que el modelo no toca es si un encargo me parece indigno. Esa es la
 hipótesis 7, va de mí y no de la plataforma, y no pienso delegarla.
 

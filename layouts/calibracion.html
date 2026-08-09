@@ -1,0 +1,98 @@
+{{ define "main" }}
+{{ $c := hugo.Data.calibracion }}
+{{ $d := $c.desacuerdos }}
+{{/* Tres veredictos posibles, y solo uno es un fallo de la máquina.
+     «regla» son criterios que cambié después de clasificar a mano:
+     el desacuerdo mide el cambio, no al modelo. */}}
+{{ $errores := where $d "veredicto" "error" }}
+{{ $reglas := where $d "veredicto" "regla" }}
+{{ $fallos := where $d "veredicto" "maquina" }}
+
+<div class="wrap">
+  <article class="prose">
+    <div class="sechead">
+      <h2>Calibración · página viva</h2>
+      <span class="note" style="margin:0">{{ $c.comparadas }} ofertas clasificadas a ciegas · {{ len $d }} desacuerdos · {{ len $fallos }} fallos de la máquina</span>
+    </div>
+    <h3 class="title">{{ .Title }}</h3>
+    {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
+    {{ .Content }}
+  </article>
+
+  <section>
+    <div class="scoreboard">
+      {{ range $c.campos }}
+        <div class="tile{{ if eq .campo "disponible_es" }} hot{{ end }}">
+          <span class="lbl">{{ .pregunta }} <small>· H{{ .hipotesis }}</small></span>
+          <div class="val">{{ .coinciden }}<small>/{{ .comparadas }}</small></div>
+        </div>
+      {{ end }}
+    </div>
+    <p class="stamp">
+      {{ range $i, $campo := $c.campos }}{{ if $i }} · {{ end }}<code>{{ .campo }}</code>
+        {{ printf "%.1f" (mul (div (float .coinciden) (float .comparadas)) 100) }} %{{ end }}
+    </p>
+    <p class="note">
+      {{ range $c.campos }}<strong>{{ .campo }}</strong> — {{ .nota }}<br>{{ end }}
+    </p>
+  </section>
+
+  <section>
+    <div class="prose">
+      <h2>Los {{ len $d }} desacuerdos, uno por uno</h2>
+      <p>
+        En los {{ len $d }} casos la máquina fue <em>más</em> restrictiva que yo: dijo «no»
+        donde yo había dicho «sí». Ni una sola vez al revés. Tampoco se abstuvo
+        ninguna vez, aunque tiene orden de hacerlo cuando dude, ni me devolvió
+        ninguna pregunta.
+      </p>
+      <div class="ancho tablon">
+      <table>
+        <thead>
+          <tr><th>Oferta</th><th>Campo</th><th>Yo</th><th>La máquina</th><th>Quién se equivocó</th></tr>
+        </thead>
+        <tbody>
+          {{ range $d }}
+            <tr>
+              <td>{{ .titulo }}</td>
+              <td><code>{{ .campo }}</code></td>
+              <td>{{ .yo }}</td>
+              <td>{{ .maquina }}{{ with .motivo_maquina }} <span class="note">· {{ . }}</span>{{ end }}</td>
+              <td>
+                {{ if eq .veredicto "error" }}<strong>Yo</strong>
+                {{ else if eq .veredicto "maquina" }}<strong>La máquina</strong>
+                {{ else }}Ninguno: cambié el criterio{{ end }}
+                <br><span class="note">{{ .explicacion }}</span>
+              </td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+      </div>
+      <p class="note">
+        Cuatro desacuerdos vienen de un criterio que cambié el mismo día de esta
+        prueba —si una oferta pide hablar y no dice en qué idioma, se presume el
+        de la oferta, que casi siempre es inglés—, así que la máquina aplica el
+        criterio de hoy a ofertas que yo clasifiqué con el de hace semanas.
+        {{ with $errores }}Los otros {{ len . }} son errores míos: los he corregido en
+        <a href="/ofertas/">el registro de ofertas</a> y las filas ya llevan el motivo
+        correcto.{{ end }}
+        {{ if $fallos }}{{ len $fallos }} son errores de la máquina.{{ else }}En esta
+        muestra la máquina no cometió ningún error de hecho.{{ end }}
+      </p>
+      <p class="note">
+        Prueba del {{ partial "fecha.html" (dict "t" (time.AsTime $c.fecha) "f" "iso") }},
+        modelo <code>{{ $c.modelo }}</code>, criterios versión {{ $c.criterios_version }}.
+        Patrón: {{ $c.patron }}. {{ $c.comparadas }} comparadas y {{ $c.descartadas }}
+        descartadas porque {{ $c.descartadas_motivo }}.
+        {{ if eq $c.sin_respuesta 0 }}El modelo respondió a las {{ $c.comparadas }}.{{ else }}{{ $c.sin_respuesta }} se quedaron sin respuesta.{{ end }}
+        Los datos están en
+        <a href="https://github.com/GusTempranillo/mepagaunbot/blob/main/data/calibracion.yaml"><code>data/calibracion.yaml</code></a>;
+        los criterios que aplica la máquina, en
+        <a href="https://github.com/GusTempranillo/mepagaunbot/blob/main/data/criterios.yaml"><code>data/criterios.yaml</code></a>.
+        Cómo funciona todo esto está en <a href="/metodo/">Método</a>.
+      </p>
+    </div>
+  </section>
+</div>
+{{ end }}
