@@ -13,9 +13,9 @@ resumen: "La IA puede trabajar 24/7. El problema es que alguien tiene que darle 
 
 Hoy es domingo. Llevo desde el viernes sin una sola alerta en el correo.
 
-Lo primero que pensé fue lo obvio, que igual Gmail estaba haciendo de las suyas. Pero no era eso. El spam estaba vacío.{{< comose >}}Comprobación manual en Gmail el 9 de agosto de 2026: carpeta de spam vacía.{{< /comose >}}
+Lo primero que pensé fue lo obvio, que igual Gmail estaba haciendo de las suyas. Pero no era eso. El spam estaba vacío.
 
-Así que miré el listado público de la plataforma. Y ahí estaba la pista, tampoco había encargos nuevos. La última oferta publicada era del viernes 7. Las cuatro anteriores eran del jueves 6. Ninguna el sábado ni el domingo.{{< comose >}}Comprobación manual en el listado de RentAHuman el 9 de agosto de 2026, mirando la fecha relativa de publicación de las últimas entradas. Las 115 ofertas del volcado en `data/ofertas.yaml` no sirven para esta comprobación: todas quedaron fechadas el día del volcado, no el día real en que aparecieron en el listado.{{< /comose >}}
+Así que miré el listado público de la plataforma. Y ahí estaba la pista, tampoco había encargos nuevos. La última oferta publicada era del viernes 7. Las cuatro anteriores eran del jueves 6. Ninguna el sábado ni el domingo.
 
 Una cosa sería que la plataforma siguiera publicando encargos y que el correo hubiera dejado de avisarme. Ahí el problema estaría en las alertas. Pero no es lo que parece estar pasando.
 
