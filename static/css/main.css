@@ -367,7 +367,7 @@ h3{
 .of-resumen{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0;max-width:82ch}
 .of-original{
   font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.5;letter-spacing:.02em;
-  color:var(--ink-3);margin:6px 0 0;text-transform:none;
+  color:var(--ink-2);margin:6px 0 0;text-transform:none;
 }
 /* Resumen a tres líneas con <details> nativo: el texto vive dentro del
    <summary>, que es lo único que permite ver el recorte estando plegado. */
@@ -381,10 +381,10 @@ h3{
 .of-mas summary::after{
   content:"Ver más";display:inline-block;margin-top:3px;
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);box-shadow:inset 0 -1px 0 var(--bar);
+  color:var(--ink-2);box-shadow:inset 0 -1px 0 var(--ink-3);
 }
 .of-mas[open] summary::after{content:"Ver menos"}
-.of-mas summary:hover::after{color:var(--accent);box-shadow:inset 0 -1px 0 var(--accent)}
+.of-mas summary:hover::after{color:var(--ink);box-shadow:inset 0 -1.5px 0 var(--accent)}
 .of-mas summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
 .of-chips{display:flex;flex-wrap:wrap;gap:5px 6px;margin:9px 0 0}
@@ -393,13 +393,13 @@ h3{
   display:inline-flex;align-items:center;gap:5px;
   font-family:"JetBrains Mono",monospace;font-size:10.5px;line-height:1.5;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ink-2);
-  border:1px solid var(--bar);border-radius:2px;padding:2px 7px;
+  border:1px solid var(--ink-3);border-radius:2px;padding:2px 7px;
 }
 .chip .ico{flex:0 0 auto}
 /* Trazo discontinuo = hipótesis 4, la que solo aplica a las de correo.
    Nunca va solo: el chip lleva escrito «H4» delante. */
 .chip--h4{border-style:dashed;white-space:normal}
-.chip--baja{color:var(--ink-3);border-style:dotted}
+.chip--baja{color:var(--ink-2);border-style:dotted}
 
 /* — celda «Pago» — */
 .pago-cifra{
@@ -407,10 +407,10 @@ h3{
   font-variant-numeric:tabular-nums;letter-spacing:-.01em;white-space:nowrap;
 }
 .pago-cifra i{font-style:normal;font-size:.68em;font-weight:400;color:var(--ink-3)}
-.pago-cifra--sin{font-weight:400;color:var(--ink-3)}
+.pago-cifra--sin{font-weight:400;color:var(--ink-2)}
 .pago-sub{
   display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink-3);margin-top:3px;
+  text-transform:uppercase;color:var(--ink-2);margin-top:3px;
 }
 
 /* — celda «¿Puedo optar?» —
@@ -419,9 +419,32 @@ h3{
 .optar{display:inline-flex;align-items:center;gap:7px;font-size:15.5px;line-height:1.3}
 .optar--si{color:var(--ink);font-weight:600}
 .optar--no{color:var(--ink-2)}
-.optar--nc{color:var(--ink-3);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.optar--nc{color:var(--ink-2);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .optar .ico{flex:0 0 auto}
 .optar-motivo{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-2);margin-top:5px}
+
+/* ── DESCARGA DEL CSV ───────────────────────────────────────
+   Sale del párrafo de cifras, donde era un enlace más entre puntos
+   medios. Ahora que la tabla enseña cuatro columnas, el CSV es donde
+   vive el detalle fila a fila. */
+.descarga{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+  border-top:1px solid var(--bar);margin:0;padding:16px 0 4px;
+}
+.boton-descarga{
+  display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;
+  color:var(--paper);background:var(--ink);border:1.5px solid var(--ink);
+  padding:11px 18px;box-shadow:none;
+}
+.boton-descarga:hover,.boton-descarga:focus-visible{background:var(--paper);border-color:var(--accent);color:var(--ink)}
+.boton-descarga:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.descarga-nota{
+  flex:1 1 280px;max-width:56ch;
+  font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.6;letter-spacing:.02em;
+  color:var(--ink-2);
+}
 
 /* ── METODOLOGÍA JUNTO A LA TABLA ───────────────────────────
    Plegada, pero encima de la tabla y no a pie de página. Lo que
@@ -444,7 +467,7 @@ h3{
   transition:transform .12s;
 }
 .metodo[open] summary::before{transform:rotate(90deg)}
-.metodo summary:hover{color:var(--accent)}
+.metodo summary:hover{color:var(--ink);box-shadow:inset 0 -1.5px 0 var(--accent)}
 .metodo summary:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
 .metodo-cuerpo{padding:2px 0 18px;max-width:78ch}
 .metodo-cuerpo p{
@@ -467,9 +490,9 @@ h3{
 
 .busca{
   position:relative;display:flex;align-items:center;flex:1 1 320px;max-width:520px;
-  border:1.5px solid var(--bar);background:var(--paper);
+  border:1.5px solid var(--ink-3);background:var(--paper);
 }
-.busca:focus-within{border-color:var(--accent)}
+.busca:focus-within{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .busca > .ico{flex:0 0 auto;margin:0 0 0 11px;color:var(--ink-3)}
 .busca input{
   flex:1 1 auto;min-width:0;appearance:none;-webkit-appearance:none;
@@ -478,7 +501,7 @@ h3{
   padding:9px 10px;
 }
 .busca input:focus{outline:none}
-.busca input::placeholder{color:var(--ink-3);opacity:1}
+.busca input::placeholder{color:var(--ink-2);opacity:1}
 .busca input::-webkit-search-cancel-button{display:none}
 .busca-x{
   flex:0 0 auto;border:0;background:none;cursor:pointer;color:var(--ink-3);
@@ -491,11 +514,11 @@ h3{
 .sel{display:flex;align-items:center;gap:8px;margin:0}
 .sel label{
   font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;
+  text-transform:uppercase;color:var(--ink-2);white-space:nowrap;
 }
 .sel select{
   appearance:none;-webkit-appearance:none;
-  border:1.5px solid var(--bar);background:var(--paper);color:var(--ink);
+  border:1.5px solid var(--ink-3);background:var(--paper);color:var(--ink);
   font-family:"JetBrains Mono",monospace;font-size:12.5px;
   padding:7px 30px 7px 10px;max-width:230px;cursor:pointer;border-radius:0;
   /* la punta de flecha, en la propia tinta y sin fichero aparte */
@@ -512,7 +535,7 @@ h3{
   display:inline-flex;align-items:center;gap:6px;cursor:pointer;
   font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ink-2);
-  background:none;border:1.5px solid var(--bar);border-radius:2px;padding:5px 11px;
+  background:none;border:1.5px solid var(--ink-3);border-radius:2px;padding:5px 11px;
 }
 .fchip:hover{border-color:var(--ink-2);color:var(--ink)}
 .fchip:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -523,7 +546,7 @@ h3{
 .barra-cuenta{
   margin:0 0 0 auto;white-space:nowrap;
   font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-3);
+  text-transform:uppercase;color:var(--ink-2);
 }
 .barra-cuenta b{color:var(--ink);font-weight:700}
 .barra-aviso{
@@ -534,7 +557,7 @@ h3{
 .barra-aviso[hidden]{display:none}
 
 .vacio{
-  border:1.5px dashed var(--bar);padding:34px 24px;margin:0;text-align:center;
+  border:1.5px dashed var(--ink-3);padding:34px 24px;margin:0;text-align:center;
   color:var(--ink-2);font-size:16px;
 }
 .vacio[hidden]{display:none}
@@ -584,7 +607,7 @@ h3{
   .tabla-ofertas tbody td.c-optar::before{
     content:attr(data-label);display:block;
     font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-3);margin-bottom:3px;
+    text-transform:uppercase;color:var(--ink-2);margin-bottom:3px;
   }
   .pago-cifra{font-size:23px}
   .optar{

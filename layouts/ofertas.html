@@ -81,8 +81,20 @@
       {{ else }}
         Todavía no hay lecturas del listado público: la hipótesis 5 se resuelve en cuanto empiece el registro diario ·
       {{ end }}
-      {{ with $precios }}de ${{ partial "num.html" (dict "valor" (index . 0)) }} a ${{ partial "num.html" (dict "valor" (index . (sub (len .) 1))) }} ·{{ end }}
-      <a href="{{ with .OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}">Descargar en CSV →</a>
+      {{ with $precios }}de ${{ partial "num.html" (dict "valor" (index . 0)) }} a ${{ partial "num.html" (dict "valor" (index . (sub (len .) 1))) }}{{ end }}
+    </p>
+    {{/* El CSV sale del párrafo de cifras, donde era un enlace más entre
+         puntos medios. Ahora que la tabla enseña cuatro columnas, es donde
+         vive el detalle fila a fila: merece su propio botón. */}}
+    <p class="descarga">
+      <a class="boton-descarga" href="{{ with .OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}" download>
+        {{ partial "icono.html" "descarga" }}Descargar en CSV
+      </a>
+      <span class="descarga-nota">
+        Una fila por oferta, {{ $total }} en total, con todos los campos: también
+        los que la tabla resume en etiquetas y la columna «revisado», que dice
+        por cuáles he pasado ya.
+      </span>
     </p>
   </section>
 
@@ -144,7 +156,8 @@
             «¿puedo hacerla?» (H4, correo) solo aplican a las {{ len $alertas }} que llegaron
             a la bandeja, así que van como etiquetas dentro de la oferta y solo
             ahí. La categoría, la vía y el remoto hacen lo mismo. Ningún campo
-            se ha quitado: el detalle fila a fila, entero, está en el CSV.
+            se ha quitado: el detalle fila a fila, entero, está
+            <a href="{{ with $.OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}">en el CSV</a>.
           </p>
         </div>
       </details>
