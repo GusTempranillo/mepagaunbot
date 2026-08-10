@@ -1,0 +1,33 @@
+{{- /*
+  duracion.html — la duración llega en inglés desde la hoja de cálculo
+  ("3 hours", "5 minutes") y sale abreviada en español: "3 h", "5 min".
+
+  La traducción vive aquí y no en data/ofertas.yaml porque ese fichero lo
+  reescribe una automatización cada día: lo que se corrigiera a mano allí
+  se perdería en el siguiente volcado.
+
+  Decimales con coma, como el resto de cifras del sitio: "0.5 hours" → "0,5 h".
+
+  Los valores sin unidad ("1", "0.25") no se pintan. La fuente no dice de qué
+  son, y suponer que son horas sería inventarse un dato. Siguen enteros en el
+  CSV, que es donde vive el detalle fila a fila.
+
+  {{ partial "duracion.html" .duracion }}  → 3 h
+*/ -}}
+{{- $partes := split . " " -}}
+{{- if eq (len $partes) 2 -}}
+  {{- $n := replace (index $partes 0) "." "," -}}
+  {{- $u := index $partes 1 -}}
+  {{- $abrev := dict
+      "hour" "h" "hours" "h"
+      "minute" "min" "minutes" "min"
+      "day" "d" "days" "d"
+      "week" "sem" "weeks" "sem"
+      "month" "mes" "months" "meses" -}}
+  {{- if isset $abrev $u -}}
+    {{- $n }} {{ index $abrev $u -}}
+  {{- else -}}
+    {{/* unidad que no conocemos: mejor el dato literal que perderlo */}}
+    {{- . -}}
+  {{- end -}}
+{{- end -}}

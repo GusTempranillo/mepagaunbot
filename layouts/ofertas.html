@@ -85,39 +85,80 @@
   <section>
     <h2>Todas las ofertas recibidas</h2>
     <div class="prose">
-      <div class="ancho tablon">
+      {{/* Cuatro columnas. Lo que estaba en las otras cuatro no se pierde:
+           categoría, vía, remoto y las dos etiquetas de la hipótesis 4 bajan
+           a chips dentro de la celda «Oferta», y los campos siguen enteros
+           en el CSV. Modalidad y compatible solo aplican a las de correo,
+           así que solo aparecen ahí en vez de decir «no aplica» 118 veces. */}}
+      <div class="ancho tabla-ofertas">
       <table>
+        <caption class="oculto-visual">
+          Todas las ofertas registradas, de la más reciente a la más antigua.
+          Cuatro columnas: fecha, oferta, pago y si puedo optar a ella. Dentro
+          de cada oferta, en etiquetas, van la categoría, la vía por la que
+          llegó, si admite trabajo remoto y —solo en las que llegaron por
+          correo— la modalidad y si puedo hacerla.
+        </caption>
         <thead>
           <tr>
-            <th>Fecha</th><th>Vista en</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
-            <th>Modalidad</th><th>¿Puedo optar?</th><th>¿Puedo hacerla?</th>
+            <th scope="col" class="c-fecha">Fecha</th>
+            <th scope="col" class="c-oferta">Oferta</th>
+            <th scope="col" class="c-pago">Pago</th>
+            <th scope="col" class="c-optar">¿Puedo optar?</th>
           </tr>
         </thead>
         <tbody>
           {{ range sort $o "fecha" "desc" }}
             <tr>
-              <td>{{ .fecha }}</td>
-              {{ $vias := slice }}
-              {{ if eq .en_email "si" }}{{ $vias = $vias | append "correo" }}{{ end }}
-              {{ if eq .en_listado "si" }}{{ $vias = $vias | append "listado" }}{{ end }}
-              <td>{{ if $vias }}{{ delimit $vias " + " }}{{ else }}<span class="note">—</span>{{ end }}</td>
-              <td>
-                {{ if .titulo_es }}{{ .titulo_es }}{{ else }}{{ .titulo }}{{ end }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}
-                {{ with .resumen_es }}<br><span class="note">{{ . }}</span>{{ end }}
-                {{ if .titulo_es }}<br><span class="note">Título original: {{ .titulo }}</span>{{ end }}
+              <td class="c-fecha" data-label="Fecha">
+                <time datetime="{{ .fecha }}">{{ time.Format "02/01" .fecha }}</time>
               </td>
-              <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
-              <td>{{ if .pago_usd }}${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}/h{{ end }}{{ else }}—{{ end }}</td>
-              <td>{{ with .modalidad }}{{ . }}{{ else }}<span class="note">{{ if ne .en_email "si" }}no aplica{{ else }}—{{ end }}</span>{{ end }}</td>
-              <td>
-                {{ if eq .disponible_es "si" }}Sí
-                {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
-                {{ else }}<span class="note">sin clasificar</span>{{ end }}
+
+              <td class="c-oferta" data-label="Oferta">
+                <p class="of-titulo">{{ if .titulo_es }}{{ .titulo_es }}{{ else }}{{ .titulo }}{{ end }}</p>
+                {{ with .resumen_es }}
+                  {{/* El «Ver más» solo aparece donde el resumen se pasa de
+                       tres líneas. En los cortos sería un botón que no hace
+                       nada, así que la decisión se toma al compilar. */}}
+                  {{ if gt (len .) 200 }}
+                    <details class="of-mas"><summary><span class="of-resumen">{{ . }}</span></summary></details>
+                  {{ else }}
+                    <p class="of-resumen">{{ . }}</p>
+                  {{ end }}
+                {{ end }}
+                {{ if .titulo_es }}<p class="of-original">Título original: {{ .titulo }}</p>{{ end }}
+                <p class="of-chips">
+                  {{ with .categoria }}<span class="chip">{{ . }}</span>{{ end }}
+                  {{ if eq .en_email "si" }}<span class="chip">Correo</span>{{ end }}
+                  {{ if eq .en_listado "si" }}<span class="chip">Listado</span>{{ end }}
+                  {{ if eq .remoto "Sí" }}<span class="chip chip--remoto">{{ partial "icono.html" "globo" }}Remoto</span>{{ end }}
+                  {{ if eq .consulta "404" }}<span class="chip chip--baja">Ya no existía al consultarla</span>{{ end }}
+                  {{ if eq .en_email "si" }}
+                    {{ with .modalidad }}<span class="chip chip--h4">H4 · {{ . }}</span>{{ end }}
+                    <span class="chip chip--h4">H4 · {{ if eq .compatible "si" }}puedo hacerla{{ else if eq .compatible "no" }}no puedo hacerla{{ with .motivo_compat }} · {{ . }}{{ end }}{{ else }}sin clasificar{{ end }}</span>
+                  {{ end }}
+                </p>
               </td>
-              <td>
-                {{ if eq .compatible "si" }}Sí
-                {{ else if eq .compatible "no" }}No{{ with .motivo_compat }} <span class="note">· {{ . }}</span>{{ end }}
-                {{ else }}<span class="note">{{ if ne .en_email "si" }}no aplica{{ else }}sin clasificar{{ end }}</span>{{ end }}
+
+              <td class="c-pago" data-label="Pago">
+                {{ if .pago_usd }}
+                  <span class="pago-cifra">${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}<i>/h</i>{{ end }}</span>
+                  {{ with partial "duracion.html" .duracion }}<span class="pago-sub">{{ . }}</span>{{ end }}
+                {{ else }}
+                  <span class="pago-cifra pago-cifra--sin">—</span>
+                  <span class="pago-sub">sin pago publicado</span>
+                {{ end }}
+              </td>
+
+              <td class="c-optar" data-label="¿Puedo optar?">
+                {{ if eq .disponible_es "si" }}
+                  <span class="optar optar--si">{{ partial "icono.html" "lleno" }}Sí</span>
+                {{ else if eq .disponible_es "no" }}
+                  <span class="optar optar--no">{{ partial "icono.html" "hueco" }}No</span>
+                  {{ with .motivo }}<span class="optar-motivo">{{ . }}</span>{{ end }}
+                {{ else }}
+                  <span class="optar optar--nc">{{ partial "icono.html" "punteado" }}Sin clasificar</span>
+                {{ end }}
               </td>
             </tr>
           {{ end }}

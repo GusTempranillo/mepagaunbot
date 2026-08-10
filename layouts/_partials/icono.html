@@ -1,0 +1,15 @@
+{{- /*
+  icono.html — SVG en línea, sin librerías ni fuentes de iconos.
+  Siempre decorativo: cada icono va acompañado de su texto, nunca solo.
+  {{ partial "icono.html" "globo" }}
+*/ -}}
+{{- $n := . -}}
+{{- if eq $n "globo" -}}
+<svg class="ico" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M1.4 6h9.2M6 1.4c1.5 1.5 1.5 7.7 0 9.2M6 1.4C4.5 2.9 4.5 9.1 6 10.6" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>
+{{- else if eq $n "lleno" -}}
+<svg class="ico" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="currentColor"/></svg>
+{{- else if eq $n "hueco" -}}
+<svg class="ico" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3.9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+{{- else if eq $n "punteado" -}}
+<svg class="ico" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1.6 1.8"/></svg>
+{{- end -}}
