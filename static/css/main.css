@@ -776,6 +776,42 @@ tr.me td{font-weight:600}
 }
 .pie-post p{margin:0}
 
+/* ── ANTERIOR / SIGUIENTE ───────────────────────────────────
+   Dos enlaces a los lados con la flecha por fuera, para que se
+   lea el sentido antes que el título. Si solo hay uno, se queda
+   en su lado —atrás a la izquierda, alante a la derecha—, que es
+   donde se busca. */
+.vecinos{
+  display:flex;justify-content:space-between;gap:16px;
+  margin-top:36px;padding-top:16px;border-top:1.5px solid var(--rule);
+}
+.vecino{
+  display:flex;align-items:center;gap:12px;
+  flex:0 1 calc(50% - 8px);min-width:0;
+  padding:12px 14px;border:1px solid var(--bar);
+  /* sin el subrayado del enlace suelto: aquí el recuadro entero es el clic */
+  box-shadow:none;color:var(--ink);
+}
+/* El hover del sitio invierte a fondo acento con letra papel. En un
+   bloque de dos líneas pesa demasiado, y el título en 16px semibold
+   sobre acento se queda en 3,83:1, por debajo del 4,5:1 que pide el
+   WCAG para texto normal. Aquí el hover es el filete y el fondo. */
+.vecino:hover,.vecino:focus-visible{
+  background:var(--paper-2);color:var(--ink);border-color:var(--accent);box-shadow:none;
+}
+.vecino--alante{margin-left:auto;justify-content:flex-end;text-align:right}
+.vecino-flecha{flex:0 0 auto;font-size:22px;line-height:1;color:var(--accent)}
+.vecino-txt{min-width:0}
+.vecino-rot{
+  display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:4px;
+}
+.vecino-tit{display:block;font-size:16px;line-height:1.32;font-weight:600}
+@media (max-width:640px){
+  .vecinos{flex-direction:column;gap:10px}
+  .vecino--alante{margin-left:0}
+}
+
 /* ── COMPARTIR ──────────────────────────────────────────── */
 .compartir{border-top:1.5px solid var(--rule);margin-top:40px;padding-top:12px}
 .compartir .lbl{

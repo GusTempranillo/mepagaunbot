@@ -22,6 +22,48 @@
     {{ if .Params.sellos }}{{ partial "sellos.html" . }}{{ end }}
     {{ if eq .Section "cronica" }}
       {{ partial "compartir.html" . }}
+      {{/* Anterior y siguiente, en el mismo orden exacto que la lista de
+           /cronica/: la misma colección y el mismo criterio. No se usan
+           .Prev/.Next de Hugo porque ahí «anterior» significa lo contrario
+           de lo que espera quien lee, y hay tres piezas del mismo día.
+           «Anterior» es la de antes en el tiempo; «siguiente», la de
+           después. Se recorre la sección de la más vieja a la más nueva y
+           se guarda la de un lado y la del otro. */}}
+      {{ $yo := .RelPermalink }}
+      {{ $anterior := false }}{{ $siguiente := false }}{{ $estoy := false }}
+      {{ range .CurrentSection.RegularPages.ByDate }}
+        {{ if $estoy }}
+          {{ if not $siguiente }}{{ $siguiente = . }}{{ end }}
+        {{ else if eq .RelPermalink $yo }}
+          {{ $estoy = true }}
+        {{ else }}
+          {{ $anterior = . }}
+        {{ end }}
+      {{ end }}
+      {{/* Si la pieza no está en el listado —una borrador, una fuera de
+           índice— no hay vecinos que enseñar y no se pinta nada. */}}
+      {{ if and $estoy (or $anterior $siguiente) }}
+        <nav class="vecinos" aria-label="Más entradas de la crónica">
+          {{ with $anterior }}
+            <a class="vecino vecino--atras" href="{{ .RelPermalink }}" rel="prev">
+              <span class="vecino-flecha" aria-hidden="true">←</span>
+              <span class="vecino-txt">
+                <span class="vecino-rot">Anterior</span>
+                <span class="vecino-tit">{{ .Title }}</span>
+              </span>
+            </a>
+          {{ end }}
+          {{ with $siguiente }}
+            <a class="vecino vecino--alante" href="{{ .RelPermalink }}" rel="next">
+              <span class="vecino-txt">
+                <span class="vecino-rot">Siguiente</span>
+                <span class="vecino-tit">{{ .Title }}</span>
+              </span>
+              <span class="vecino-flecha" aria-hidden="true">→</span>
+            </a>
+          {{ end }}
+        </nav>
+      {{ end }}
       <div class="pie-post">
         <p>¿He metido la pata? Aquí se tacha en público: <a href="/errores/">errores y rectificaciones</a>.</p>
       </div>

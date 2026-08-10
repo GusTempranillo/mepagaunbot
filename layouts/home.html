@@ -24,7 +24,9 @@
           <ul class="postlist">
             {{ range first 6 $posts }}
               <li>
-                <span class="pdate">{{ .Date.Format "2006-01-02" }}</span>
+                {{/* Igual que en /cronica/: día y mes a la vista, el año
+                     entero en el datetime. */}}
+                <span class="pdate"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01" }}</time></span>
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
               </li>
             {{ end }}
