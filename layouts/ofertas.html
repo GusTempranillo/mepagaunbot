@@ -48,7 +48,56 @@
     </div>
     <h3 class="title">{{ .Title }}</h3>
     {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
-    {{ .Content }}
+
+    {{/* Los dos acordeones van juntos y en este orden: primero qué es esto
+         y por qué hay dos denominadores, después cómo salen las cifras. El
+         cuerpo de la página se lee plegado porque lo que la gente viene a
+         ver es la tabla; quien quiera el porqué, lo tiene a un clic y en
+         el sitio donde lo buscaría, no a pie de página. */}}
+    <details class="metodo">
+      <summary>Ofertas recibidas</summary>
+      <div class="metodo-cuerpo">
+        {{ .Content }}
+      </div>
+    </details>
+
+    {{ $csv := "" }}{{ with .OutputFormats.Get "csv" }}{{ $csv = .RelPermalink }}{{ end }}
+    <details class="metodo">
+      <summary>¿Cómo se calculan estos datos?</summary>
+      <div class="metodo-cuerpo">
+        <p>
+          Fuente: las alertas de oferta que la plataforma envía por correo
+          ({{ len $alertas }}{{ with $alertas }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ end }})
+          y el listado público de encargos, consultado a diario
+          ({{ len $listado }}{{ with $listado }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ else }}, todavía sin lecturas{{ end }}).
+          {{ with $ambas }}{{ len . }} aparecieron por las dos vías y cuentan en los dos denominadores, así que las dos cifras no suman el total.{{ end }}
+          Se registran todas, también las que no interesan.
+          {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
+          Se publican los metadatos, no el texto de las ofertas. De cada una
+          queda el enlace a la publicación original.
+        </p>
+        <p>
+          Las del listado las clasifica un modelo de lenguaje aplicando mis
+          criterios publicados, y salen sin esperar a que yo repase la fila.
+          Es a propósito: con más de cien ofertas al día, una firma que no
+          puede seguir el ritmo sería un sello de goma, así que en vez de
+          prometer que las miro todas mido cuánto acierta la máquina y lo
+          publico en <a href="/calibracion/">¿Acierta la máquina?</a>. Por
+          cuáles he pasado ya, una por una, lo dice la columna «revisado» del
+          CSV. Lo que sí espera mi firma es «¿puedo hacerla?», donde la misma
+          calibración dice que rechaza de más.
+        </p>
+        <p>
+          La tabla enseña cuatro columnas; los campos son más. «Modalidad» y
+          «¿puedo hacerla?» (H4, correo) solo aplican a las {{ len $alertas }} que llegaron
+          a la bandeja, así que no salen en la tabla: sus recuentos están
+          arriba, en el marcador. La categoría, la vía y el remoto sí van como
+          etiquetas dentro de cada oferta. Ningún campo se ha quitado: el
+          detalle fila a fila, entero, está
+          <a href="{{ $csv }}">en el CSV</a>.
+        </p>
+      </div>
+    </details>
   </article>
 
   <section>
@@ -116,7 +165,6 @@
   </section>
 
   <section>
-    <h2>Todas las ofertas recibidas</h2>
     <div class="prose">
       {{/* Cuatro columnas. Lo que estaba en las otras cuatro no se pierde:
            categoría, vía, remoto y las dos etiquetas de la hipótesis 4 bajan
@@ -129,58 +177,7 @@
       {{ range $o }}{{ with .categoria }}{{ $cats = $cats | append . }}{{ end }}{{ end }}
       {{ $cats = sort (uniq $cats) }}
 
-      {{ $traducidas := where $o "titulo_es" "!=" "" }}
-
       <div class="ancho tabla-ofertas" id="tablon-ofertas">
-
-      {{/* El origen de las traducciones se dice una vez, aquí, y no fila por
-           fila: un distintivo que aparece en el 84 % de la tabla no distingue
-           nada. Quien quiera comparar tiene el título original en cada fila. */}}
-      <p class="tabla-fuente">
-        Casi todas las ofertas llegan en inglés: en {{ len $traducidas }} de las {{ $total }} filas
-        el título y el resumen en español los redacta un modelo de lenguaje, y salen sin esperar
-        a que yo los repase. El título original, sin tocar, está en «Ver original» en cada una
-        de esas filas.
-      </p>
-
-      {{/* Plegado, pero aquí mismo y no a pie de página: la metodología es un
-           rasgo de esta página, no una nota al pie que se esconde. */}}
-      <details class="metodo">
-        <summary>¿Cómo se calculan estos datos?</summary>
-        <div class="metodo-cuerpo">
-          <p>
-            Fuente: las alertas de oferta que la plataforma envía por correo
-            ({{ len $alertas }}{{ with $alertas }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ end }})
-            y el listado público de encargos, consultado a diario
-            ({{ len $listado }}{{ with $listado }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ else }}, todavía sin lecturas{{ end }}).
-            {{ with $ambas }}{{ len . }} aparecieron por las dos vías y cuentan en los dos denominadores, así que las dos cifras no suman el total.{{ end }}
-            Se registran todas, también las que no interesan.
-            {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
-            Se publican los metadatos, no el texto de las ofertas. De cada una
-            queda el enlace a la publicación original, que puede haber caducado.
-          </p>
-          <p>
-            Las del listado las clasifica un modelo de lenguaje aplicando mis
-            criterios publicados, y salen sin esperar a que yo repase la fila.
-            Es a propósito: con más de cien ofertas al día, una firma que no
-            puede seguir el ritmo sería un sello de goma, así que en vez de
-            prometer que las miro todas mido cuánto acierta la máquina y lo
-            publico en <a href="/calibracion/">¿Acierta la máquina?</a>. Por
-            cuáles he pasado ya, una por una, lo dice la columna «revisado» del
-            CSV. Lo que sí espera mi firma es «¿puedo hacerla?», donde la misma
-            calibración dice que rechaza de más.
-          </p>
-          <p>
-            La tabla enseña cuatro columnas; los campos son más. «Modalidad» y
-            «¿puedo hacerla?» (H4, correo) solo aplican a las {{ len $alertas }} que llegaron
-            a la bandeja, así que no salen en la tabla: sus recuentos están
-            arriba, en el marcador. La categoría, la vía y el remoto sí van como
-            etiquetas dentro de cada oferta. Ningún campo se ha quitado: el
-            detalle fila a fila, entero, está
-            <a href="{{ with $.OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}">en el CSV</a>.
-          </p>
-        </div>
-      </details>
 
       {{/* La barra nace oculta y la revela el script. Sin JavaScript no se
            ve un solo control muerto, y la tabla de abajo sigue entera. */}}
@@ -288,7 +285,6 @@
                       {{ if .titulo_es }}<p class="of-orig-tit">{{ .titulo }}</p>{{ end }}
                       {{ with $enlace }}
                         <p class="of-orig-ir"><a href="{{ . }}" rel="nofollow noopener" target="_blank">Ver la oferta en RentAHuman</a></p>
-                        <p class="of-orig-aviso">Puede haber caducado: si el enlace da error, es que ya no está publicada.</p>
                       {{ end }}
                     </div>
                   </details>

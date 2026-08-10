@@ -455,10 +455,6 @@ h3{
 }
 .of-orig-tit{margin:0;font-size:15px;line-height:1.35;font-weight:600;color:var(--ink)}
 .of-orig-ir{margin:9px 0 0;font-size:14.5px;line-height:1.4}
-.of-orig-aviso{
-  margin:6px 0 0;font-family:"JetBrains Mono",monospace;font-size:10.5px;line-height:1.6;
-  letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);
-}
 
 
 .of-chips{display:flex;flex-wrap:wrap;gap:5px 6px;margin:9px 0 0}
@@ -517,14 +513,12 @@ h3{
   color:var(--ink-2);
 }
 
-/* ── METODOLOGÍA JUNTO A LA TABLA ───────────────────────────
-   Plegada, pero encima de la tabla y no a pie de página. Lo que
-   dice es parte de lo que la página promete, no una errata. */
-.tabla-fuente{
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.65;letter-spacing:.02em;
-  color:var(--ink-2);margin:0 0 12px;max-width:88ch;
-}
+/* ── ACORDEONES DE LA PÁGINA DE OFERTAS ─────────────────────
+   Plegados, pero arriba y no a pie de página. Lo que dicen es
+   parte de lo que la página promete, no una errata. */
 .metodo{margin:0 0 4px;border-top:1px solid var(--bar);border-bottom:1px solid var(--bar)}
+/* dos seguidos: los filetes se solapan para que quede una sola raya */
+.metodo + .metodo{margin-top:-4px;border-top:0}
 .metodo summary{
   display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
   padding:11px 0;color:var(--ink);
