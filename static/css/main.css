@@ -60,8 +60,6 @@
   --bar:#B9AF9C;
   --bar-2:#D3CAB8;
   --maxw:1080px;
-  /* aire lateral de las páginas anchas */
-  --aire:clamp(22px,3.6vw,76px);
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -102,12 +100,6 @@ body::before{
 @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-/* Páginas anchas: se les quita el tope de 1080 y todo —cabecera, cuerpo y
-   pie— comparte el mismo aire lateral. Como el <header> y el <footer> usan
-   este mismo .wrap, la alineación es la misma de arriba abajo sin tener que
-   repetir el valor en ningún sitio. Lo enciende «ancho: true» en el «front
-   matter» de la página. */
-body.pagina-ancha .wrap{max-width:none;padding:0 var(--aire)}
 a{color:var(--ink);text-decoration:none;box-shadow:inset 0 -2px 0 var(--accent);transition:background .12s,color .12s}
 a:hover,a:focus-visible{background:var(--accent);color:var(--paper);box-shadow:none}
 a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -421,9 +413,10 @@ h3{
 
 .tabla-ofertas .c-fecha{width:72px;padding-right:12px}
 .tabla-ofertas .c-pago{width:132px;text-align:right;padding-right:26px}
-/* Estrecha a propósito: cada píxel que suelta se lo lleva «Oferta»,
-   que es la columna que importa. El motivo se parte en más líneas. */
-.tabla-ofertas .c-optar{width:clamp(112px,9%,150px)}
+/* Lo más estrecha que aguanta: cada píxel que suelta se lo lleva
+   «Oferta», que es la que se lee. El motivo del «No» se parte en varias
+   líneas y da igual, porque ahí lo que se busca es el sí o el no. */
+.tabla-ofertas .c-optar{width:clamp(84px,7%,110px)}
 .tabla-ofertas .c-oferta{width:auto}
 
 .tabla-ofertas .c-fecha time{
@@ -701,7 +694,9 @@ h3{
   .vacio{padding:26px 16px}
 }
 
-/* Titular, entradilla y cuerpo al ancho de la página.
+/* Titular, entradilla y cuerpo ocupan la columna entera en vez de
+   quedarse en los 68ch de lectura. La página mide lo que todas las demás;
+   lo que cambia es que aquí dentro nada se encajona.
    Va aquí y no junto a .wrap porque .prose > *, .prose .title, .deck y
    .title + .deck se declaran más arriba con la misma especificidad: puesto
    antes, perdía y solo la entradilla parecía hacer caso. */

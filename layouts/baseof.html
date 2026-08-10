@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ if eq .Params.idioma "en" }}en{{ else }}es{{ end }}">
 {{ partial "head.html" . }}
-<body{{ if .Params.ancho }} class="pagina-ancha"{{ end }}>
+<body>
 <a class="salto" href="#contenido">Saltar al contenido</a>
 {{ partial "header.html" . }}
 <main id="contenido">

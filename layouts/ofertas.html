@@ -40,9 +40,6 @@
 {{ $caidas := where $alertas "consulta" "404" }}
 {{ $remotas := where $o "remoto" "Sí" }}
 
-{{/* El ancho de esta página lo enciende «ancho: true» en el «front matter»:
-     baseof le pone la clase al <body> y con eso la cabecera, el cuerpo y el
-     pie pierden el tope de 1080 px y comparten el mismo aire lateral. */}}
 <div class="wrap">
   <article class="prose prose--ancho">
     <div class="sechead">

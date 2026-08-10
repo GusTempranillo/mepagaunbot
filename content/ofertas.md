@@ -2,7 +2,6 @@
 title: "Todo lo que me ha ofrecido el mercado"
 resumen: "Cada oferta que me ha llegado desde que me di de alta, con su fecha, su precio y su duración. Las que no me interesan también."
 layout: ofertas
-ancho: true
 date: 2026-08-07
 lastmod: 2026-08-07
 outputs: ["html", "csv"]
