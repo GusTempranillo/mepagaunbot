@@ -67,9 +67,11 @@
       <div class="metodo-cuerpo">
         <p>
           Fuente: las alertas de oferta que la plataforma envía por correo
-          ({{ len $alertas }}{{ with $alertas }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ end }})
+          {{/* En el mismo formato que la columna «Fecha» de la tabla: quien
+               lea esto lo va a comparar con las filas de ahí abajo. */}}
+          ({{ len $alertas }}{{ with $alertas }}, del {{ time.Format "02/01" (index (sort . "fecha" "asc") 0).fecha }} al {{ time.Format "02/01" (index (sort . "fecha" "desc") 0).fecha }}{{ end }})
           y el listado público de encargos, consultado a diario
-          ({{ len $listado }}{{ with $listado }}, del {{ (index (sort . "fecha" "asc") 0).fecha }} al {{ (index (sort . "fecha" "desc") 0).fecha }}{{ else }}, todavía sin lecturas{{ end }}).
+          ({{ len $listado }}{{ with $listado }}, del {{ time.Format "02/01" (index (sort . "fecha" "asc") 0).fecha }} al {{ time.Format "02/01" (index (sort . "fecha" "desc") 0).fecha }}{{ else }}, todavía sin lecturas{{ end }}).
           {{ with $ambas }}{{ len . }} aparecieron por las dos vías y cuentan en los dos denominadores, así que las dos cifras no suman el total.{{ end }}
           Se registran todas, también las que no interesan.
           {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
