@@ -220,18 +220,6 @@ nav.top a.top-featured[aria-current]:hover{background:var(--accent);color:var(--
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--ink-2);padding:8px 0 0;
 }
-/* la misma línea de cifras, cada dato en su casilla en vez de en una
-   tirada de puntos medios */
-.stamp--lista{
-  list-style:none;margin:0;display:flex;flex-wrap:wrap;gap:6px 0;line-height:1.5;
-}
-.stamp--lista li{padding:0 16px;border-left:1px solid var(--bar)}
-.stamp--lista li:first-child{padding-left:0;border-left:0}
-.stamp--lista b{color:var(--ink);font-weight:700;letter-spacing:.14em}
-@media (max-width:640px){
-  .stamp--lista{display:block}
-  .stamp--lista li{padding:0;border-left:0;margin-bottom:5px}
-}
 
 /* ── ENTRADILLA ─────────────────────────────────────────── */
 .lede{padding:44px 0 8px;display:grid;grid-template-columns:1fr 1fr;gap:0 54px}
@@ -249,6 +237,10 @@ nav.top a.top-featured[aria-current]:hover{background:var(--accent);color:var(--
 
 /* ── SECCIONES ──────────────────────────────────────────── */
 section{padding:38px 0;border-top:1.5px solid var(--rule)}
+/* Sección sin encabezado: solo la tabla. El filete se queda, pero no el
+   aire de debajo, que era el de la sección más el del .prose de dentro. */
+.seccion-tabla{padding-top:20px}
+.seccion-tabla > .prose{padding-top:0}
 .sechead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:6px}
 /* Titular de sección dentro del texto: los ## del markdown.
    Tiene que leerse como un titular, no como una etiqueta. */
@@ -412,15 +404,17 @@ h3{
 .tabla-ofertas tbody tr[hidden]{display:none}
 
 .tabla-ofertas .c-fecha{width:72px;padding-right:12px}
-.tabla-ofertas .c-pago{width:132px;text-align:right;padding-right:26px}
+/* Alineada a la derecha, así que estrechar la columna es lo que acerca
+   la cifra a «Oferta». Los 28px que suelta se los lleva «¿Puedo optar?»
+   y «Oferta» se queda igual de ancha que estaba. */
+.tabla-ofertas .c-pago{width:104px;text-align:right;padding-right:20px}
 /* En píxeles pelados y sin clamp() a propósito. Con table-layout:fixed,
    un clamp() con un porcentaje dentro no se resuelve al calcular las
    columnas: el navegador trata la columna como «auto» y le da la mitad
    del sobrante. Eso es lo que la dejaba en 412px pidiendo 110.
-   Estrecha porque cada píxel que suelta se lo lleva «Oferta», que es la
-   que se lee. El motivo del «No» se parte en varias líneas y da igual:
-   ahí lo que se busca es el sí o el no. */
-.tabla-ofertas .c-optar{width:96px}
+   El motivo del «No» se parte en varias líneas y da igual: ahí lo que
+   se busca es el sí o el no. */
+.tabla-ofertas .c-optar{width:124px}
 .tabla-ofertas .c-oferta{width:auto}
 
 .tabla-ofertas .c-fecha time{
