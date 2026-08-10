@@ -40,11 +40,10 @@
 {{ $caidas := where $alertas "consulta" "404" }}
 {{ $remotas := where $o "remoto" "Sí" }}
 
-{{/* Esta página va de margen a margen. No es un texto: es una tabla de 141
-     filas con la columna de la oferta pidiendo todo el ancho que haya, y el
-     titular y la entrada tienen que medir lo mismo que ella. Por eso «wrap»
-     pierde aquí el tope de 1080 px y se queda solo con los 24 px de aire. */}}
-<div class="wrap wrap--ancho">
+{{/* El ancho de esta página lo enciende «ancho: true» en el «front matter»:
+     baseof le pone la clase al <body> y con eso la cabecera, el cuerpo y el
+     pie pierden el tope de 1080 px y comparten el mismo aire lateral. */}}
+<div class="wrap">
   <article class="prose prose--ancho">
     <div class="sechead">
       <h2>Ofertas · página viva</h2>
@@ -78,7 +77,7 @@
       </div>
       <div class="tile">
         <p class="tile-cab">{{ partial "icono.html" "marca" }}<span class="lbl">Puedo hacerla</span></p>
-        <div class="val">{{ if $compatibles }}{{ len (where $alertas "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
+        <div class="val">{{ if $compatibles }}{{ len (where $compatibles "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
         <span class="sub">H4 · correo</span>
       </div>
       <div class="tile">
@@ -159,7 +158,8 @@
             {{ with $ambas }}{{ len . }} aparecieron por las dos vías y cuentan en los dos denominadores, así que las dos cifras no suman el total.{{ end }}
             Se registran todas, también las que no interesan.
             {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
-            Se publican los metadatos, no el texto de las ofertas.
+            Se publican los metadatos y el texto original de cada oferta,
+            detrás de «Ver original» en su fila y en el CSV.
           </p>
           <p>
             Las del listado las clasifica un modelo de lenguaje aplicando mis
@@ -285,15 +285,10 @@
                     <summary>Ver original</summary>
                     <div class="of-orig-panel">
                       <p class="of-orig-tit">{{ .titulo }}</p>
-                      {{ with .descripcion }}
-                        <p class="of-orig-txt">{{ . }}</p>
-                      {{ else }}
-                        <p class="of-orig-nota">
-                          El texto de la oferta no se publica: es material de la
-                          plataforma. De cada oferta salen los metadatos, y el
-                          resumen en español de arriba lo escribe un modelo.
-                        </p>
-                      {{ end }}
+{{/* Mientras la automatización no escriba «descripcion», aquí solo
+                           está el título. En cuanto empiece a escribirlo, el texto
+                           original aparece debajo sin tocar nada más. */}}
+                      {{ with .descripcion }}<p class="of-orig-txt">{{ . }}</p>{{ end }}
                     </div>
                   </details>
                 {{ end }}

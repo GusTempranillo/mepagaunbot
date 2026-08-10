@@ -39,14 +39,22 @@
 #                    lo que se quiere ver.
 #    motivo_compat   Qué me falta, en corto.
 #
-#  Además, dos campos que no son un juicio sino una traducción, y uno
-#  que dice quién ha pasado por la fila:
+#  Además, el texto original, dos campos que no son un juicio sino una
+#  traducción, y uno que dice quién ha pasado por la fila:
 #
+#    descripcion     El texto de la descripción de la oferta, tal y como
+#                    se publicó, sin traducir ni resumir. Lo pinta la web
+#                    detrás de «Ver original» en cada fila y va también en
+#                    el CSV. Los nombres de personas se anonimizan aquí
+#                    igual que en el resto de campos; los de empresas y
+#                    bots, no. Mientras la automatización no lo escriba,
+#                    la web enseña solo el título original y no falta nada
+#                    más: el campo puede estar vacío sin romper la página.
 #    titulo_es       El título del encargo en español. Casi todas las
 #                    ofertas llegan en inglés y el título original,
 #                    sin tocar, sigue en «titulo».
 #    resumen_es      Qué se pide, en dos o tres frases. No es el texto
-#                    de la oferta: es un resumen.
+#                    de la oferta: para eso está «descripcion».
 #    revisado        "si" cuando he leído la fila y la he firmado.
 #                    Vacío cuando lo que hay todavía es lo que propuso
 #                    la máquina, sin repasar. La web lo marca.

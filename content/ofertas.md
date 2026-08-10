@@ -2,6 +2,7 @@
 title: "Todo lo que me ha ofrecido el mercado"
 resumen: "Cada oferta que me ha llegado desde que me di de alta, con su fecha, su precio y su duración. Las que no me interesan también."
 layout: ofertas
+ancho: true
 date: 2026-08-07
 lastmod: 2026-08-07
 outputs: ["html", "csv"]
@@ -15,4 +16,4 @@ Las de bandeja las he clasificado yo a mano. Las del listado son demasiadas para
 
 Aquí no hay interpretación. Están las cifras y de dónde salen. La interpretación va en [la crónica](/cronica/), y si me equivoco al interpretarlas, va en [Errores](/errores/).
 
-Publico los metadatos de cada oferta —fecha, título, categoría, pago, duración— y no el texto de las descripciones, que es material de la plataforma. Los nombres de personas van anonimizados; los de empresas y bots, no.
+Publico los metadatos de cada oferta —fecha, título, categoría, pago, duración— y también el texto original de la descripción, tal y como se publicó: está detrás de «Ver original» en cada fila y en el CSV. Los nombres de personas van anonimizados; los de empresas y bots, no.

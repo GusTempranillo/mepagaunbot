@@ -60,6 +60,8 @@
   --bar:#B9AF9C;
   --bar-2:#D3CAB8;
   --maxw:1080px;
+  /* aire lateral de las páginas anchas */
+  --aire:clamp(22px,3.6vw,76px);
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -100,11 +102,12 @@ body::before{
 @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-/* Sin tope de ancho: la página se queda con los 24px de aire y nada más.
-   La usa /ofertas, donde el contenido es una tabla y no una columna de
-   lectura, y el titular y la entrada tienen que medir lo que mide ella. */
-.wrap--ancho{max-width:none}
-.prose--ancho > *,.prose--ancho .title,.prose--ancho .deck,.prose--ancho .title + .deck{max-width:none}
+/* Páginas anchas: se les quita el tope de 1080 y todo —cabecera, cuerpo y
+   pie— comparte el mismo aire lateral. Como el <header> y el <footer> usan
+   este mismo .wrap, la alineación es la misma de arriba abajo sin tener que
+   repetir el valor en ningún sitio. Lo enciende «ancho: true» en el «front
+   matter» de la página. */
+body.pagina-ancha .wrap{max-width:none;padding:0 var(--aire)}
 a{color:var(--ink);text-decoration:none;box-shadow:inset 0 -2px 0 var(--accent);transition:background .12s,color .12s}
 a:hover,a:focus-visible{background:var(--accent);color:var(--paper);box-shadow:none}
 a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -170,9 +173,23 @@ nav.top a.top-featured[aria-current]:hover{background:var(--accent);color:var(--
 .tile{padding:22px 18px 20px;background:var(--paper)}
 /* Cinco casillas nunca deben repartirse en cuatro columnas: la quinta se
    quedaba sola en una segunda fila. 5 → 3+2 → 2+2+1, sin huérfana de una. */
+/* Cinco casillas en una sola línea siempre, caiga donde caiga el ancho.
+   Todo lo que hay dentro se mide con el ancho de la ventana en vez de con
+   un tamaño fijo, así que en vez de partirse en dos filas, encoge. */
 .scoreboard.scoreboard--cinco{grid-template-columns:repeat(5,1fr)}
-@media (max-width:1000px){ .scoreboard.scoreboard--cinco{grid-template-columns:repeat(3,1fr)} }
-@media (max-width:640px){ .scoreboard.scoreboard--cinco{grid-template-columns:repeat(2,1fr)} }
+.scoreboard--cinco .tile{padding:clamp(8px,1.5vw,22px) clamp(7px,1.2vw,18px) clamp(8px,1.4vw,20px)}
+.scoreboard--cinco .tile-cab{
+  gap:clamp(4px,.6vw,8px);min-height:clamp(22px,3vw,42px);margin-bottom:clamp(2px,.4vw,4px);
+  align-items:flex-start;
+}
+.scoreboard--cinco .tile-cab .ico{width:clamp(10px,1.35vw,19px);height:clamp(10px,1.35vw,19px)}
+.scoreboard--cinco .lbl{font-size:clamp(8px,.86vw,10.5px);letter-spacing:clamp(.01em,.11vw,.15em);line-height:1.25}
+.scoreboard--cinco .val{font-size:clamp(17px,3.5vw,58px)}
+.scoreboard--cinco .val small{font-size:.28em;margin-left:1px}
+.scoreboard--cinco .sub{
+  font-size:clamp(7px,.8vw,9.5px);letter-spacing:clamp(.01em,.09vw,.16em);
+  margin-top:clamp(4px,.7vw,9px);line-height:1.3;
+}
 
 .tile .lbl{
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
@@ -402,11 +419,7 @@ h3{
 
 /* — celda «Oferta» — */
 .of-titulo{font-size:17px;line-height:1.32;font-weight:600;margin:0;max-width:62ch}
-.of-resumen{
-  font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0;max-width:82ch;
-  /* seis líneas y ni una más; lo que sobra no se despliega */
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;line-clamp:6;overflow:hidden;
-}
+.of-resumen{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0;max-width:82ch}
 /* El original, plegado. <details> nativo: sin JavaScript se abre y se
    cierra igual; lo que añade el script es cerrarlo al pulsar fuera. */
 .of-orig{margin:7px 0 0}
@@ -430,10 +443,7 @@ h3{
 }
 .of-orig-tit{margin:0;font-size:15px;line-height:1.35;font-weight:600;color:var(--ink)}
 .of-orig-txt{margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2);white-space:pre-line}
-.of-orig-nota{
-  margin:8px 0 0;font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.65;
-  letter-spacing:.02em;color:var(--ink-2);
-}
+
 
 .of-chips{display:flex;flex-wrap:wrap;gap:5px 6px;margin:9px 0 0}
 .of-chips:empty{display:none}
@@ -676,6 +686,15 @@ h3{
   .barra-cuenta{margin:2px 0 0;width:100%}
   .vacio{padding:26px 16px}
 }
+
+/* Titular, entradilla y cuerpo al ancho de la página.
+   Va aquí y no junto a .wrap porque .prose > *, .prose .title, .deck y
+   .title + .deck se declaran más arriba con la misma especificidad: puesto
+   antes, perdía y solo la entradilla parecía hacer caso. */
+.prose--ancho > *,
+.prose--ancho .title,
+.prose--ancho .deck,
+.prose--ancho .title + .deck{max-width:none}
 
 .fuentes{border-top:1.5px solid var(--rule);margin-top:36px;padding-top:8px}
 .fuentes ul{padding-left:18px;font-size:16px}
