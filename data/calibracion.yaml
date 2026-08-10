@@ -1,4 +1,4 @@
-# Calibración del clasificador automático.
+# Calibración del clasificador.
 #
 # Las ofertas que me llegan por correo son las únicas que clasifiqué a
 # mano, antes de que existiera la máquina. Este fichero es el resultado de
@@ -27,11 +27,11 @@ abstenciones: 0
 
 campos:
   - campo: disponible_es
-    pregunta: "¿Me dejan entrar?"
+    pregunta: "¿Puedo optar?"
     hipotesis: "5"
     coinciden: 21
     comparadas: 23
-    nota: "Es el único campo que el clasificador automático aporta a una hipótesis: la 5 se calcula sobre las ofertas del listado público."
+    nota: "Es el único campo que el clasificador aporta a una hipótesis: la 5 se calcula sobre las ofertas del listado público."
   - campo: compatible
     pregunta: "¿Puedo hacerla?"
     hipotesis: "4"

@@ -9,8 +9,8 @@
 # Un modelo de lenguaje las propone aplicando este fichero, y el modelo
 # tiene orden de dejar la fila en blanco y preguntarme cuando dude.
 #
-# «disponible_es» se publica sin esperar a que yo repase la fila, marcado
-# como automático mientras no lo haya hecho: es el único campo que alimenta
+# «disponible_es» se publica sin esperar a que yo repase la fila, y la
+# columna «revisado» dice por cuáles he pasado: es el único campo que alimenta
 # una hipótesis y su tasa de acierto está medida contra las ofertas que
 # clasifiqué a mano y publicada en /calibracion/. «compatible» y
 # «modalidad» sí esperan mi firma. El procedimiento entero está en /metodo/.

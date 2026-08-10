@@ -12,7 +12,7 @@
      en_email  = llegó a la bandeja (hipótesis 4: de las que la
                  plataforma cree mías, ¿cuántas puedo aceptar?).
      en_listado = estaba en el listado público, encaje conmigo o no
-                 (hipótesis 5: ¿me dejan entrar?). */}}
+                 (hipótesis 5: ¿puedo optar?). */}}
 {{ $alertas := where $o "en_email" "si" }}
 {{ $listado := where $o "en_listado" "si" }}
 {{ $ambas := where $alertas "en_listado" "si" }}
@@ -54,7 +54,7 @@
         <div class="val">{{ len $remotas }}<small>/{{ $total }}</small></div>
       </div>
       <div class="tile{{ if $clasificadas }} hot{{ end }}">
-        <span class="lbl">Me dejan entrar <small>· H5, listado</small></span>
+        <span class="lbl">Puedo optar <small>· H5, listado</small></span>
         <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
       </div>
       <div class="tile">
@@ -90,7 +90,7 @@
         <thead>
           <tr>
             <th>Fecha</th><th>Vista en</th><th>Oferta</th><th>Categoría</th><th>Pago</th>
-            <th>Modalidad</th><th>¿Me dejan entrar?</th><th>¿Puedo hacerla?</th>
+            <th>Modalidad</th><th>¿Puedo optar?</th><th>¿Puedo hacerla?</th>
           </tr>
         </thead>
         <tbody>
@@ -104,7 +104,6 @@
               <td>
                 {{ if .titulo_es }}{{ .titulo_es }}{{ else }}{{ .titulo }}{{ end }}{{ if eq .consulta "404" }} <span class="note">· ya no existía al consultarla</span>{{ end }}
                 {{ with .resumen_es }}<br><span class="note">{{ . }}</span>{{ end }}
-                {{ if and .resumen_es (ne .revisado "si") }} <span class="note">· resumen automático, todavía sin repasar</span>{{ end }}
                 {{ if .titulo_es }}<br><span class="note">Título original: {{ .titulo }}</span>{{ end }}
               </td>
               <td>{{ with .categoria }}{{ . }}{{ else }}—{{ end }}</td>
@@ -114,7 +113,6 @@
                 {{ if eq .disponible_es "si" }}Sí
                 {{ else if eq .disponible_es "no" }}No{{ with .motivo }} <span class="note">· {{ . }}</span>{{ end }}
                 {{ else }}<span class="note">sin clasificar</span>{{ end }}
-                {{ if and .disponible_es (ne .revisado "si") (ne .en_email "si") }} <span class="note">· automático</span>{{ end }}
               </td>
               <td>
                 {{ if eq .compatible "si" }}Sí
@@ -136,17 +134,17 @@
         {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
         Se publican los metadatos, no el texto de las ofertas.
         Las del listado las clasifica un modelo de lenguaje aplicando mis
-        criterios publicados, y las marcadas «automático» son las que todavía
-        no he repasado. Salen sin esperarme a propósito: con más de cien
-        ofertas al día, una firma que no puede seguir el ritmo sería un sello
-        de goma, así que en vez de prometer que las miro todas mido cuánto
-        acierta la máquina y lo publico en <a href="/calibracion/">¿Acierta la
-        máquina?</a>. Lo que sí espera mi firma es «¿puedo hacerla?», donde la
-        misma calibración dice que rechaza de más.
+        criterios publicados, y salen sin esperar a que yo repase la fila.
+        Es a propósito: con más de cien ofertas al día, una firma que no
+        puede seguir el ritmo sería un sello de goma, así que en vez de
+        prometer que las miro todas mido cuánto acierta la máquina y lo
+        publico en <a href="/calibracion/">¿Acierta la máquina?</a>. Por
+        cuáles he pasado ya, una por una, lo dice la columna «revisado» del
+        CSV. Lo que sí espera mi firma es «¿puedo hacerla?», donde la misma
+        calibración dice que rechaza de más.
         Casi todas llegan en inglés: el título y el resumen en español los
-        redacta el mismo modelo y también salen sin esperarme, marcados hasta
-        que paso por la fila. El título original va debajo de cada uno, sin
-        tocar.
+        redacta el mismo modelo y también salen sin esperarme. El título
+        original va debajo de cada uno, sin tocar.
       </p>
     </div>
   </section>

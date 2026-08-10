@@ -60,9 +60,9 @@ Unidos y yo había dado por abiertas—: los he corregido y ahí están contados
 
 Con ese número delante, esto es lo que sale sin esperarme y lo que no.
 
-**Sale sin esperarme** «¿me dejan entrar?», que es el único campo que
-alimenta una hipótesis y el único cuyo acierto está medido, y va marcado como
-*automático* mientras no haya pasado por la fila. Y el título y el resumen en
+**Sale sin esperarme** «¿puedo optar?», que es el único campo que
+alimenta una hipótesis y el único cuyo acierto está medido. Por cuáles he
+pasado ya lo dice la columna «revisado» del CSV. Y el título y el resumen en
 español: casi todas las ofertas llegan en inglés y con títulos que no dicen
 nada de lo que hay que hacer, así que sin ellos la lista no la lee nadie. El
 título original se queda debajo sin tocar, para que cualquiera compare.

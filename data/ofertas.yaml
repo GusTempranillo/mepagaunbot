@@ -23,7 +23,7 @@
 #  Las columnas de la alerta no se interpretan. Las cuatro últimas
 #  las decide el autor, y miden cosas distintas:
 #
-#    disponible_es   ¿Me dejan entrar? Hipótesis 5, sobre en_listado
+#    disponible_es   ¿Puedo optar? Hipótesis 5, sobre en_listado
 #                    "si". Solo cuenta presencia física fuera
 #                    de España o una verificación, documentación o
 #                    residencia que no pueda cumplir viviendo aquí.
