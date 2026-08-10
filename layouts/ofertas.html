@@ -276,18 +276,18 @@
               <td class="c-oferta" data-label="Oferta">
                 <p class="of-titulo">{{ if .titulo_es }}{{ .titulo_es }}{{ else }}{{ .titulo }}{{ end }}</p>
                 {{ with .resumen_es }}<p class="of-resumen">{{ . }}</p>{{ end }}
-                {{/* «Ver original» solo donde hay un original que no se está
-                     viendo, es decir donde el título de arriba es traducido.
-                     En las 23 sin traducir, lo que se lee ya es el original. */}}
-                {{ if .titulo_es }}
+                {{/* Va en todas las filas: aunque el título ya sea el original
+                     —las 23 sin traducir—, el enlace a la publicación sigue
+                     siendo algo que no se está viendo. */}}
+                {{ $enlace := "" }}
+                {{ if and site.Params.oferta_url .id }}{{ $enlace = printf site.Params.oferta_url .id }}{{ end }}
+                {{ if or .titulo_es $enlace }}
                   <details class="of-orig">
                     <summary>Ver original</summary>
                     <div class="of-orig-panel">
-                      <p class="of-orig-tit">{{ .titulo }}</p>
-                      {{/* El enlace sale del patrón «oferta_url» de hugo.toml. Sin
-                           patrón, aquí queda solo el título original y nada más. */}}
-                      {{ if and site.Params.oferta_url .id }}
-                        <p class="of-orig-ir"><a href="{{ printf site.Params.oferta_url .id }}" rel="nofollow noopener" target="_blank">Ver la oferta en RentAHuman</a></p>
+                      {{ if .titulo_es }}<p class="of-orig-tit">{{ .titulo }}</p>{{ end }}
+                      {{ with $enlace }}
+                        <p class="of-orig-ir"><a href="{{ . }}" rel="nofollow noopener" target="_blank">Ver la oferta en RentAHuman</a></p>
                         <p class="of-orig-aviso">Puede haber caducado: si el enlace da error, es que ya no está publicada.</p>
                       {{ end }}
                     </div>

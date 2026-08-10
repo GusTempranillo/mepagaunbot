@@ -21,10 +21,11 @@ disableKinds = ['taxonomy', 'term']
   # Código de GoatCounter cuando exista (p. ej. 'mepagaunbot'); vacío = sin analítica
   goatcounter = 'tempranillo'
   # Patrón de la dirección pública de una oferta en la plataforma. El %s
-  # es el campo «id» de cada fila de data/ofertas.yaml. Vacío = «Ver
-  # original» enseña solo el título original, sin enlace.
-  # Ejemplo: 'https://rentahuman.ai/gigs/%s'
-  oferta_url = ''
+  # es el campo «id» de cada fila de data/ofertas.yaml, que ya viene con la
+  # forma exacta del slug: unas veces un token de 20 caracteres y otras
+  # «qa_<token>_<fecha>». No hay que componer nada, va tal cual.
+  # Vacío = «Ver original» enseña solo el título, sin enlace.
+  oferta_url = 'https://rentahuman.ai/bounties/%s'
   # URL del repositorio público cuando exista; vacío = oculto
   repo = 'https://github.com/GusTempranillo/mepagaunbot'
 
