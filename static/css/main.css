@@ -413,10 +413,14 @@ h3{
 
 .tabla-ofertas .c-fecha{width:72px;padding-right:12px}
 .tabla-ofertas .c-pago{width:132px;text-align:right;padding-right:26px}
-/* Lo más estrecha que aguanta: cada píxel que suelta se lo lleva
-   «Oferta», que es la que se lee. El motivo del «No» se parte en varias
-   líneas y da igual, porque ahí lo que se busca es el sí o el no. */
-.tabla-ofertas .c-optar{width:clamp(84px,7%,110px)}
+/* En píxeles pelados y sin clamp() a propósito. Con table-layout:fixed,
+   un clamp() con un porcentaje dentro no se resuelve al calcular las
+   columnas: el navegador trata la columna como «auto» y le da la mitad
+   del sobrante. Eso es lo que la dejaba en 412px pidiendo 110.
+   Estrecha porque cada píxel que suelta se lo lleva «Oferta», que es la
+   que se lee. El motivo del «No» se parte en varias líneas y da igual:
+   ahí lo que se busca es el sí o el no. */
+.tabla-ofertas .c-optar{width:96px}
 .tabla-ofertas .c-oferta{width:auto}
 
 .tabla-ofertas .c-fecha time{
@@ -425,8 +429,9 @@ h3{
 }
 
 /* — celda «Oferta» — */
-.of-titulo{font-size:17px;line-height:1.32;font-weight:600;margin:0;max-width:62ch}
-.of-resumen{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0;max-width:82ch}
+/* Sin tope: la celda «Oferta» es ancha justamente para que quepa aquí. */
+.of-titulo{font-size:17px;line-height:1.32;font-weight:600;margin:0}
+.of-resumen{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0}
 /* El original, plegado. <details> nativo: sin JavaScript se abre y se
    cierra igual; lo que añade el script es cerrarlo al pulsar fuera. */
 .of-orig{margin:7px 0 0}
