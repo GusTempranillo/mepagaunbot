@@ -7,13 +7,20 @@
       <span class="note" style="margin:0">{{ len .RegularPages }} entradas</span>
     </div>
     <h3 class="title">{{ .Title }}</h3>
+    {{/* El subtítulo sale del «resumen» del _index.md, como en las demás
+         páginas. Aquí lleva su propia clase porque debajo va una lista y
+         no un cuerpo de texto: pide menos aire. */}}
+    {{ with .Params.resumen }}<p class="deck deck--lista">{{ . }}</p>{{ end }}
     {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
     {{ $posts := .RegularPages }}
     {{ if $posts }}
       <ul class="postlist postlist--big">
         {{ range $posts.ByDate.Reverse }}
           <li>
-            <span class="pdate">{{ .Date.Format "2006-01-02" }}</span>
+            {{/* A la vista, día y mes como en el resto del sitio; el año
+                 sigue entero en el atributo, que es lo que leen las
+                 máquinas y lo que sale al copiar la fecha. */}}
+            <span class="pdate"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01" }}</time></span>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             {{ with .Params.resumen }}<em>{{ . }}</em>{{ end }}
           </li>
