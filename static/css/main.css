@@ -423,6 +423,36 @@ h3{
 .optar .ico{flex:0 0 auto}
 .optar-motivo{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-2);margin-top:5px}
 
+/* ── METODOLOGÍA JUNTO A LA TABLA ───────────────────────────
+   Plegada, pero encima de la tabla y no a pie de página. Lo que
+   dice es parte de lo que la página promete, no una errata. */
+.tabla-fuente{
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.65;letter-spacing:.02em;
+  color:var(--ink-2);margin:0 0 12px;max-width:88ch;
+}
+.metodo{margin:0 0 4px;border-top:1px solid var(--bar);border-bottom:1px solid var(--bar)}
+.metodo summary{
+  display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+  padding:11px 0;color:var(--ink);
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+}
+.metodo summary::-webkit-details-marker{display:none}
+/* el triángulo, girado con CSS: sin fuente de iconos y sin imagen */
+.metodo summary::before{
+  content:"";flex:0 0 auto;width:0;height:0;
+  border-left:6px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;
+  transition:transform .12s;
+}
+.metodo[open] summary::before{transform:rotate(90deg)}
+.metodo summary:hover{color:var(--accent)}
+.metodo summary:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.metodo-cuerpo{padding:2px 0 18px;max-width:78ch}
+.metodo-cuerpo p{
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.75;letter-spacing:.02em;
+  color:var(--ink-2);margin:0 0 14px;
+}
+.metodo-cuerpo p:last-child{margin-bottom:0}
+
 /* ── BARRA DE FILTROS ───────────────────────────────────────
    Se pega arriba junto con la cabecera de la tabla: la barra en
    top:0 y el <thead> justo debajo, a la altura que el script mide.
