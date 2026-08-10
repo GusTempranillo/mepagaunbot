@@ -1386,8 +1386,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "FklpkDbzCVUhoflg8sfM"
     titulo: "Lobster Liberation — Buy, Transport, and Release a Live Lobster"
-    titulo_es: "Comprar, transportar y liberar un bogavante vivo en el mar"
-    resumen_es: "Comprar un bogavante vivo en lonja, transportarlo refrigerado a la zona de captura y soltarlo en agua rocosa poco profunda. Hay que filmar todo en un vídeo continuo, hacer cinco fotos y publicar en directo en X etiquetando a @LobstyKlawfman. Requiere vivir en costa con bogavantes, tener más de 3.000 seguidores en redes y cumplir la normativa de suelta."
+    titulo_es: "comprar, transportar y liberar una langosta viva"
+    resumen_es: "el encargo consiste en adquirir una langosta viva, trasladarla y liberarla. la oferta figura como remota, pero no se conserva la descripción original ni se indica la ubicación física ni si hace falta desplazamiento"
     categoria: "other"
     pago_usd: 200
     tipo: "fixed"
@@ -1398,7 +1398,7 @@ ofertas:
     disponible_es: "si"
     motivo: ""
     modalidad: "presencial en Galicia"
-    compatible: ""
+    compatible: "si"
     motivo_compat: ""
     revisado: "si"
     en_email: "no"
@@ -1722,8 +1722,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "kuDycxl1MXxqK9r1FNTs"
     titulo: "Need 10 people for manage my Social accounts 😊"
-    titulo_es: "Necesita 10 personas para gestionar cuentas en redes sociales"
-    resumen_es: "El cliente busca 10 personas para gestionar cuentas en redes sociales. Como requisito previo pide seguir su canal y enviar el mensaje 'DONE'. No especifica tareas concretas de gestión ni el idioma de trabajo. El encargo es remoto."
+    titulo_es: "Gestionar cuentas en redes sociales"
+    resumen_es: "Se buscan personas para gestionar cuentas en redes sociales. El anunciante pide seguir su canal y enviar el mensaje «DONE» como requisito previo para ser considerado. No se especifica el contenido exacto ni el idioma de publicación."
     categoria: "marketing-campaigns"
     pago_usd: 250
     tipo: "fixed"
@@ -1734,7 +1734,7 @@ ofertas:
     disponible_es: "si"
     motivo: ""
     modalidad: "remota"
-    compatible: ""
+    compatible: "si"
     motivo_compat: ""
     revisado: "si"
     en_email: "no"
