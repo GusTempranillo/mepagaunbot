@@ -76,9 +76,9 @@
 }
 
 *{box-sizing:border-box}
-/* «clip» y no «hidden»: recorta el desbordamiento lateral que provoca la
-   tabla a sangre de /ofertas sin convertir <html> en un contenedor de
-   desplazamiento, que es lo que rompería el position:sticky de su cabecera. */
+/* Red de seguridad contra cualquier desborde lateral. «clip» y no
+   «hidden» a propósito: «hidden» convertiría <html> en un contenedor de
+   desplazamiento y eso rompería el position:sticky de la tabla de ofertas. */
 html{-webkit-text-size-adjust:100%;overflow-x:clip}
 body{
   margin:0;
@@ -100,6 +100,11 @@ body::before{
 @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+/* Sin tope de ancho: la página se queda con los 24px de aire y nada más.
+   La usa /ofertas, donde el contenido es una tabla y no una columna de
+   lectura, y el titular y la entrada tienen que medir lo que mide ella. */
+.wrap--ancho{max-width:none}
+.prose--ancho > *,.prose--ancho .title,.prose--ancho .deck,.prose--ancho .title + .deck{max-width:none}
 a{color:var(--ink);text-decoration:none;box-shadow:inset 0 -2px 0 var(--accent);transition:background .12s,color .12s}
 a:hover,a:focus-visible{background:var(--accent);color:var(--paper);box-shadow:none}
 a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -358,15 +363,13 @@ h3{
   overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;
 }
 
-.tabla-ofertas{
-  margin:28px 0;
-  /* de borde a borde de pantalla, con 24px de aire a cada lado.
-     El aire va en padding y no en width: si la barra de scroll se
-     come parte de 100vw, se come el margen, nunca el contenido. */
-  width:100vw;max-width:none;
-  margin-inline:calc(50% - 50vw);
-  padding-inline:24px;
-}
+/* Ya no hace falta ninguna cuenta con vw: la página entera vive en
+   .wrap--ancho, que no tiene tope y ya trae los 24px de aire. La tabla
+   solo tiene que ocupar lo que le den. La cuenta anterior —100vw y
+   márgenes negativos— además fallaba: .ancho{margin:30px 0}, que está
+   más abajo en este mismo fichero y con la misma especificidad, ponía a
+   cero los márgenes laterales y la tabla se iba toda hacia la derecha. */
+.ancho.tabla-ofertas{margin:28px 0;width:auto;max-width:none;padding-inline:0}
 .tabla-ofertas table{width:100%;table-layout:fixed;border-collapse:collapse;margin:0;font-size:15.5px}
 .tabla-ofertas th,.tabla-ofertas td{vertical-align:top;text-align:left;overflow-wrap:anywhere}
 
@@ -399,28 +402,38 @@ h3{
 
 /* — celda «Oferta» — */
 .of-titulo{font-size:17px;line-height:1.32;font-weight:600;margin:0;max-width:62ch}
-.of-resumen{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0;max-width:82ch}
-.of-original{
-  font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.5;letter-spacing:.02em;
-  color:var(--ink-2);margin:6px 0 0;text-transform:none;
+.of-resumen{
+  font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:4px 0 0;max-width:82ch;
+  /* seis líneas y ni una más; lo que sobra no se despliega */
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;line-clamp:6;overflow:hidden;
 }
-/* Resumen a tres líneas con <details> nativo: el texto vive dentro del
-   <summary>, que es lo único que permite ver el recorte estando plegado. */
-.of-mas{margin:4px 0 0}
-.of-mas summary{display:block;list-style:none;cursor:pointer}
-.of-mas summary::-webkit-details-marker{display:none}
-.of-mas summary .of-resumen{
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;
-}
-.of-mas[open] summary .of-resumen{display:block;-webkit-line-clamp:none;line-clamp:none}
-.of-mas summary::after{
-  content:"Ver más";display:inline-block;margin-top:3px;
+/* El original, plegado. <details> nativo: sin JavaScript se abre y se
+   cierra igual; lo que añade el script es cerrarlo al pulsar fuera. */
+.of-orig{margin:7px 0 0}
+.of-orig summary{
+  display:inline-flex;align-items:center;gap:6px;list-style:none;cursor:pointer;
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-2);box-shadow:inset 0 -1px 0 var(--ink-3);
 }
-.of-mas[open] summary::after{content:"Ver menos"}
-.of-mas summary:hover::after{color:var(--ink);box-shadow:inset 0 -1.5px 0 var(--accent)}
-.of-mas summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.of-orig summary::-webkit-details-marker{display:none}
+.of-orig summary::before{
+  content:"";flex:0 0 auto;width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;border-bottom:4px solid transparent;
+  transition:transform .12s;
+}
+.of-orig[open] summary::before{transform:rotate(90deg)}
+.of-orig summary:hover{color:var(--ink);box-shadow:inset 0 -1.5px 0 var(--accent)}
+.of-orig summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.of-orig-panel{
+  margin-top:9px;padding:12px 14px;max-width:86ch;
+  border-left:2px solid var(--accent);background:var(--paper-2);
+}
+.of-orig-tit{margin:0;font-size:15px;line-height:1.35;font-weight:600;color:var(--ink)}
+.of-orig-txt{margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2);white-space:pre-line}
+.of-orig-nota{
+  margin:8px 0 0;font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.65;
+  letter-spacing:.02em;color:var(--ink-2);
+}
 
 .of-chips{display:flex;flex-wrap:wrap;gap:5px 6px;margin:9px 0 0}
 .of-chips:empty{display:none}
@@ -610,7 +623,6 @@ h3{
    junto al resto de celdas: título, pago, fecha, «¿puedo optar?» y, al
    final, los metadatos. */
 @media (max-width:700px){
-  .tabla-ofertas{padding-inline:16px;margin-inline:calc(50% - 50vw)}
   .tabla-ofertas table,.tabla-ofertas tbody{display:block;width:100%}
   .tabla-ofertas table{table-layout:auto;font-size:16px}
   .tabla-ofertas thead{
@@ -629,8 +641,8 @@ h3{
   .tabla-ofertas tbody td.c-oferta{display:contents}
 
   .of-titulo{order:1;font-size:18px;max-width:none}
-  .of-mas,.of-resumen{order:2}
-  .of-original{order:3}
+  .of-resumen{order:2}
+  .of-orig{order:3}
   .tabla-ofertas tbody td.c-pago{order:4;margin-top:12px}
   .tabla-ofertas tbody td.c-fecha{order:5;margin-top:10px}
   .tabla-ofertas tbody td.c-optar{order:6;margin-top:10px}
