@@ -108,8 +108,9 @@
       </a>
       <span class="descarga-nota">
         Una fila por oferta, {{ $total }} en total, con todos los campos: también
-        los que la tabla resume en etiquetas y la columna «revisado», que dice
-        por cuáles he pasado ya.
+        la modalidad y el «¿puedo hacerla?» que la tabla ya no enseña, el enlace
+        a la publicación original y la columna «revisado», que dice por cuáles
+        he pasado ya.
       </span>
     </p>
   </section>
@@ -155,8 +156,8 @@
             {{ with $ambas }}{{ len . }} aparecieron por las dos vías y cuentan en los dos denominadores, así que las dos cifras no suman el total.{{ end }}
             Se registran todas, también las que no interesan.
             {{ with $caidas }}{{ len . }} de las de bandeja ya devolvían un error 404 al consultarlas.{{ end }}
-            Se publican los metadatos y el texto original de cada oferta,
-            detrás de «Ver original» en su fila y en el CSV.
+            Se publican los metadatos, no el texto de las ofertas. De cada una
+            queda el enlace a la publicación original, que puede haber caducado.
           </p>
           <p>
             Las del listado las clasifica un modelo de lenguaje aplicando mis
@@ -172,9 +173,10 @@
           <p>
             La tabla enseña cuatro columnas; los campos son más. «Modalidad» y
             «¿puedo hacerla?» (H4, correo) solo aplican a las {{ len $alertas }} que llegaron
-            a la bandeja, así que van como etiquetas dentro de la oferta y solo
-            ahí. La categoría, la vía y el remoto hacen lo mismo. Ningún campo
-            se ha quitado: el detalle fila a fila, entero, está
+            a la bandeja, así que no salen en la tabla: sus recuentos están
+            arriba, en el marcador. La categoría, la vía y el remoto sí van como
+            etiquetas dentro de cada oferta. Ningún campo se ha quitado: el
+            detalle fila a fila, entero, está
             <a href="{{ with $.OutputFormats.Get "csv" }}{{ .RelPermalink }}{{ end }}">en el CSV</a>.
           </p>
         </div>
@@ -282,10 +284,12 @@
                     <summary>Ver original</summary>
                     <div class="of-orig-panel">
                       <p class="of-orig-tit">{{ .titulo }}</p>
-{{/* Mientras la automatización no escriba «descripcion», aquí solo
-                           está el título. En cuanto empiece a escribirlo, el texto
-                           original aparece debajo sin tocar nada más. */}}
-                      {{ with .descripcion }}<p class="of-orig-txt">{{ . }}</p>{{ end }}
+                      {{/* El enlace sale del patrón «oferta_url» de hugo.toml. Sin
+                           patrón, aquí queda solo el título original y nada más. */}}
+                      {{ if and site.Params.oferta_url .id }}
+                        <p class="of-orig-ir"><a href="{{ printf site.Params.oferta_url .id }}" rel="nofollow noopener" target="_blank">Ver la oferta en RentAHuman</a></p>
+                        <p class="of-orig-aviso">Puede haber caducado: si el enlace da error, es que ya no está publicada.</p>
+                      {{ end }}
                     </div>
                   </details>
                 {{ end }}
@@ -295,10 +299,6 @@
                   {{ if eq .en_listado "si" }}<span class="chip">Listado</span>{{ end }}
                   {{ if eq .remoto "Sí" }}<span class="chip chip--remoto">{{ partial "icono.html" "globo" }}Remoto</span>{{ end }}
                   {{ if eq .consulta "404" }}<span class="chip chip--baja">Ya no existía al consultarla</span>{{ end }}
-                  {{ if eq .en_email "si" }}
-                    {{ with .modalidad }}<span class="chip chip--h4">H4 · {{ . }}</span>{{ end }}
-                    <span class="chip chip--h4">H4 · {{ if eq .compatible "si" }}puedo hacerla{{ else if eq .compatible "no" }}no puedo hacerla{{ with .motivo_compat }} · {{ . }}{{ end }}{{ else }}sin clasificar{{ end }}</span>
-                  {{ end }}
                 </p>
               </td>
 

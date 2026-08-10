@@ -454,7 +454,11 @@ h3{
   border-left:2px solid var(--accent);background:var(--paper-2);
 }
 .of-orig-tit{margin:0;font-size:15px;line-height:1.35;font-weight:600;color:var(--ink)}
-.of-orig-txt{margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2);white-space:pre-line}
+.of-orig-ir{margin:9px 0 0;font-size:14.5px;line-height:1.4}
+.of-orig-aviso{
+  margin:6px 0 0;font-family:"JetBrains Mono",monospace;font-size:10.5px;line-height:1.6;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);
+}
 
 
 .of-chips{display:flex;flex-wrap:wrap;gap:5px 6px;margin:9px 0 0}
@@ -466,9 +470,6 @@ h3{
   border:1px solid var(--ink-3);border-radius:2px;padding:2px 7px;
 }
 .chip .ico{flex:0 0 auto}
-/* Trazo discontinuo = hipótesis 4, la que solo aplica a las de correo.
-   Nunca va solo: el chip lleva escrito «H4» delante. */
-.chip--h4{border-style:dashed;white-space:normal}
 .chip--baja{color:var(--ink-2);border-style:dotted}
 
 /* — celda «Pago» — */

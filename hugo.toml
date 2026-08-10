@@ -20,6 +20,11 @@ disableKinds = ['taxonomy', 'term']
   newsletter = ''
   # Código de GoatCounter cuando exista (p. ej. 'mepagaunbot'); vacío = sin analítica
   goatcounter = 'tempranillo'
+  # Patrón de la dirección pública de una oferta en la plataforma. El %s
+  # es el campo «id» de cada fila de data/ofertas.yaml. Vacío = «Ver
+  # original» enseña solo el título original, sin enlace.
+  # Ejemplo: 'https://rentahuman.ai/gigs/%s'
+  oferta_url = ''
   # URL del repositorio público cuando exista; vacío = oculto
   repo = 'https://github.com/GusTempranillo/mepagaunbot'
 
