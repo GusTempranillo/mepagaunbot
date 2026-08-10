@@ -60,17 +60,30 @@ Unidos y yo había dado por abiertas—: los he corregido y ahí están contados
 
 Con ese número delante, esto es lo que sale sin esperarme y lo que no.
 
-**Sale sin esperarme** «¿puedo optar?», que es el único campo que
-alimenta una hipótesis y el único cuyo acierto está medido. Por cuáles he
-pasado ya lo dice la columna «revisado» del CSV. Y el título y el resumen en
-español: casi todas las ofertas llegan en inglés y con títulos que no dicen
-nada de lo que hay que hacer, así que sin ellos la lista no la lee nadie. El
-título original se queda debajo sin tocar, para que cualquiera compare.
+**Sale sin esperarme** «¿puedo optar?», que es la pregunta que alimenta una
+hipótesis. Son en realidad dos: si me dejan entrar y si sé hacerlo. La tabla
+las cruza —para poder optar hacen falta las dos— y por eso ninguna de las dos
+puede quedarse en blanco: una columna a medias no responde nada. La primera es
+además la única cuyo acierto está medido. Por cuáles he pasado ya lo dice la
+columna «revisado» del CSV, y el CSV trae las dos por separado, sin cruzar,
+para quien quiera comprobar la cuenta.
 
-**Espera mi firma** «¿puedo hacerla?», porque la misma calibración dice que
-ahí el modelo rechaza más de la cuenta, y porque una oferta del listado que él
-descarte por incompatible no entra en ninguna hipótesis: no hay ninguna prisa
-por publicarla sin mirarla.
+Las dos se deciden con la misma regla que firmé antes de empezar: ante la duda,
+sí. Es la que hace que el error caiga en mi contra. Si me equivoco dando por
+buena una oferta que no lo era, el resultado sale peor de lo que fue; al revés,
+saldría mejor. La calibración dice que en «¿puedo hacerla?» el modelo rechaza
+más de la cuenta, así que esa regla es justo la corrección que hace falta, y el
+número seguirá publicado en [¿Acierta la máquina?](/calibracion/) para que se
+vea si basta.
+
+**Sale también sin esperarme** el título y el resumen en español: casi todas
+las ofertas llegan en inglés y con títulos que no dicen nada de lo que hay que
+hacer, así que sin ellos la lista no la lee nadie. El título original se queda
+debajo sin tocar, para que cualquiera compare.
+
+**Espera mi firma** la modalidad —si el encargo es remoto, presencial en
+Galicia o presencial fuera—, que es de la hipótesis 4 y solo se mide sobre las
+ofertas que me llegan al correo.
 
 Si me encuentro algo mal, lo corrijo en la hoja y al día siguiente sale
 corregido. Y son fichas de un listado, no narración: la crónica la sigo

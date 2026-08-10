@@ -109,7 +109,11 @@
         <span class="sub">según el anuncio</span>
       </div>
       <div class="tile{{ if $clasificadas }} hot{{ end }}">
-        <p class="tile-cab">{{ partial "icono.html" "diana" }}<span class="lbl">Puedo optar</span></p>
+        {{/* Esta casilla es la hipótesis 5 tal como se registró: si me dejan
+             entrar, ni más ni menos. La columna «¿Puedo optar?» de la tabla
+             pide además saber hacerla, así que no puede llamarse igual que
+             esto o darían dos números distintos con el mismo nombre. */}}
+        <p class="tile-cab">{{ partial "icono.html" "diana" }}<span class="lbl">Me dejan entrar</span></p>
         <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
         <span class="sub">H5 · listado</span>
       </div>
@@ -133,7 +137,8 @@
       </a>
       <span class="descarga-nota">
         Una fila por oferta, {{ $total }} en total, con todos los campos: también
-        la modalidad y el «¿puedo hacerla?» que la tabla ya no enseña, el enlace
+        la modalidad y las dos preguntas por separado —«me dejan entrar» y
+        «puedo hacerla»—, que la tabla cruza en una sola columna, el enlace
         a la publicación original y la columna «revisado», que dice por cuáles
         he pasado ya.
       </span>
@@ -149,8 +154,8 @@
       {{/* Cuatro columnas. Lo que estaba en las otras cuatro no se pierde:
            categoría, vía, remoto y las dos etiquetas de la hipótesis 4 bajan
            a chips dentro de la celda «Oferta», y los campos siguen enteros
-           en el CSV. Modalidad y compatible solo aplican a las de correo,
-           así que solo aparecen ahí en vez de decir «no aplica» 118 veces. */}}
+           en el CSV. La columna «¿Puedo optar?» cruza «me dejan entrar» y
+           «puedo hacerla»: los dos campos siguen sueltos en el CSV. */}}
       {{/* Las 22 categorías salen de los datos, con su recuento. En chips
            serían un muro: la mayoritaria, «other», se lleva 33 ofertas. */}}
       {{ $cats := slice }}
@@ -236,6 +241,18 @@
                  igual que las que vienen sin cifra, aquí y al ordenar. */}}
             {{ $hayPago := false }}{{ $pago := 0.0 }}
             {{ with .pago_usd }}{{ if ne (printf "%v" .) "NaN" }}{{ $hayPago = true }}{{ $pago = float . }}{{ end }}{{ end }}
+            {{/* «¿Puedo optar?» cruza las dos preguntas: que me dejen entrar
+                 (disponible_es) y que sepa hacerla (compatible). Basta que una
+                 de las dos sea «no» para que la respuesta sea «no», y entonces
+                 se dicen los dos motivos, el que los tenga. */}}
+            {{ $optar := "" }}{{ $motivos := slice }}
+            {{ if and (eq .disponible_es "si") (eq .compatible "si") }}
+              {{ $optar = "si" }}
+            {{ else if or (eq .disponible_es "no") (eq .compatible "no") }}
+              {{ $optar = "no" }}
+              {{ if eq .disponible_es "no" }}{{ with .motivo }}{{ $motivos = $motivos | append . }}{{ end }}{{ end }}
+              {{ if eq .compatible "no" }}{{ with .motivo_compat }}{{ $motivos = $motivos | append . }}{{ end }}{{ end }}
+            {{ end }}
             {{/* Lo que lee el filtro. Las tildes se quitan en el navegador,
                  una sola vez al cargar, para que «diseño» y «diseno» casen. */}}
             <tr data-buscar="{{ lower (printf "%s %s %s" (default "" .titulo_es) (default "" .titulo) (default "" .resumen_es)) }}"
@@ -243,7 +260,7 @@
                 data-pago="{{ if $hayPago }}{{ $pago }}{{ end }}"
                 data-categoria="{{ .categoria }}"
                 data-remoto="{{ if eq .remoto "Sí" }}si{{ else }}no{{ end }}"
-                data-optar="{{ .disponible_es }}"
+                data-optar="{{ $optar }}"
                 data-email="{{ .en_email }}"
                 data-listado="{{ .en_listado }}">
               <td class="c-fecha" data-label="Fecha">
@@ -289,11 +306,11 @@
               </td>
 
               <td class="c-optar" data-label="¿Puedo optar?">
-                {{ if eq .disponible_es "si" }}
+                {{ if eq $optar "si" }}
                   <span class="optar optar--si">{{ partial "icono.html" "lleno" }}Sí</span>
-                {{ else if eq .disponible_es "no" }}
+                {{ else if eq $optar "no" }}
                   <span class="optar optar--no">{{ partial "icono.html" "hueco" }}No</span>
-                  {{ with .motivo }}<span class="optar-motivo">{{ . }}</span>{{ end }}
+                  {{ range $motivos }}<span class="optar-motivo">{{ . }}</span>{{ end }}
                 {{ else }}
                   <span class="optar optar--nc">{{ partial "icono.html" "punteado" }}Sin clasificar</span>
                 {{ end }}
