@@ -337,7 +337,9 @@ h3{
 
 /* Cabeceras en caja alta y baja: se leen de un vistazo, sin versalitas. */
 .tabla-ofertas thead th{
-  position:sticky;top:0;z-index:2;background:var(--paper);
+  /* --barra-h la mide el script sobre la barra de filtros, que cambia de
+     alto al envolverse. Sin JavaScript vale 0 y la cabecera se pega arriba. */
+  position:sticky;top:var(--barra-h,0px);z-index:2;background:var(--paper);
   font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:400;
   letter-spacing:.01em;text-transform:none;color:var(--ink-2);
   padding:10px 18px 9px 0;border-bottom:0;
@@ -347,6 +349,8 @@ h3{
 }
 .tabla-ofertas tbody td{padding:14px 18px 15px 0;border-bottom:1px solid var(--bar)}
 .tabla-ofertas tbody tr:hover{background:var(--paper-2)}
+/* el filtro esconde filas ya escritas; nunca las borra ni las reconstruye */
+.tabla-ofertas tbody tr[hidden]{display:none}
 
 .tabla-ofertas .c-fecha{width:72px;padding-right:12px}
 .tabla-ofertas .c-pago{width:132px;text-align:right;padding-right:26px}
@@ -419,6 +423,99 @@ h3{
 .optar .ico{flex:0 0 auto}
 .optar-motivo{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-2);margin-top:5px}
 
+/* ── BARRA DE FILTROS ───────────────────────────────────────
+   Se pega arriba junto con la cabecera de la tabla: la barra en
+   top:0 y el <thead> justo debajo, a la altura que el script mide.
+   Nace con [hidden] y solo la revela el JavaScript. */
+.barra{
+  position:sticky;top:0;z-index:3;background:var(--paper);
+  border-bottom:1.5px solid var(--rule);padding:12px 0 11px;
+  display:flex;flex-direction:column;gap:11px;
+}
+.barra[hidden]{display:none}
+.barra-linea{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+
+.busca{
+  position:relative;display:flex;align-items:center;flex:1 1 320px;max-width:520px;
+  border:1.5px solid var(--bar);background:var(--paper);
+}
+.busca:focus-within{border-color:var(--accent)}
+.busca > .ico{flex:0 0 auto;margin:0 0 0 11px;color:var(--ink-3)}
+.busca input{
+  flex:1 1 auto;min-width:0;appearance:none;-webkit-appearance:none;
+  border:0;background:none;color:var(--ink);
+  font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.01em;
+  padding:9px 10px;
+}
+.busca input:focus{outline:none}
+.busca input::placeholder{color:var(--ink-3);opacity:1}
+.busca input::-webkit-search-cancel-button{display:none}
+.busca-x{
+  flex:0 0 auto;border:0;background:none;cursor:pointer;color:var(--ink-3);
+  padding:8px 11px;display:flex;align-items:center;
+}
+.busca-x:hover{color:var(--accent)}
+.busca-x[hidden]{display:none}
+
+.barra-selects{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.sel{display:flex;align-items:center;gap:8px;margin:0}
+.sel label{
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;
+}
+.sel select{
+  appearance:none;-webkit-appearance:none;
+  border:1.5px solid var(--bar);background:var(--paper);color:var(--ink);
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;
+  padding:7px 30px 7px 10px;max-width:230px;cursor:pointer;border-radius:0;
+  /* la punta de flecha, en la propia tinta y sin fichero aparte */
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),
+                   linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-size:5px 5px,5px 5px;
+  background-position:calc(100% - 15px) 55%,calc(100% - 10px) 55%;
+  background-repeat:no-repeat;
+}
+.sel select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.barra-chips{gap:7px}
+.fchip{
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-2);
+  background:none;border:1.5px solid var(--bar);border-radius:2px;padding:5px 11px;
+}
+.fchip:hover{border-color:var(--ink-2);color:var(--ink)}
+.fchip:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+/* pulsado: fondo lleno, no un matiz de color. Se ve en gris y a contraluz. */
+.fchip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:700}
+.fchip .ico{flex:0 0 auto}
+
+.barra-cuenta{
+  margin:0 0 0 auto;white-space:nowrap;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.barra-cuenta b{color:var(--ink);font-weight:700}
+.barra-aviso{
+  font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.6;letter-spacing:.02em;
+  color:var(--ink-2);margin:12px 0 0;max-width:74ch;
+  border-left:2px solid var(--accent);padding-left:11px;
+}
+.barra-aviso[hidden]{display:none}
+
+.vacio{
+  border:1.5px dashed var(--bar);padding:34px 24px;margin:0;text-align:center;
+  color:var(--ink-2);font-size:16px;
+}
+.vacio[hidden]{display:none}
+.boton-lisa{
+  display:inline-block;margin-left:10px;cursor:pointer;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);background:none;border:0;padding:0;box-shadow:inset 0 -1.5px 0 var(--accent);
+}
+.boton-lisa:hover{background:var(--accent);color:var(--paper);box-shadow:none}
+.boton-lisa:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
 /* — tarjetas en pantalla estrecha —
    La misma tabla, colapsada por CSS. No se renderizan las filas dos veces.
    display:contents en la celda ancha deja que sus párrafos se ordenen
@@ -436,6 +533,7 @@ h3{
     border:1.5px solid var(--bar);padding:16px 16px 15px;margin:0 0 14px;
   }
   .tabla-ofertas tbody tr:hover{background:none}
+  .tabla-ofertas tbody tr[hidden]{display:none}
   .tabla-ofertas tbody td{display:block;border:0;padding:0}
   .tabla-ofertas tbody td.c-fecha,
   .tabla-ofertas tbody td.c-pago,
@@ -464,6 +562,19 @@ h3{
   }
   .optar--si{border-color:var(--ink)}
   .optar-motivo{margin-top:7px}
+
+  /* La barra deja de pegarse: en un móvil se comería media pantalla,
+     y la cabecera de columnas ya no existe aquí, así que no hay nada
+     a lo que anclarla. */
+  .barra{position:static;gap:9px}
+  .barra-linea{gap:9px 12px}
+  .busca{flex:1 1 100%;max-width:none}
+  .barra-selects{width:100%;gap:9px 12px}
+  .sel{flex:1 1 150px}
+  .sel select{flex:1 1 auto;max-width:none;width:100%}
+  .fchip{font-size:11.5px;padding:7px 12px}
+  .barra-cuenta{margin:2px 0 0;width:100%}
+  .vacio{padding:26px 16px}
 }
 
 .fuentes{border-top:1.5px solid var(--rule);margin-top:36px;padding-top:8px}

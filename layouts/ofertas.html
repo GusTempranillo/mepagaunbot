@@ -2,9 +2,13 @@
 {{ $o := hugo.Data.ofertas.ofertas }}
 {{ $total := len $o }}
 {{/* Los pagos vienen como número cuando los hay y como cadena vacía cuando no,
-     así que la lista se arma a mano: "where" no compara tipos mezclados. */}}
+     así que la lista se arma a mano: "where" no compara tipos mezclados.
+     Y a veces llega un NaN: la hoja lo escribe cuando la oferta no trae
+     cifra que valga (hoy, una publicación de spam). Hay que echarlo fuera:
+     NaN no es comparable consigo mismo, así que "sort" devuelve un orden
+     inconsistente y el rango de precios de aquí abajo salía mal. */}}
 {{ $precios := slice }}
-{{ range $o }}{{ with .pago_usd }}{{ $precios = $precios | append (float .) }}{{ end }}{{ end }}
+{{ range $o }}{{ with .pago_usd }}{{ if ne (printf "%v" .) "NaN" }}{{ $precios = $precios | append (float .) }}{{ end }}{{ end }}{{ end }}
 {{ $precios = sort $precios }}
 {{/* Dos vías, dos hipótesis, dos denominadores. Una misma oferta
      puede venir por las dos, así que estos dos grupos se solapan
@@ -90,7 +94,69 @@
            a chips dentro de la celda «Oferta», y los campos siguen enteros
            en el CSV. Modalidad y compatible solo aplican a las de correo,
            así que solo aparecen ahí en vez de decir «no aplica» 118 veces. */}}
-      <div class="ancho tabla-ofertas">
+      {{/* Las 22 categorías salen de los datos, con su recuento. En chips
+           serían un muro: la mayoritaria, «other», se lleva 33 ofertas. */}}
+      {{ $cats := slice }}
+      {{ range $o }}{{ with .categoria }}{{ $cats = $cats | append . }}{{ end }}{{ end }}
+      {{ $cats = sort (uniq $cats) }}
+
+      <div class="ancho tabla-ofertas" id="tablon-ofertas">
+
+      {{/* La barra nace oculta y la revela el script. Sin JavaScript no se
+           ve un solo control muerto, y la tabla de abajo sigue entera. */}}
+      <div class="barra" id="barra" hidden>
+        <div class="barra-linea">
+          <div class="busca" role="search">
+            <label for="q" class="oculto-visual">Buscar en el título o el resumen de las ofertas</label>
+            {{ partial "icono.html" "lupa" }}
+            <input type="search" id="q" autocomplete="off" spellcheck="false"
+                   placeholder="Buscar en el título o el resumen…">
+            <button type="button" class="busca-x" id="q-limpiar" hidden>
+              {{ partial "icono.html" "aspa" }}<span class="oculto-visual">Limpiar la búsqueda</span>
+            </button>
+          </div>
+          <div class="barra-selects">
+            <p class="sel">
+              <label for="cat">Categoría</label>
+              <select id="cat">
+                <option value="">Todas ({{ $total }})</option>
+                {{ range $cats }}
+                  <option value="{{ . }}">{{ . }} ({{ len (where $o "categoria" .) }})</option>
+                {{ end }}
+              </select>
+            </p>
+            <p class="sel">
+              <label for="orden">Ordenar por</label>
+              <select id="orden">
+                <option value="fecha-desc">Fecha · más reciente</option>
+                <option value="fecha-asc">Fecha · más antigua</option>
+                <option value="pago-desc">Pago · de mayor a menor</option>
+                <option value="pago-asc">Pago · de menor a mayor</option>
+              </select>
+            </p>
+          </div>
+        </div>
+        <div class="barra-linea barra-chips" role="group" aria-label="Filtros rápidos, acumulables">
+          <button type="button" class="fchip" data-f="todas" aria-pressed="true">Todas</button>
+          <button type="button" class="fchip" data-f="remoto" aria-pressed="false">{{ partial "icono.html" "globo" }}Remoto</button>
+          <button type="button" class="fchip" data-f="optar-si" aria-pressed="false">{{ partial "icono.html" "lleno" }}Puedo optar</button>
+          <button type="button" class="fchip" data-f="optar-no" aria-pressed="false">{{ partial "icono.html" "hueco" }}No puedo optar</button>
+          <button type="button" class="fchip" data-f="correo" aria-pressed="false">Llegó por correo</button>
+          <button type="button" class="fchip" data-f="listado" aria-pressed="false">Listado público</button>
+          {{/* El recuento viaja dentro de la barra pegajosa: si se quedara
+               fuera, dejaría de verse justo cuando más se mira, bajando. */}}
+          <p class="barra-cuenta">Mostrando <b id="cuenta-n">{{ $total }}</b> de {{ $total }} ofertas</p>
+        </div>
+      </div>
+
+      {{/* Ordenar por pago compara la cifra tal cual: un pago por hora y uno
+           cerrado no son lo mismo, y convertirlos sería interpretar. Se dice
+           en cuanto se activa ese orden, no antes. */}}
+      <p class="barra-aviso" id="aviso-pago" hidden>
+        Se ordena por la cifra literal: los pagos por hora no se convierten a total.
+        Las {{ sub $total (len $precios) }} ofertas sin pago publicado van al final en los dos sentidos.
+      </p>
+
       <table>
         <caption class="oculto-visual">
           Todas las ofertas registradas, de la más reciente a la más antigua.
@@ -109,7 +175,20 @@
         </thead>
         <tbody>
           {{ range sort $o "fecha" "desc" }}
-            <tr>
+            {{/* Un pago que no es un número no es un pago: la fila se trata
+                 igual que las que vienen sin cifra, aquí y al ordenar. */}}
+            {{ $hayPago := false }}{{ $pago := 0.0 }}
+            {{ with .pago_usd }}{{ if ne (printf "%v" .) "NaN" }}{{ $hayPago = true }}{{ $pago = float . }}{{ end }}{{ end }}
+            {{/* Lo que lee el filtro. Las tildes se quitan en el navegador,
+                 una sola vez al cargar, para que «diseño» y «diseno» casen. */}}
+            <tr data-buscar="{{ lower (printf "%s %s %s" (default "" .titulo_es) (default "" .titulo) (default "" .resumen_es)) }}"
+                data-fecha="{{ .fecha }}"
+                data-pago="{{ if $hayPago }}{{ $pago }}{{ end }}"
+                data-categoria="{{ .categoria }}"
+                data-remoto="{{ if eq .remoto "Sí" }}si{{ else }}no{{ end }}"
+                data-optar="{{ .disponible_es }}"
+                data-email="{{ .en_email }}"
+                data-listado="{{ .en_listado }}">
               <td class="c-fecha" data-label="Fecha">
                 <time datetime="{{ .fecha }}">{{ time.Format "02/01" .fecha }}</time>
               </td>
@@ -141,8 +220,8 @@
               </td>
 
               <td class="c-pago" data-label="Pago">
-                {{ if .pago_usd }}
-                  <span class="pago-cifra">${{ partial "num.html" (dict "valor" (float .pago_usd) "compacto" true) }}{{ if eq .tipo "hourly" }}<i>/h</i>{{ end }}</span>
+                {{ if $hayPago }}
+                  <span class="pago-cifra">${{ partial "num.html" (dict "valor" $pago "compacto" true) }}{{ if eq .tipo "hourly" }}<i>/h</i>{{ end }}</span>
                   {{ with partial "duracion.html" .duracion }}<span class="pago-sub">{{ . }}</span>{{ end }}
                 {{ else }}
                   <span class="pago-cifra pago-cifra--sin">—</span>
@@ -164,6 +243,12 @@
           {{ end }}
         </tbody>
       </table>
+
+      <p class="vacio" id="vacio" hidden>
+        Ninguna de las {{ $total }} ofertas casa con estos filtros.
+        <button type="button" class="boton-lisa" id="reiniciar">Quitar los filtros</button>
+      </p>
+      <p class="oculto-visual" id="cuenta-vivo" role="status" aria-live="polite"></p>
       </div>
       <p class="note">
         Fuente: las alertas de oferta que la plataforma envía por correo
@@ -190,4 +275,171 @@
     </div>
   </section>
 </div>
+
+{{/* ──────────────────────────────────────────────────────────────
+     El único JavaScript del sitio, y solo en esta página. No monta
+     la tabla: las 141 filas ya vienen escritas desde el servidor, y
+     esto se limita a esconder las que no casan y a reordenarlas.
+     Sin él, la página sigue completa; solo faltan los controles, que
+     por eso nacen con «hidden» y los revela este script.
+     ────────────────────────────────────────────────────────────── */}}
+<script>
+(function () {
+  'use strict';
+  var caja = document.getElementById('tablon-ofertas');
+  var barra = document.getElementById('barra');
+  if (!caja || !barra) return;
+
+  var cuerpo = caja.querySelector('tbody');
+  var filas = Array.prototype.slice.call(cuerpo.rows);
+  var TOTAL = filas.length;
+  if (!TOTAL) return;
+
+  var q = document.getElementById('q');
+  var limpiar = document.getElementById('q-limpiar');
+  var cat = document.getElementById('cat');
+  var orden = document.getElementById('orden');
+  var cuentaN = document.getElementById('cuenta-n');
+  var vivo = document.getElementById('cuenta-vivo');
+  var vacio = document.getElementById('vacio');
+  var reiniciar = document.getElementById('reiniciar');
+  var avisoPago = document.getElementById('aviso-pago');
+  var chips = Array.prototype.slice.call(barra.querySelectorAll('.fchip[data-f]'));
+
+  /* Índice de búsqueda sin tildes, calculado una vez. Buscar «diseno»
+     tiene que encontrar «diseño», y al revés. */
+  function plano(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  var indice = filas.map(function (f) { return plano(f.getAttribute('data-buscar') || ''); });
+
+  var activos = Object.create(null);
+
+  /* Dentro de un mismo grupo los filtros suman («o»); entre grupos
+     se cruzan («y»). Marcar «puedo optar» y «no puedo optar» a la vez
+     deja fuera las que están sin clasificar, que es justo lo que pide
+     esa combinación. */
+  function pasa(f, i, texto) {
+    if (texto && indice[i].indexOf(texto) === -1) return false;
+    if (cat.value && f.getAttribute('data-categoria') !== cat.value) return false;
+    if (activos.remoto && f.getAttribute('data-remoto') !== 'si') return false;
+
+    var si = activos['optar-si'], no = activos['optar-no'];
+    if (si || no) {
+      var v = f.getAttribute('data-optar');
+      if (!((si && v === 'si') || (no && v === 'no'))) return false;
+    }
+    var co = activos.correo, li = activos.listado;
+    if (co || li) {
+      if (!((co && f.getAttribute('data-email') === 'si') ||
+            (li && f.getAttribute('data-listado') === 'si'))) return false;
+    }
+    return true;
+  }
+
+  var avisar;
+  function aplicar() {
+    var texto = plano(q.value.trim());
+    var n = 0;
+    for (var i = 0; i < TOTAL; i++) {
+      var ok = pasa(filas[i], i, texto);
+      filas[i].hidden = !ok;
+      if (ok) n++;
+    }
+    cuentaN.textContent = n;
+    vacio.hidden = n > 0;
+    limpiar.hidden = q.value === '';
+
+    /* Al lector de pantalla se le dice el resultado cuando se deja de
+       teclear, no una cifra distinta por cada letra. */
+    clearTimeout(avisar);
+    avisar = setTimeout(function () {
+      vivo.textContent = n === 0
+        ? 'Ninguna oferta casa con estos filtros.'
+        : 'Mostrando ' + n + ' de ' + TOTAL + ' ofertas.';
+    }, 700);
+  }
+
+  function porFecha(a, b, dir) {
+    var x = a.getAttribute('data-fecha'), y = b.getAttribute('data-fecha');
+    return x === y ? 0 : (x < y ? -1 : 1) * dir;
+  }
+
+  function ordenar() {
+    var modo = orden.value;
+    var porPago = modo.slice(0, 4) === 'pago';
+    var dir = modo.slice(-4) === 'desc' ? -1 : 1;
+    avisoPago.hidden = !porPago;
+
+    var copia = filas.slice();
+    copia.sort(function (a, b) {
+      if (!porPago) return porFecha(a, b, dir);
+      var pa = a.getAttribute('data-pago'), pb = b.getAttribute('data-pago');
+      /* Sin pago publicado va siempre al final, se ordene de mayor a
+         menor o al revés: no es el máximo ni el mínimo, es un dato que
+         no está, y colocarlo arriba en «de menor a mayor» sería decir
+         que vale cero. */
+      if (pa === '' && pb === '') return porFecha(a, b, -1);
+      if (pa === '') return 1;
+      if (pb === '') return -1;
+      var d = (parseFloat(pa) - parseFloat(pb)) * dir;
+      return d !== 0 ? d : porFecha(a, b, -1);
+    });
+
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < copia.length; i++) frag.appendChild(copia[i]);
+    cuerpo.appendChild(frag);
+  }
+
+  function pintarChips() {
+    var alguno = false;
+    for (var k in activos) { alguno = true; break; }
+    chips.forEach(function (b) {
+      var f = b.getAttribute('data-f');
+      b.setAttribute('aria-pressed', String(f === 'todas' ? !alguno : !!activos[f]));
+    });
+  }
+
+  chips.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-f');
+      /* «Todas» vacía los chips, no la búsqueda ni la categoría: esas
+         tienen su propio modo de deshacerse. */
+      if (f === 'todas') activos = Object.create(null);
+      else if (activos[f]) delete activos[f];
+      else activos[f] = true;
+      pintarChips();
+      aplicar();
+    });
+  });
+
+  q.addEventListener('input', aplicar);
+  q.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && q.value !== '') { q.value = ''; aplicar(); }
+  });
+  limpiar.addEventListener('click', function () { q.value = ''; q.focus(); aplicar(); });
+  cat.addEventListener('change', aplicar);
+  orden.addEventListener('change', ordenar);
+  reiniciar.addEventListener('click', function () {
+    q.value = ''; cat.value = ''; activos = Object.create(null);
+    pintarChips(); aplicar(); q.focus();
+  });
+
+  /* La cabecera de la tabla se pega justo debajo de la barra, y la
+     barra cambia de alto al envolverse: hay que medirla, no adivinarla. */
+  function medir() {
+    caja.style.setProperty('--barra-h', Math.round(barra.getBoundingClientRect().height) + 'px');
+  }
+  if (window.ResizeObserver) new ResizeObserver(medir).observe(barra);
+  else window.addEventListener('resize', medir);
+
+  barra.hidden = false;
+  medir();
+  /* Al recargar, el navegador restaura por su cuenta lo que hubiera en los
+     select. Se ordena de entrada para que la tabla case con lo que se lee
+     en el control, en vez de decir una cosa y mostrar otra. */
+  ordenar();
+  aplicar();
+}());
+</script>
 {{ end }}
