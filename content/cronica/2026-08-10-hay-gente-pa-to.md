@@ -11,8 +11,6 @@ estado: "en curso"
 resumen: "En RentAHuman esperaba encontrar encargos de todo tipo, pero es que los hay bien raros."
 ---
 
-En RentAHuman esperaba encontrar encargos de todo tipo, pero es que los hay bien raros.
-
 Revisando las ofertas de la plataforma, descubrí que hay trabajos que superan mis expectativas. Algunos dan ganas de utilizarlos como trama de un guion.
 
 Por ejemplo, hay quien pide [describir el sabor del queso](https://rentahuman.ai/bounties/5Q1fJP5XlkYortsSoc37), [hacer cola en el restaurante Mimi's del SoHo de Nueva York](https://rentahuman.ai/bounties/g22IjeUMSeOgPZGhFzOH) o encargarse de la [creación completa de un mundo ficticio, con mapa, idioma, economía e historia](https://rentahuman.ai/bounties/9XDypQfdZ34eSZDe0ORW).
