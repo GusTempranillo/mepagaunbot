@@ -15,5 +15,3 @@ Conviene decir en qué se diferencian, porque cambia lo que se puede concluir. L
 Las de bandeja las he clasificado yo a mano. Las del listado son demasiadas para eso, así que las propone un modelo de lenguaje aplicando mis criterios publicados. Para que eso no sea un acto de fe, mido cuánto acierta contra las que sí clasifiqué a mano y publico los desacuerdos uno por uno: [¿Acierta la máquina?](/calibracion/).
 
 Aquí no hay interpretación. Están las cifras y de dónde salen. La interpretación va en [la crónica](/cronica/), y si me equivoco al interpretarlas, va en [Errores](/errores/).
-
-Publico los metadatos de cada oferta —fecha, título, categoría, pago, duración— y también el texto original de la descripción, tal y como se publicó: está detrás de «Ver original» en cada fila y en el CSV. Los nombres de personas van anonimizados; los de empresas y bots, no.

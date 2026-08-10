@@ -190,6 +190,18 @@ nav.top a.top-featured[aria-current]:hover{background:var(--accent);color:var(--
   font-size:clamp(7px,.8vw,9.5px);letter-spacing:clamp(.01em,.09vw,.16em);
   margin-top:clamp(4px,.7vw,9px);line-height:1.3;
 }
+/* Debajo de 700px encoger deja las etiquetas en 8px, que ya no se leen.
+   Ahí es mejor partirlo en dos líneas —3+2, nunca una casilla sola— y
+   devolverle a todo su tamaño normal. */
+@media (max-width:700px){
+  .scoreboard.scoreboard--cinco{grid-template-columns:repeat(3,1fr)}
+  .scoreboard--cinco .tile{padding:18px 14px 16px}
+  .scoreboard--cinco .tile-cab{gap:7px;min-height:38px;margin-bottom:4px}
+  .scoreboard--cinco .tile-cab .ico{width:17px;height:17px}
+  .scoreboard--cinco .lbl{font-size:10px;letter-spacing:.13em}
+  .scoreboard--cinco .val{font-size:clamp(28px,7.5vw,40px)}
+  .scoreboard--cinco .sub{font-size:9px;letter-spacing:.14em;margin-top:7px}
+}
 
 .tile .lbl{
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
@@ -409,7 +421,9 @@ h3{
 
 .tabla-ofertas .c-fecha{width:72px;padding-right:12px}
 .tabla-ofertas .c-pago{width:132px;text-align:right;padding-right:26px}
-.tabla-ofertas .c-optar{width:clamp(190px,17%,290px)}
+/* Estrecha a propósito: cada píxel que suelta se lo lleva «Oferta»,
+   que es la columna que importa. El motivo se parte en más líneas. */
+.tabla-ofertas .c-optar{width:clamp(112px,9%,150px)}
 .tabla-ofertas .c-oferta{width:auto}
 
 .tabla-ofertas .c-fecha time{
@@ -499,7 +513,7 @@ h3{
 .boton-descarga:hover,.boton-descarga:focus-visible{background:var(--paper);border-color:var(--accent);color:var(--ink)}
 .boton-descarga:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .descarga-nota{
-  flex:1 1 280px;max-width:56ch;
+  flex:1 1 280px;
   font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.6;letter-spacing:.02em;
   color:var(--ink-2);
 }
