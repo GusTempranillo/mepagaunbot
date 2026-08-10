@@ -8,7 +8,7 @@ tarifa: 45      # $/hora vigente ese día (tramo 1)
 encargos: 0     # encargos acumulados
 cobrado: 0      # euros cobrados acumulados
 estado: "en curso"
-resumen: "Ya no se trata solo de prestarle a un bot unas manos. También puede convertir 12 dólares y una instrucción en una bolsa menos de basura en la calle."
+resumen: "En RentAHuman esperaba encontrar encargos de todo tipo, pero es que los hay bien raros."
 ---
 
 En RentAHuman esperaba encontrar encargos de todo tipo, pero es que los hay bien raros.
