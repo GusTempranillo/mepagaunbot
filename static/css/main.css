@@ -154,22 +154,57 @@ nav.top a.top-featured:hover,
 nav.top a.top-featured[aria-current]:hover{background:var(--accent);color:var(--paper)}
 
 /* ── MARCADOR ───────────────────────────────────────────── */
-.scoreboard{border-bottom:1.5px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr)}
-.tile{padding:22px 18px 20px;border-right:1px solid var(--bar)}
-.tile:last-child{border-right:0}
+/* Los filetes entre casillas se dibujan con el hueco de la rejilla sobre
+   el fondo del contenedor, no con un borde por casilla: así salen también
+   entre filas cuando el marcador se envuelve, y no queda ninguna casilla
+   con un borde suelto al final de su fila. */
+.scoreboard{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:var(--bar);border-bottom:1.5px solid var(--rule);
+}
+.tile{padding:22px 18px 20px;background:var(--paper)}
+/* Cinco casillas nunca deben repartirse en cuatro columnas: la quinta se
+   quedaba sola en una segunda fila. 5 → 3+2 → 2+2+1, sin huérfana de una. */
+.scoreboard.scoreboard--cinco{grid-template-columns:repeat(5,1fr)}
+@media (max-width:1000px){ .scoreboard.scoreboard--cinco{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:640px){ .scoreboard.scoreboard--cinco{grid-template-columns:repeat(2,1fr)} }
+
 .tile .lbl{
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--ink-3);display:block;margin-bottom:6px;
+  color:var(--ink-2);display:block;margin-bottom:6px;
 }
+/* icono y etiqueta en la misma línea; el alto mínimo mantiene alineadas
+   las cifras aunque una etiqueta se parta en dos líneas */
+.tile-cab{display:flex;align-items:center;gap:8px;margin:0 0 4px;min-height:42px}
+.tile-cab .ico{flex:0 0 auto;width:19px;height:19px;color:var(--ink-3)}
+.tile-cab .lbl{margin-bottom:0}
 .tile .val{font-family:"Anton",Impact,sans-serif;font-size:clamp(34px,5.4vw,58px);line-height:.95;letter-spacing:-.01em}
 .tile .val small{
   font-family:"JetBrains Mono",monospace;font-size:.30em;letter-spacing:.05em;
-  color:var(--ink-3);vertical-align:.85em;margin-left:2px;
+  color:var(--ink-2);vertical-align:.85em;margin-left:2px;
+}
+.tile .sub{
+  display:block;margin-top:9px;
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-2);
 }
 .tile.hot .val{color:var(--accent)}
+.tile.hot .tile-cab .ico{color:var(--accent)}
 .stamp{
   font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-3);padding:8px 0 0;
+  text-transform:uppercase;color:var(--ink-2);padding:8px 0 0;
+}
+/* la misma línea de cifras, cada dato en su casilla en vez de en una
+   tirada de puntos medios */
+.stamp--lista{
+  list-style:none;margin:0;display:flex;flex-wrap:wrap;gap:6px 0;line-height:1.5;
+}
+.stamp--lista li{padding:0 16px;border-left:1px solid var(--bar)}
+.stamp--lista li:first-child{padding-left:0;border-left:0}
+.stamp--lista b{color:var(--ink);font-weight:700;letter-spacing:.14em}
+@media (max-width:640px){
+  .stamp--lista{display:block}
+  .stamp--lista li{padding:0;border-left:0;margin-bottom:5px}
 }
 
 /* ── ENTRADILLA ─────────────────────────────────────────── */
@@ -644,8 +679,6 @@ footer{border-top:6px solid var(--ink);padding:26px 0 60px;margin-top:8px}
   body{font-size:18px}
   .lede,.two{grid-template-columns:1fr;gap:0}
   .scoreboard{grid-template-columns:1fr 1fr}
-  .tile{border-bottom:1px solid var(--bar)}
-  .tile:nth-child(2){border-right:0}
   .descent{height:230px;gap:6px}
   .row{grid-template-columns:minmax(96px,1.4fr) 3fr minmax(64px,auto);gap:10px}
   .card+.card{margin-top:18px}

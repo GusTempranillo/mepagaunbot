@@ -48,41 +48,53 @@
   </article>
 
   <section>
-    <div class="scoreboard">
+    {{/* Cinco cifras, todas calculadas arriba con «where» sobre los datos.
+         Ninguna se escribe a mano: esta página cambia a diario. El subtexto
+         de cada una dice de qué hipótesis sale y por qué vía, que es parte
+         de lo que la página promete. */}}
+    <div class="scoreboard scoreboard--cinco">
       <div class="tile">
-        <span class="lbl">Registradas</span>
+        <p class="tile-cab">{{ partial "icono.html" "registro" }}<span class="lbl">Registradas</span></p>
         <div class="val">{{ $total }}</div>
+        <span class="sub">correo y listado</span>
       </div>
       <div class="tile">
-        <span class="lbl">Remoto permitido</span>
+        <p class="tile-cab">{{ partial "icono.html" "globo" }}<span class="lbl">Remoto permitido</span></p>
         <div class="val">{{ len $remotas }}<small>/{{ $total }}</small></div>
+        <span class="sub">según el anuncio</span>
       </div>
       <div class="tile{{ if $clasificadas }} hot{{ end }}">
-        <span class="lbl">Puedo optar <small>· H5, listado</small></span>
+        <p class="tile-cab">{{ partial "icono.html" "diana" }}<span class="lbl">Puedo optar</span></p>
         <div class="val">{{ if $clasificadas }}{{ len $disponibles }}<small>/{{ len $clasificadas }}</small>{{ else }}—{{ end }}</div>
+        <span class="sub">H5 · listado</span>
       </div>
       <div class="tile">
-        <span class="lbl">Puedo hacerla <small>· H4, correo</small></span>
+        <p class="tile-cab">{{ partial "icono.html" "marca" }}<span class="lbl">Puedo hacerla</span></p>
         <div class="val">{{ if $compatibles }}{{ len (where $alertas "compatible" "si") }}<small>/{{ len $compatibles }}</small>{{ else }}—{{ end }}</div>
+        <span class="sub">H4 · correo</span>
       </div>
       <div class="tile">
-        <span class="lbl">Presencial en Galicia <small>· correo</small></span>
+        <p class="tile-cab">{{ partial "icono.html" "pin" }}<span class="lbl">Presencial en Galicia</span></p>
         <div class="val">{{ len (where $alertas "modalidad" "presencial en Galicia") }}<small>/{{ len $alertas }}</small></div>
+        <span class="sub">correo</span>
       </div>
     </div>
-    <p class="stamp">
+    {{/* La misma línea de cifras finas de siempre, con las mismas palabras.
+         Lo único que cambia es que cada dato va en su propia casilla en vez
+         de en una tirada de puntos medios. */}}
+    <ul class="stamp stamp--lista">
       {{ if $clasificadas }}
-        H5 — numerador {{ len $disponibles }}, denominador {{ len $clasificadas }}
-        ({{ printf "%.1f" (mul (div (float (len $disponibles)) (float (len $clasificadas))) 100) }} %) ·
-        {{ if lt (len $clasificadas) (len $listado) }}quedan {{ sub (len $listado) (len $clasificadas) }} del listado sin clasificar ·{{ end }}
-        {{ if gt $automaticas 0 }}{{ $automaticas }} las clasificó la máquina y todavía no las he repasado (<a href="/calibracion/">cuánto acierta</a>) ·{{ end }}
+        <li><b>H5</b> — numerador {{ len $disponibles }}, denominador {{ len $clasificadas }}
+          ({{ partial "num.html" (dict "valor" (mul (div (float (len $disponibles)) (float (len $clasificadas))) 100) "dec" 1) }} %)</li>
+        {{ if lt (len $clasificadas) (len $listado) }}<li>quedan {{ sub (len $listado) (len $clasificadas) }} del listado sin clasificar</li>{{ end }}
+        {{ if gt $automaticas 0 }}<li>{{ $automaticas }} las clasificó la máquina y todavía no las he repasado (<a href="/calibracion/">cuánto acierta</a>)</li>{{ end }}
       {{ else if $listado }}
-        Listado público registrado, sin clasificar todavía: el recuento de la hipótesis 5 aparece aquí en cuanto haya filas codificadas ·
+        <li>Listado público registrado, sin clasificar todavía: el recuento de la hipótesis 5 aparece aquí en cuanto haya filas codificadas</li>
       {{ else }}
-        Todavía no hay lecturas del listado público: la hipótesis 5 se resuelve en cuanto empiece el registro diario ·
+        <li>Todavía no hay lecturas del listado público: la hipótesis 5 se resuelve en cuanto empiece el registro diario</li>
       {{ end }}
-      {{ with $precios }}de ${{ partial "num.html" (dict "valor" (index . 0)) }} a ${{ partial "num.html" (dict "valor" (index . (sub (len .) 1))) }}{{ end }}
-    </p>
+      {{ with $precios }}<li>de ${{ partial "num.html" (dict "valor" (index . 0)) }} a ${{ partial "num.html" (dict "valor" (index . (sub (len .) 1))) }}</li>{{ end }}
+    </ul>
     {{/* El CSV sale del párrafo de cifras, donde era un enlace más entre
          puntos medios. Ahora que la tabla enseña cuatro columnas, es donde
          vive el detalle fila a fila: merece su propio botón. */}}
