@@ -29,6 +29,9 @@ disableKinds = ['taxonomy', 'term']
   # URL del repositorio público cuando exista; vacío = oculto
   repo = 'https://github.com/GusTempranillo/mepagaunbot'
 
+# Las dos entradas con `params.destacada` salen con recuadro: son lo vivo del
+# sitio. El resto de páginas de consulta cuelgan de «Documentación», que no es
+# una página sino sólo el desplegable que las agrupa.
 [menus]
   [[menus.main]]
     name = 'Empieza aquí'
@@ -38,27 +41,40 @@ disableKinds = ['taxonomy', 'term']
     name = 'Crónica'
     pageRef = '/cronica'
     weight = 10
+    [menus.main.params]
+      destacada = true
   [[menus.main]]
+    name = 'Ofertas'
+    pageRef = '/ofertas'
+    weight = 20
+    [menus.main.params]
+      destacada = true
+  [[menus.main]]
+    identifier = 'documentacion'
+    name = 'Documentación'
+    weight = 30
+  [[menus.main]]
+    parent = 'documentacion'
+    name = 'La tabla'
+    pageRef = '/tabla'
+    weight = 10
+  [[menus.main]]
+    parent = 'documentacion'
     name = 'Datos'
     pageRef = '/datos'
     weight = 20
   [[menus.main]]
-    name = 'Ofertas'
-    pageRef = '/ofertas'
-    weight = 25
-  [[menus.main]]
-    name = 'La tabla'
-    pageRef = '/tabla'
-    weight = 30
-  [[menus.main]]
+    parent = 'documentacion'
     name = 'Método'
     pageRef = '/metodo'
-    weight = 40
+    weight = 30
   [[menus.main]]
+    parent = 'documentacion'
     name = 'Registro previo'
     pageRef = '/registro-previo'
-    weight = 45
+    weight = 40
   [[menus.main]]
+    parent = 'documentacion'
     name = 'Errores'
     pageRef = '/errores'
     weight = 50

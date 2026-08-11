@@ -25,9 +25,45 @@
 
     <nav class="top" aria-label="Principal">
       {{ range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if eq .Name "Crónica" }} class="top-featured"{{ end }}{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        {{ if .HasChildren }}
+          {{/* El desplegable se abre con <details>: funciona sin JavaScript y
+               al toque en móvil, donde un :hover no serviría. Nace cerrado
+               incluso estando dentro —la lista se superpone al contenido—, y
+               en su lugar se resalta el rótulo del grupo. */}}
+          {{ $dentro := false }}
+          {{ range .Children }}
+            {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}{{ $dentro = true }}{{ end }}
+          {{ end }}
+          <details class="top-grupo">
+            <summary{{ if $dentro }} class="dentro"{{ end }}>{{ .Name }}</summary>
+            <div class="top-grupo-lista">
+              {{ range .Children }}
+                <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+              {{ end }}
+            </div>
+          </details>
+        {{ else }}
+          <a href="{{ .URL }}"{{ if .Params.destacada }} class="top-featured"{{ end }}{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        {{ end }}
       {{ end }}
     </nav>
 
   </div>
 </header>
+<script>
+/* El desplegable del menú se pliega al pulsar fuera o con Escape. Sin
+   JavaScript sigue abriéndose y cerrándose con su propio rótulo: esto solo
+   añade comodidad. */
+(function () {
+  function plegar(salvo) {
+    var abiertos = document.querySelectorAll('nav.top details.top-grupo[open]');
+    for (var i = 0; i < abiertos.length; i++) {
+      if (!salvo || !abiertos[i].contains(salvo)) abiertos[i].open = false;
+    }
+  }
+  document.addEventListener('click', function (e) { plegar(e.target); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') plegar(null);
+  });
+})();
+</script>
