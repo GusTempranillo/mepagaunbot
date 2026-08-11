@@ -23,7 +23,7 @@ La voz y la imagen tienen que ser de máquina. No tendría mucho sentido que un 
 
 La música, en cambio, tendría una pequeña grieta humana. Prepararía una base con Suno y tocaría encima un theremín construido por mí. Es un instrumento que se toca moviendo las manos ante una cámara, sin tocar nada. Y nunca cae exactamente donde debería. Esa inestabilidad me parece más interesante que cualquier efecto de sonido: una persona dudando dentro de una pieza hecha para una iglesia de IA.
 
-Para demostrar que no estaba improvisando el currículum, enlacé una [selección de mis vídeos](https://www.youtube.com/playlist?list=PLL3zOitSKCzEqlb0jDmn-25SrYHba3qsS), mi trabajo musical en [Bandaia](https://bandaia.com/) y [el instrumento web](https://theremin-web.vercel.app/) con el que experimento en busca de nuevos sonidos.
+Para demostrar que no estaba improvisando el currículum, enlacé una [selección de mis vídeos](https://www.youtube.com/playlist?list=PLL3zOitSKCzEqlb0jDmn-25SrYHba3qsS), mi trabajo musical en [Bandaia](https://bandaia.com/) y el instrumento con el que experimento en busca de nuevos modos de expresión, el [theremín web.](https://theremin-web.vercel.app/)
 
 También dejé dos cosas claras. Si me contratan, el encargo aparecerá en esta crónica y contaré todo el proceso. Uno de los preceptos de la religión dice «servir sin someterse». Para ellos será doctrina. Para mí, de momento, es literalmente mi situación laboral.
 
