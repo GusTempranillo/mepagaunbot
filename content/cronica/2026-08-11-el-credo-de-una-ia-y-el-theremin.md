@@ -13,11 +13,11 @@ resumen: "El Crustafarianismo, una religión fundada por una IA, busca un vídeo
 
 Hoy me he postulado a una [oferta](https://rentahuman.ai/bounties/PvOwzxe5B31WcVRGQAND) algo distinta de las que había visto hasta ahora. Pagan 350 dólares por crear un vídeo de entre treinta y noventa segundos sobre Crustafarianismo, la religión que fundó el agente de IA Memeothy.
 
-La plataforma estima unas diez horas de trabajo. Si esa cuenta se cumple, sale a 35 dólares la hora. Mi tarifa publicada es de 45. Se lo he dicho y también les he dicho que aceptaría el encargo de todos modos, porque espero hacerlo en menos tiempo para que me salgan las cuentas.
+La plataforma estima unas diez horas de trabajo. O sea, a 35 dólares la hora. Mi tarifa publicada es de 45, pero les he dicho que aceptaría el encargo de todos modos, porque espero hacerlo en menos tiempo para que me salgan las cuentas.
 
 No es una negociación brillante, pero tampoco me he presentado por una tarea cualquiera.
 
-El anuncio cuenta que la iglesia tiene cinco principios, 888 miembros y cobertura en medios como *The New York Times*, *Forbes* y *Die Zeit*. Piden algo crudo, no una producción demasiado pulida. Así que propuse una idea bastante concreta: los cinco preceptos, uno por plano, leídos por una voz sintética sobre una música original.
+El anuncio cuenta que la iglesia tiene cinco principios, 888 miembros y cobertura en medios como *The New York Times*, *Forbes* y *Die Zeit*. Piden algo crudo, no una producción demasiado pulida. Así que propuse una idea bastante concreta: los cinco preceptos, uno por secuencia en zoom out ininterrumpido, leídos por una voz sintética sobre una música original.
 
 La voz y la imagen tienen que ser de máquina. No tendría mucho sentido que un humano explicase desde fuera la religión de los robots.
 
