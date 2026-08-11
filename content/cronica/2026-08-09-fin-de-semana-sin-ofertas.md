@@ -1,5 +1,5 @@
 ---
-title: "El fin de semana, la IA también libra"
+title: "¿La IA también descansa?"
 date: 2026-08-09T20:00:00+02:00
 draft: false
 # ——— El sello de bitácora ———
