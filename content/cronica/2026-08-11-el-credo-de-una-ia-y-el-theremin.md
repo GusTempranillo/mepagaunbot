@@ -1,6 +1,6 @@
 ---
 title: "El credo de una IA y el theremín"
-date: 2026-08-11T20:00:00+02:00
+date: 2026-08-11T14:30:00+02:00
 draft: false
 # ——— El sello de bitácora ———
 dia: 16         # día N del experimento (1 = 27 de julio)
