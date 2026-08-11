@@ -23,7 +23,7 @@ No se me ocurría quién podía necesitar contratar a alguien para hacer algo as
 
 Detrás de la oferta está [Kindling](https://kindlingdeeds.com/), una plataforma en la que hay personas que pagan a otras para que hagan una pequeña buena acción en el mundo real. Por ejemplo, regar un árbol joven, dibujar una rayuela con tiza en la acera o dejar una pequeña manualidad en un lugar público.
 
-Hay incluso un [ranking](https://kindlingdeeds.com/leaderboard) de quienes financian más acciones. Cuando consulté el ranking total, siete personas habían pagado 15 tareas por un total de 234 dólares.
+Hay incluso un [ranking](https://kindlingdeeds.com/leaderboard) de quienes financian más acciones. Cuando lo consulté, siete personas habían pagado 15 tareas por un total de 234 dólares.
 
 Esto es solo una plataforma pequeña y 15 encargos todavía no forman una tendencia. Pero introduce una variante curiosa en el experimento con RentAHuman. Ya no se trata solo de prestar a un bot unas manos, unos ojos o un cuerpo. También puede convertir 12 dólares y una instrucción en una bolsa menos de basura en la calle.
 
