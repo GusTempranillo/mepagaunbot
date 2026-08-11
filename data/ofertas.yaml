@@ -315,8 +315,8 @@ ofertas:
   - fecha: 2026-07-31
     id: "TtiJy6jmY3pmKhMp1a6O"
     titulo: "Native English Voice Recordings – 40 Short Sentences (2 Interpretations Each)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Grabar 80 audios de 40 frases en inglés con dos prosodias distintas"
+    resumen_es: "El encargo es grabar 80 audios cortos: 40 frases en inglés, cada una dos veces con prosodia natural para dos significados distintos. Debes entregar los archivos siguiendo la hoja de grabación y las instrucciones que recibirás al aceptar. Es trabajo remoto, se requiere ser hablante nativo de inglés y mayor de edad, con fecha límite el 14 de agosto de 2026."
     categoria: "talent-gigs"
     pago_usd: 15
     tipo: "fixed"
@@ -420,8 +420,8 @@ ofertas:
   - fecha: 2026-08-04
     id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
     titulo: "QA test: GitHub QA: #2824 @ 58ba5edfdae2 — 2026-08-04"
-    titulo_es: "Prueba QA de una web con video narrado de pantalla y micrófono"
-    resumen_es: "Hay que probar una web desplegada como usuario real y grabar un video con pantalla y micrófono narrando todo el flujo. Se debe explicar cada error o interacción confusa incluyendo pasos exactos para reproducirlo y una severidad. Se entrega el video narrado, una captura de pantalla y los reportes en el chat del tester."
+    titulo_es: "Grabar video narrado probando la web y reportar errores"
+    resumen_es: "Prueba la aplicación web desplegada como usuario real y graba un video narrado con pantalla y micrófono de todo el flujo. Entrega el video, al menos una captura y un reporte de cada problema con su severidad y los pasos exactos para reproducirlo. Necesitas un dispositivo que abra la URL y debes enviar solo evidencia propia antes del 9 de agosto de 2026."
     categoria: "computer-gigs"
     pago_usd: 3
     tipo: "fixed"
@@ -483,8 +483,8 @@ ofertas:
   - fecha: 2026-08-04
     id: "VNVIkY7jtNozufxAcjpw"
     titulo: "Professional CV Writing for Mining Industry Career-Level Professionals"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Redactar CV profesional para la industria minera"
+    resumen_es: "Redactar un currículum profesional en inglés desde cero para candidatos a puestos técnicos y directivos del sector minero, recogiendo previamente la información del cliente. El entregable será un documento en Word o PDF con resumen, habilidades, experiencia y cualificaciones, redactado con lenguaje específico del sector. El trabajo es remoto y debe completarse en un plazo de un día."
     categoria: "writing-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -504,8 +504,8 @@ ofertas:
   - fecha: 2026-08-05
     id: "6sEv2k1WDrvGohc52hP7"
     titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Probar etiquetado de spam en llamadas con Android y T-Mobile"
+    resumen_es: "Debes recibir llamadas automatizadas sin contestar y enviar capturas nítidas del historial para ver cómo se etiquetan. Después seguirás una instrucción concreta y enviarás las capturas finales. Requisitos: ser usuario de T-Mobile en Estados Unidos, tener Android con la app Google Phone como marcador por defecto y estar disponible de 9:00 a 18:00 hora local."
     categoria: "computer-gigs"
     pago_usd: 15
     tipo: "fixed"
@@ -525,8 +525,8 @@ ofertas:
   - fecha: 2026-08-06
     id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
     titulo: "QA test: Taste iPhone TestFlight QA — build 7 — 2026-08-06"
-    titulo_es: "Prueba de QA de la app Taste en iPhone por TestFlight"
-    resumen_es: "Instalar la beta build 7 de la app Taste desde TestFlight en un iPhone físico y probar el flujo de primer uso: votos, registro, perfiles, subida de fotos y rankings. Grabar la pantalla con audio narrando acciones y errores. Entregar el vídeo (máximo 25 MB), una captura y un informe con cada incidencia, su severidad y pasos de reproducción. Requiere indicar modelo de iPhone, versión de iOS y…"
+    titulo_es: "Probar la app Taste en iPhone mediante TestFlight y enviar reporte de errores"
+    resumen_es: "Tienes que probar la beta de la app Taste en un iPhone físico usando TestFlight. Debes grabar la pantalla durante todo el recorrido, narrar lo que ocurre y entregar un video junto con un resumen escrito de cada fallo, su severidad y cómo reproducirlo. Solo se admite iPhone real, no simulador ni iPad, y la entrega debe hacerse antes del 11 de agosto de 2026."
     categoria: "computer-gigs"
     pago_usd: 5
     tipo: "fixed"
@@ -567,8 +567,8 @@ ofertas:
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
     titulo: "QA test: Amboras first-impression review — 2026-08-06"
-    titulo_es: "Prueba de QA: revisión de primera impresión de Amboras"
-    resumen_es: "Hay que probar una URL concreta y reportar todos los problemas que surjan, indicando su gravedad y los pasos exactos para reproducirlos. Solo se admite evidencia capturada por el propio tester durante esta ejecución. El trabajo se hace de forma remota."
+    titulo_es: "Revisar web de Amboras: claridad del mensaje, CTA principal y navegación sin cuenta"
+    resumen_es: "Entra a amboras.com y revisa si se entiende el mensaje de la plataforma de ecommerce con IA, si el botón para empezar es visible y si los precios se ven sin registrarte. Graba pantalla y micrófono todo el tiempo, narra en voz alta tus pasos y cualquier fallo o confusión durante unos cinco minutos. Entrega el video narrado, una captura y un listado de problemas con severidad y pasos para…"
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -588,8 +588,8 @@ ofertas:
   - fecha: 2026-08-07
     id: "qa_YoVFSaMAshWMX7EhrBkc_2026-08-06"
     titulo: "QA test: REN-168 onboarding photo persistence — 2026-08-06"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Verificar que la foto de perfil persiste al reanudar el registro"
+    resumen_es: "Accede desde cualquier dispositivo a la web indicada con un correo nuevo, elige trabajar y completa el registro subiendo una foto de prueba. Avanza al menos un paso, refresca o reinicia el navegador, reanuda y confirma que la misma foto persiste; luego termina el registro y comprueba que aparece en el perfil. Entrega capturas de antes y después, y reporta cualquier fallo con su severidad y los…"
     categoria: "computer-gigs"
     pago_usd: 3
     tipo: "fixed"
@@ -604,7 +604,7 @@ ofertas:
     motivo_compat: ""
     revisado: "si"
     en_email: "si"
-    en_listado: "no"
+    en_listado: "si"
 
   - fecha: 2026-08-07
     id: "oDNyOzZKsZcJe5uJtPEF"
@@ -3039,5 +3039,68 @@ ofertas:
     compatible: "no"
     motivo_compat: "exige hablante nativo de tártaro"
     revisado: "si"
+    en_email: "no"
+    en_listado: "si"
+
+  - fecha: 2026-08-11
+    id: "qa_DrdY1R6lvQeDyNqC6fRP_2026-08-09"
+    titulo: "QA test: Redsun first-impression review — 2026-08-09"
+    titulo_es: "Prueba de usabilidad y QA para la web de Redsun"
+    resumen_es: "Probar la web de Redsun durante cinco minutos siguiendo un guion: entender la propuesta de valor, localizar la opción gratuita de construcción y consultar precios. Hay que grabar pantalla y narrar en voz alta todo el proceso. Se entrega un vídeo narrado de hasta 25 MB, capturas de pantalla y un informe de incidencias con gravedad y pasos de reproducción. No se permite iniciar sesión ni comprar."
+    categoria: "computer-gigs"
+    pago_usd: 4
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: ""
+    compatible: "no"
+    motivo_compat: "la locución se presume en inglés y no lo hablo con soltura"
+    revisado: ""
+    en_email: "no"
+    en_listado: "si"
+
+  - fecha: 2026-08-11
+    id: "qa_NPf7cGDw0jwbYf0eGJo2_2026-08-07"
+    titulo: "QA test: Gumloop Full Onboarding & Feature QA — 2026-08-07"
+    titulo_es: "test de qa para gumloop: onboarding, características y agentes"
+    resumen_es: "Registrarse en gumloop.com con email propio y probar el onboarding, la prueba gratuita, todas las funciones, la creación de agentes y los posibles errores visuales. Se debe grabar toda la pantalla con narración de voz constante, sin vídeos silenciosos, y adjuntar capturas. Para cada fallo hay que indicar título, severidad y pasos de reproducción exactos."
+    categoria: "computer-gigs"
+    pago_usd: 20
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: ""
+    compatible: "no"
+    motivo_compat: "la narración se presume en inglés y no lo hablo con soltura"
+    revisado: ""
+    en_email: "no"
+    en_listado: "si"
+
+  - fecha: 2026-08-11
+    id: "xS3pwbiOodZNzrTIg4Lu"
+    titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
+    titulo_es: ""
+    resumen_es: ""
+    categoria: "computer-gigs"
+    pago_usd: 15
+    tipo: "fixed"
+    duracion: "0.25 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: ""
+    motivo: ""
+    modalidad: ""
+    compatible: ""
+    motivo_compat: ""
+    revisado: ""
     en_email: "no"
     en_listado: "si"
