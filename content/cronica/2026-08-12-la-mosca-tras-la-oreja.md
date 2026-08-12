@@ -29,4 +29,4 @@ Y eso me parece poco serio. Cuando alguien dedica tiempo a preparar una candidat
 
 Si más adelante descubro que no había motivos para desconfiar, lo reconoceré y lo publicaré en [Errores](https://mepagaunbot.eu/errores/).
 
-Pero, de momento, tengo la mosca tras la oreja.
+Pero de momento, esto no pinta nada bien.
