@@ -44,6 +44,9 @@
       dentro de la muestra, de ${{ partial "num.html" (dict "valor" $min.tarifa) }} ({{ $min.nombre }}) a
       ${{ partial "num.html" (dict "valor" $max) }}: {{ printf "%.0f" $ratio }} veces de diferencia
     </p>
+    {{/* La fuente va debajo de la escalera, no dentro del cuerpo del
+         artículo: acredita las cifras del gráfico, no la prosa. */}}
+    {{ with .Params.fuente }}<p class="fuente">{{ . }}</p>{{ end }}
   </section>
 </div>
 {{ end }}

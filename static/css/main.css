@@ -343,6 +343,14 @@ h3{
 }
 .legend b{display:inline-block;width:14px;height:9px;border-radius:2px;margin-right:7px;vertical-align:middle}
 
+/* Acreditación de las cifras, bajo la escalera. Es un párrafo largo, así que
+   no puede llevar el mono en versalitas de .note: se lee en cursiva y a un
+   cuerpo pequeño, con la medida corta para que no compita con el gráfico. */
+.fuente{
+  font-size:13.5px;line-height:1.6;font-style:italic;
+  color:var(--ink-3);max-width:68ch;margin:18px 0 0;
+}
+
 /* Botón de paso a la tabla entera. Invierte el enlace normal del sitio:
    fondo de acento en reposo y hueco al pasar por encima, para que no se
    confunda con los enlaces de cuerpo de texto. */
