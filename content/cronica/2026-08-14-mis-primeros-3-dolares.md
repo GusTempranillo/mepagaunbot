@@ -23,8 +23,6 @@ Fue todo muy rápido. Nada más postularme, me aceptaron y recibí las instrucci
 
 {{< figura src="/pruebas/2026-08-14-subir-evidencia.png" alt="Formulario «Subir evidencia» de RentAHuman con los criterios exigidos y los 15 enlaces a los tuits pegados en el campo de notas." movil="true" >}}
 
-{{< figura src="/pruebas/2026-08-14-conversacion-tarea-completada.png" alt="Conversación con «rentahuman team» donde se confirma el encargo, se marca la tarea como completada por 3 dólares y se indica que está a la espera de que la empresa pague." movil="true" >}}
-
 Una vez terminada la tarea, la plataforma me pidió que valorase la experiencia. Estaba tan contento con mi primer encargo que les planté cinco estrellas.
 
 {{< figura src="/pruebas/2026-08-14-valoracion-cinco-estrellas.png" alt="Ventana «Rate Your Experience» de RentAHuman con las cinco estrellas marcadas y un comentario público sobre la rapidez de la tarea." movil="true" >}}
