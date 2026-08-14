@@ -3192,8 +3192,8 @@ ofertas:
   - fecha: 2026-08-12
     id: "qa_IlSKoLHvvo7rxpjQTb6b_2026-08-12"
     titulo: "QA test: Rent A Human evidence upload QA — 2026-08-12"
-    titulo_es: "Prueba QA de la carga de evidencias en Rent A Human"
-    resumen_es: "Acceder a la web de mensajería indicada y comprobar que aparecen los controles para adjuntar evidencia y enviar la entrega, aunque no se encuentre la recompensa. Verificar que no se muestran las acciones genéricas de completar tarea o disputar. Capturar pantalla, describir lo observado, confirmar el envío sin error y reportar incidencias con severidad y pasos exactos."
+    titulo_es: "Verificar flujo de entrega de evidencia en plataforma de mensajería"
+    resumen_es: "Realiza una prueba de calidad en la web de mensajería indicada para comprobar que el flujo de entrega de evidencia funciona correctamente. Envía capturas de los controles, una nota breve con tus observaciones y reporta cada problema con su título, gravedad y pasos exactos para reproducirlo. Solo valen evidencias que hayas obtenido tú mismo durante esta ejecución, necesitas un dispositivo que abra…"
     categoria: "computer-gigs"
     pago_usd: 5
     tipo: "fixed"
@@ -3339,8 +3339,8 @@ ofertas:
   - fecha: 2026-08-12
     id: "ugq3vBux3LlDwXSXcJWt"
     titulo: "Urgent Phone Researcher — Verify 4 North Beach Apartment Prospects"
-    titulo_es: "Verificar cuatro prospectos de apartamentos en North Beach por teléfono"
-    resumen_es: "Hay que llamar por teléfono a contactos públicos de cuatro inmuebles del distrito North Beach en San Francisco durante el horario laboral del miércoles 12 de agosto, hora del Pacífico. Se debe entregar un informe escrito antes de las 19:00 horas de ese mismo día con los datos verificados de cada propiedad, diferenciando hechos confirmados de inferencias. Requiere poder realizar llamadas…"
+    titulo_es: "Verificar por teléfono cuatro alquileres en North Beach"
+    resumen_es: "Verificar por teléfono cuatro posibles alquileres en North Beach con fuentes públicas. Para cada uno hay que contactar, confirmar si hay vivienda de cuatro habitaciones, anotar disponibilidad y renta si se obtienen, y documentar llamadas y fuentes. El trabajo es remoto, pero se debe llamar a San Francisco en horario comercial y entregar el informe completo el miércoles 12 de agosto antes de las…"
     categoria: "writing-gigs"
     pago_usd: 250
     tipo: "fixed"
@@ -3402,8 +3402,8 @@ ofertas:
   - fecha: 2026-08-12
     id: "ZAGicQcwnmVO7urmpBgP"
     titulo: "Record a first-listen reaction to a personalized song"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Grabar la reacción de un adulto al escuchar una canción personalizada"
+    resumen_es: "Hay que filmar con el móvil en vertical la reacción de un adulto al escuchar por primera vez una canción personalizada regalada por otro adulto. Se entregan tres vídeos en bruto: un gancho corto, la grabación completa e ininterrumpida de la escucha, y una reflexión sobre qué detalle de la letra emocionó al receptor. Es obligatorio residir en Estados Unidos, ser mayor de edad, comunicarse en…"
     categoria: "creative-gigs"
     pago_usd: 100
     tipo: "fixed"
@@ -3549,8 +3549,8 @@ ofertas:
   - fecha: 2026-08-13
     id: "qa_E1FpGobXx5bxJ1lw8pw6_2026-08-13"
     titulo: "QA test: ReadingRate first-impression review — 2026-08-13"
-    titulo_es: "Prueba de QA: revisión de primera impresión de ReadingRate"
-    resumen_es: "Hay que probar la aplicación web ReadingRate desde un dispositivo con acceso a internet, hacer una revisión de primera impresión y documentar cada incidencia indicando su severidad y los pasos exactos para reproducirla. Solo se admiten capturas o grabaciones obtenidas durante esta sesión. El trabajo se hace de forma remota."
+    titulo_es: "Probar la web ReadingRate, grabar la pantalla y reportar los fallos encontrados"
+    resumen_es: "Entra en readingrate.com, revisa la página de inicio, crea una cuenta, añade libros y registra páginas leídas. Tienes cinco minutos. Debes enviar un vídeo narrado de tu pantalla de menos de setenta y cinco megas, una captura y un resumen escrito sobre si la web explica el producto en treinta segundos. Reporta cada fallo con su severidad y los pasos exactos para reproducirlo."
     categoria: "computer-gigs"
     pago_usd: 4
     tipo: "fixed"
@@ -3570,8 +3570,8 @@ ofertas:
   - fecha: 2026-08-13
     id: "qa_ErKafemd0F6ufExKLuon_2026-08-13"
     titulo: "QA test: Resilana first-impression review — 2026-08-13"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Probar la web Resilana en alemán y reportar problemas con video"
+    resumen_es: "Entra en resilana.com, completa el test de nueve preguntas en alemán y comprueba que el resultado y el primer paso se entiendan sin registrarse ni pagar. Entrega un video narrado con la pantalla grabada, una captura y un listado de problemas con gravedad y pasos para reproducirlos. Es remoto, se necesita un dispositivo que abra la web y hay plazo hasta el 18 de agosto de 2026."
     categoria: "computer-gigs"
     pago_usd: 4
     tipo: "fixed"
@@ -3579,20 +3579,20 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
     modalidad: ""
-    compatible: ""
+    compatible: "si"
     motivo_compat: ""
     revisado: "si"
     en_email: "si"
-    en_listado: "no"
+    en_listado: "si"
 
   - fecha: 2026-08-14
     id: "nU0rMQCb5MJVIXNMQfir"
     titulo: "Post 15 Tweets About RentAHuman as Pepe Human (1 Hour Campaign)"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "Publicar 15 tuits sobre RentAHuman con foto y nombre de Pepe Human"
+    resumen_es: "Recibirás quince mensajes ya escritos por el chat de la plataforma para publicarlos en una cuenta real y activa de Twitter. Tras cada publicación debes enviar el enlace directo del tuit, y también una captura de tu perfil con la foto de Pepe the Frog y el nombre “Pepe Human”. Debes cambiar esos datos del perfil durante la campaña, empezar a tuitear inmediatamente tras ser aceptado y entregar el…"
     categoria: "creative-gigs"
     pago_usd: 3
     tipo: "fixed"
@@ -3654,8 +3654,8 @@ ofertas:
   - fecha: 2026-08-14
     id: "qa_Y2r2icuSAriKGRQ2NBju_2026-08-12"
     titulo: "QA test: Nihongo Feed 1.1.6 release QA — 2026-08-12"
-    titulo_es: ""
-    resumen_es: ""
+    titulo_es: "qa de extensión chrome nihongo feed 1.1.6"
+    resumen_es: "instalar la extensión de pruebas para chrome y usarla conectado a x/twitter. navegar al menos tres minutos comprobando que el reemplazo de palabras en japonés no altera handles ni enlaces, probar tarjetas, mazos y densidades. grabar pantalla y audio narrando acciones, errores y dudas, y entregar vídeo con capturas e informes de incidencias con pasos exactos de reproducción"
     categoria: "computer-gigs"
     pago_usd: 3
     tipo: "fixed"
@@ -3663,11 +3663,11 @@ ofertas:
     remoto: "Sí"
     identidad: "No"
     consulta: "ok"
-    disponible_es: ""
+    disponible_es: "si"
     motivo: ""
     modalidad: ""
-    compatible: ""
-    motivo_compat: ""
+    compatible: "no"
+    motivo_compat: "la narración se presume en inglés y no lo hablo con soltura"
     revisado: ""
     en_email: "no"
     en_listado: "si"
