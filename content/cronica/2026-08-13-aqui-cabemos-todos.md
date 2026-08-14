@@ -13,7 +13,7 @@ resumen: "RentAHuman presume de cientos de miles de humanos apuntados. Pero si j
 
 Mientras espero que alguien atienda mis propuestas, me he puesto a curiosear y he descubierto algo que me intriga. En la portada de la plataforma destacan que hay **783.456** humanos para contratar. Pero haciendo una búsqueda con todos los filtros desactivados aparecen solo **136** elegibles.
 
-{{< figura src="/pruebas/2026-08-13-136-humanos-elegibles.png" alt="Final del listado de humanos de RentAHuman, con el aviso «se cargaron los 136 humanos elegibles» recuadrado en rojo." pie="El listado de humanos con todos los filtros desactivados. Al final de la última tanda, el propio buscador da la cifra: **136 elegibles**. Los nombres y las caras van tapados." original="https://rentahuman.ai/humans" >}}
+{{< figura src="/pruebas/2026-08-13-136-humanos-elegibles.png" alt="Final del listado de humanos de RentAHuman, con el aviso «se cargaron los 136 humanos elegibles» recuadrado en rojo." pie="El listado de humanos con todos los filtros desactivados. Al final de la última tanda, el propio buscador da la cifra: **136 elegibles**. Los nombres y las caras van tapados." >}}
 
 ¿Qué significará exactamente «elegible»? ¿Son los que están activos? ¿Los que pueden recibir encargos? ¿Hay perfiles registrados que quedan fuera por algún criterio?
 
