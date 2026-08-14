@@ -1,30 +1,31 @@
 # Mínimos por hora que RentAHuman (rentahuman.ai) impone por país.
-# Fuente: campo de tarifa de RentAHuman, consultado país por país,
-# con captura archivada de cada uno. Contraste: Eurostat.
+# Fuente: campo de tarifa de RentAHuman, consultado país por país.
+# Contraste de mínimos legales: Eurostat para Europa; boletines oficiales,
+# ministerios de trabajo y bancos centrales para América.
 #
-# La portada agrupa los nueve países con $50 por defecto en una sola fila.
+# La portada agrupa los seis países con $50 por defecto en una sola fila.
 # La página /tabla/ los lista uno a uno.
+#
+# Venezuela y Cuba llevan 0,25 porque es lo que pone la plataforma, no lo que
+# dice su ley: sus mínimos legales al cambio real son 0,001 y 0,03 dólares.
 
 consultado: 2026-07-27
 maximo: 50.00
-version: "2026-07-27 — versión inicial, 25 países"
+version: "2026-08-14 — añadidos 19 países de América Latina y Puerto Rico"
 
-# La lista NO es exhaustiva: es una muestra de 25 países tomada al azar
+# La lista NO es exhaustiva: es una muestra de 40 países tomada al azar
 # sobre el total que ofrece la plataforma. Los máximos y mínimos que
 # aparecen aquí son los de la muestra, no los del mundo.
 muestra: true
-muestra_nota: "Muestra de 25 países tomada al azar. No es la lista completa de RentAHuman."
+muestra_nota: "Muestra de 40 países. No es la lista completa de RentAHuman."
 
 paises:
-  - { nombre: "Austria",        codigo: "AT", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
-  - { nombre: "Dinamarca",      codigo: "DK", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
-  - { nombre: "Finlandia",      codigo: "FI", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
-  - { nombre: "Islandia",       codigo: "IS", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
-  - { nombre: "Italia",         codigo: "IT", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
-  - { nombre: "Noruega",        codigo: "NO", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
-  - { nombre: "Suecia",         codigo: "SE", tarifa: 50.00, tipo: defecto, legal: "No — convenios colectivos" }
+  - { nombre: "Austria",        codigo: "AT", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
+  - { nombre: "Dinamarca",      codigo: "DK", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
+  - { nombre: "Italia",         codigo: "IT", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
+  - { nombre: "Noruega",        codigo: "NO", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
+  - { nombre: "Suecia",         codigo: "SE", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
   - { nombre: "Suiza",          codigo: "CH", tarifa: 50.00, tipo: defecto, legal: "No a nivel federal" }
-  - { nombre: "Tokelau",        codigo: "TK", tarifa: 50.00, tipo: defecto, legal: "Sin cifra publicada" }
   - { nombre: "Australia",      codigo: "AU", tarifa: 17.35, tipo: legal,   legal: "Sí" }
   - { nombre: "Luxemburgo",     codigo: "LU", tarifa: 17.24, tipo: legal,   legal: "Sí" }
   - { nombre: "Alemania",       codigo: "DE", tarifa: 16.13, tipo: legal,   legal: "Sí" }
@@ -35,6 +36,24 @@ paises:
   - { nombre: "Portugal",       codigo: "PT", tarifa:  5.84, tipo: legal,   legal: "Sí" }
   - { nombre: "Argentina",      codigo: "AR", tarifa:  1.64, tipo: legal,   legal: "Sí" }
   - { nombre: "Filipinas",      codigo: "PH", tarifa:  1.61, tipo: legal,   legal: "Sí" }
+  - { nombre: "Puerto Rico",    codigo: "PR", tarifa: 10.50, tipo: legal,   legal: "Sí", detalle: "ley propia, no el mínimo federal de EE. UU." }
+  - { nombre: "Costa Rica",     codigo: "CR", tarifa:  3.97, tipo: legal,   legal: "Sí", detalle: "categoría de trabajador no cualificado" }
+  - { nombre: "México",         codigo: "MX", tarifa:  3.78, tipo: legal,   legal: "Sí", detalle: "el de la frontera norte; el general son $2,70" }
+  - { nombre: "Chile",          codigo: "CL", tarifa:  3.33, tipo: legal,   legal: "Sí" }
+  - { nombre: "Uruguay",        codigo: "UY", tarifa:  3.15, tipo: legal,   legal: "Sí" }
+  - { nombre: "Colombia",       codigo: "CO", tarifa:  3.08, tipo: legal,   legal: "Sí", detalle: "sin el auxilio de transporte, que no es salario" }
+  - { nombre: "Guatemala",      codigo: "GT", tarifa:  2.92, tipo: legal,   legal: "Sí", detalle: "capital, no agrícola, con bonificación incentivo" }
+  - { nombre: "Ecuador",        codigo: "EC", tarifa:  2.78, tipo: legal,   legal: "Sí" }
+  - { nombre: "Paraguay",       codigo: "PY", tarifa:  2.43, tipo: legal,   legal: "Sí" }
+  - { nombre: "El Salvador",    codigo: "SV", tarifa:  2.14, tipo: legal,   legal: "Sí", detalle: "sin subir desde junio de 2025" }
+  - { nombre: "Honduras",       codigo: "HN", tarifa:  1.87, tipo: legal,   legal: "Sí", detalle: "el escalón más bajo de una tabla de 48" }
+  - { nombre: "Panamá",         codigo: "PA", tarifa:  1.74, tipo: legal,   legal: "Sí", detalle: "el de las regiones urbanas; el resto del país, $1,48" }
+  - { nombre: "Rep. Dominicana", codigo: "DO", tarifa: 1.52, tipo: legal,   legal: "Sí", detalle: "el de microempresa; el de gran empresa son $2,68" }
+  - { nombre: "Nicaragua",      codigo: "NI", tarifa:  1.49, tipo: legal,   legal: "Sí", detalle: "comercio y servicios; el agropecuario son $0,81" }
+  - { nombre: "Perú",           codigo: "PE", tarifa:  1.40, tipo: legal,   legal: "Sí" }
+  - { nombre: "Bolivia",        codigo: "BO", tarifa:  1.18, tipo: legal,   legal: "Sí" }
+  - { nombre: "Venezuela",      codigo: "VE", tarifa:  0.25, tipo: legal,   legal: "Sí", detalle: "su mínimo legal son $0,001" }
+  - { nombre: "Cuba",           codigo: "CU", tarifa:  0.25, tipo: legal,   legal: "Sí", detalle: "su mínimo legal son $0,03" }
   - { nombre: "Pakistán",       codigo: "PK", tarifa:  0.57, tipo: legal,   legal: "Sí" }
   - { nombre: "Kenia",          codigo: "KE", tarifa:  0.57, tipo: legal,   legal: "Sí" }
   - { nombre: "Yemen",          codigo: "YE", tarifa:  0.51, tipo: legal,   legal: "Sí" }
