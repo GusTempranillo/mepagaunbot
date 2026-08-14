@@ -21,7 +21,7 @@ Todavía no lo sé.
 
 Puede que su sistema de referidos tenga algo que ver. Pagan 3 dólares por cada humano que invites y consigas convencer para la causa. Así es normal que el crecimiento de usuarios se dispare.
 
-Pero claro, una cosa es abrirse una cuenta y otra más complicada es llegar a cubrir todos los datos que piden para verificar que eres humano y económicamente de confianza. Cualquiera que lo haya probado me entenderá. Configurar todo es una tarea muy entretenida que echa para atrás a quien no tenga mucha paciencia, mucho tiempo y además superar el examen de la empresa de gestión de cobros Stripe.
+Pero claro, una cosa es abrirse una cuenta y otra más complicada es llegar a cubrir todos los datos que piden para verificar que eres humano y económicamente de confianza. Cualquiera que lo haya probado me entenderá. Configurar todo es una tarea muy entretenida que echa para atrás a quien no tenga mucha paciencia y mucho tiempo, además de tener que superar la verificación de Stripe, una exigente empresa de gestión de cobros.
 
 Otro día hago una tabla con los precios por hora que tenemos los elegibles, desde 150 dólares hasta 6 céntimos.
 
