@@ -922,7 +922,7 @@ tr.me td{font-weight:600}
 /* Captura enmarcada */
 .figura{margin:30px 0 28px}
 .figura img{width:100%;height:auto;display:block;border:1.5px solid var(--rule);background:var(--paper-2)}
-.figura--movil{max-width:360px}
+.prose > .figura--movil{max-width:360px}
 .figura figcaption{margin-top:9px;max-width:68ch}
 .figura .pie{font-size:15.5px;color:var(--ink-2);display:block}
 
