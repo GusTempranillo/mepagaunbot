@@ -1,7 +1,8 @@
 {{- /* Captura con marco, pie y cadena de pruebas. Uso:
-       {{< figura src="/pruebas/x.png" alt="…" pie="Qué se ve aquí."
-                  original="https://…" wayback="https://web.archive.org/…" local="/pruebas/x.png" >}} */ -}}
-<figure class="figura">
+       {{< figura src="/pruebas/x.png" alt="…" pie="Qué se ve aquí." movil="true"
+                  original="https://…" wayback="https://web.archive.org/…" local="/pruebas/x.png" >}}
+       movil="true" reduce el ancho para capturas verticales de móvil. */ -}}
+<figure class="figura{{ if eq (.Get "movil") "true" }} figura--movil{{ end }}">
   <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" loading="lazy">
   {{- if or (.Get "pie") (.Get "original") (.Get "wayback") (.Get "local") }}
   <figcaption>
