@@ -42,8 +42,7 @@
     <p class="note">
       Muestra de {{ len $t.paises }} países tomada al azar; no es la lista completa de la plataforma ·
       dentro de la muestra, de ${{ partial "num.html" (dict "valor" $min.tarifa) }} ({{ $min.nombre }}) a
-      ${{ partial "num.html" (dict "valor" $max) }}: {{ printf "%.0f" $ratio }} veces de diferencia ·
-      registro de cambios: {{ $t.version }}
+      ${{ partial "num.html" (dict "valor" $max) }}: {{ printf "%.0f" $ratio }} veces de diferencia
     </p>
   </section>
 </div>
