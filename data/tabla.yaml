@@ -25,19 +25,19 @@ paises:
   - { nombre: "Noruega",        codigo: "NO", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
   - { nombre: "Suecia",         codigo: "SE", tarifa: 50.00, tipo: defecto, legal: "Sin mínimo legal: convenios colectivos" }
   - { nombre: "Suiza",          codigo: "CH", tarifa: 50.00, tipo: defecto, legal: "No a nivel federal" }
-  - { nombre: "Australia",      codigo: "AU", tarifa: 17.35, tipo: legal,   legal: "Sí" }
+  - { nombre: "Australia",      codigo: "AU", tarifa: 17.35, tipo: legal,   legal: "Sí", home: true }
   - { nombre: "Luxemburgo",     codigo: "LU", tarifa: 17.24, tipo: legal,   legal: "Sí" }
   - { nombre: "Alemania",       codigo: "DE", tarifa: 16.13, tipo: legal,   legal: "Sí" }
   - { nombre: "Francia",        codigo: "FR", tarifa: 13.95, tipo: legal,   legal: "Sí" }
   - { nombre: "Andorra",        codigo: "AD", tarifa:  9.69, tipo: legal,   legal: "Sí" }
-  - { nombre: "España",         codigo: "ES", tarifa:  9.24, tipo: yo,      legal: "Sí", detalle: "aquí trabajo yo" }
-  - { nombre: "Estados Unidos", codigo: "US", tarifa:  7.25, tipo: legal,   legal: "Sí", detalle: "federal, congelado desde 2009" }
-  - { nombre: "Portugal",       codigo: "PT", tarifa:  5.84, tipo: legal,   legal: "Sí" }
-  - { nombre: "Argentina",      codigo: "AR", tarifa:  1.64, tipo: legal,   legal: "Sí" }
+  - { nombre: "España",         codigo: "ES", tarifa:  9.24, tipo: yo,      legal: "Sí", detalle: "aquí trabajo yo", home: true }
+  - { nombre: "Estados Unidos", codigo: "US", tarifa:  7.25, tipo: legal,   legal: "Sí", detalle: "federal, congelado desde 2009", home: true }
+  - { nombre: "Portugal",       codigo: "PT", tarifa:  5.84, tipo: legal,   legal: "Sí", home: true }
+  - { nombre: "Argentina",      codigo: "AR", tarifa:  1.64, tipo: legal,   legal: "Sí", home: true }
   - { nombre: "Filipinas",      codigo: "PH", tarifa:  1.61, tipo: legal,   legal: "Sí" }
-  - { nombre: "Puerto Rico",    codigo: "PR", tarifa: 10.50, tipo: legal,   legal: "Sí", detalle: "ley propia, no el mínimo federal de EE. UU." }
-  - { nombre: "Costa Rica",     codigo: "CR", tarifa:  3.97, tipo: legal,   legal: "Sí" }
-  - { nombre: "México",         codigo: "MX", tarifa:  3.78, tipo: legal,   legal: "Sí" }
+  - { nombre: "Puerto Rico",    codigo: "PR", tarifa: 10.50, tipo: legal,   legal: "Sí", detalle: "ley propia, no el mínimo federal de EE. UU.", home: true }
+  - { nombre: "Costa Rica",     codigo: "CR", tarifa:  3.97, tipo: legal,   legal: "Sí", home: true }
+  - { nombre: "México",         codigo: "MX", tarifa:  3.78, tipo: legal,   legal: "Sí", home: true }
   - { nombre: "Chile",          codigo: "CL", tarifa:  3.33, tipo: legal,   legal: "Sí" }
   - { nombre: "Uruguay",        codigo: "UY", tarifa:  3.15, tipo: legal,   legal: "Sí" }
   - { nombre: "Colombia",       codigo: "CO", tarifa:  3.08, tipo: legal,   legal: "Sí" }
@@ -57,5 +57,5 @@ paises:
   - { nombre: "Kenia",          codigo: "KE", tarifa:  0.57, tipo: legal,   legal: "Sí" }
   - { nombre: "Yemen",          codigo: "YE", tarifa:  0.51, tipo: legal,   legal: "Sí" }
   - { nombre: "Afganistán",     codigo: "AF", tarifa:  0.46, tipo: legal,   legal: "Sí" }
-  - { nombre: "India",          codigo: "IN", tarifa:  0.28, tipo: legal,   legal: "Sí" }
-  - { nombre: "Bután",          codigo: "BT", tarifa:  0.21, tipo: legal,   legal: "Sí" }
+  - { nombre: "India",          codigo: "IN", tarifa:  0.28, tipo: legal,   legal: "Sí", home: true }
+  - { nombre: "Bután",          codigo: "BT", tarifa:  0.21, tipo: legal,   legal: "Sí", home: true }

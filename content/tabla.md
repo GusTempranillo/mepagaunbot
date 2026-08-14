@@ -8,7 +8,7 @@ lastmod: 2026-07-27
 
 RentAHuman tiene un campo donde escribes lo que cobras por hora. Debajo, en gris, hay una cifra que no se puede bajar. Esa cifra cambia según el país que hayas declarado, y casi siempre es el salario mínimo legal de ese país convertido a dólares por hora.
 
-**Un aviso antes de seguir: estos 40 países son una muestra, no la lista completa.** La plataforma ofrece muchos más. Lo que viene a continuación describe lo que se ve en esta muestra, y no hay que leerlo como el récord mundial de nada: es muy probable que haya países más baratos que Bután ahí fuera. Iré ampliando la lista y anotando los cambios al final de esta página.
+**Un aviso antes de seguir: estos 40 países son una muestra, no la lista completa.** La plataforma ofrece muchos más. Lo que viene a continuación describe lo que se ve en esta muestra, y no hay que leerlo como el récord mundial de nada: es muy probable que haya países más baratos que Bután ahí fuera. Iré ampliando la lista.
 
 Con esa cautela por delante, de la muestra salen cuatro cosas que se pueden medir.
 
@@ -20,4 +20,4 @@ Con esa cautela por delante, de la muestra salen cuatro cosas que se pueden medi
 
 **Venezuela y Cuba son los únicos donde la plataforma se inventa la cifra.** A los dos les pone veinticinco céntimos exactos. La ley venezolana dice una milésima de dólar la hora: 130 bolívares al mes congelados desde 2022. La cubana dice tres céntimos. Dos países con leyes muy distintas y el mismo número redondo, que además no es ningún suelo general —a Bután le deja bajar a 0,21—. Cuando el salario mínimo de un país se vuelve tan irreal que ya no sirve ni para poner un precio, RentAHuman pone uno suyo.
 
-*Fuente: el campo de tarifa de RentAHuman, consultado país por país el 27 de julio de 2026. Contraste de mínimos legales: Eurostat para Europa. Para América, los diarios oficiales y ministerios de trabajo de cada país —CONASAMI y el DOF en México, el Decreto 1469 de 2025 en Colombia, la Ley 21.830 en Chile, el Acuerdo SETRASS-233-2026 en Honduras, la Ley 47-2021 en Puerto Rico, la Resolución 15/2026 del MTSS en Cuba, y sus equivalentes en el resto— con los tipos de cambio de sus bancos centrales. Esta página se actualiza; los cambios se anotan al final.*
+*Fuente: el campo de tarifa de RentAHuman, consultado país por país el 27 de julio de 2026. Contraste de mínimos legales: Eurostat para Europa. Para América, los diarios oficiales y ministerios de trabajo de cada país —CONASAMI y el DOF en México, el Decreto 1469 de 2025 en Colombia, la Ley 21.830 en Chile, el Acuerdo SETRASS-233-2026 en Honduras, la Ley 47-2021 en Puerto Rico, la Resolución 15/2026 del MTSS en Cuba, y sus equivalentes en el resto— con los tipos de cambio de sus bancos centrales.*
