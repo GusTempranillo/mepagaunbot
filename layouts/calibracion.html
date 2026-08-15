@@ -1,18 +1,20 @@
 {{ define "main" }}
 {{ $c := hugo.Data.calibracion }}
 {{ $d := $c.desacuerdos }}
-{{/* Tres veredictos posibles, y solo uno es un fallo de la máquina.
+{{/* Cuatro veredictos posibles, y solo uno es un fallo de la máquina.
      «regla» son criterios que cambié después de clasificar a mano:
-     el desacuerdo mide el cambio, no al modelo. */}}
+     el desacuerdo mide el cambio, no al modelo. «pendiente» es un
+     desacuerdo que todavía no he releído; sale como hueco a propósito. */}}
 {{ $errores := where $d "veredicto" "error" }}
 {{ $reglas := where $d "veredicto" "regla" }}
 {{ $fallos := where $d "veredicto" "maquina" }}
+{{ $pendientes := where $d "veredicto" "pendiente" }}
 
 <div class="wrap">
   <article class="prose">
     <div class="sechead">
       <h2>Calibración · página viva</h2>
-      <span class="note" style="margin:0">{{ $c.comparadas }} ofertas clasificadas a ciegas · {{ len $d }} desacuerdos · {{ len $fallos }} fallos de la máquina</span>
+      <span class="note" style="margin:0">{{ $c.comparadas }} ofertas clasificadas a ciegas · {{ len $d }} desacuerdos · {{ len $fallos }} fallos de la máquina{{ with $pendientes }} · {{ len . }} sin veredicto{{ end }}</span>
     </div>
     <h3 class="title">{{ .Title }}</h3>
     {{ with .Params.resumen }}<p class="deck">{{ . }}</p>{{ end }}
@@ -61,6 +63,7 @@
               <td>
                 {{ if eq .veredicto "error" }}<strong>Yo</strong>
                 {{ else if eq .veredicto "maquina" }}<strong>La máquina</strong>
+                {{ else if eq .veredicto "pendiente" }}<strong>Sin mirar todavía</strong>
                 {{ else }}Ninguno: cambié el criterio{{ end }}
                 <br><span class="note">{{ .explicacion }}</span>
               </td>
@@ -70,21 +73,25 @@
       </table>
       </div>
       <p class="note">
-        Cuatro desacuerdos vienen de un criterio que cambié el mismo día de esta
-        prueba —si una oferta pide hablar y no dice en qué idioma, se presume el
-        de la oferta, que casi siempre es inglés—, así que la máquina aplica el
-        criterio de hoy a ofertas que yo clasifiqué con el de hace semanas.
-        {{ with $errores }}Los otros {{ len . }} son errores míos: los he corregido en
+        {{ with $reglas }}{{ len . }} desacuerdos vienen de un criterio que cambié después
+        de clasificar esas ofertas a mano —si una oferta pide hablar y no dice en qué
+        idioma, se presume el de la oferta, que casi siempre es inglés—, así que la
+        máquina aplica el criterio de hoy a ofertas que yo clasifiqué con el de
+        entonces.{{ end }}
+        {{ with $errores }} {{ len . }} son errores míos: los he corregido en
         <a href="/ofertas/">el registro de ofertas</a> y las filas ya llevan el motivo
         correcto.{{ end }}
-        {{ if $fallos }}{{ len $fallos }} son errores de la máquina.{{ else }}En esta
+        {{ if $fallos }} {{ len $fallos }} son errores de la máquina.{{ else }} En esta
         muestra la máquina no cometió ningún error de hecho.{{ end }}
+        {{ with $pendientes }} Y {{ len . }} se quedan sin veredicto: son nuevos de esta
+        prueba y todavía no he releído los anuncios. Prefiero publicar el hueco a
+        publicar un veredicto que no he dado.{{ end }}
       </p>
       <p class="note">
         Prueba del {{ partial "fecha.html" (dict "t" (time.AsTime $c.fecha) "f" "iso") }},
         modelo <code>{{ $c.modelo }}</code>, criterios versión {{ $c.criterios_version }}.
-        Patrón: {{ $c.patron }}. {{ $c.comparadas }} comparadas y {{ $c.descartadas }}
-        descartadas porque {{ $c.descartadas_motivo }}.
+        Patrón: {{ $c.patron }}, {{ $c.comparadas }} comparadas.
+        {{ with $c.nota_patron }}{{ . }}{{ end }}
         {{ if eq $c.sin_respuesta 0 }}El modelo respondió a las {{ $c.comparadas }}.{{ else }}{{ $c.sin_respuesta }} se quedaron sin respuesta.{{ end }}
         Los datos están en
         <a href="https://github.com/GusTempranillo/mepagaunbot/blob/main/data/calibracion.yaml"><code>data/calibracion.yaml</code></a>;
