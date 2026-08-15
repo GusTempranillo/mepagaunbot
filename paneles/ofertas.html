@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Firmar ofertas · Me paga un bot</title>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   Panel de firmas. Mismo papel y misma tinta que mepagaunbot.eu,
+   pero sin una sola petición a terceros: ni fuentes, ni marcos,
+   ni bibliotecas. Todo lo que hace falta está en este fichero.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --paper:#F4EFE4; --paper-2:#EAE3D4; --paper-3:#DED6C6;
+  --ink:#16130F; --ink-2:#4A443A; --ink-3:#7C7364;
+  --accent:#E03A0B; --rule:#16130F;
+  --si:#1B6B3A; --no:#9A2A12;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#131110; --paper-2:#1E1B18; --paper-3:#2A2622;
+    --ink:#F2ECE0; --ink-2:#C3BBAC; --ink-3:#8A8274;
+    --accent:#FF5F2B; --rule:#F2ECE0;
+    --si:#5FBF86; --no:#FF7A5C;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.55;
+}
+button,input,select{font:inherit;color:inherit}
+
+/* ── barra superior ─────────────────────────────────────── */
+.barra{
+  position:sticky; top:0; z-index:20; background:var(--paper);
+  border-bottom:1.5px solid var(--rule); padding:10px 16px 0;
+}
+.barra .fila{
+  max-width:820px; margin:0 auto; display:flex; flex-wrap:wrap;
+  gap:8px 16px; align-items:baseline;
+}
+.marca{
+  font-family:var(--mono); font-size:12px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-2); font-weight:700;
+}
+.cuenta{font-family:var(--mono); font-size:12px; color:var(--ink-3); letter-spacing:.04em}
+.cuenta b{color:var(--accent); font-size:14px}
+.filtros{
+  max-width:820px; margin:8px auto 0; display:flex; flex-wrap:wrap; gap:6px;
+  padding-bottom:10px;
+}
+.filtro{
+  font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  background:none; border:1.5px solid var(--paper-3); color:var(--ink-2);
+  padding:5px 11px; cursor:pointer; border-radius:2px;
+}
+.filtro:hover{border-color:var(--ink-3)}
+.filtro[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.buscador{
+  flex:1 1 160px; min-width:140px; background:var(--paper-2);
+  border:1.5px solid var(--paper-3); color:var(--ink);
+  padding:5px 10px; font-family:var(--mono); font-size:12px; border-radius:2px;
+}
+.buscador:focus{outline:2px solid var(--accent); outline-offset:1px}
+
+/* ── lista ──────────────────────────────────────────────── */
+main{max-width:820px; margin:0 auto; padding:20px 16px 120px}
+.vacio{
+  font-family:var(--mono); font-size:13px; color:var(--ink-3);
+  text-align:center; padding:60px 20px; line-height:1.9;
+}
+.vacio b{display:block; font-size:20px; color:var(--ink); font-family:var(--serif)}
+
+.ficha{
+  background:var(--paper-2); border:1.5px solid var(--paper-3);
+  margin:0 0 18px; padding:16px 18px 14px; border-radius:3px;
+  scroll-margin-top:120px;
+}
+.ficha.enfoque{border-color:var(--accent); box-shadow:0 0 0 2px rgba(224,58,11,.18)}
+.ficha.firmada{opacity:.55}
+.ficha.guardando{opacity:.6}
+
+.chips{
+  display:flex; flex-wrap:wrap; gap:5px 8px; align-items:center;
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+  color:var(--ink-3); text-transform:uppercase; margin-bottom:8px;
+}
+.chip{background:var(--paper-3); padding:2px 7px; border-radius:2px; color:var(--ink-2)}
+.chip--correo{background:var(--accent); color:#fff}
+.chip--listado{background:var(--ink-3); color:var(--paper)}
+.chip--ambas{background:var(--ink); color:var(--paper)}
+.chip--pago{font-weight:700; color:var(--ink)}
+
+h2{
+  font-family:var(--serif); font-size:21px; line-height:1.25;
+  margin:0 0 6px; font-weight:600;
+}
+.original{
+  font-family:var(--mono); font-size:11px; color:var(--ink-3);
+  margin:0 0 8px; line-height:1.45;
+}
+.resumen{margin:0 0 12px; color:var(--ink-2); font-size:16px}
+
+.datos{
+  display:flex; flex-wrap:wrap; gap:4px 18px; margin:0 0 12px;
+  font-family:var(--mono); font-size:12px; color:var(--ink-2);
+}
+.datos span b{color:var(--ink-3); font-weight:400; letter-spacing:.04em}
+
+.duda{
+  border-left:3px solid var(--accent); background:var(--paper-3);
+  padding:8px 12px; margin:0 0 12px; font-size:14px; color:var(--ink-2);
+}
+.duda b{
+  font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent); display:block;
+}
+
+details{margin:0 0 12px}
+summary{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); cursor:pointer; padding:4px 0;
+}
+summary:hover{color:var(--accent)}
+.detalle{font-size:15px; color:var(--ink-2); padding:4px 0 0}
+.detalle h3{
+  font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); margin:12px 0 4px; font-weight:400;
+}
+.detalle p{margin:0 0 6px; white-space:pre-wrap}
+.detalle a{color:var(--accent)}
+
+/* ── decisiones ─────────────────────────────────────────── */
+.juicios{border-top:1.5px solid var(--paper-3); padding-top:12px; margin-top:4px}
+.juicio{margin:0 0 10px}
+.juicio > legend, .rotulo{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-2); display:block; margin:0 0 5px; padding:0;
+}
+.rotulo .tecla{color:var(--ink-3); text-transform:none; letter-spacing:0}
+.opciones{display:flex; flex-wrap:wrap; gap:6px}
+.opcion{
+  font-family:var(--mono); font-size:13px; letter-spacing:.03em;
+  background:var(--paper); border:1.5px solid var(--paper-3); color:var(--ink-2);
+  padding:6px 14px; cursor:pointer; border-radius:2px; min-height:38px;
+}
+.opcion:hover{border-color:var(--ink-3)}
+.opcion:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.opcion[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink); font-weight:700}
+.opcion[aria-pressed="true"][data-valor="si"]{background:var(--si); border-color:var(--si); color:#fff}
+.opcion[aria-pressed="true"][data-valor="no"]{background:var(--no); border-color:var(--no); color:#fff}
+.motivo{
+  display:block; width:100%; margin-top:6px; background:var(--paper);
+  border:1.5px solid var(--paper-3); color:var(--ink);
+  padding:7px 10px; font-family:var(--serif); font-size:15px; border-radius:2px;
+}
+.motivo:focus{outline:2px solid var(--accent); outline-offset:1px}
+.motivo[hidden]{display:none}
+
+.pie{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:14px}
+.firmar{
+  font-family:var(--mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+  background:var(--accent); color:#fff; border:none; padding:11px 22px;
+  cursor:pointer; font-weight:700; border-radius:2px; min-height:44px;
+}
+.firmar:hover{background:var(--ink)}
+.firmar:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
+.firmar[disabled]{background:var(--ink-3); cursor:default}
+.aviso{font-family:var(--mono); font-size:12px; color:var(--ink-3)}
+.aviso.bien{color:var(--si)}
+.aviso.mal{color:var(--no)}
+
+.atajos{
+  max-width:820px; margin:0 auto; padding:0 16px 40px;
+  font-family:var(--mono); font-size:11px; color:var(--ink-3); line-height:1.9;
+}
+kbd{
+  background:var(--paper-3); border-radius:2px; padding:1px 5px;
+  font-family:var(--mono); font-size:11px; color:var(--ink-2);
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .ficha{padding:14px}
+  .opcion{flex:1 1 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="barra">
+  <div class="fila">
+    <span class="marca">Firmar ofertas</span>
+    <span class="cuenta" id="cuenta"></span>
+  </div>
+  <div class="filtros">
+    <button class="filtro" data-filtro="pendientes" aria-pressed="true">Sin firmar</button>
+    <button class="filtro" data-filtro="correo" aria-pressed="false">Del correo</button>
+    <button class="filtro" data-filtro="listado" aria-pressed="false">Del listado</button>
+    <button class="filtro" data-filtro="todas" aria-pressed="false">Todas</button>
+    <input class="buscador" id="buscador" type="search" placeholder="buscar…" aria-label="Buscar en las ofertas">
+  </div>
+</div>
+
+<main id="lista"></main>
+
+<p class="atajos">
+  <kbd>J</kbd> y <kbd>K</kbd> bajan y suben · <kbd>E</kbd> «me dejan entrar» ·
+  <kbd>P</kbd> «puedo hacerla» · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> modalidad ·
+  <kbd>Enter</kbd> firma la ficha enfocada.<br>
+  Lo que firmes se escribe en la hoja de cálculo y en <code>data/ofertas.yaml</code>.
+  La web se reconstruye sola en dos o tres minutos.
+</p>
+
+<script id="datos" type="application/json">__DATOS__</script>
+<script>
+(function(){
+  'use strict';
+
+  // ── los datos que inyecta n8n al servir la página ─────────
+  function leerDatos(){
+    var txt = document.getElementById('datos').textContent.trim();
+    var bin = atob(txt);
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return JSON.parse(new TextDecoder('utf-8').decode(bytes));
+  }
+
+  var DATOS = leerDatos();
+  var OFERTAS = DATOS.ofertas || [];
+  var LLAVE = new URLSearchParams(location.search).get('k') || '';
+  var GUARDAR = location.pathname.replace(/\/+$/, '') + '-guardar';
+
+  var lista = document.getElementById('lista');
+  var cuenta = document.getElementById('cuenta');
+  var buscador = document.getElementById('buscador');
+  var filtro = 'pendientes';
+  var busqueda = '';
+  var enfocada = null;
+
+  // Lo que el panel edita. Cada ficha guarda aquí su estado en curso;
+  // hasta que no se firma, no sale de esta página.
+  function borrador(o){
+    if (!o._b) o._b = {
+      disponible_es: o.estado.disponible_es || '',
+      motivo: o.estado.motivo || '',
+      compatible: o.estado.compatible || '',
+      motivo_compat: o.estado.motivo_compat || '',
+      modalidad: o.estado.modalidad || ''
+    };
+    return o._b;
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function visibles(){
+    var q = busqueda.toLowerCase();
+    return OFERTAS.filter(function(o){
+      if (filtro === 'pendientes' && !o.pendiente) return false;
+      if (filtro === 'correo' && o.origen === 'listado') return false;
+      if (filtro === 'listado' && o.origen === 'correo') return false;
+      if (!q) return true;
+      return (o.titulo_es + ' ' + o.titulo + ' ' + o.resumen_es + ' ' +
+              o.categoria + ' ' + o.ubicacion).toLowerCase().indexOf(q) >= 0;
+    });
+  }
+
+  function pintarCuenta(){
+    var sinFirmar = OFERTAS.filter(function(o){ return o.pendiente; }).length;
+    var sinModalidad = OFERTAS.filter(function(o){
+      return o.esCorreo && !borrador(o).modalidad;
+    }).length;
+    cuenta.innerHTML = 'sin firmar <b>' + sinFirmar + '</b> de ' + OFERTAS.length +
+      ' · sin modalidad <b>' + sinModalidad + '</b>';
+  }
+
+  // ── una ficha ─────────────────────────────────────────────
+  function grupo(rotulo, tecla, campo, opciones, o){
+    var b = borrador(o);
+    var h = '<fieldset class="juicio" style="border:0;margin:0 0 10px;padding:0">' +
+            '<legend class="rotulo">' + rotulo +
+            ' <span class="tecla">(' + tecla + ')</span></legend><div class="opciones">';
+    opciones.forEach(function(op){
+      h += '<button type="button" class="opcion" data-campo="' + campo + '"' +
+           ' data-valor="' + esc(op.valor) + '"' +
+           ' aria-pressed="' + (b[campo] === op.valor) + '">' + esc(op.texto) + '</button>';
+    });
+    return h + '</div></fieldset>';
+  }
+
+  function dato(rotulo, valor){
+    if (!valor) return '';
+    return '<span><b>' + rotulo + '</b> ' + esc(valor) + '</span>';
+  }
+
+  function bloque(rotulo, valor){
+    if (!valor) return '';
+    return '<h3>' + rotulo + '</h3><p>' + esc(valor) + '</p>';
+  }
+
+  function pintarFicha(o){
+    var b = borrador(o);
+    var art = document.createElement('article');
+    art.className = 'ficha' + (o.pendiente ? '' : ' firmada');
+    art.id = 'oferta-' + o.id;
+    art.tabIndex = -1;
+
+    var origen = o.origen === 'ambas' ? 'correo + listado' : o.origen;
+    var h = '<div class="chips">' +
+      '<span class="chip chip--' + o.origen + '">' + origen + '</span>' +
+      '<span class="chip">' + esc(o.fecha) + '</span>' +
+      (o.pago ? '<span class="chip chip--pago">' + esc(o.pago) + ' $</span>' : '') +
+      (o.duracion ? '<span class="chip">' + esc(o.duracion) + '</span>' : '') +
+      (o.categoria ? '<span class="chip">' + esc(o.categoria) + '</span>' : '') +
+      (o.pendiente ? '' : '<span class="chip">firmada</span>') +
+      '</div>';
+
+    h += '<h2>' + esc(o.titulo_es || o.titulo) + '</h2>';
+    if (o.titulo_es && o.titulo) h += '<p class="original">' + esc(o.titulo) + '</p>';
+    if (o.resumen_es) h += '<p class="resumen">' + esc(o.resumen_es) + '</p>';
+
+    var datos = dato('dónde', o.ubicacion) + dato('remoto', o.remoto) +
+                dato('identidad', o.identidad) + dato('plazo', o.plazo) +
+                dato('tipo', o.tipo);
+    if (datos) h += '<div class="datos">' + datos + '</div>';
+
+    if (o.pregunta) h += '<div class="duda"><b>la máquina duda</b>' + esc(o.pregunta) + '</div>';
+
+    var detalle = bloque('Requisitos', o.requisitos) + bloque('Habilidades', o.habilidades) +
+                  bloque('Descripción', o.descripcion);
+    if (o.enlace) detalle += '<h3>Encargo</h3><p><a href="' + esc(o.enlace) +
+                             '" target="_blank" rel="noopener">' + esc(o.enlace) + '</a></p>';
+    if (detalle) {
+      h += '<details><summary>Ver requisitos y descripción</summary>' +
+           '<div class="detalle">' + detalle + '</div></details>';
+    }
+
+    h += '<div class="juicios">';
+    h += grupo('¿Me dejan entrar?', 'e', 'disponible_es',
+               [{valor:'si', texto:'Sí'}, {valor:'no', texto:'No'}], o);
+    h += '<input class="motivo" data-campo="motivo" placeholder="el requisito que cierra la puerta"' +
+         ' value="' + esc(b.motivo) + '"' + (b.disponible_es === 'no' ? '' : ' hidden') + '>';
+    h += grupo('¿Puedo hacerla?', 'p', 'compatible',
+               [{valor:'si', texto:'Sí'}, {valor:'no', texto:'No'}], o);
+    h += '<input class="motivo" data-campo="motivo_compat" placeholder="qué me falta, en corto"' +
+         ' value="' + esc(b.motivo_compat) + '"' + (b.compatible === 'no' ? '' : ' hidden') + '>';
+    if (o.esCorreo) {
+      h += grupo('Modalidad', '1 2 3', 'modalidad', [
+        {valor:'remota', texto:'Remota'},
+        {valor:'presencial en Galicia', texto:'En Galicia'},
+        {valor:'presencial fuera de Galicia', texto:'Fuera de Galicia'}
+      ], o);
+    }
+    h += '</div>';
+
+    h += '<div class="pie"><button type="button" class="firmar">' +
+         (o.pendiente ? 'Firmar' : 'Guardar cambios') + '</button>' +
+         '<span class="aviso">' + (o.falta && o.falta.length ? 'falta ' + o.falta.join(', ') : '') +
+         '</span></div>';
+
+    art.innerHTML = h;
+    art.addEventListener('click', function(ev){
+      var op = ev.target.closest('.opcion');
+      if (op) return elegir(o, art, op);
+      if (ev.target.closest('.firmar')) return firmar(o, art);
+    });
+    art.addEventListener('input', function(ev){
+      var campo = ev.target.dataset.campo;
+      if (campo === 'motivo' || campo === 'motivo_compat') b[campo] = ev.target.value;
+    });
+    art.addEventListener('focusin', function(){ enfocar(art, false); });
+    return art;
+  }
+
+  function elegir(o, art, boton){
+    var b = borrador(o);
+    var campo = boton.dataset.campo, valor = boton.dataset.valor;
+    b[campo] = (b[campo] === valor && campo === 'modalidad') ? '' : valor;
+    art.querySelectorAll('.opcion[data-campo="' + campo + '"]').forEach(function(x){
+      x.setAttribute('aria-pressed', String(x.dataset.valor === b[campo]));
+    });
+    if (campo === 'disponible_es') destapar(art, 'motivo', b.disponible_es === 'no');
+    if (campo === 'compatible') destapar(art, 'motivo_compat', b.compatible === 'no');
+    avisar(art, '', '');
+  }
+
+  function destapar(art, campo, mostrar){
+    var caja = art.querySelector('.motivo[data-campo="' + campo + '"]');
+    if (!caja) return;
+    caja.hidden = !mostrar;
+    if (mostrar) caja.focus();
+  }
+
+  function avisar(art, texto, clase){
+    var a = art.querySelector('.aviso');
+    a.className = 'aviso' + (clase ? ' ' + clase : '');
+    a.textContent = texto;
+  }
+
+  // ── guardar ───────────────────────────────────────────────
+  function firmar(o, art){
+    var b = borrador(o);
+    if (!b.disponible_es || !b.compatible) {
+      return avisar(art, 'contesta a las dos preguntas', 'mal');
+    }
+    if (o.esCorreo && !b.modalidad) {
+      return avisar(art, 'falta la modalidad', 'mal');
+    }
+    var boton = art.querySelector('.firmar');
+    boton.disabled = true;
+    art.classList.add('guardando');
+    avisar(art, 'guardando…', '');
+
+    fetch(GUARDAR, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ k: LLAVE, id: o.id, campos: {
+        disponible_es: b.disponible_es,
+        motivo: b.disponible_es === 'no' ? b.motivo : '',
+        compatible: b.compatible,
+        motivo_compat: b.compatible === 'no' ? b.motivo_compat : '',
+        modalidad: b.modalidad
+      }})
+    })
+    .then(function(r){ return r.json().then(function(j){ return {ok: r.ok, j: j}; }); })
+    .then(function(res){
+      boton.disabled = false;
+      art.classList.remove('guardando');
+      if (!res.ok || !res.j.ok) {
+        return avisar(art, res.j && res.j.error ? res.j.error : 'no se ha podido guardar', 'mal');
+      }
+      o.estado = res.j.estado;
+      o.pendiente = false;
+      o.falta = [];
+      art.classList.add('firmada');
+      boton.textContent = 'Guardar cambios';
+      avisar(art, res.j.donde || 'firmada', 'bien');
+      pintarCuenta();
+    })
+    .catch(function(){
+      boton.disabled = false;
+      art.classList.remove('guardando');
+      avisar(art, 'sin conexión con n8n', 'mal');
+    });
+  }
+
+  // ── pintar y navegar ──────────────────────────────────────
+  function pintar(){
+    var lote = visibles();
+    lista.innerHTML = '';
+    if (!lote.length) {
+      lista.innerHTML = '<p class="vacio"><b>Nada que firmar aquí.</b>' +
+        'Prueba con «Todas» o cambia la búsqueda.</p>';
+      pintarCuenta();
+      return;
+    }
+    var frag = document.createDocumentFragment();
+    lote.forEach(function(o){ frag.appendChild(pintarFicha(o)); });
+    lista.appendChild(frag);
+    enfocada = null;
+    pintarCuenta();
+  }
+
+  function enfocar(art, mover){
+    if (enfocada) enfocada.classList.remove('enfoque');
+    enfocada = art;
+    if (!art) return;
+    art.classList.add('enfoque');
+    if (mover) art.scrollIntoView({block: 'center', behavior: 'smooth'});
+  }
+
+  function mover(paso){
+    var fichas = Array.prototype.slice.call(lista.querySelectorAll('.ficha'));
+    if (!fichas.length) return;
+    var i = enfocada ? fichas.indexOf(enfocada) : -1;
+    var siguiente = fichas[Math.max(0, Math.min(fichas.length - 1, i + paso))];
+    enfocar(siguiente, true);
+  }
+
+  document.addEventListener('keydown', function(ev){
+    var t = ev.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA' || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    var tecla = ev.key.toLowerCase();
+    if (tecla === 'j' || ev.key === 'ArrowDown') { ev.preventDefault(); return mover(1); }
+    if (tecla === 'k' || ev.key === 'ArrowUp') { ev.preventDefault(); return mover(-1); }
+    if (!enfocada) return;
+    var pulsar = function(sel){
+      var b = enfocada.querySelector(sel);
+      if (b) b.click();
+    };
+    if (tecla === 'e') { ev.preventDefault();
+      pulsar('.opcion[data-campo="disponible_es"][aria-pressed="false"]'); }
+    else if (tecla === 'p') { ev.preventDefault();
+      pulsar('.opcion[data-campo="compatible"][aria-pressed="false"]'); }
+    else if (tecla === '1' || tecla === '2' || tecla === '3') { ev.preventDefault();
+      var ops = enfocada.querySelectorAll('.opcion[data-campo="modalidad"]');
+      if (ops[+tecla - 1]) ops[+tecla - 1].click(); }
+    else if (ev.key === 'Enter') { ev.preventDefault(); pulsar('.firmar'); }
+  });
+
+  document.querySelectorAll('.filtro').forEach(function(bt){
+    bt.addEventListener('click', function(){
+      filtro = bt.dataset.filtro;
+      document.querySelectorAll('.filtro').forEach(function(x){
+        x.setAttribute('aria-pressed', String(x === bt));
+      });
+      pintar();
+    });
+  });
+
+  var espera;
+  buscador.addEventListener('input', function(){
+    clearTimeout(espera);
+    espera = setTimeout(function(){ busqueda = buscador.value.trim(); pintar(); }, 160);
+  });
+
+  pintar();
+})();
+</script>
+</body>
+</html>
