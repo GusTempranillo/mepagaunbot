@@ -3371,10 +3371,10 @@ ofertas:
     consulta: "ok"
     disponible_es: "no"
     motivo: "exige presencia física en estados unidos"
-    modalidad: ""
+    modalidad: "presencial fuera de Galicia"
     compatible: "no"
     motivo_compat: "exige desplazarse a clive, iowa"
-    revisado: ""
+    revisado: "si"
     en_email: "no"
     en_listado: "si"
 
