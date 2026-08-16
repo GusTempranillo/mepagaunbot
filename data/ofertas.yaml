@@ -3350,7 +3350,7 @@ ofertas:
     consulta: "ok"
     disponible_es: "si"
     motivo: ""
-    modalidad: ""
+    modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige inglés hablado con soltura para llamadas telefónicas"
     revisado: "si"
