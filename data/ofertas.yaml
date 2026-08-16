@@ -1107,7 +1107,7 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
-    postulado: ""
+    postulado: "si"
     oferta_realizada: ""
 
   - fecha: 2026-08-09
