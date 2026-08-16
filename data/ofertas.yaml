@@ -3604,7 +3604,7 @@ ofertas:
     consulta: "ok"
     disponible_es: "si"
     motivo: ""
-    modalidad: ""
+    modalidad: "remota"
     compatible: "si"
     motivo_compat: ""
     revisado: "si"
