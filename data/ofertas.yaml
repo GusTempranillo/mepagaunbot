@@ -3098,10 +3098,10 @@ ofertas:
     consulta: "ok"
     disponible_es: "no"
     motivo: "exige residir en Estados Unidos y tener línea de T-Mobile"
-    modalidad: ""
+    modalidad: "remota"
     compatible: "no"
     motivo_compat: "no dispongo de línea directa con T-Mobile en Estados Unidos"
-    revisado: ""
+    revisado: "si"
     en_email: "no"
     en_listado: "si"
 
