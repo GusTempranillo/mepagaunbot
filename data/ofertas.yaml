@@ -3434,10 +3434,10 @@ ofertas:
     consulta: "ok"
     disponible_es: "no"
     motivo: "exige estar en Estados Unidos"
-    modalidad: ""
+    modalidad: "presencial fuera de Galicia"
     compatible: "no"
     motivo_compat: "exige estar en Estados Unidos"
-    revisado: ""
+    revisado: "si"
     en_email: "no"
     en_listado: "si"
 
