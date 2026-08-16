@@ -76,7 +76,9 @@
 #  muestra en /ofertas/.
 #  Codificado el 2026-08-07, ampliado con en_email/en_listado el
 #  2026-08-09, con la clasificación asistida el 2026-08-09 y con
-#  compatible sin firma el 2026-08-10.
+#  compatible sin firma el 2026-08-10. Desde el 2026-08-15 la
+#  modalidad y los dos motivos de las que llegan por correo
+#  también salen de la hoja: los escribe el panel de firmas.
 #  El texto de las ofertas no se reproduce: solo sus metadatos.
 # ───────────────────────────────────────────────────────────
 
@@ -3486,8 +3488,8 @@ ofertas:
   - fecha: 2026-08-13
     id: "rqmaroeee6vmweIefx2H"
     titulo: "Bear, DE — receive one small retail package and drop it off at UPS"
-    titulo_es: "recibir paquete en Bear, Delaware y entregarlo en UPS"
-    resumen_es: "Hay que recibir personalmente un paquete pequeño de ASUS en una dirección residencial de Bear, Delaware. Debes mantenerlo sellado, enviar una foto de confirmación, pegar la etiqueta prepagada de UPS que te darán y depositar el paquete en UPS antes de un día hábil. Luego enviarás el comprobante de aceptación y el seguimiento por la plataforma."
+    titulo_es: "Recibir un paquete en Bear, Delaware y entregarlo en UPS"
+    resumen_es: "Hay que recibir personalmente un paquete pequeño en una dirección residencial de Bear, Delaware, mantenerlo cerrado y seguro, y depositarlo en UPS con la etiqueta prepagada del cliente dentro de un día hábil. Se pide foto del paquete recibido y preparado, el número de seguimiento y el comprobante de aceptación de UPS. Requiere identidad verificada y no es necesario comprar ni adelantar dinero."
     categoria: "labor-gigs"
     pago_usd: 25
     tipo: "fixed"
@@ -3738,8 +3740,8 @@ ofertas:
   - fecha: 2026-08-15
     id: "qa_fq4lxjB6wYRKXmZG00FK_2026-08-14"
     titulo: "QA test: Superset.sh Public Landing & Sign-Up Flow Review — 2026-08-14"
-    titulo_es: "Revisión QA de la landing page y el registro de Superset.sh"
-    resumen_es: "Visitar Superset.sh y evaluar la landing page y el registro como usuario nuevo, anotando problemas de UX. Grabar pantalla y voz narrando el recorrido. Entregar vídeo con incidencias por severidad y pasos. Requiere ser ingeniero de software con experiencia en agentes de IA, usar macOS con Chrome o Safari y tener el país del perfil en EE. UU., Francia, Reino Unido, Japón o China."
+    titulo_es: "Revisión QA del flujo de landing y registro de Superset.sh"
+    resumen_es: "Hay que visitar la web superset.sh y evaluar como usuario técnico la página de inicio y el registro, reportando problemas con severidad y pasos exactos. Se entrega un vídeo narrado con micrófono grabando toda la pantalla, más capturas. Requiere ser ingeniero de software con experiencia en agentes de IA, tener Mac y navegador moderno; solo admite perfiles de Estados Unidos, Francia, Reino Unido…"
     categoria: "computer-gigs"
     pago_usd: 10
     tipo: "fixed"
@@ -3815,6 +3817,48 @@ ofertas:
     modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige narrar en inglés y no lo hablo con soltura"
+    revisado: "si"
+    en_email: "no"
+    en_listado: "si"
+
+  - fecha: 2026-08-15
+    id: "qa_Qr5lsEmFkrvPCDc4Q6c4_2026-08-14"
+    titulo: "QA test: VisibleTrader first-impression review — 2026-08-14"
+    titulo_es: "Test de QA de primera impresión de la web VisibleTrader"
+    resumen_es: "Evaluar la web visibletrader.com como nuevo visitante durante cinco minutos: identificar la propuesta de valor, el botón principal de acción, las secciones de funciones y señales de confianza. Grabar pantalla y audio narrando en voz alta cada acción, error o confusión encontrados. Entregar el vídeo narrado junto con capturas y reportar cada incidencia con título, gravedad y pasos de reproducción…"
+    categoria: "computer-gigs"
+    pago_usd: 4
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: "remota"
+    compatible: "no"
+    motivo_compat: "la narración se presume en inglés y no lo hablo con soltura"
+    revisado: "si"
+    en_email: "no"
+    en_listado: "si"
+
+  - fecha: 2026-08-16
+    id: "lJQf4HUvg60pS5egcnw7"
+    titulo: "T-Mobile Android Spam Test - about 5-10 min active work, $25"
+    titulo_es: ""
+    resumen_es: ""
+    categoria: "computer-gigs"
+    pago_usd: 25
+    tipo: "fixed"
+    duracion: "600 minutes"
+    remoto: "No"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "no"
+    motivo: "Teléfono Android con base en EE. UU. y que opere en la red de T-Mobile."
+    modalidad: ""
+    compatible: "no"
+    motivo_compat: ""
     revisado: "si"
     en_email: "no"
     en_listado: "si"
