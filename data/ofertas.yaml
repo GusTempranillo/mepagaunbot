@@ -3140,7 +3140,7 @@ ofertas:
     consulta: "ok"
     disponible_es: "si"
     motivo: ""
-    modalidad: ""
+    modalidad: "remota"
     compatible: "no"
     motivo_compat: "la narración se presume en inglés y no lo hablo con soltura"
     revisado: "si"
