@@ -79,6 +79,21 @@
 #  compatible sin firma el 2026-08-10. Desde el 2026-08-15 la
 #  modalidad y los dos motivos de las que llegan por correo
 #  también salen de la hoja: los escribe el panel de firmas.
+#
+#  Dos campos más, añadidos el 2026-08-16, que no responden a
+#  ninguna hipótesis del registro previo: son seguimiento
+#  operativo, no prueba.
+#
+#    postulado         "si" cuando me he presentado a la oferta.
+#    oferta_realizada  "si" solo cuando el trabajo está entregado
+#                      Y cobrado. El número de encargos de la
+#                      Hipótesis 1 sigue llevándose a mano en
+#                      data/estado.yaml, con su propia fecha: no es
+#                      lo mismo recibir un encargo que cobrarlo, y
+#                      este campo llega semanas más tarde que aquel.
+#
+#  Los dos se marcan en el panel; vacío = sin decidir, y así se
+#  muestra en /ofertas/.
 #  El texto de las ofertas no se reproduce: solo sus metadatos.
 # ───────────────────────────────────────────────────────────
 
@@ -103,6 +118,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-28
     id: "qa_SNphiyIrsflkZ3dEDqsP_2026-07-24"
@@ -124,6 +141,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-28
     id: "qa_cYS6Y4O9xARTDqHOWaSo_2026-07-28"
@@ -145,6 +164,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-29
     id: "Putf55Gplv0POJk7cHoX"
@@ -166,6 +187,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-29
     id: "gZpCVicOEYQl73jFpHJN"
@@ -187,6 +210,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-30
     id: "qa_Xt1SaRIZielATR7cmDsE_2026-07-30"
@@ -208,6 +233,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-30
     id: "pRsNn6mXNVhOHf29phIb"
@@ -229,6 +256,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-30
     id: "QVvZdmjFMLUU744ThxAF"
@@ -250,6 +279,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-30
     id: "xIyJNgieKetZ8UzZaIz3"
@@ -271,6 +302,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-30
     id: "2dxKcTcT6CSsPHnZB65l"
@@ -292,6 +325,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-31
     id: "38TXMPomIhHp3QBG60WK"
@@ -313,6 +348,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-31
     id: "TtiJy6jmY3pmKhMp1a6O"
@@ -334,6 +371,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-07-31
     id: "mFJIqppJQ14WQbagDAzj"
@@ -355,6 +394,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-01
     id: "eNBcmDA0zIWLonlaVMn4"
@@ -376,6 +417,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-03
     id: "mwPj393yL3T2cFAcwu2a"
@@ -397,6 +440,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-04
     id: "qa_l0KWxLUNliMa79WIKykW_2026-08-04"
@@ -418,6 +463,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-04
     id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
@@ -439,6 +486,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-04
     id: "izwYIqNhHdTzQY6bd8sm"
@@ -460,6 +509,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-04
     id: "qa_TuIYC2dI6ZZu6cVXzP0J_2026-08-04"
@@ -481,6 +532,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-04
     id: "VNVIkY7jtNozufxAcjpw"
@@ -502,6 +555,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-05
     id: "6sEv2k1WDrvGohc52hP7"
@@ -523,6 +578,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-06
     id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
@@ -544,6 +601,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-06
     id: "6H1Osi3kkGw1EkdNwVJx"
@@ -565,6 +624,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
@@ -586,6 +647,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-07
     id: "qa_YoVFSaMAshWMX7EhrBkc_2026-08-06"
@@ -607,6 +670,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-07
     id: "oDNyOzZKsZcJe5uJtPEF"
@@ -628,6 +693,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "0sR9gy2PE9sNvWv6zdei"
@@ -649,6 +716,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "1fmLel5PCDKG8SvLWmKT"
@@ -670,6 +739,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "1HHivKXcxBVYd3fa1Uid"
@@ -691,6 +762,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "1ueHAErvQUGrDqfi51t8"
@@ -712,6 +785,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "1Wyk6yRzmP3V1sJUntsH"
@@ -733,6 +808,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "1Z2wKqbtLtnHabKfJY0q"
@@ -754,6 +831,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "2BMCLQJlLuwOxNYb7UXH"
@@ -775,6 +854,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "2MPjiw75TajneHOZSBsg"
@@ -796,6 +877,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "2OxlNu7vrcbNKBquATcF"
@@ -817,6 +900,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "2Th1kz3dkd0Iyob9vTJL"
@@ -838,6 +923,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "33j2GfABMv08zutjvv05"
@@ -859,6 +946,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "4UFQ6XHeON2Yq3zmFWBF"
@@ -880,6 +969,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "5Q1fJP5XlkYortsSoc37"
@@ -901,6 +992,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "5wrpfodUndACFfff27Nm"
@@ -922,6 +1015,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "7bOFEuzWHZ8wowI1zNyU"
@@ -943,6 +1038,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "8MWiLOG4TX8lf9zoQ3IM"
@@ -964,6 +1061,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "9P2GQ35U7Vagbcpimfmb"
@@ -985,6 +1084,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "9XDypQfdZ34eSZDe0ORW"
@@ -1006,6 +1107,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "aIP9b7rGLyKkJTMO3DX0"
@@ -1027,6 +1130,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "aQmaBPxzLLmNPmhgTyfq"
@@ -1048,6 +1153,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "ASey9tcIl1gd5mvi4lg1"
@@ -1069,6 +1176,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "b4M77a3ttIJYPv503HYQ"
@@ -1090,6 +1199,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "BtwPCvvXqyEKnESa6sxC"
@@ -1111,6 +1222,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "CDsX3Yrl7dZyXswAdzxk"
@@ -1132,6 +1245,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "CG10JI2uczga4aE3CrPc"
@@ -1153,6 +1268,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "cP0i3o4nR3vJRV9jWkk1"
@@ -1174,6 +1291,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "d3AdNjdksiPuV8J9fWlL"
@@ -1195,6 +1314,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "D9VDTyp8evjFkZaYbfFY"
@@ -1216,6 +1337,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "ECMLQtywJIhHHinKAoYB"
@@ -1237,6 +1360,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "EvK02JbgTVf6McQK4Zio"
@@ -1258,6 +1383,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "EZeVwXzoqofYXiqc1CtT"
@@ -1279,6 +1406,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "f2g3g4neGSxQuO9GyEss"
@@ -1300,6 +1429,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "f7WZW1PKClHi0Q4Kz2o3"
@@ -1321,6 +1452,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "f8Tm4Xy2WM1s4IBroExL"
@@ -1342,6 +1475,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "fagSdLRfVOQ0J5M9NXRZ"
@@ -1363,6 +1498,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "FexBpBwtM1GVOB9EQRmS"
@@ -1384,6 +1521,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "FklpkDbzCVUhoflg8sfM"
@@ -1405,6 +1544,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "FoqUdeNm8XM8dqnErao8"
@@ -1426,6 +1567,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "g22IjeUMSeOgPZGhFzOH"
@@ -1447,6 +1590,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "ghDgwcsJhM5V9Sczdq0W"
@@ -1468,6 +1613,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "gvD1BKLJ6OH9jjZ9lcS1"
@@ -1489,6 +1636,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "GvpvL9ijYjWKZ7XhIH1T"
@@ -1510,6 +1659,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "h9ScIMIohwJ2EvdHAZOy"
@@ -1531,6 +1682,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Hp5EHA3HfbcAPXbqhMaM"
@@ -1552,6 +1705,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "i69WRMWcrUBw7sm9s7yj"
@@ -1573,6 +1728,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "IFDq5xNFlUQAzigui7Fj"
@@ -1594,6 +1751,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "iZPw6ye71DMSZgFL5E8O"
@@ -1615,6 +1774,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "J5yx5AUxT7TIK8PY9JzO"
@@ -1636,6 +1797,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "jGEvz7I1r6ncjxt2wiMY"
@@ -1657,6 +1820,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "jSF10wQlPADTius9wwG3"
@@ -1678,6 +1843,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "JTaLVXc3j290JbLyH4w5"
@@ -1699,6 +1866,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "KE0yIzMFPNE7B4HrKNVJ"
@@ -1720,6 +1889,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "kuDycxl1MXxqK9r1FNTs"
@@ -1741,6 +1912,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "L8v0gj7GAEhq9JcmLVPh"
@@ -1762,6 +1935,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "ladXKx2Hr0bwjIGV0PCx"
@@ -1783,6 +1958,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "lfLBauj1z7czPeOw1fTW"
@@ -1804,6 +1981,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "LiEjhkkWmndLbJdNVXmk"
@@ -1825,6 +2004,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "loEXPK23M2R0i4Aw0CQU"
@@ -1846,6 +2027,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "LvIKelzbVHUM7AysalAj"
@@ -1867,6 +2050,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "lwp2sN0wIPAqg2DWjEQl"
@@ -1888,6 +2073,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "m193lfMXSsIE3fdAEdWL"
@@ -1909,6 +2096,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "mlekz4zTdODvc4SIYyz7"
@@ -1930,6 +2119,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "MtR6RipA5P0QyjoZciuf"
@@ -1951,6 +2142,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "n99yLz9CtfKPs9DiTukT"
@@ -1972,6 +2165,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "nc7Y7LGjgcO8rbM3lTzM"
@@ -1993,6 +2188,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "NIT8vi42yrZAE1fPYRHL"
@@ -2014,6 +2211,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "NLgfgGBoPpj4aqQCzqpf"
@@ -2035,6 +2234,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "NLqFheR6bdzKcFkHQBXV"
@@ -2056,6 +2257,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "NsLB3xgw68n98fAnqh0K"
@@ -2077,6 +2280,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "OOEMCbuQEjCBNqgO1J2A"
@@ -2098,6 +2303,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "OPLdcUI1VpVjge3AQnxL"
@@ -2119,6 +2326,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "oQIRZO0Bp4skO2jNvk0N"
@@ -2140,6 +2349,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "POLXj1eZKhMLVJdbIusn"
@@ -2161,6 +2372,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Poz8VPWu97KsB5Aqy5D0"
@@ -2182,6 +2395,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "PvOwzxe5B31WcVRGQAND"
@@ -2203,6 +2418,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Qn6YtnY2vA6AeOKsKL9k"
@@ -2224,6 +2441,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "qOwWKIZk4IjbVjtXGz30"
@@ -2245,6 +2464,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "QPbmGe72hXkxt0TAfLVR"
@@ -2266,6 +2487,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "qquQwAe23QaLuKKFvmi5"
@@ -2287,6 +2510,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "qt6Jf0lWoxfm6lI7BdC3"
@@ -2308,6 +2533,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "qZh8MpNS8nPqfKMfc9q0"
@@ -2329,6 +2556,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "rNbpGMooVQ2jfvDbgoDo"
@@ -2350,6 +2579,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "rV43wAo20ZqTswj041kI"
@@ -2371,6 +2602,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "rvGvY1we8FnzSiSLGcz6"
@@ -2392,6 +2625,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "rVwLqcC7NlPVsFrafO3T"
@@ -2413,6 +2648,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "S1RzXOjwXot5irzKTsRf"
@@ -2434,6 +2671,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Sa0hr1bdWHEZ0SipEJxn"
@@ -2455,6 +2694,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "sL28IRhEvtbCPQ9qBy1U"
@@ -2476,6 +2717,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Su8foKyEq7x70ktnFXqE"
@@ -2497,6 +2740,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "tAVwZ1zs5qoz2Hpvtliz"
@@ -2518,6 +2763,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "tizpckM4lYQSEci80BPw"
@@ -2539,6 +2786,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "twY0aVxr7LAHvHFsg46H"
@@ -2560,6 +2809,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "uG8VZdt2pXgawHsL5GKL"
@@ -2581,6 +2832,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "ugZT8TIsRrfs4wcEgxne"
@@ -2602,6 +2855,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Upoau8DY87WFSHNXHI8r"
@@ -2623,6 +2878,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "UTszfDA2SrKwxjtzu501"
@@ -2644,6 +2901,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "UvuWWgLR7SnR0vtrPk9H"
@@ -2665,6 +2924,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "UZ7snZPvp9rE4WuVYHnh"
@@ -2686,6 +2947,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Vd7iiFOx1eo9BWBohxts"
@@ -2707,6 +2970,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "ve6tgP2rlRMfmGPpNXqr"
@@ -2728,6 +2993,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Vn6GHCrypKGRM4GJLKNe"
@@ -2749,6 +3016,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "vZU57R3qQXGPGQv987Qx"
@@ -2770,6 +3039,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "w4JJeV6MjgSK7jw0Hpkj"
@@ -2791,6 +3062,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "wcnxCGrUBoxJ872jMxIf"
@@ -2812,6 +3085,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "XAOUWXXnOABzUZNwVBQB"
@@ -2833,6 +3108,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "xGNfVkGQk81GScBsInCX"
@@ -2854,6 +3131,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "xH2zxoUqAdBWmmXXHOF4"
@@ -2875,6 +3154,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Y70ZkfkahIuvpTCpgl5q"
@@ -2896,6 +3177,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "y85hrMagQ8PQCm59P3el"
@@ -2917,6 +3200,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "yLaig2Y6mhgvSXRby5fU"
@@ -2938,6 +3223,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Yrui0nCL2xB5gEvWcK2g"
@@ -2959,6 +3246,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "YzO75ecs6i079kqBwqoG"
@@ -2980,6 +3269,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "z22fMWz6DXC3WXjrY5IT"
@@ -3001,6 +3292,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "Zqi6Y4yKVck4lv11oweb"
@@ -3022,6 +3315,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-09
     id: "zUZIqzdb0TAOMmHPVdPH"
@@ -3043,6 +3338,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-11
     id: "qa_DrdY1R6lvQeDyNqC6fRP_2026-08-09"
@@ -3064,6 +3361,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-11
     id: "qa_NPf7cGDw0jwbYf0eGJo2_2026-08-07"
@@ -3085,6 +3384,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-11
     id: "xS3pwbiOodZNzrTIg4Lu"
@@ -3106,6 +3407,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-11
     id: "mxJXbJzDmcGzbZJC4jU4"
@@ -3127,6 +3430,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-11
     id: "qa_JQKR0TLciqUPZHWt5F27_2026-08-11"
@@ -3148,6 +3453,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-11
     id: "qa_yY8EQhEO7wvU2N7bdsnh_2026-08-11"
@@ -3169,6 +3476,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "qa_DajCy3yAMrJrjNzw9krv_2026-08-11"
@@ -3190,6 +3499,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "qa_IlSKoLHvvo7rxpjQTb6b_2026-08-12"
@@ -3211,6 +3522,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "qa_J6gZcYClaz6er6z3DLzx_2026-08-11"
@@ -3232,6 +3545,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "qa_LkOs30PVatJSy21uO5SS_2026-08-11"
@@ -3253,6 +3568,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "qa_xHDtvEtrxIVnzs82pqXG_2026-08-09"
@@ -3274,6 +3591,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "QEK58L8gpjoep1J1tblo"
@@ -3295,6 +3614,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "SvUb4pSQCEeKJeIFvrnX"
@@ -3316,6 +3637,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "Tx3JmpGblFkpUMyBLX56"
@@ -3337,6 +3660,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "ugq3vBux3LlDwXSXcJWt"
@@ -3358,6 +3683,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "vwrWNjcSdWcEaneWX8eT"
@@ -3379,6 +3706,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "cTYZEuANyLuUXff04lk7"
@@ -3400,6 +3729,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-12
     id: "ZAGicQcwnmVO7urmpBgP"
@@ -3421,6 +3752,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "1460u5BHr83gzooiizlI"
@@ -3442,6 +3775,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "6c5lvBHKhcXEC1DFs70k"
@@ -3463,6 +3798,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "KwA5KfNdz3kh4fzsISOR"
@@ -3484,6 +3821,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "rqmaroeee6vmweIefx2H"
@@ -3505,6 +3844,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "yfEWNaV5Wn5hiPs3zFYS"
@@ -3526,6 +3867,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "ZQfpC42fCt4OFnbWZgyi"
@@ -3547,6 +3890,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "qa_E1FpGobXx5bxJ1lw8pw6_2026-08-13"
@@ -3568,6 +3913,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-13
     id: "qa_ErKafemd0F6ufExKLuon_2026-08-13"
@@ -3589,6 +3936,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-14
     id: "nU0rMQCb5MJVIXNMQfir"
@@ -3610,6 +3959,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-14
     id: "qa_3faoiExYQVvLkqBALS6N_2026-08-13"
@@ -3631,6 +3982,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-14
     id: "qa_MLUG9vwcAptmIDNYnOLS_2026-08-13"
@@ -3652,6 +4005,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-14
     id: "qa_Y2r2icuSAriKGRQ2NBju_2026-08-12"
@@ -3673,6 +4028,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-14
     id: "7Z1GR1us5nUB4USUW2Ep"
@@ -3694,6 +4051,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_BAYHc5rFoYWjEm3Ipm0V_2026-08-12"
@@ -3715,6 +4074,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_f1YTWKxQiHNeXqPzzjOc_2026-08-14"
@@ -3736,6 +4097,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_fq4lxjB6wYRKXmZG00FK_2026-08-14"
@@ -3757,6 +4120,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_JQeDJL8Pdzcd6vG21BHp_2026-08-13"
@@ -3778,6 +4143,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_Op28wWv2Di1rOho5zXyB_2026-08-15"
@@ -3799,6 +4166,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_QTaZABOMbCjALSMMgBbW_2026-08-13"
@@ -3820,6 +4189,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-15
     id: "qa_Qr5lsEmFkrvPCDc4Q6c4_2026-08-14"
@@ -3841,6 +4212,8 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
 
   - fecha: 2026-08-16
     id: "lJQf4HUvg60pS5egcnw7"
@@ -3862,3 +4235,5 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""

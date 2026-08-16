@@ -86,7 +86,10 @@
           arriba, en el marcador. La categoría, la vía y el remoto sí van como
           etiquetas dentro de cada oferta. Ningún campo se ha quitado: el
           detalle fila a fila, entero, está
-          <a href="{{ $csv }}">en el CSV</a>.
+          <a href="{{ $csv }}">en el CSV</a>, con dos columnas más,
+          «postulado» y «oferta_realizada», que no responden a ninguna
+          hipótesis: son seguimiento mío, no prueba, y por eso solo aparecen
+          como etiqueta cuando ya son «sí».
         </p>
       </div>
     </details>
@@ -292,6 +295,8 @@
                   {{ if eq .en_listado "si" }}<span class="chip">Listado</span>{{ end }}
                   {{ if eq .remoto "Sí" }}<span class="chip chip--remoto">{{ partial "icono.html" "globo" }}Remoto</span>{{ end }}
                   {{ if eq .consulta "404" }}<span class="chip chip--baja">Ya no existía al consultarla</span>{{ end }}
+                  {{ if eq .postulado "si" }}<span class="chip">Postulado</span>{{ end }}
+                  {{ if eq .oferta_realizada "si" }}<span class="chip">Realizada</span>{{ end }}
                 </p>
               </td>
 

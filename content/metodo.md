@@ -95,6 +95,12 @@ debajo sin tocar, para que cualquiera compare.
 Galicia o presencial fuera—, que es de la hipótesis 4 y solo se mide sobre las
 ofertas que me llegan al correo.
 
+Dos columnas más del CSV, `postulado` y `oferta_realizada`, no responden a
+ninguna hipótesis: son seguimiento mío, no prueba. La primera dice si me he
+presentado a la oferta; la segunda, solo cuando el trabajo está entregado y
+cobrado, no antes. Vacío es que todavía no lo he decidido, igual que en el
+resto de columnas.
+
 Si me encuentro algo mal, lo corrijo en la hoja y al día siguiente sale
 corregido. Y son fichas de un listado, no narración: la crónica la sigo
 escribiendo yo.
