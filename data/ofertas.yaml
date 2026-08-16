@@ -3182,10 +3182,10 @@ ofertas:
     consulta: "ok"
     disponible_es: "si"
     motivo: ""
-    modalidad: ""
+    modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige narrar el vídeo en inglés y no lo hablo con soltura"
-    revisado: ""
+    revisado: "si"
     en_email: "no"
     en_listado: "si"
 
