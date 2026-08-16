@@ -17,12 +17,12 @@
 #
 # Lo escribe una automatización de n8n, pero los veredictos, no.
 
-fecha: 2026-08-15
+fecha: 2026-08-16
 modelo: "kimi-k3 (reasoning_effort: low)"
-criterios_version: 2
+criterios_version: 3
 patron: "las ofertas que la plataforma me mandó por correo"
 comparadas: 34
-nota_patron: "El patrón crece solo, según entran alertas: eran 23 el 9 de agosto y son 34 el 15. Las que llegaron muertas (error 404) no tienen texto que clasificar y quedan fuera."
+nota_patron: "El patrón crece solo, según entran alertas: eran 23 el 9 de agosto y son 34 el 16. Las que llegaron muertas (error 404) no tienen texto que clasificar y quedan fuera."
 sin_respuesta: 0
 abstenciones: 0
 
@@ -49,31 +49,51 @@ comparacion_de_modelos:
     tokens_por_oferta: 4209
     de_ellos_razonamiento: 182
 
+# Por qué compatible se hunde el 16 de agosto de 2026, sin que el
+# clasificador haya empeorado. Ese día dejé de hacerle dos preguntas
+# sueltas y le hice una: «¿puede optar?», con una sola barrera —de
+# geografía o de idioma/habilidad— de la que se derivan disponible_es y
+# compatible. Antes yo marcaba a veces el mismo obstáculo en los dos
+# campos a la vez (p. ej. «exige número de EE. UU.» como disponible_es:no
+# Y compatible:no). Ahora la barrera única solo alimenta uno —el de
+# geografía, que es donde ya estaba en mis propios criterios—, así que
+# esas dobles marcas mías desaparecen del campo compatible sin que el
+# «¿puedo optar?» publicado cambie: seguía saliendo «no» por la otra
+# columna. Es la mayoría de los 16 desacuerdos de compatible.
+#
+# Hay una excepción real, no cosmética: dos ofertas exigían a la vez un
+# obstáculo de geografía Y uno de idioma, independientes entre sí. La
+# barrera única solo puede reportar uno —eligió el de geografía— y el de
+# idioma desaparece del todo de compatible, no solo se traslada. Si algún
+# día ese obstáculo de geografía dejara de aplicar, la ficha diría
+# «compatible: sí» sin que sea verdad. Es un límite real del diseño de una
+# sola barrera por oferta, ya sabido y aceptado: el «¿puedo optar?»
+# publicado no se equivoca en ningún caso de la muestra, pero el campo
+# compatible en solitario deja de medir con precisión esos dos casos.
+nota_pregunta_unica: "El 16 de agosto de 2026 el clasificador pasó a pedir una sola barrera en vez de dos juicios sueltos. La mayoría de los desacuerdos de compatible son la limpieza de un doble marcado que yo hacía antes; dos son un límite real y aceptado del diseño. Detalle en /calibracion/."
+
 campos:
   - campo: disponible_es
     pregunta: "¿Me dejan entrar?"
     hipotesis: "5"
-    coinciden: 31
+    coinciden: 33
     comparadas: 34
     nota: "Es el único campo que el clasificador aporta a una hipótesis: la 5 se calcula sobre las ofertas del listado público."
   - campo: compatible
     pregunta: "¿Puedo hacerla?"
     hipotesis: "4"
-    coinciden: 25
-    comparadas: 31
-    nota: "Aquí la máquina rechaza más que yo, y los seis desacuerdos tienen todos la misma forma: yo dije que sí y ella dice que no por la regla del idioma presunto."
+    coinciden: 18
+    comparadas: 34
+    nota: "El número baja de golpe al pasar a la pregunta única, pero no porque la máquina acierte menos: la mayoría de los 16 desacuerdos son dobles marcas mías de antes que ya no se pueden repetir en dos campos. Detalle en nota_pregunta_unica y en la tabla de abajo."
   - campo: modalidad
     pregunta: "¿Dónde hay que estar?"
     hipotesis: "4"
-    coinciden: 23
-    comparadas: 23
-    nota: "Las 23 son remotas: sin variación, este acuerdo no demuestra nada."
+    coinciden: 31
+    comparadas: 32
+    nota: "32 de las 34 comparan: dos ofertas no las clasifiqué yo a mano. De las 32, una es un fallo real de la máquina, no de la pregunta única."
 
-# Dos desacuerdos de la prueba anterior han desaparecido: los de «Send a Test
-# Text Message», que salieron con veredicto «error» y corregí en su día. El
-# procedimiento funciona.
 desacuerdos:
-  - titulo: "Urgent: call [nombre] tonight to coordinate dinner"
+  - titulo: "Urgent: call Stephanie tonight to coordinate dinner"
     campo: compatible
     yo: "si"
     maquina: "no"
@@ -101,38 +121,101 @@ desacuerdos:
     motivo_maquina: "exige narrar la prueba en voz y se presume en inglés, que no hablo con soltura"
     veredicto: regla
     explicacion: "La oferta pide grabar la pantalla y el micrófono y «narrate your actions», sin decir en qué idioma. Se presume inglés, y no lo hablo con soltura. Yo la había clasificado antes de que existiera esa regla."
-  - titulo: "QA test: ReadingRate first-impression review — 2026-08-13"
+  - titulo: "Receive and Reply to One SMS Using a US Phone Number"
     campo: compatible
-    yo: "si"
-    maquina: "no"
-    motivo_maquina: "exige narrar la prueba en voz alta y se presume en inglés, que no hablo con soltura"
-    veredicto: pendiente
-    explicacion: "Desacuerdo nuevo, y este no lo tapa la excusa de la regla: la oferta es del 13 de agosto y la regla del idioma presunto es del 9. La clasifiqué con la regla ya escrita y le di el sí igualmente. O la regla es demasiado ancha para las pruebas de QA, o fui yo de manga ancha. Tengo que decidirlo."
-  - titulo: "QA test: Resilana first-impression review — 2026-08-13"
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige un número de teléfono de EE. UU. real, no VoIP"
+    veredicto: regla
+    explicacion: "Este obstáculo ya lo tenía marcado como disponible_es:no —no coincide en esa columna—, y antes lo marcaba también en compatible, doble. Desde el 16 de agosto la barrera única lo cuenta una sola vez, en disponible_es, que es donde ya estaba en mis propios criterios. El «¿puedo optar?» publicado sigue en «no»."
+  - titulo: "Send a Test Text Message to Confirm Phone Number is Active"
     campo: compatible
-    yo: "si"
-    maquina: "no"
-    motivo_maquina: "la narración en voz alta se presume en inglés y no lo hablo con soltura"
-    veredicto: pendiente
-    explicacion: "Lo mismo que el anterior, y del mismo día. Son los dos casos que obligan a mirar la regla del idioma presunto, no la clasificación."
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige estar ubicado en Estados Unidos"
+    veredicto: regla
+    explicacion: "Mismo patrón que el anterior: doble marca mía de antes, ahora contada una sola vez en disponible_es, que también sale «no». El «¿puedo optar?» publicado no cambia."
+  - titulo: "[TEST – DO NOT APPLY] Evidence portal canary 47e772d7"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "está reservada a una cuenta concreta de la plataforma"
+    veredicto: regla
+    explicacion: "Mismo patrón: doble marca de antes, ahora solo en disponible_es. El «¿puedo optar?» sigue en «no»."
+  - titulo: "Paid App Usage & Data Contribution Study — US, $75–$145"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige estar ubicado en Estados Unidos"
+    veredicto: regla
+    explicacion: "Mismo patrón: doble marca de antes, ahora solo en disponible_es. El «¿puedo optar?» sigue en «no»."
+  - titulo: "Referral Bounty: Founding Program Director for Gravity Wizards Inc. (STEM Youth Leader)"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige residencia legal en Estados Unidos"
+    veredicto: regla
+    explicacion: "Mismo patrón: doble marca de antes, ahora solo en disponible_es. El «¿puedo optar?» sigue en «no»."
+  - titulo: "Technical & Business Meeting Representative for Website Build Project"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige residir en Estados Unidos o Reino Unido"
+    veredicto: regla
+    explicacion: "Este es uno de los dos casos reales, no cosmético: la oferta exige a la vez residir en EE. UU./Reino Unido Y inglés nativo con videollamadas profesionales. La barrera única solo reportó la de geografía; la de idioma, que yo también tenía anotada, desaparece del campo compatible. El «¿puedo optar?» publicado no cambia —sigue en «no» por disponible_es—, pero si algún día la barrera de geografía dejara de aplicar, esta ficha diría «compatible: sí» sin que sea del todo cierto. Límite conocido y aceptado del diseño de una sola barrera."
+  - titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige estar en Estados Unidos y tener línea móvil de T-Mobile"
+    veredicto: regla
+    explicacion: "Mismo patrón de doble marca: ahora solo en disponible_es, que sale «no». El «¿puedo optar?» no cambia."
   - titulo: "Urgent Phone Researcher — Verify 4 North Beach Apartment Prospects"
     campo: disponible_es
     yo: "si"
     maquina: "no"
     motivo_maquina: "exige ser un investigador ubicado en Estados Unidos"
     veredicto: pendiente
-    explicacion: "Desacuerdo nuevo. Hay que releer el anuncio: el encargo se declara remoto, pero pide llamar a San Francisco en horario comercial."
+    explicacion: "Sigue sin resolver desde la prueba anterior. Hay que releer el anuncio: el encargo se declara remoto, pero pide llamar a San Francisco en horario comercial."
+  - titulo: "Urgent Phone Researcher — Verify 4 North Beach Apartment Prospects"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige ser un investigador ubicado en Estados Unidos"
+    veredicto: pendiente
+    explicacion: "Mismo encargo que el desacuerdo anterior, mismo obstáculo sin resolver. Hasta que decida si la barrera de geografía aplica, esta fila tampoco tiene veredicto firme."
+  - titulo: "QA test: Rent A Human evidence upload QA — 2026-08-12"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: ""
+    veredicto: pendiente
+    explicacion: "Aquí la máquina no dio ningún motivo y en cambio preguntó si tenía asignada una conversación de QA en la plataforma: no vio el requisito de narración en inglés que yo anoté en su día. No es el patrón de doble marca de los demás desacuerdos de esta prueba: hay que releer el anuncio para saber si el requisito sigue ahí o si me lo inventé yo."
   - titulo: "Record a first-listen reaction to a personalized song"
-    campo: disponible_es
-    yo: "si"
-    maquina: "no"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
     motivo_maquina: "exige residir en Estados Unidos"
-    veredicto: pendiente
-    explicacion: "Desacuerdo nuevo. Hay que releer el anuncio para ver si la residencia en Estados Unidos es un requisito o una preferencia."
+    veredicto: regla
+    explicacion: "El segundo de los dos casos reales: la oferta exige a la vez residir en Estados Unidos Y comunicarse en inglés, y yo tenía anotadas las dos cosas. La barrera única solo reportó la de geografía. El «¿puedo optar?» publicado sigue en «no» por disponible_es, pero el campo compatible en solitario ya no refleja el obstáculo de idioma. Mismo límite conocido que el caso anterior."
   - titulo: "T-Mobile or Verizon Android Spam Test — 10 min active work, $15"
-    campo: disponible_es
-    yo: "si"
-    maquina: "no"
-    motivo_maquina: "exige línea móvil de T-Mobile o Verizon y estar en Estados Unidos continental"
-    veredicto: pendiente
-    explicacion: "Desacuerdo nuevo, en una oferta distinta de la del 9 de agosto pero casi igual. Aquella salió «error» mío. Esta la tengo firmada como disponible y el resumen en español de mi propia ficha dice «estar en EE. UU. continental». Tiene mala pinta para mí, pero lo miro antes de escribirlo."
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige línea directa con T-Mobile o Verizon y estar en el territorio continental de EE. UU."
+    veredicto: regla
+    explicacion: "El desacuerdo de disponible_es que tenía pendiente esta oferta en la prueba anterior ya no existe: mi propia ficha y la máquina coinciden ahora en «no». Lo que queda es la doble marca de siempre: el obstáculo ya cuenta en disponible_es y desaparece de compatible."
+  - titulo: "T-Mobile or Verizon Android Spam Test — ~15 min active work, $25"
+    campo: compatible
+    yo: "no"
+    maquina: "si"
+    motivo_maquina: "exige línea con T-Mobile o Verizon y estar en el territorio continental de EE. UU."
+    veredicto: regla
+    explicacion: "Mismo patrón de doble marca que la oferta anterior, casi idéntica."
+  - titulo: "T-Mobile or Verizon Android Spam Test — ~15 min active work, $25"
+    campo: modalidad
+    yo: "presencial fuera de Galicia"
+    maquina: "remota"
+    motivo_maquina: "exige línea con T-Mobile o Verizon y estar en el territorio continental de EE. UU."
+    veredicto: maquina
+    explicacion: "Este sí es un fallo de la máquina, y no tiene que ver con la pregunta única: exigir una línea de un operador de Estados Unidos y estar en su territorio continental es presencia física, no trabajo remoto, aunque la oferta diga «remote work allowed». La máquina se quedó con la etiqueta y no razonó la condición."

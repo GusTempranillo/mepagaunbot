@@ -42,11 +42,13 @@
   <section>
     <div class="prose">
       <h2>Los {{ len $d }} desacuerdos, uno por uno</h2>
+      {{ $masRestrictiva := where (where $d "yo" "si") "maquina" "no" }}
+      {{ $menosRestrictiva := where (where $d "yo" "no") "maquina" "si" }}
       <p>
-        En los {{ len $d }} casos la máquina fue <em>más</em> restrictiva que yo: dijo «no»
-        donde yo había dicho «sí». Ni una sola vez al revés. Tampoco se abstuvo
-        ninguna vez, aunque tiene orden de hacerlo cuando dude, ni me devolvió
-        ninguna pregunta.
+        {{ len $masRestrictiva }} veces la máquina fue más restrictiva que yo —dijo «no»
+        donde yo había dicho «sí»— y {{ len $menosRestrictiva }} veces al revés. La mayoría
+        de las segundas no son la máquina cediendo terreno: son una doble marca mía de
+        antes de la pregunta única, que ahora solo se puede contar una vez. Detalle abajo.
       </p>
       <div class="ancho tablon">
       <table>
@@ -73,20 +75,22 @@
       </table>
       </div>
       <p class="note">
-        {{ with $reglas }}{{ len . }} desacuerdos vienen de un criterio que cambié después
-        de clasificar esas ofertas a mano —si una oferta pide hablar y no dice en qué
-        idioma, se presume el de la oferta, que casi siempre es inglés—, así que la
-        máquina aplica el criterio de hoy a ofertas que yo clasifiqué con el de
-        entonces.{{ end }}
+        {{ with $reglas }}{{ len . }} desacuerdos vienen de un criterio que cambió después
+        de clasificar esas ofertas a mano: unos, porque la regla del idioma presunto
+        —hablar sin decir en qué idioma se presume el de la oferta, casi siempre
+        inglés— es posterior a mi clasificación; otros, porque antes marcaba el mismo
+        obstáculo en dos columnas a la vez y la pregunta única ya solo lo cuenta en
+        una.{{ end }}
         {{ with $errores }} {{ len . }} son errores míos: los he corregido en
         <a href="/ofertas/">el registro de ofertas</a> y las filas ya llevan el motivo
         correcto.{{ end }}
-        {{ if $fallos }} {{ len $fallos }} son errores de la máquina.{{ else }} En esta
+        {{ if $fallos }} {{ len $fallos }} {{ if eq (len $fallos) 1 }}es un error{{ else }}son errores{{ end }} de la máquina.{{ else }} En esta
         muestra la máquina no cometió ningún error de hecho.{{ end }}
-        {{ with $pendientes }} Y {{ len . }} se quedan sin veredicto: son nuevos de esta
-        prueba y todavía no he releído los anuncios. Prefiero publicar el hueco a
-        publicar un veredicto que no he dado.{{ end }}
+        {{ with $pendientes }} Y {{ len . }} se quedan sin veredicto: todavía no he
+        releído los anuncios. Prefiero publicar el hueco a publicar un veredicto que no
+        he dado.{{ end }}
       </p>
+      {{ with $c.nota_pregunta_unica }}<p class="note">{{ . }}</p>{{ end }}
       <p class="note">
         Prueba del {{ partial "fecha.html" (dict "t" (time.AsTime $c.fecha) "f" "iso") }},
         modelo <code>{{ $c.modelo }}</code>, criterios versión {{ $c.criterios_version }}.
