@@ -19,8 +19,19 @@
 # son exactamente estos, no otros, y si algún día los cambio el historial
 # de git dice cuándo y en qué.
 
-version: 2
-fecha: 2026-08-09
+version: 3
+fecha: 2026-08-16
+
+# Qué cambió en la versión 3, en palabras sencillas: antes le hacía al modelo
+# dos preguntas sueltas —¿me dejan entrar? y ¿puedo hacerla?— y cada una
+# tenía su propio juicio, sin relación entre sí. Ahora le hago una sola
+# pregunta —¿puedo optar a esta oferta?— y le pido que, si la respuesta es
+# no, diga de qué tipo es el obstáculo: uno de geografía o papeleo, o uno de
+# idioma, habilidad o aparato. De ese tipo salen los dos campos de siempre,
+# calculados por código, no por el modelo. Las reglas de fondo —ante la duda
+# de geografía, sí; ante la duda de idioma o habilidad, se deja sin decidir y
+# se pregunta— no cambian: solo cambia que ahora se derivan de una sola
+# respuesta en vez de pedirse dos veces.
 
 perfil:
   base: >-
@@ -65,34 +76,124 @@ perfil:
     - "Acceso a cuentas de terceros ni a encargos reservados a otro trabajador concreto de la plataforma."
     - "Vehículo comercial, licencias profesionales ni titulaciones regladas de ningún oficio."
 
-campos:
+# La pregunta que se le hace al modelo es una sola: ¿puedo optar a esta
+# oferta? Pero la respuesta se cuenta en dos campos separados, porque miden
+# dos cosas distintas y una de ellas —disponible_es— es la hipótesis 5 del
+# registro previo, que pregunta por un trabajador cualquiera ubicado en
+# España, no por mí. Fundirlas en un solo dato dejaría esa hipótesis sin
+# poder resolverse tal como se firmó. Lo que se unifica es la pregunta al
+# modelo, no la medición.
 
+pregunta_unica:
+  pregunta: >-
+    ¿Puedo optar a esta oferta, con lo que soy y con lo que sé? Si la
+    respuesta es no, ¿qué tipo de obstáculo es?
+
+  barrera:
+    pregunta: "Tipo de obstáculo, si lo hay."
+    valores: ["ninguna", "geografia_papeleo", "idioma_habilidad_equipo"]
+    cerrada: >-
+      Estos tres valores y ninguno más. Un valor libre metería juicio del
+      modelo donde tiene que haber una regla.
+    geografia_papeleo: >-
+      La oferta exige presencia física fuera de España, o una residencia,
+      documentación, verificación, número de teléfono o cuenta bancaria que
+      no se puede tener viviendo en España. Ejemplos: "exige estar ubicado
+      en Estados Unidos", "exige un número de teléfono de EE. UU. real, no
+      VoIP", "exige residencia legal en Estados Unidos o Reino Unido",
+      "está reservada a una cuenta concreta de la plataforma".
+    idioma_habilidad_equipo: >-
+      La oferta pide un idioma que no manejo, una habilidad o una
+      experiencia acreditable que no está en mi lista, un aparato o una
+      documentación que no tengo, o un desplazamiento fuera de España que
+      no sea, en sí mismo, un problema de geografía o papeleo. Ejemplos:
+      "exige inglés nativo", "la locución se presume en inglés y no lo
+      hablo con soltura", "exige experiencia probada en ventas B2B", "no
+      dispongo de número de EE. UU." (este último cuenta aquí solo si el
+      problema es de capacidad y no de residencia; si es de residencia, es
+      geografia_papeleo).
+    idioma_no_indicado: >-
+      Cuando la oferta pide voz, locución, narración, vídeo hablado,
+      llamada, entrevista o cualquier otra cosa que haya que decir en voz
+      alta, y no dice en qué idioma, se presume el idioma en el que está
+      escrita la oferta. Casi todas están escritas en inglés, así que casi
+      siempre se presume inglés, y entonces la barrera es
+      idioma_habilidad_equipo: "la locución se presume en inglés y no lo
+      hablo con soltura". Esto no es una duda que haya que consultarme: es
+      la presunción por defecto. Solo cuando la oferta declara el idioma y
+      ese idioma es el español o el gallego, la voz es cosa mía.
+    ninguna: >-
+      No hay ningún obstáculo de los dos tipos de arriba. Lo que pide la
+      oferta encaja con el perfil de este fichero.
+
+  duda:
+    pregunta: >-
+      ¿Hay duda de verdad sobre si existe un obstáculo de idioma, habilidad
+      o aparato? No sobre uno de geografía o papeleo: para ese no cabe duda,
+      ver la regla de abajo.
+    valores: ["si", "no"]
+    regla: >-
+      Las dos mitades de la pregunta única heredan políticas de duda
+      distintas, porque ya eran distintas cuando eran dos preguntas
+      separadas, y una de las dos está firmada en el registro previo. No se
+      homogenizan:
+      - Duda sobre geografía o papeleo: NO cabe. Ante la duda, se cuenta
+        como si no hubiera obstáculo — barrera nunca vale
+        "geografia_papeleo" por sospecha, solo por certeza. Es la condición
+        firmada para la hipótesis 5: el error tiene que caer en mi contra,
+        nunca a mi favor. No existe un valor de "duda" para este lado: si
+        no hay certeza, la respuesta ya es "no hay obstáculo".
+      - Duda sobre idioma, habilidad o aparato: SÍ cabe. Si de verdad hay
+        duda, se marca duda: "si" y barrera NO toma el valor
+        "idioma_habilidad_equipo" aunque se sospeche — se deja para que
+        revise yo. Es preferible una fila sin decidir a una clasificación
+        inventada.
+    nota: >-
+      duda: "si" solo tiene sentido cuando barrera no es
+      "geografia_papeleo" (si ya hay un obstáculo de geografía cierto, la
+      oferta ya está resuelta como "no puedo optar" y la duda de idioma es
+      irrelevante para esta oferta, aunque puede anotarse igual si aplica).
+
+  motivo:
+    regla: >-
+      Se rellena cuando barrera no es "ninguna". Una frase corta en
+      español, en minúscula, sin punto final, que empiece por el verbo y
+      diga qué puerta cierra: "exige residir en Estados Unidos" o "la
+      locución se presume en inglés y no lo hablo con soltura". Si barrera
+      es "ninguna", o si duda es "si" sin barrera confirmada, se deja
+      vacío.
+
+# Los dos campos de siempre, calculados por código a partir de la respuesta
+# de arriba. El modelo no los rellena directamente.
+
+campos_derivados:
   disponible_es:
     pregunta: >-
       ¿Podría hacer esta oferta cualquier persona ubicada en España, sea
       quien sea? No va de mí: va de la geografía y del papeleo.
     valores: ["si", "no"]
-    regla: >-
-      Es "no" solo si la oferta exige presencia física fuera de España, o
-      una residencia, documentación, verificación, número de teléfono o
-      cuenta bancaria que no se puede tener viviendo en España. Todo lo
-      demás es "si".
-    ante_la_duda: >-
-      Se cuenta como "si". Esta regla no admite abstención: es la condición
-      que firmé en el registro previo para la hipótesis 5, y el error tiene
-      que caer en mi contra, nunca a mi favor.
-    ejemplos_no:
-      - "Exige estar ubicado en Estados Unidos."
-      - "Exige un número de teléfono de EE. UU. real, no VoIP."
-      - "Exige residencia legal en Estados Unidos o Reino Unido."
-      - "Está reservada a una cuenta concreta de la plataforma."
+    calculo: >-
+      "no" si barrera es "geografia_papeleo". "si" en cualquier otro caso
+      —incluida barrera "idioma_habilidad_equipo" y duda "si"—, porque este
+      campo nunca se abstiene: se publica sin esperar a que yo repase la
+      fila y alimenta la hipótesis 5.
+    motivo: "El motivo de la barrera geografia_papeleo, si la hay. Vacío si no."
 
-  motivo:
+  compatible:
+    pregunta: >-
+      ¿Puedo hacerla yo, con lo que sé y con lo que tengo? Es una pregunta
+      de capacidad, no de voluntad: si sé hacerla, es "si" aunque no me
+      apetezca.
+    valores: ["si", "no", ""]
+    calculo: >-
+      "no" si barrera es "idioma_habilidad_equipo" y duda es "no". Vacío
+      (sin decidir, a la espera de que yo lo mire) si duda es "si". "si" en
+      cualquier otro caso.
+
+  motivo_compat:
     regla: >-
-      Se rellena solo cuando disponible_es es "no". Una frase corta en
-      español, en minúscula, sin punto final, que empiece por el verbo y
-      diga qué puerta cierra: "exige residir en Estados Unidos". Cuando
-      disponible_es es "si", se deja vacío.
+      El motivo de la barrera idioma_habilidad_equipo, si la hay y no está
+      en duda. Vacío si compatible es "si" o si duda es "si".
 
   modalidad:
     pregunta: ¿Dónde hay que estar para hacerla?
@@ -102,45 +203,8 @@ campos:
       física, "presencial en Galicia" cuando el sitio está en Galicia y
       "presencial fuera de Galicia" en cualquier otro caso, dentro o fuera
       de España. Es una clasificación mecánica: sale de la ubicación que
-      declara la oferta.
-
-  compatible:
-    pregunta: >-
-      ¿Puedo hacerla yo, con lo que sé y con lo que tengo? Es una pregunta
-      de capacidad, no de voluntad: si sé hacerla, es "si" aunque no me
-      apetezca.
-    valores: ["si", "no"]
-    regla: >-
-      Es "no" cuando la oferta pide un idioma que no manejo, una habilidad
-      o una experiencia acreditable que no está en mi lista, un aparato o
-      una documentación que no tengo, o un desplazamiento fuera de España.
-      Si lo que pide encaja con el perfil de arriba, es "si".
-    idioma_no_indicado: >-
-      Cuando la oferta pide voz, locución, narración, vídeo hablado,
-      llamada, entrevista o cualquier otra cosa que haya que decir en voz
-      alta, y no dice en qué idioma, se presume el idioma en el que está
-      escrita la oferta. Casi todas están escritas en inglés, así que casi
-      siempre se presume inglés, y entonces compatible es "no": "la
-      locución se presume en inglés y no lo hablo con soltura". Esto no es
-      una duda que haya que consultarme: es la presunción por defecto. Solo
-      cuando la oferta declara el idioma y ese idioma es el español o el
-      gallego, la voz es cosa mía.
-    ante_la_duda: >-
-      Se deja en blanco y se me pregunta. Aquí sí cabe la abstención: es
-      preferible una fila sin clasificar a una clasificación inventada.
-    ejemplos_no:
-      - "exige inglés nativo"
-      - "exige inglés hablado con fluidez y aparecer en cámara"
-      - "la locución se presume en inglés y no lo hablo con soltura"
-      - "exige experiencia probada en ventas B2B"
-      - "no dispongo de número de EE. UU."
-      - "reservada a otra cuenta"
-
-  motivo_compat:
-    regla: >-
-      Se rellena solo cuando compatible es "no". Mismo formato que motivo:
-      una frase corta en español, en minúscula, sin punto final, que diga
-      qué me falta. Cuando compatible es "si", se deja vacío.
+      declara la oferta. No depende de la pregunta única: se sigue pidiendo
+      aparte, como siempre.
 
 # La clasificación no juzga si el encargo me parece digno. Eso es la
 # hipótesis 7 del registro previo, se decide en otro sitio y lo decido yo.
