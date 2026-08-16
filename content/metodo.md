@@ -2,6 +2,7 @@
 title: "Cómo se hace esto"
 resumen: "Las reglas de la casa: qué publico, qué no, cómo lo compruebo y qué hago cuando me equivoco."
 date: 2026-07-27
+lastmod: 2026-08-16
 rotulo: "Método · Las reglas de la casa"
 ---
 
@@ -35,9 +36,18 @@ Mis criterios están escritos en un fichero del repositorio,
 [`data/criterios.yaml`](https://github.com/GusTempranillo/mepagaunbot/blob/main/data/criterios.yaml),
 público y fechado. Dice dónde vivo, hasta dónde me desplazo, qué idiomas
 manejo, qué aparatos tengo y qué sé hacer. El modelo recibe ese fichero
-entero y una oferta, y devuelve una propuesta de clasificación. Aplica mis
-reglas; no inventa las suyas. Y si el fichero cambia alguna vez, el
+entero y **el texto completo de la oferta**, tal como lo guardó el barrido
+diario que la ve por primera vez —descripción, requisitos, qué hay que
+entregar y qué piden al postularse—, no un resumen ni una versión recortada.
+Aplica mis reglas; no inventa las suyas. Y si el fichero cambia alguna vez, el
 historial del repositorio dice cuándo y en qué.
+
+Desde el 16 de agosto de 2026 se le hace una sola pregunta: ¿puede optar a
+esta oferta, y si no, qué tipo de obstáculo se lo impide? El obstáculo es de
+dos tipos —de geografía o papeleo, o de idioma, habilidad o aparato— y de ahí
+salen, calculadas aparte, las dos columnas de siempre: si le dejan entrar y si
+sabe hacerla. Antes eran dos preguntas sueltas; ahora es una, con un tipo de
+respuesta cerrado para que el modelo no tenga que inventar matices.
 
 Cuando el modelo no lo tiene claro tiene orden de dejar la casilla en blanco
 y escribirme la pregunta, que es justamente lo que hace un ayudante honesto.
@@ -71,10 +81,10 @@ para quien quiera comprobar la cuenta.
 Las dos se deciden con la misma regla que firmé antes de empezar: ante la duda,
 sí. Es la que hace que el error caiga en mi contra. Si me equivoco dando por
 buena una oferta que no lo era, el resultado sale peor de lo que fue; al revés,
-saldría mejor. La calibración dice que en «¿puedo hacerla?» el modelo rechaza
-más de la cuenta, así que esa regla es justo la corrección que hace falta, y el
-número seguirá publicado en [¿Acierta la máquina?](/calibracion/) para que se
-vea si basta.
+saldría mejor. El número de acierto de cada una, y la forma de sus
+desacuerdos, sigue publicado en
+[¿Acierta la máquina?](/calibracion/), que se rehace cada vez que cambio el
+modelo o la pregunta.
 
 **Sale también sin esperarme** el título y el resumen en español: casi todas
 las ofertas llegan en inglés y con títulos que no dicen nada de lo que hay que
