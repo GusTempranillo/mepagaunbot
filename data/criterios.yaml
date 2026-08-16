@@ -6,8 +6,10 @@
 # que no son un juicio sino una traducción: casi todas las ofertas llegan
 # en inglés y sin ellas la lista no hay quien la lea.
 #
-# Un modelo de lenguaje las propone aplicando este fichero, y el modelo
-# tiene orden de dejar la fila en blanco y preguntarme cuando dude.
+# Un modelo de lenguaje las propone aplicando este fichero. Solo «modalidad»
+# admite quedar en blanco cuando el modelo duda: los demás campos de juicio
+# no se abstienen nunca, y si algo no está claro se anota en «pregunta» sin
+# dejar la clasificación a medias.
 #
 # «disponible_es» se publica sin esperar a que yo repase la fila, y la
 # columna «revisado» dice por cuáles he pasado: es el único campo que alimenta
@@ -28,10 +30,15 @@ fecha: 2026-08-16
 # pregunta —¿puedo optar a esta oferta?— y le pido que, si la respuesta es
 # no, diga de qué tipo es el obstáculo: uno de geografía o papeleo, o uno de
 # idioma, habilidad o aparato. De ese tipo salen los dos campos de siempre,
-# calculados por código, no por el modelo. Las reglas de fondo —ante la duda
-# de geografía, sí; ante la duda de idioma o habilidad, se deja sin decidir y
-# se pregunta— no cambian: solo cambia que ahora se derivan de una sola
+# calculados por código, no por el modelo. La regla de fondo —ante la duda,
+# "no hay obstáculo"— no cambia: solo cambia que ahora se deriva de una sola
 # respuesta en vez de pedirse dos veces.
+#
+# De paso corrijo algo que llevaba mal desde el 10 de agosto de 2026: la
+# versión 2 de este fichero seguía diciendo que «compatible» admitía
+# quedarse en blanco cuando dudaba, pero el clasificador dejó de aceptar eso
+# ese mismo día sin que este fichero se enterase. Llevaba seis días
+# contradiciendo al prompt del que forma parte. Ya no.
 
 perfil:
   base: >-
@@ -126,33 +133,14 @@ pregunta_unica:
       No hay ningún obstáculo de los dos tipos de arriba. Lo que pide la
       oferta encaja con el perfil de este fichero.
 
-  duda:
-    pregunta: >-
-      ¿Hay duda de verdad sobre si existe un obstáculo de idioma, habilidad
-      o aparato? No sobre uno de geografía o papeleo: para ese no cabe duda,
-      ver la regla de abajo.
-    valores: ["si", "no"]
-    regla: >-
-      Las dos mitades de la pregunta única heredan políticas de duda
-      distintas, porque ya eran distintas cuando eran dos preguntas
-      separadas, y una de las dos está firmada en el registro previo. No se
-      homogenizan:
-      - Duda sobre geografía o papeleo: NO cabe. Ante la duda, se cuenta
-        como si no hubiera obstáculo — barrera nunca vale
-        "geografia_papeleo" por sospecha, solo por certeza. Es la condición
-        firmada para la hipótesis 5: el error tiene que caer en mi contra,
-        nunca a mi favor. No existe un valor de "duda" para este lado: si
-        no hay certeza, la respuesta ya es "no hay obstáculo".
-      - Duda sobre idioma, habilidad o aparato: SÍ cabe. Si de verdad hay
-        duda, se marca duda: "si" y barrera NO toma el valor
-        "idioma_habilidad_equipo" aunque se sospeche — se deja para que
-        revise yo. Es preferible una fila sin decidir a una clasificación
-        inventada.
-    nota: >-
-      duda: "si" solo tiene sentido cuando barrera no es
-      "geografia_papeleo" (si ya hay un obstáculo de geografía cierto, la
-      oferta ya está resuelta como "no puedo optar" y la duda de idioma es
-      irrelevante para esta oferta, aunque puede anotarse igual si aplica).
+  ante_la_duda: >-
+    Barrera no admite abstención, en ninguna de sus dos mitades. Si no está
+    claro si hay obstáculo de un tipo o de otro, se cuenta como si no lo
+    hubiera: barrera = "ninguna". Es la misma regla en las dos mitades desde
+    el 10 de agosto de 2026 —antes «compatible» sí admitía quedarse en
+    blanco, ya no—: el error tiene que caer en mi contra, nunca a mi favor,
+    y una fila sin decidir no responde nada. Si hay algo que preguntarme, se
+    dice en «pregunta», pero la clasificación no espera esa respuesta.
 
   motivo:
     regla: >-
@@ -160,8 +148,7 @@ pregunta_unica:
       español, en minúscula, sin punto final, que empiece por el verbo y
       diga qué puerta cierra: "exige residir en Estados Unidos" o "la
       locución se presume en inglés y no lo hablo con soltura". Si barrera
-      es "ninguna", o si duda es "si" sin barrera confirmada, se deja
-      vacío.
+      es "ninguna", se deja vacío.
 
 # Los dos campos de siempre, calculados por código a partir de la respuesta
 # de arriba. El modelo no los rellena directamente.
@@ -173,10 +160,9 @@ campos_derivados:
       quien sea? No va de mí: va de la geografía y del papeleo.
     valores: ["si", "no"]
     calculo: >-
-      "no" si barrera es "geografia_papeleo". "si" en cualquier otro caso
-      —incluida barrera "idioma_habilidad_equipo" y duda "si"—, porque este
-      campo nunca se abstiene: se publica sin esperar a que yo repase la
-      fila y alimenta la hipótesis 5.
+      "no" si barrera es "geografia_papeleo". "si" en cualquier otro caso.
+      Nunca vacío: se publica sin esperar a que yo repase la fila y
+      alimenta la hipótesis 5.
     motivo: "El motivo de la barrera geografia_papeleo, si la hay. Vacío si no."
 
   compatible:
@@ -184,16 +170,17 @@ campos_derivados:
       ¿Puedo hacerla yo, con lo que sé y con lo que tengo? Es una pregunta
       de capacidad, no de voluntad: si sé hacerla, es "si" aunque no me
       apetezca.
-    valores: ["si", "no", ""]
+    valores: ["si", "no"]
     calculo: >-
-      "no" si barrera es "idioma_habilidad_equipo" y duda es "no". Vacío
-      (sin decidir, a la espera de que yo lo mire) si duda es "si". "si" en
-      cualquier otro caso.
+      "no" si barrera es "idioma_habilidad_equipo". "si" en cualquier otro
+      caso. Nunca vacío, desde el 10 de agosto de 2026: se cruza con
+      disponible_es para responder «¿puedo optar?» en la web, y un campo en
+      blanco dejaría la fila sin respuesta.
 
   motivo_compat:
     regla: >-
-      El motivo de la barrera idioma_habilidad_equipo, si la hay y no está
-      en duda. Vacío si compatible es "si" o si duda es "si".
+      El motivo de la barrera idioma_habilidad_equipo, si la hay. Vacío si
+      compatible es "si".
 
   modalidad:
     pregunta: ¿Dónde hay que estar para hacerla?
