@@ -3476,10 +3476,10 @@ ofertas:
     consulta: "ok"
     disponible_es: "no"
     motivo: "exige residir en Estados Unidos"
-    modalidad: ""
+    modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige grabar voz en inglés con soltura"
-    revisado: ""
+    revisado: "si"
     en_email: "no"
     en_listado: "si"
 
