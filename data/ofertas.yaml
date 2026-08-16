@@ -3959,8 +3959,8 @@ ofertas:
     revisado: "si"
     en_email: "si"
     en_listado: "no"
-    postulado: ""
-    oferta_realizada: ""
+    postulado: "si"
+    oferta_realizada: "si"
 
   - fecha: 2026-08-14
     id: "qa_3faoiExYQVvLkqBALS6N_2026-08-13"
