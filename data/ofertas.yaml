@@ -78,9 +78,12 @@
 #  2026-08-09, con la clasificación asistida el 2026-08-09 y con
 #  compatible sin firma el 2026-08-10. Desde el 2026-08-15 la
 #  modalidad y los dos motivos de las que llegan por correo
-#  también salen de la hoja: los escribe el panel de firmas.
+#  también salen de la hoja: los escribe el panel de firmas. Desde
+#  el 2026-08-16 el clasificador pregunta con una sola barrera
+#  (geografía o idioma/habilidad) y disponible_es/compatible se
+#  derivan de ella por código; estas dos columnas no cambian.
 #
-#  Dos campos más, añadidos el 2026-08-16, que no responden a
+#  Dos campos más, añadidos ese mismo día, que no responden a
 #  ninguna hipótesis del registro previo: son seguimiento
 #  operativo, no prueba.
 #
@@ -531,7 +534,7 @@ ofertas:
     motivo_compat: ""
     revisado: "si"
     en_email: "si"
-    en_listado: "no"
+    en_listado: "si"
     postulado: ""
     oferta_realizada: ""
 
@@ -1895,8 +1898,8 @@ ofertas:
   - fecha: 2026-08-09
     id: "kuDycxl1MXxqK9r1FNTs"
     titulo: "Need 10 people for manage my Social accounts 😊"
-    titulo_es: "Gestionar cuentas en redes sociales"
-    resumen_es: "Se buscan personas para gestionar cuentas en redes sociales. El anunciante pide seguir su canal y enviar el mensaje «DONE» como requisito previo para ser considerado. No se especifica el contenido exacto ni el idioma de publicación."
+    titulo_es: "Gestión de cuentas de redes sociales para un estudio creativo"
+    resumen_es: "Buscan 10 personas para gestionar las cuentas sociales de Mehar Creative Studio. La descripción no concreta las tareas ni el idioma de trabajo: solo pide seguir el canal y responder «DONE» para ser considerado. Trabajo remoto."
     categoria: "marketing-campaigns"
     pago_usd: 250
     tipo: "fixed"
@@ -4233,6 +4236,98 @@ ofertas:
     compatible: "no"
     motivo_compat: ""
     revisado: "si"
+    en_email: "no"
+    en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
+
+  - fecha: 2026-08-16
+    id: "fzKArYJlYrHOvIW7wrC7"
+    titulo: "Send smartphone What's ap Message & Return Screenshot of Reply – Belgium"
+    titulo_es: "Enviar un mensaje de WhatsApp desde Bélgica y devolver captura de la respuesta"
+    resumen_es: "Hay que enviar un mensaje de texto libre por WhatsApp a un número español preguntando qué ofrece, adónde ir y cuándo, esperar la respuesta y entregar una captura de pantalla clara con el mensaje enviado y la contestación. La oferta exige estar en Bélgica y escribir desde un número belga. El mensaje puede ir en inglés o flamenco."
+    categoria: "computer-gigs"
+    pago_usd: 15
+    tipo: "fixed"
+    duracion: "900 minutes"
+    remoto: "No"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "no"
+    motivo: "exige estar en Bélgica y enviar desde un número belga"
+    modalidad: ""
+    compatible: "si"
+    motivo_compat: ""
+    revisado: ""
+    en_email: "no"
+    en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
+
+  - fecha: 2026-08-17
+    id: "6kfHDF8xFfAUo2t6NiJh"
+    titulo: "Podcast Clip Editor – 20-25 Short-Form Clips"
+    titulo_es: "Edición de 20-25 clips cortos verticales a partir de un episodio de pódcast"
+    resumen_es: "Hay que revisar un episodio de pódcast completo, seleccionar los momentos más potentes y editar entre 20 y 25 clips verticales (9:16, 60 FPS) listos para TikTok, Reels y Shorts, siguiendo la guía de marca de YPI. Prohibido usar subtítulos, imágenes o audio generados por IA: todo el trabajo debe ser manual. Se entrega por enlace de Google Drive o Dropbox antes del 1 de septiembre de 2026, con 3…"
+    categoria: "crew-gigs"
+    pago_usd: 100
+    tipo: "fixed"
+    duracion: "0.29 days"
+    remoto: "Sí"
+    identidad: "Sí"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: ""
+    compatible: "no"
+    motivo_compat: "exige experiencia acreditable en edición de vídeo corto para redes y portfolio previo de clips de pódcast"
+    revisado: ""
+    en_email: "no"
+    en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
+
+  - fecha: 2026-08-17
+    id: "HncW9yy6RF7pSMHYU4ql"
+    titulo: "Rewrite a 607-word essay on AI infrastructure by hand — no AI"
+    titulo_es: "Reescribir a mano un ensayo de 607 palabras sobre infraestructura de IA"
+    resumen_es: "Reescribir por completo, con palabras propias y en inglés fluido, un ensayo de 607 palabras sobre infraestructura de IA, tecleando cada frase sin usar IA ni herramientas de parafraseo. Hay que grabar en vídeo toda la sesión de escritura en una sola toma continua y entregar el documento DOCX o TXT junto con la grabación antes del plazo. Para postularse hay que pasar una prueba de 100 palabras con…"
+    categoria: "writing-gigs"
+    pago_usd: 30
+    tipo: "fixed"
+    duracion: "48 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: ""
+    compatible: "no"
+    motivo_compat: "exige escribir en inglés con fluidez y el texto es íntegramente en inglés"
+    revisado: ""
+    en_email: "no"
+    en_listado: "si"
+    postulado: ""
+    oferta_realizada: ""
+
+  - fecha: 2026-08-17
+    id: "qa_ytMcxyfYutjTXemMIqLe_2026-08-14"
+    titulo: "QA test: LumiWed first-impression review — 2026-08-14"
+    titulo_es: "Prueba QA de primera impresión de la web de bodas LumiWed"
+    resumen_es: "Hacer una prueba de cinco minutos en app.lumiwed.com: registrarse, crear una web de boda en dos idiomas, elegir diseño y enviar dos invitaciones. Hay que grabar pantalla y voz narrando la experiencia, entregar el vídeo con una captura y reportar cada fallo con severidad y pasos de reproducción. Sin compras ni datos reales."
+    categoria: "computer-gigs"
+    pago_usd: 4
+    tipo: "fixed"
+    duracion: "1 hours"
+    remoto: "Sí"
+    identidad: "No"
+    consulta: "ok"
+    disponible_es: "si"
+    motivo: ""
+    modalidad: ""
+    compatible: "no"
+    motivo_compat: "la narración en voz se presume en inglés y no lo hablo con soltura"
+    revisado: ""
     en_email: "no"
     en_listado: "si"
     postulado: ""
