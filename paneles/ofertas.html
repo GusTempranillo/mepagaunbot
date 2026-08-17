@@ -95,6 +95,9 @@ main{max-width:820px; margin:0 auto; padding:20px 16px 120px}
 .chip--listado{background:var(--ink-3); color:var(--paper)}
 .chip--ambas{background:var(--ink); color:var(--paper)}
 .chip--pago{font-weight:700; color:var(--ink)}
+.chip--postulado{background:var(--ink-3); color:var(--paper)}
+.chip--realizada{background:var(--accent); color:#fff}
+.chip--cobrada{background:var(--si); color:#fff}
 
 h2{
   font-family:var(--serif); font-size:21px; line-height:1.25;
@@ -212,10 +215,11 @@ kbd{
   <kbd>J</kbd> y <kbd>K</kbd> bajan y suben · <kbd>E</kbd> «me dejan entrar» ·
   <kbd>P</kbd> «puedo hacerla» · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> modalidad ·
   <kbd>A</kbd> «me he postulado» · <kbd>R</kbd> «oferta realizada» ·
+  <kbd>C</kbd> «cobrada» ·
   <kbd>Enter</kbd> firma la ficha enfocada.<br>
-  «¿Me he postulado?» y «¿Oferta realizada?» son seguimiento aparte: no
-  hace falta contestarlas para firmar. «Oferta realizada» solo cuando el
-  trabajo esté entregado y cobrado, no antes.<br>
+  «¿Me he postulado?», «¿Oferta realizada?» y «¿Cobrada?» son seguimiento
+  aparte: no hace falta contestarlas para firmar. «Oferta realizada» es
+  entregado, cobrado o no; «Cobrada» solo cuando ese cobro ya ha llegado.<br>
   Lo que firmes se escribe en la hoja de cálculo y en <code>data/ofertas.yaml</code>.
   La web se reconstruye sola en dos o tres minutos.
 </p>
@@ -256,7 +260,8 @@ kbd{
       motivo_compat: o.estado.motivo_compat || '',
       modalidad: o.estado.modalidad || '',
       postulado: o.estado.postulado || '',
-      oferta_realizada: o.estado.oferta_realizada || ''
+      oferta_realizada: o.estado.oferta_realizada || '',
+      cobrado: o.estado.cobrado || ''
     };
     return o._b;
   }
@@ -286,10 +291,12 @@ kbd{
     }).length;
     var postuladas = OFERTAS.filter(function(o){ return borrador(o).postulado === 'si'; }).length;
     var realizadas = OFERTAS.filter(function(o){ return borrador(o).oferta_realizada === 'si'; }).length;
+    var cobradas = OFERTAS.filter(function(o){ return borrador(o).cobrado === 'si'; }).length;
     cuenta.innerHTML = 'sin firmar <b>' + sinFirmar + '</b> de ' + OFERTAS.length +
       ' · sin modalidad <b>' + sinModalidad + '</b>' +
       ' · postuladas <b>' + postuladas + '</b>' +
-      ' · realizadas <b>' + realizadas + '</b>';
+      ' · realizadas <b>' + realizadas + '</b>' +
+      ' · cobradas <b>' + cobradas + '</b>';
   }
 
   // ── una ficha ─────────────────────────────────────────────
@@ -330,8 +337,9 @@ kbd{
       (o.pago ? '<span class="chip chip--pago">' + esc(o.pago) + ' $</span>' : '') +
       (o.duracion ? '<span class="chip">' + esc(o.duracion) + '</span>' : '') +
       (o.categoria ? '<span class="chip">' + esc(o.categoria) + '</span>' : '') +
-      (b.postulado === 'si' ? '<span class="chip">postulado</span>' : '') +
-      (b.oferta_realizada === 'si' ? '<span class="chip">realizada</span>' : '') +
+      (b.postulado === 'si' ? '<span class="chip chip--postulado">postulado</span>' : '') +
+      (b.oferta_realizada === 'si' ? '<span class="chip chip--realizada">realizada</span>' : '') +
+      (b.cobrado === 'si' ? '<span class="chip chip--cobrada">cobrada</span>' : '') +
       (o.pendiente ? '' : '<span class="chip">firmada</span>') +
       '</div>';
 
@@ -374,6 +382,8 @@ kbd{
     h += grupo('¿Me he postulado?', 'a', 'postulado',
                [{valor:'si', texto:'Sí'}, {valor:'no', texto:'No'}], o);
     h += grupo('¿Oferta realizada?', 'r', 'oferta_realizada',
+               [{valor:'si', texto:'Sí'}, {valor:'no', texto:'No'}], o);
+    h += grupo('¿Cobrada?', 'c', 'cobrado',
                [{valor:'si', texto:'Sí'}, {valor:'no', texto:'No'}], o);
     h += '</div>';
 
@@ -445,7 +455,8 @@ kbd{
         motivo_compat: b.compatible === 'no' ? b.motivo_compat : '',
         modalidad: b.modalidad,
         postulado: b.postulado,
-        oferta_realizada: b.oferta_realizada
+        oferta_realizada: b.oferta_realizada,
+        cobrado: b.cobrado
       }})
     })
     .then(function(r){ return r.json().then(function(j){ return {ok: r.ok, j: j}; }); })
@@ -525,6 +536,8 @@ kbd{
       pulsar('.opcion[data-campo="postulado"][aria-pressed="false"]'); }
     else if (tecla === 'r') { ev.preventDefault();
       pulsar('.opcion[data-campo="oferta_realizada"][aria-pressed="false"]'); }
+    else if (tecla === 'c') { ev.preventDefault();
+      pulsar('.opcion[data-campo="cobrado"][aria-pressed="false"]'); }
     else if (ev.key === 'Enter') { ev.preventDefault(); pulsar('.firmar'); }
   });
 

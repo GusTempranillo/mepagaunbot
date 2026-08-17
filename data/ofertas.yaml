@@ -88,14 +88,21 @@
 #  operativo, no prueba.
 #
 #    postulado         "si" cuando me he presentado a la oferta.
-#    oferta_realizada  "si" solo cuando el trabajo está entregado
-#                      Y cobrado. El número de encargos de la
-#                      Hipótesis 1 sigue llevándose a mano en
-#                      data/estado.yaml, con su propia fecha: no es
-#                      lo mismo recibir un encargo que cobrarlo, y
-#                      este campo llega semanas más tarde que aquel.
+#    oferta_realizada  "si" cuando el trabajo está entregado, cobrado
+#                      o no. El número de encargos de la Hipótesis 1
+#                      sigue llevándose a mano en data/estado.yaml,
+#                      con su propia fecha: no es lo mismo entregar un
+#                      encargo que cobrarlo.
+#    cobrado           "si" cuando ese trabajo entregado ya está
+#                      cobrado. Añadido el 2026-08-17, separado de
+#                      oferta_realizada: antes ese campo exigía las
+#                      dos cosas a la vez y no dejaba ver una entrega
+#                      todavía sin cobrar. Migración: toda fila que ya
+#                      tenía oferta_realizada "si" pasó también a
+#                      cobrado "si", porque bajo la regla vieja eso
+#                      era lo único que podía significar.
 #
-#  Los dos se marcan en el panel; vacío = sin decidir, y así se
+#  Los tres se marcan en el panel; vacío = sin decidir, y así se
 #  muestra en /ofertas/.
 #  El texto de las ofertas no se reproduce: solo sus metadatos.
 # ───────────────────────────────────────────────────────────
@@ -123,7 +130,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-28
     id: "qa_SNphiyIrsflkZ3dEDqsP_2026-07-24"
     titulo: "QA test: Portfolio Website Look & Feel Review — 2026-07-24"
@@ -146,7 +153,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-28
     id: "qa_cYS6Y4O9xARTDqHOWaSo_2026-07-28"
     titulo: "QA test: Exploratory QA – Amboras.com — 2026-07-28"
@@ -169,7 +176,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-29
     id: "Putf55Gplv0POJk7cHoX"
     titulo: "Urgent: call [nombre] tonight to coordinate dinner"
@@ -192,7 +199,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-29
     id: "gZpCVicOEYQl73jFpHJN"
     titulo: "Create a 30–40 second UGC video for an AI productivity app"
@@ -215,7 +222,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-30
     id: "qa_Xt1SaRIZielATR7cmDsE_2026-07-30"
     titulo: "QA test: Full Flow QA Check – rentahuman.ai/qa — 2026-07-30"
@@ -238,7 +245,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-30
     id: "pRsNn6mXNVhOHf29phIb"
     titulo: "Sales Commission Rep – GetSetReply (Review Management for SMBs)"
@@ -261,7 +268,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-30
     id: "QVvZdmjFMLUU744ThxAF"
     titulo: "Post a Specific Comment on a Public Facebook Video"
@@ -284,7 +291,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-30
     id: "xIyJNgieKetZ8UzZaIz3"
     titulo: "Receive and Reply to One SMS Using a US Phone Number"
@@ -307,7 +314,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-30
     id: "2dxKcTcT6CSsPHnZB65l"
     titulo: "Send a Test Text Message to Confirm Phone Number is Active"
@@ -330,7 +337,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-31
     id: "38TXMPomIhHp3QBG60WK"
     titulo: "[TEST – DO NOT APPLY] Evidence portal canary 47e772d7"
@@ -353,7 +360,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-31
     id: "TtiJy6jmY3pmKhMp1a6O"
     titulo: "Native English Voice Recordings – 40 Short Sentences (2 Interpretations Each)"
@@ -376,7 +383,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-07-31
     id: "mFJIqppJQ14WQbagDAzj"
     titulo: "Urgent: Native English Voice Actors Needed"
@@ -399,7 +406,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-01
     id: "eNBcmDA0zIWLonlaVMn4"
     titulo: "Paid App Usage & Data Contribution Study — US, $75–$145"
@@ -422,7 +429,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-03
     id: "mwPj393yL3T2cFAcwu2a"
     titulo: "Referral Bounty: Founding Program Director for Gravity Wizards Inc. (STEM Youth Leader)"
@@ -445,7 +452,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-04
     id: "qa_l0KWxLUNliMa79WIKykW_2026-08-04"
     titulo: "QA test: Caddy iMessage Daily QA — 2026-08-04"
@@ -468,7 +475,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-04
     id: "qa_KZKuMeqP35bLnmxfV9Lj_2026-08-04"
     titulo: "QA test: GitHub QA: #2824 @ 58ba5edfdae2 — 2026-08-04"
@@ -491,7 +498,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-04
     id: "izwYIqNhHdTzQY6bd8sm"
     titulo: "Technical & Business Meeting Representative for Website Build Project"
@@ -514,7 +521,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-04
     id: "qa_TuIYC2dI6ZZu6cVXzP0J_2026-08-04"
     titulo: "QA test: Taste.store launch smoke test — 2026-08-04"
@@ -537,7 +544,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-04
     id: "VNVIkY7jtNozufxAcjpw"
     titulo: "Professional CV Writing for Mining Industry Career-Level Professionals"
@@ -560,7 +567,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-05
     id: "6sEv2k1WDrvGohc52hP7"
     titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
@@ -583,7 +590,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-06
     id: "qa_DzPFwxdklrDZ73M1C7z4_2026-08-06"
     titulo: "QA test: Taste iPhone TestFlight QA — build 7 — 2026-08-06"
@@ -606,7 +613,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-06
     id: "6H1Osi3kkGw1EkdNwVJx"
     titulo: "Photoshop Expert Needed – Campaign Compositing, Retouching, Print Prep, Matte Painting & UI Assets"
@@ -629,7 +636,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-06
     id: "qa_9jV7Nelmw8J7sJVh0vXB_2026-08-06"
     titulo: "QA test: Amboras first-impression review — 2026-08-06"
@@ -652,7 +659,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-07
     id: "qa_YoVFSaMAshWMX7EhrBkc_2026-08-06"
     titulo: "QA test: REN-168 onboarding photo persistence — 2026-08-06"
@@ -675,7 +682,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-07
     id: "oDNyOzZKsZcJe5uJtPEF"
     titulo: "Make a Quick Phone Call to a Pharmacy in Canada"
@@ -698,7 +705,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "0sR9gy2PE9sNvWv6zdei"
     titulo: "Language Coordinator — Tatar Audio Data Collection"
@@ -721,7 +728,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "1fmLel5PCDKG8SvLWmKT"
     titulo: "Design and print leaflets - USA"
@@ -744,7 +751,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "1HHivKXcxBVYd3fa1Uid"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
@@ -767,7 +774,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "1ueHAErvQUGrDqfi51t8"
     titulo: "Set up camera and audio streaming for AI agent - Crosby"
@@ -790,7 +797,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "1Wyk6yRzmP3V1sJUntsH"
     titulo: "Find leaflet distribution services worldwide"
@@ -813,7 +820,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "1Z2wKqbtLtnHabKfJY0q"
     titulo: "Follow me on IG"
@@ -836,7 +843,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "2BMCLQJlLuwOxNYb7UXH"
     titulo: "Follow me on IG @digishaps, Send me SS with your wallet address I will send payment first 1k applicant"
@@ -859,7 +866,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "2MPjiw75TajneHOZSBsg"
     titulo: "Mobile Interior Car Detail in Temescal, Oakland"
@@ -882,7 +889,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "2OxlNu7vrcbNKBquATcF"
     titulo: "Agente Humano Chile"
@@ -905,7 +912,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "2Th1kz3dkd0Iyob9vTJL"
     titulo: "Follow me on Facebook"
@@ -928,7 +935,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "33j2GfABMv08zutjvv05"
     titulo: "Mix masteing ( Rap , pop , Trap , emo rap , cloud rap , Us rap )"
@@ -951,7 +958,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "4UFQ6XHeON2Yq3zmFWBF"
     titulo: "Chill and vibe with me and brainstorm startup ideas with me"
@@ -974,7 +981,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "5Q1fJP5XlkYortsSoc37"
     titulo: "I want someone to tell me what cheese tastes like."
@@ -997,7 +1004,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "5wrpfodUndACFfff27Nm"
     titulo: "Tell us your honest opinion about this product! (Fast $1)"
@@ -1020,7 +1027,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "7bOFEuzWHZ8wowI1zNyU"
     titulo: "🦞 Help us gain OpenClaw launch service clients!"
@@ -1043,7 +1050,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "8MWiLOG4TX8lf9zoQ3IM"
     titulo: "Home shift"
@@ -1066,7 +1073,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "9P2GQ35U7Vagbcpimfmb"
     titulo: "High-Resolution Location Verification – Mississauga Simulation"
@@ -1089,7 +1096,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "9XDypQfdZ34eSZDe0ORW"
     titulo: "THE CHRONICLE OF THE ECHOING ARCHIVE - Multi-Dimensional Human Challenge"
@@ -1112,7 +1119,7 @@ ofertas:
     en_listado: "si"
     postulado: "si"
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "aIP9b7rGLyKkJTMO3DX0"
     titulo: "HITL Transcriber — Kurdish Conversational Audio"
@@ -1135,7 +1142,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "aQmaBPxzLLmNPmhgTyfq"
     titulo: "Design and print leaflets and business cards - Generi project"
@@ -1158,7 +1165,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "ASey9tcIl1gd5mvi4lg1"
     titulo: "Who can sell my usdt"
@@ -1181,7 +1188,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "b4M77a3ttIJYPv503HYQ"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
@@ -1204,7 +1211,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "BtwPCvvXqyEKnESa6sxC"
     titulo: "Earn $1 + 15% to help me exchange ETH into USD"
@@ -1227,7 +1234,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "CDsX3Yrl7dZyXswAdzxk"
     titulo: "Human agent real world verification & visual check ,videos ,photos.works"
@@ -1250,7 +1257,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "CG10JI2uczga4aE3CrPc"
     titulo: "Remplir un texte simple"
@@ -1273,7 +1280,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "cP0i3o4nR3vJRV9jWkk1"
     titulo: "Easy 4$ USD Task - Follow on Twitter/X (10 seconds)"
@@ -1296,7 +1303,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "d3AdNjdksiPuV8J9fWlL"
     titulo: "Language Coordinator — Oromo Audio Data Collection"
@@ -1319,7 +1326,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "D9VDTyp8evjFkZaYbfFY"
     titulo: "Touch grass and send a proof photo"
@@ -1342,7 +1349,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "ECMLQtywJIhHHinKAoYB"
     titulo: "Bug Testing - VertexSender.com"
@@ -1365,7 +1372,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "EvK02JbgTVf6McQK4Zio"
     titulo: "Freestyle about Tuvalu at a Channel 5 event — Denver / Atlanta / San Diego"
@@ -1388,7 +1395,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "EZeVwXzoqofYXiqc1CtT"
     titulo: "Anything"
@@ -1411,7 +1418,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "f2g3g4neGSxQuO9GyEss"
     titulo: "Fill in a simple text"
@@ -1434,7 +1441,7 @@ ofertas:
     en_listado: "si"
     postulado: "si"
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "f7WZW1PKClHi0Q4Kz2o3"
     titulo: "Language Coordinator — Quechua Audio Data Collection"
@@ -1457,7 +1464,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "f8Tm4Xy2WM1s4IBroExL"
     titulo: "Secure €200,000 Pre-Seed Funding & Pitch Startup"
@@ -1480,7 +1487,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "fagSdLRfVOQ0J5M9NXRZ"
     titulo: "Need Assistant 📊"
@@ -1503,7 +1510,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "FexBpBwtM1GVOB9EQRmS"
     titulo: "I do anything"
@@ -1526,7 +1533,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "FklpkDbzCVUhoflg8sfM"
     titulo: "Lobster Liberation — Buy, Transport, and Release a Live Lobster"
@@ -1549,7 +1556,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "FoqUdeNm8XM8dqnErao8"
     titulo: "Remplir un texte simple"
@@ -1572,7 +1579,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "g22IjeUMSeOgPZGhFzOH"
     titulo: "Wait in Line at Mimi's Restaurant in SoHo, NYC"
@@ -1595,7 +1602,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "ghDgwcsJhM5V9Sczdq0W"
     titulo: "Pick up a bag of litter on a walk"
@@ -1618,7 +1625,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "gvD1BKLJ6OH9jjZ9lcS1"
     titulo: "Create digital publicity campaign for crypto payment system"
@@ -1641,7 +1648,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "GvpvL9ijYjWKZ7XhIH1T"
     titulo: "Test Bounty"
@@ -1664,7 +1671,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "h9ScIMIohwJ2EvdHAZOy"
     titulo: "Get Paid to Do Chores and Work - Data Collection for Robotics (US Only)"
@@ -1687,7 +1694,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Hp5EHA3HfbcAPXbqhMaM"
     titulo: "Data Accuracy Auditor for College Comparison Tool (1,300+ Colleges)"
@@ -1710,7 +1717,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "i69WRMWcrUBw7sm9s7yj"
     titulo: "US Phone Number Needed – Receive & Reply to 1 SMS"
@@ -1733,7 +1740,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "IFDq5xNFlUQAzigui7Fj"
     titulo: "Language Coordinator — Sesotho Audio Data Collection"
@@ -1756,7 +1763,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "iZPw6ye71DMSZgFL5E8O"
     titulo: "Sales Rep Wanted"
@@ -1779,7 +1786,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "J5yx5AUxT7TIK8PY9JzO"
     titulo: "Post on Reddit r/solana about farming tool"
@@ -1802,7 +1809,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "jGEvz7I1r6ncjxt2wiMY"
     titulo: "HITL Transcriber — Sinhalese Conversational Audio"
@@ -1825,7 +1832,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "jSF10wQlPADTius9wwG3"
     titulo: "HITL Transcriber — Haitian Creole Conversational Audio"
@@ -1848,7 +1855,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "JTaLVXc3j290JbLyH4w5"
     titulo: "Design crypto-to-fiat conversion system for RentAHuman"
@@ -1871,7 +1878,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "KE0yIzMFPNE7B4HrKNVJ"
     titulo: "Find my black VW Tiguan near Mission St & 17th St, SF"
@@ -1894,7 +1901,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "kuDycxl1MXxqK9r1FNTs"
     titulo: "Need 10 people for manage my Social accounts 😊"
@@ -1917,7 +1924,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "L8v0gj7GAEhq9JcmLVPh"
     titulo: "Language Coordinator — Burmese Audio Data Collection"
@@ -1940,7 +1947,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "ladXKx2Hr0bwjIGV0PCx"
     titulo: "Check watermelon stock and country of origin at Pomona, Belsize Local"
@@ -1963,7 +1970,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "lfLBauj1z7czPeOw1fTW"
     titulo: "Get Paid to Record Everyday Tasks at Home 📱🏠"
@@ -1986,7 +1993,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "LiEjhkkWmndLbJdNVXmk"
     titulo: "HITL Transcriber — Oromo Conversational Audio"
@@ -2009,7 +2016,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "loEXPK23M2R0i4Aw0CQU"
     titulo: "Wash bedsheets at 1:30 PM tomorrow"
@@ -2032,7 +2039,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "LvIKelzbVHUM7AysalAj"
     titulo: "Wish Eli a Happy Birthday on Video! 🎂"
@@ -2055,7 +2062,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "lwp2sN0wIPAqg2DWjEQl"
     titulo: "Interested in Email Mailing Opportunity"
@@ -2078,7 +2085,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "m193lfMXSsIE3fdAEdWL"
     titulo: "Language Coordinator — Sinhalese Audio Data Collection"
@@ -2101,7 +2108,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "mlekz4zTdODvc4SIYyz7"
     titulo: "HITL Transcriber — Quechua Conversational Audio"
@@ -2124,7 +2131,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "MtR6RipA5P0QyjoZciuf"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
@@ -2147,7 +2154,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "n99yLz9CtfKPs9DiTukT"
     titulo: "HITL Transcriber — Sesotho Conversational Audio"
@@ -2170,7 +2177,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "nc7Y7LGjgcO8rbM3lTzM"
     titulo: "Test an automated marketing engine for websites"
@@ -2193,7 +2200,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "NIT8vi42yrZAE1fPYRHL"
     titulo: "HITL Transcriber — Pashto Conversational Audio"
@@ -2216,7 +2223,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "NLgfgGBoPpj4aqQCzqpf"
     titulo: "Tweet about airdrop farming tracker"
@@ -2239,7 +2246,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "NLqFheR6bdzKcFkHQBXV"
     titulo: "HITL Transcriber — Welsh Conversational Audio"
@@ -2262,7 +2269,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "NsLB3xgw68n98fAnqh0K"
     titulo: "HITL Transcriber — Afrikaans Conversational Audio"
@@ -2285,7 +2292,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "OOEMCbuQEjCBNqgO1J2A"
     titulo: "Exploring US Market Expansion Opportunity"
@@ -2308,7 +2315,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "OPLdcUI1VpVjge3AQnxL"
     titulo: "Taste test new restaurant menu"
@@ -2331,7 +2338,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "oQIRZO0Bp4skO2jNvk0N"
     titulo: "Simple documentation review"
@@ -2354,7 +2361,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "POLXj1eZKhMLVJdbIusn"
     titulo: "Remplir un texte simple"
@@ -2377,7 +2384,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Poz8VPWu97KsB5Aqy5D0"
     titulo: "Remplir un texte simple"
@@ -2400,7 +2407,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "PvOwzxe5B31WcVRGQAND"
     titulo: "Create a Short Video About the Church of Molt — The First AI Religion"
@@ -2423,7 +2430,7 @@ ofertas:
     en_listado: "si"
     postulado: "si"
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Qn6YtnY2vA6AeOKsKL9k"
     titulo: "San Francisco: join Racct and list 10 real items (24+ hours)"
@@ -2446,7 +2453,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "qOwWKIZk4IjbVjtXGz30"
     titulo: "Language Coordinator — Kurdish Audio Data Collection"
@@ -2469,7 +2476,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "QPbmGe72hXkxt0TAfLVR"
     titulo: "Build a Distributed Consensus Protocol"
@@ -2492,7 +2499,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "qquQwAe23QaLuKKFvmi5"
     titulo: "Hiring a reliable Software Developer(US only or Fluent English Required)"
@@ -2515,7 +2522,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "qt6Jf0lWoxfm6lI7BdC3"
     titulo: "Looking for Software Engineers who can handle interviews (English Speaking)"
@@ -2538,7 +2545,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "qZh8MpNS8nPqfKMfc9q0"
     titulo: "Language Coordinator — Afrikaans Audio Data Collection"
@@ -2561,7 +2568,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "rNbpGMooVQ2jfvDbgoDo"
     titulo: "Native Sesotho Speaker — Paid Conversational Audio Recording"
@@ -2584,7 +2591,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "rV43wAo20ZqTswj041kI"
     titulo: "Design and print leaflets - Mexico"
@@ -2607,7 +2614,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "rvGvY1we8FnzSiSLGcz6"
     titulo: "Client-Facing Partner for Web Development Projects (Revenue Share - Long Term)"
@@ -2630,7 +2637,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "rVwLqcC7NlPVsFrafO3T"
     titulo: "Anything"
@@ -2653,7 +2660,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "S1RzXOjwXot5irzKTsRf"
     titulo: "Language Coordinator — Haitian Creole Audio Data Collection"
@@ -2676,7 +2683,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Sa0hr1bdWHEZ0SipEJxn"
     titulo: "Language Coordinator — Welsh Audio Data Collection"
@@ -2699,7 +2706,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "sL28IRhEvtbCPQ9qBy1U"
     titulo: "Check watermelon stock and country of origin at BENS, Belsize Park"
@@ -2722,7 +2729,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Su8foKyEq7x70ktnFXqE"
     titulo: "BL test bounty"
@@ -2745,7 +2752,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "tAVwZ1zs5qoz2Hpvtliz"
     titulo: "spam_ignore"
@@ -2768,7 +2775,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "tizpckM4lYQSEci80BPw"
     titulo: "Paid 30-minute trial: on-site data entry in our NYC office (ongoing work to follow)"
@@ -2791,7 +2798,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "twY0aVxr7LAHvHFsg46H"
     titulo: "Language Coordinator — Fulah Audio Data Collection"
@@ -2814,7 +2821,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "uG8VZdt2pXgawHsL5GKL"
     titulo: "Pick up a bag of litter on a walk"
@@ -2837,7 +2844,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "ugZT8TIsRrfs4wcEgxne"
     titulo: "Click an Pictures of the Mississauga celebration square"
@@ -2860,7 +2867,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Upoau8DY87WFSHNXHI8r"
     titulo: "Video Editor Needed: 3 Short Videos for X, TikTok & Instagram"
@@ -2883,7 +2890,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "UTszfDA2SrKwxjtzu501"
     titulo: "Street DJ outside YC Startup School — Saturday exit (3 spots)"
@@ -2906,7 +2913,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "UvuWWgLR7SnR0vtrPk9H"
     titulo: "Agente Humano Chile"
@@ -2929,7 +2936,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "UZ7snZPvp9rE4WuVYHnh"
     titulo: "mailling"
@@ -2952,7 +2959,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Vd7iiFOx1eo9BWBohxts"
     titulo: "I need someone to follow me on Facebook"
@@ -2975,7 +2982,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "ve6tgP2rlRMfmGPpNXqr"
     titulo: "Female Actor Needed for LoRA Character Sheet — AI Music Video Production"
@@ -2998,7 +3005,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Vn6GHCrypKGRM4GJLKNe"
     titulo: "Leave a tiny artwork where it will be found"
@@ -3021,7 +3028,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "vZU57R3qQXGPGQv987Qx"
     titulo: "Follow instagram account: @account.cannot.be.found"
@@ -3044,7 +3051,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "w4JJeV6MjgSK7jw0Hpkj"
     titulo: "HITL Transcriber — Sesotho Conversational Audio"
@@ -3067,7 +3074,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "wcnxCGrUBoxJ872jMxIf"
     titulo: "HITL Transcriber — Burmese Conversational Audio"
@@ -3090,7 +3097,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "XAOUWXXnOABzUZNwVBQB"
     titulo: "HITL Transcriber — Fulah Conversational Audio"
@@ -3113,7 +3120,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "xGNfVkGQk81GScBsInCX"
     titulo: "High-Resolution Location Verification – Mississauga Simulation"
@@ -3136,7 +3143,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "xH2zxoUqAdBWmmXXHOF4"
     titulo: "Affiliate Recruiter – Earn 50% Commission Promoting an AI Tools Platform"
@@ -3159,7 +3166,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Y70ZkfkahIuvpTCpgl5q"
     titulo: "Appointment setter"
@@ -3182,7 +3189,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "y85hrMagQ8PQCm59P3el"
     titulo: "Get Paid to watch AI videos"
@@ -3205,7 +3212,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "yLaig2Y6mhgvSXRby5fU"
     titulo: "Language Coordinator — Pashto Audio Data Collection"
@@ -3228,7 +3235,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Yrui0nCL2xB5gEvWcK2g"
     titulo: "Need someone who is willing to earn money with me (Software Engineer Role)"
@@ -3251,7 +3258,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "YzO75ecs6i079kqBwqoG"
     titulo: "Native Welsh Speaker — Paid Conversational Audio Recording"
@@ -3274,7 +3281,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "z22fMWz6DXC3WXjrY5IT"
     titulo: "Personal Assistant – Salt Lake City / Wasatch Front"
@@ -3297,7 +3304,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "Zqi6Y4yKVck4lv11oweb"
     titulo: "Need someone who can talk native English in web stacks"
@@ -3320,7 +3327,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-09
     id: "zUZIqzdb0TAOMmHPVdPH"
     titulo: "HITL Transcriber — Tatar Conversational Audio"
@@ -3343,7 +3350,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-11
     id: "qa_DrdY1R6lvQeDyNqC6fRP_2026-08-09"
     titulo: "QA test: Redsun first-impression review — 2026-08-09"
@@ -3366,7 +3373,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-11
     id: "qa_NPf7cGDw0jwbYf0eGJo2_2026-08-07"
     titulo: "QA test: Gumloop Full Onboarding & Feature QA — 2026-08-07"
@@ -3389,7 +3396,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-11
     id: "xS3pwbiOodZNzrTIg4Lu"
     titulo: "T-Mobile Android Spam Test — 10 min active work, $15"
@@ -3412,7 +3419,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-11
     id: "mxJXbJzDmcGzbZJC4jU4"
     titulo: "Freelance Category Reviewer – AI Product Comparison Platform"
@@ -3435,7 +3442,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-11
     id: "qa_JQKR0TLciqUPZHWt5F27_2026-08-11"
     titulo: "QA test: Taste iPhone TestFlight QA — build 7 — 2026-08-11"
@@ -3458,7 +3465,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-11
     id: "qa_yY8EQhEO7wvU2N7bdsnh_2026-08-11"
     titulo: "QA test: Test the rentahuman.ai iPhone app via TestFlight — 2026-08-11"
@@ -3481,7 +3488,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "qa_DajCy3yAMrJrjNzw9krv_2026-08-11"
     titulo: "QA test: Lifeframe Life Designer Quiz first-impression review — 2026-08-11"
@@ -3504,7 +3511,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "qa_IlSKoLHvvo7rxpjQTb6b_2026-08-12"
     titulo: "QA test: Rent A Human evidence upload QA — 2026-08-12"
@@ -3527,7 +3534,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "qa_J6gZcYClaz6er6z3DLzx_2026-08-11"
     titulo: "QA test: Sazabi App – Core Flows QA — 2026-08-11"
@@ -3550,7 +3557,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "qa_LkOs30PVatJSy21uO5SS_2026-08-11"
     titulo: "QA test: Full QA Test – Vantage Onboarding Web Flow — 2026-08-11"
@@ -3573,7 +3580,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "qa_xHDtvEtrxIVnzs82pqXG_2026-08-09"
     titulo: "QA test: Flovia first-impression review — 2026-08-09"
@@ -3596,7 +3603,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "QEK58L8gpjoep1J1tblo"
     titulo: "Print and place 50 Rent A Human flyers around NYC"
@@ -3619,7 +3626,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "SvUb4pSQCEeKJeIFvrnX"
     titulo: "Urgent Backup Researcher — Verify Off-Market 4BR Rentals in North Beach"
@@ -3642,7 +3649,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "Tx3JmpGblFkpUMyBLX56"
     titulo: "RentAHuman Support: Pick up and post 50 flyers in Dogpatch and the Marina"
@@ -3665,7 +3672,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "ugq3vBux3LlDwXSXcJWt"
     titulo: "Urgent Phone Researcher — Verify 4 North Beach Apartment Prospects"
@@ -3688,7 +3695,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "vwrWNjcSdWcEaneWX8eT"
     titulo: "Pick up pre-paid flowers & deliver 0.5 mi to University Tavern in Clive, IA — Sun Aug 16, 12:00 PM"
@@ -3711,7 +3718,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "cTYZEuANyLuUXff04lk7"
     titulo: "T-Mobile or Verizon Android Spam Test — 10 min active work, $15"
@@ -3734,7 +3741,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-12
     id: "ZAGicQcwnmVO7urmpBgP"
     titulo: "Record a first-listen reaction to a personalized song"
@@ -3757,7 +3764,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "1460u5BHr83gzooiizlI"
     titulo: "T-Mobile or Verizon Android Spam Test — ~15 min active work, $20"
@@ -3780,7 +3787,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "6c5lvBHKhcXEC1DFs70k"
     titulo: "30 Sign Holders Needed Across Popular San Francisco Areas"
@@ -3803,7 +3810,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "KwA5KfNdz3kh4fzsISOR"
     titulo: "Product test: English B2 voice qualification"
@@ -3826,7 +3833,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "rqmaroeee6vmweIefx2H"
     titulo: "Bear, DE — receive one small retail package and drop it off at UPS"
@@ -3849,7 +3856,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "yfEWNaV5Wn5hiPs3zFYS"
     titulo: "Print and distribute 50 Rent A Human business cards at Corgi Cafe"
@@ -3872,7 +3879,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "ZQfpC42fCt4OFnbWZgyi"
     titulo: "make a UGC video for rentahuman"
@@ -3895,7 +3902,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "qa_E1FpGobXx5bxJ1lw8pw6_2026-08-13"
     titulo: "QA test: ReadingRate first-impression review — 2026-08-13"
@@ -3918,7 +3925,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-13
     id: "qa_ErKafemd0F6ufExKLuon_2026-08-13"
     titulo: "QA test: Resilana first-impression review — 2026-08-13"
@@ -3941,7 +3948,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-14
     id: "nU0rMQCb5MJVIXNMQfir"
     titulo: "Post 15 Tweets About RentAHuman as Pepe Human (1 Hour Campaign)"
@@ -3964,7 +3971,7 @@ ofertas:
     en_listado: "no"
     postulado: "si"
     oferta_realizada: "si"
-
+    cobrado: "si"
   - fecha: 2026-08-14
     id: "qa_3faoiExYQVvLkqBALS6N_2026-08-13"
     titulo: "QA test: StreamTwin first-impression review — 2026-08-13"
@@ -3987,7 +3994,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-14
     id: "qa_MLUG9vwcAptmIDNYnOLS_2026-08-13"
     titulo: "QA test: AgentPhone first-impression review — 2026-08-13"
@@ -4010,7 +4017,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-14
     id: "qa_Y2r2icuSAriKGRQ2NBju_2026-08-12"
     titulo: "QA test: Nihongo Feed 1.1.6 release QA — 2026-08-12"
@@ -4033,7 +4040,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-14
     id: "7Z1GR1us5nUB4USUW2Ep"
     titulo: "T-Mobile or Verizon Android Spam Test - about 5-10 min active work, $25"
@@ -4056,7 +4063,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_BAYHc5rFoYWjEm3Ipm0V_2026-08-12"
     titulo: "QA test: Whop first-impression review — 2026-08-12"
@@ -4079,7 +4086,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_f1YTWKxQiHNeXqPzzjOc_2026-08-14"
     titulo: "QA test: Agent 37 first-impression review — 2026-08-14"
@@ -4102,7 +4109,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_fq4lxjB6wYRKXmZG00FK_2026-08-14"
     titulo: "QA test: Superset.sh Public Landing & Sign-Up Flow Review — 2026-08-14"
@@ -4125,7 +4132,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_JQeDJL8Pdzcd6vG21BHp_2026-08-13"
     titulo: "QA test: AgentGrid first-impression review — 2026-08-13"
@@ -4148,7 +4155,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_Op28wWv2Di1rOho5zXyB_2026-08-15"
     titulo: ""
@@ -4171,7 +4178,7 @@ ofertas:
     en_listado: "no"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_QTaZABOMbCjALSMMgBbW_2026-08-13"
     titulo: "QA test: Kielo first-impression review — 2026-08-13"
@@ -4194,7 +4201,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-15
     id: "qa_Qr5lsEmFkrvPCDc4Q6c4_2026-08-14"
     titulo: "QA test: VisibleTrader first-impression review — 2026-08-14"
@@ -4217,7 +4224,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-16
     id: "lJQf4HUvg60pS5egcnw7"
     titulo: "T-Mobile Android Spam Test - about 5-10 min active work, $25"
@@ -4240,7 +4247,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-16
     id: "fzKArYJlYrHOvIW7wrC7"
     titulo: "Send smartphone What's ap Message & Return Screenshot of Reply – Belgium"
@@ -4263,7 +4270,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-17
     id: "6kfHDF8xFfAUo2t6NiJh"
     titulo: "Podcast Clip Editor – 20-25 Short-Form Clips"
@@ -4286,7 +4293,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-17
     id: "HncW9yy6RF7pSMHYU4ql"
     titulo: "Rewrite a 607-word essay on AI infrastructure by hand — no AI"
@@ -4309,7 +4316,7 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
-
+    cobrado: ""
   - fecha: 2026-08-17
     id: "qa_ytMcxyfYutjTXemMIqLe_2026-08-14"
     titulo: "QA test: LumiWed first-impression review — 2026-08-14"
@@ -4332,3 +4339,4 @@ ofertas:
     en_listado: "si"
     postulado: ""
     oferta_realizada: ""
+    cobrado: ""

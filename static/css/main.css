@@ -60,6 +60,9 @@
   --bar:#B9AF9C;
   --bar-2:#D3CAB8;
   --maxw:1080px;
+  --postulado:#2A5DB0;
+  --realizada:#6A3FA0;
+  --cobrada:#1B6B3A;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -72,6 +75,9 @@
     --rule:#F2ECE0;
     --bar:#4B453C;
     --bar-2:#37322B;
+    --postulado:#6FA8FF;
+    --realizada:#C9A6FF;
+    --cobrada:#5FBF86;
   }
 }
 
@@ -507,6 +513,9 @@ h3{
 }
 .chip .ico{flex:0 0 auto}
 .chip--baja{color:var(--ink-2);border-style:dotted}
+.chip--postulado{color:var(--postulado);border-color:var(--postulado)}
+.chip--realizada{color:var(--realizada);border-color:var(--realizada)}
+.chip--cobrada{color:var(--cobrada);border-color:var(--cobrada)}
 
 /* — celda «Pago» — */
 .pago-cifra{
