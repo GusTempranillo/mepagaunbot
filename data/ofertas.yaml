@@ -3971,7 +3971,7 @@ ofertas:
     en_listado: "no"
     postulado: "si"
     oferta_realizada: "si"
-    cobrado: "si"
+    cobrado: "no"
   - fecha: 2026-08-14
     id: "qa_3faoiExYQVvLkqBALS6N_2026-08-13"
     titulo: "QA test: StreamTwin first-impression review — 2026-08-13"
