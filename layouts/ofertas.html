@@ -208,6 +208,7 @@
           <button type="button" class="fchip" data-f="optar-no" aria-pressed="false">{{ partial "icono.html" "hueco" }}No puedo optar</button>
           <button type="button" class="fchip" data-f="correo" aria-pressed="false">Llegó por correo</button>
           <button type="button" class="fchip" data-f="listado" aria-pressed="false">Listado público</button>
+          <button type="button" class="fchip" data-f="postulado" aria-pressed="false">Postulado</button>
           {{/* El recuento viaja dentro de la barra pegajosa: si se quedara
                fuera, dejaría de verse justo cuando más se mira, bajando. */}}
           <p class="barra-cuenta">Mostrando <b id="cuenta-n">{{ $total }}</b> de {{ $total }} ofertas</p>
@@ -265,7 +266,8 @@
                 data-remoto="{{ if eq .remoto "Sí" }}si{{ else }}no{{ end }}"
                 data-optar="{{ $optar }}"
                 data-email="{{ .en_email }}"
-                data-listado="{{ .en_listado }}">
+                data-listado="{{ .en_listado }}"
+                data-postulado="{{ .postulado }}">
               <td class="c-fecha" data-label="Fecha">
                 <time datetime="{{ .fecha }}">{{ time.Format "02/01" .fecha }}</time>
               </td>
@@ -383,6 +385,7 @@
     if (texto && indice[i].indexOf(texto) === -1) return false;
     if (cat.value && f.getAttribute('data-categoria') !== cat.value) return false;
     if (activos.remoto && f.getAttribute('data-remoto') !== 'si') return false;
+    if (activos.postulado && f.getAttribute('data-postulado') !== 'si') return false;
 
     var si = activos['optar-si'], no = activos['optar-no'];
     if (si || no) {

@@ -513,9 +513,9 @@ h3{
 }
 .chip .ico{flex:0 0 auto}
 .chip--baja{color:var(--ink-2);border-style:dotted}
-.chip--postulado{color:var(--postulado);border-color:var(--postulado)}
-.chip--realizada{color:var(--realizada);border-color:var(--realizada)}
-.chip--cobrada{color:var(--cobrada);border-color:var(--cobrada)}
+.chip--postulado{background:var(--postulado);color:var(--paper);border-color:var(--postulado)}
+.chip--realizada{background:var(--realizada);color:var(--paper);border-color:var(--realizada)}
+.chip--cobrada{background:var(--cobrada);color:var(--paper);border-color:var(--cobrada)}
 
 /* — celda «Pago» — */
 .pago-cifra{
