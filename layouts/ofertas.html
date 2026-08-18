@@ -259,7 +259,8 @@
             {{ end }}
             {{/* Lo que lee el filtro. Las tildes se quitan en el navegador,
                  una sola vez al cargar, para que «diseño» y «diseno» casen. */}}
-            <tr data-buscar="{{ lower (printf "%s %s %s" (default "" .titulo_es) (default "" .titulo) (default "" .resumen_es)) }}"
+            <tr class="{{ if eq .consulta "404" }}fila--baja{{ end }}"
+                data-buscar="{{ lower (printf "%s %s %s" (default "" .titulo_es) (default "" .titulo) (default "" .resumen_es)) }}"
                 data-fecha="{{ .fecha }}"
                 data-pago="{{ if $hayPago }}{{ $pago }}{{ end }}"
                 data-categoria="{{ .categoria }}"
