@@ -259,7 +259,7 @@
             {{ end }}
             {{/* Lo que lee el filtro. Las tildes se quitan en el navegador,
                  una sola vez al cargar, para que «diseño» y «diseno» casen. */}}
-            <tr class="{{ if eq .consulta "404" }}fila--baja{{ end }}"
+            <tr class="{{ if or (eq .consulta "404") (eq .caducada "si") }}fila--baja{{ end }}"
                 data-buscar="{{ lower (printf "%s %s %s" (default "" .titulo_es) (default "" .titulo) (default "" .resumen_es)) }}"
                 data-fecha="{{ .fecha }}"
                 data-pago="{{ if $hayPago }}{{ $pago }}{{ end }}"
@@ -298,6 +298,7 @@
                   {{ if eq .en_listado "si" }}<span class="chip">Listado</span>{{ end }}
                   {{ if eq .remoto "Sí" }}<span class="chip chip--remoto">{{ partial "icono.html" "globo" }}Remoto</span>{{ end }}
                   {{ if eq .consulta "404" }}<span class="chip chip--baja">Ya no existía al consultarla</span>{{ end }}
+                  {{ if eq .caducada "si" }}<span class="chip chip--baja">Caducada</span>{{ end }}
                   {{ if eq .postulado "si" }}<span class="chip chip--postulado">Postulado</span>{{ end }}
                   {{ if eq .oferta_realizada "si" }}<span class="chip chip--realizada">Realizada</span>{{ end }}
                   {{ if eq .cobrado "si" }}<span class="chip chip--cobrada">Cobrada</span>{{ end }}
