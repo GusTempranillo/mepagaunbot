@@ -208,6 +208,19 @@ kbd{
     <button class="filtro" data-filtro="todas" aria-pressed="false">Todas</button>
     <input class="buscador" id="buscador" type="search" placeholder="buscar…" aria-label="Buscar en las ofertas">
   </div>
+  <div class="filtros">
+    <button class="filtro" data-chip="remoto" aria-pressed="false">Remoto</button>
+    <button class="filtro" data-chip="optar-si" aria-pressed="false">Puedo optar</button>
+    <button class="filtro" data-chip="optar-no" aria-pressed="false">No puedo optar</button>
+    <button class="filtro" data-chip="postulado" aria-pressed="false">Postulado</button>
+    <select class="buscador" id="cat" style="flex:0 1 180px" aria-label="Filtrar por categoría"></select>
+    <select class="buscador" id="orden" style="flex:0 1 200px" aria-label="Ordenar">
+      <option value="fecha-desc">Fecha · más reciente</option>
+      <option value="fecha-asc">Fecha · más antigua</option>
+      <option value="pago-desc">Pago · de mayor a menor</option>
+      <option value="pago-asc">Pago · de menor a mayor</option>
+    </select>
+  </div>
 </div>
 
 <main id="lista"></main>
@@ -248,9 +261,13 @@ kbd{
   var lista = document.getElementById('lista');
   var cuenta = document.getElementById('cuenta');
   var buscador = document.getElementById('buscador');
+  var catSel = document.getElementById('cat');
+  var ordenSel = document.getElementById('orden');
   var filtro = 'pendientes';
   var busqueda = '';
   var enfocada = null;
+  // Chips acumulables: dentro del mismo grupo suman («o»), como en /ofertas/.
+  var chips = Object.create(null);
 
   // Lo que el panel edita. Cada ficha guarda aquí su estado en curso;
   // hasta que no se firma, no sale de esta página.
@@ -275,16 +292,61 @@ kbd{
       .replace(/"/g, '&quot;');
   }
 
+  // «¿Puedo optar?» cruza las dos preguntas en curso (el borrador, no lo ya
+  // firmado): que me dejen entrar y que sepa hacerla, igual que en /ofertas/.
+  function optarEstado(o){
+    var b = borrador(o);
+    if (b.disponible_es === 'si' && b.compatible === 'si') return 'si';
+    if (b.disponible_es === 'no' || b.compatible === 'no') return 'no';
+    return '';
+  }
+
   function visibles(){
     var q = busqueda.toLowerCase();
     return OFERTAS.filter(function(o){
       if (filtro === 'pendientes' && !o.pendiente) return false;
       if (filtro === 'correo' && o.origen === 'listado') return false;
       if (filtro === 'listado' && o.origen === 'correo') return false;
+      if (catSel.value && o.categoria !== catSel.value) return false;
+      if (chips.remoto && o.remoto !== 'Sí') return false;
+      if (chips.postulado && borrador(o).postulado !== 'si') return false;
+      var si = chips['optar-si'], no = chips['optar-no'];
+      if (si || no) {
+        var v = optarEstado(o);
+        if (!((si && v === 'si') || (no && v === 'no'))) return false;
+      }
       if (!q) return true;
       return (o.titulo_es + ' ' + o.titulo + ' ' + o.resumen_es + ' ' +
               o.categoria + ' ' + o.ubicacion).toLowerCase().indexOf(q) >= 0;
     });
+  }
+
+  // Mismo criterio que en /ofertas/: sin pago publicado, siempre al final.
+  function ordenar(lote){
+    var modo = ordenSel.value;
+    var porPago = modo.slice(0, 4) === 'pago';
+    var dir = modo.slice(-4) === 'desc' ? -1 : 1;
+    return lote.slice().sort(function(a, b){
+      if (!porPago) return (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0) * dir;
+      var pa = a.pago, pb = b.pago;
+      var na = pa === '' || pa == null || isNaN(pa), nb = pb === '' || pb == null || isNaN(pb);
+      if (na && nb) return a.fecha < b.fecha ? 1 : a.fecha > b.fecha ? -1 : 0;
+      if (na) return 1;
+      if (nb) return -1;
+      var d = (parseFloat(pa) - parseFloat(pb)) * dir;
+      return d !== 0 ? d : (a.fecha < b.fecha ? 1 : a.fecha > b.fecha ? -1 : 0);
+    });
+  }
+
+  function poblarCategorias(){
+    var cats = Object.create(null);
+    OFERTAS.forEach(function(o){ if (o.categoria) cats[o.categoria] = (cats[o.categoria] || 0) + 1; });
+    var claves = Object.keys(cats).sort();
+    var html = '<option value="">Categoría: todas (' + OFERTAS.length + ')</option>';
+    claves.forEach(function(k){
+      html += '<option value="' + esc(k) + '">' + esc(k) + ' (' + cats[k] + ')</option>';
+    });
+    catSel.innerHTML = html;
   }
 
   function pintarCuenta(){
@@ -492,7 +554,7 @@ kbd{
 
   // ── pintar y navegar ──────────────────────────────────────
   function pintar(){
-    var lote = visibles();
+    var lote = ordenar(visibles());
     lista.innerHTML = '';
     if (!lote.length) {
       lista.innerHTML = '<p class="vacio"><b>Nada que firmar aquí.</b>' +
@@ -552,15 +614,27 @@ kbd{
     else if (ev.key === 'Enter') { ev.preventDefault(); pulsar('.firmar'); }
   });
 
-  document.querySelectorAll('.filtro').forEach(function(bt){
+  document.querySelectorAll('.filtro[data-filtro]').forEach(function(bt){
     bt.addEventListener('click', function(){
       filtro = bt.dataset.filtro;
-      document.querySelectorAll('.filtro').forEach(function(x){
+      document.querySelectorAll('.filtro[data-filtro]').forEach(function(x){
         x.setAttribute('aria-pressed', String(x === bt));
       });
       pintar();
     });
   });
+
+  document.querySelectorAll('.filtro[data-chip]').forEach(function(bt){
+    bt.addEventListener('click', function(){
+      var f = bt.dataset.chip;
+      if (chips[f]) delete chips[f]; else chips[f] = true;
+      bt.setAttribute('aria-pressed', String(!!chips[f]));
+      pintar();
+    });
+  });
+
+  catSel.addEventListener('change', pintar);
+  ordenSel.addEventListener('change', pintar);
 
   var espera;
   buscador.addEventListener('input', function(){
@@ -568,6 +642,7 @@ kbd{
     espera = setTimeout(function(){ busqueda = buscador.value.trim(); pintar(); }, 160);
   });
 
+  poblarCategorias();
   pintar();
 })();
 </script>
