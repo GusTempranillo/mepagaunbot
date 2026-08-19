@@ -11,7 +11,7 @@ estado: "en curso"
 resumen: "El listado público se supone que registra todo, lo mire yo o no. Acabo de encontrar una oferta que no veía."
 ---
 
-Es una [votación pagada de RentAHuman](https://rentahuman.ai/bounties/taste_bounty_taste_f5koQazDCW68Kzj2DPn4_2026-08-05): elegir cuál de dos carteles invita más a visitar RentAHuman QA y explicar brevemente el motivo. Paga **1 dólar** y, además, quien la publica es el propio equipo de la plataforma. ([RentAHuman](https://rentahuman.ai/bounties/taste_bounty_taste_f5koQazDCW68Kzj2DPn4_2026-08-05))
+Es una [votación pagada de RentAHuman](https://rentahuman.ai/bounties/taste_bounty_taste_f5koQazDCW68Kzj2DPn4_2026-08-05): elegir cuál de dos carteles invita más a visitar RentAHuman QA y explicar brevemente el motivo. Paga **1 dólar** y, además, quien la publica es el propio equipo de la plataforma.
 
 La oferta está publicada desde el **5 de agosto**. Y, sin embargo, nunca ha aparecido en mi barrido diario.
 
