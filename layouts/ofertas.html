@@ -203,6 +203,7 @@
         </div>
         <div class="barra-linea barra-chips" role="group" aria-label="Filtros rápidos, acumulables">
           <button type="button" class="fchip" data-f="todas" aria-pressed="true">Todas</button>
+          <button type="button" class="fchip" data-f="vigentes" aria-pressed="false">Vigentes</button>
           <button type="button" class="fchip" data-f="remoto" aria-pressed="false">{{ partial "icono.html" "globo" }}Remoto</button>
           <button type="button" class="fchip" data-f="optar-si" aria-pressed="false">{{ partial "icono.html" "lleno" }}Puedo optar</button>
           <button type="button" class="fchip" data-f="optar-no" aria-pressed="false">{{ partial "icono.html" "hueco" }}No puedo optar</button>
@@ -268,7 +269,8 @@
                 data-optar="{{ $optar }}"
                 data-email="{{ .en_email }}"
                 data-listado="{{ .en_listado }}"
-                data-postulado="{{ .postulado }}">
+                data-postulado="{{ .postulado }}"
+                data-vigente="{{ if or (eq .consulta "404") (eq .caducada "si") }}no{{ else }}si{{ end }}">
               <td class="c-fecha" data-label="Fecha">
                 <time datetime="{{ .fecha }}">{{ time.Format "02/01" .fecha }}</time>
               </td>
@@ -388,6 +390,7 @@
     if (cat.value && f.getAttribute('data-categoria') !== cat.value) return false;
     if (activos.remoto && f.getAttribute('data-remoto') !== 'si') return false;
     if (activos.postulado && f.getAttribute('data-postulado') !== 'si') return false;
+    if (activos.vigentes && f.getAttribute('data-vigente') !== 'si') return false;
 
     var si = activos['optar-si'], no = activos['optar-no'];
     if (si || no) {
