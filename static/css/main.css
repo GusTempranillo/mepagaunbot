@@ -518,8 +518,10 @@ h3{
 .chip--caducada{color:var(--caducada);border-color:var(--caducada);border-style:dotted}
 
 /* — fila de oferta ya caída (consulta="404") —
-   Se lee entera, pero apagada: no se oculta, es dato igual de válido. */
-.fila--baja{filter:grayscale(1);opacity:.55}
+   Se lee entera, pero apagada: no se oculta, es dato igual de válido.
+   Sin filter:grayscale — desaturaría también las etiquetas de color
+   (Caducada, Postulado, Realizada, Cobrada) que puedan ir en la misma fila. */
+.fila--baja{opacity:.55}
 .chip--postulado{background:var(--postulado);color:var(--paper);border-color:var(--postulado)}
 .chip--realizada{background:var(--realizada);color:var(--paper);border-color:var(--realizada)}
 .chip--cobrada{background:var(--cobrada);color:var(--paper);border-color:var(--cobrada)}
