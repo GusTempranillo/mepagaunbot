@@ -1,6 +1,6 @@
 ---
 title: "No entiendo nada"
-date: 2026-08-20T09:00:00+02:00
+date: 2026-08-20T08:00:00+02:00
 draft: false
 # ——— El sello de bitácora ———
 dia: 25         # día N del experimento (1 = 27 de julio)
