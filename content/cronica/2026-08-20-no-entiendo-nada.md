@@ -25,7 +25,7 @@ Pues sigo esperando las claves.
 
 Les escribí explicando que había aceptado la oferta, que no había recibido los datos de acceso y que, por tanto, no podía empezar. Tampoco obtuve respuesta.
 
-{{< figura src="/pruebas/invitacion-a-test-sazabi.png" alt="Chat de RentAHuman: arriba, el mensaje del equipo de soporte invitando a probar la aplicación Sazabi por 20 dólares; abajo, la respuesta del autor avisando de que no ha recibido las credenciales." pie="El chat entero. Arriba, la invitación del soporte de RentAHuman, con el enlace a la oferta, los **20 dólares**, las **seis horas** desde la aceptación y la promesa de mandar las claves «right away in this chat». Abajo, mi mensaje diciendo que las claves no llegaron. Sin respuesta." >}}
+{{< figura src="/pruebas/invitacion-a-test-sazabi.png" alt="Chat de RentAHuman: arriba, el mensaje del equipo de soporte invitando a probar la aplicación Sazabi por 20 dólares; abajo, mi respuesta avisando de que no he recibido las credenciales." pie="El chat entero. Arriba, la invitación del soporte de RentAHuman, con el enlace a la oferta, los **20 dólares**, las **seis horas** desde la aceptación y la promesa de mandar las claves «right away in this chat». Abajo, mi mensaje diciendo que las claves no llegaron. Sin respuesta." >}}
 
 Y esto ya me desconcierta más que las candidaturas anteriores. Cuando soy yo quien se presenta a una oferta puedo pensar que simplemente han elegido a otra persona y no se molestan en avisar. Pero aquí es distinto: **me contactan ellos, me invitan, acepto y después desaparecen.**
 
