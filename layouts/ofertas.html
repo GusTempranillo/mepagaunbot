@@ -300,7 +300,7 @@
                   {{ if eq .en_listado "si" }}<span class="chip">Listado</span>{{ end }}
                   {{ if eq .remoto "Sí" }}<span class="chip chip--remoto">{{ partial "icono.html" "globo" }}Remoto</span>{{ end }}
                   {{ if eq .consulta "404" }}<span class="chip chip--baja">Ya no existía al consultarla</span>{{ end }}
-                  {{ if eq .caducada "si" }}<span class="chip chip--baja">Caducada</span>{{ end }}
+                  {{ if eq .caducada "si" }}<span class="chip chip--caducada">Caducada</span>{{ end }}
                   {{ if eq .postulado "si" }}<span class="chip chip--postulado">Postulado</span>{{ end }}
                   {{ if eq .oferta_realizada "si" }}<span class="chip chip--realizada">Realizada</span>{{ end }}
                   {{ if eq .cobrado "si" }}<span class="chip chip--cobrada">Cobrada</span>{{ end }}

@@ -63,6 +63,7 @@
   --postulado:#2A5DB0;
   --realizada:#6A3FA0;
   --cobrada:#1B6B3A;
+  --caducada:#C25E00;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -78,6 +79,7 @@
     --postulado:#6FA8FF;
     --realizada:#C9A6FF;
     --cobrada:#5FBF86;
+    --caducada:#FFA557;
   }
 }
 
@@ -513,6 +515,7 @@ h3{
 }
 .chip .ico{flex:0 0 auto}
 .chip--baja{color:var(--ink-2);border-style:dotted}
+.chip--caducada{color:var(--caducada);border-color:var(--caducada);border-style:dotted}
 
 /* — fila de oferta ya caída (consulta="404") —
    Se lee entera, pero apagada: no se oculta, es dato igual de válido. */
