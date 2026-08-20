@@ -513,7 +513,7 @@ ofertas:
     postulado: ""
     oferta_realizada: ""
     cobrado: ""
-    caducada: ""
+    caducada: "si"
 
   - fecha: 2026-08-04
     id: "VNVIkY7jtNozufxAcjpw"
