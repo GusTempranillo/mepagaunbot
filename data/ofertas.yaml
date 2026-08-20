@@ -2760,7 +2760,7 @@ ofertas:
     revisado: "si"
     en_email: "no"
     en_listado: "si"
-    postulado: ""
+    postulado: "si"
     oferta_realizada: ""
     cobrado: ""
     caducada: ""
