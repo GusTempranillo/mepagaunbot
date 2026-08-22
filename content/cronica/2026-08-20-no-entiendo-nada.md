@@ -11,7 +11,7 @@ estado: "en curso"
 resumen: "El equipo de soporte me invita a ser betatester, yo acepto y me hacen el vacío."
 ---
 
-Ayer por la mañana recibí un mensaje del propio equipo de soporte de RentAHuman. Me invitaban a participar en una prueba de Sazabi porque, según ellos, mi perfil encajaba.
+Ayer por la mañana recibí en el chat un mensaje directo del propio equipo de soporte de RentAHuman. Me invitaban a participar en una prueba de Sazabi porque, según ellos, mi perfil encajaba y estaban buscando betatesters.
 
 El trabajo era sencillo: probar una aplicación web durante aproximadamente una hora, contar los fallos o cosas confusas que encontrase y cobrar **20 dólares**.
 
