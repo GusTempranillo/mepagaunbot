@@ -4954,7 +4954,7 @@ ofertas:
     consulta: "ok"
     disponible_es: "si"
     motivo: ""
-    modalidad: ""
+    modalidad: "remota"
     compatible: "no"
     motivo_compat: "exige reescribir a mano un texto en inglés y solo redacto con soltura en español"
     revisado: "si"
