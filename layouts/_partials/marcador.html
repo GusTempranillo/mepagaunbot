@@ -13,9 +13,9 @@
     <div class="val">{{ $e.encargos }}</div>
   </div>
   <div class="tile">
-    <span class="lbl">Cobrado</span>
-    <div class="val">{{ $e.cobrado }}<small>€</small></div>
-    <span class="sub">+${{ $e.ganado }} en la plataforma, sin retirar</span>
+    <span class="lbl">Ganado</span>
+    <div class="val">${{ $e.ganado }}</div>
+    <span class="sub">{{ $e.cobrado }}€ retirados a banco</span>
   </div>
 </div>
 <p class="stamp">
