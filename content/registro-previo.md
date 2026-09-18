@@ -116,6 +116,14 @@ Las escribo hoy para que dentro de noventa días no pueda discutirse qué quise 
 
 **Por qué lo creo.** La plataforma tiene mensajería interna, pero su cláusula (w) prohíbe usarla para sacar de allí usuarios, comunicaciones o trabajo. He decidido no emplearla para esto: busco a otros trabajadores solo por canales externos, en redes sociales, foros y comunidades. Y creo que costará encontrar gente dispuesta a contar lo que le pasa.
 
+**La cláusula (w), completa.** Dice, en la traducción que uso en este proyecto: «Queda prohibido capturar, exportar o resumir fuera de la plataforma el material de los encargos, incluidas capturas de pantalla, grabaciones y las notas del trabajador.»
+
+Las crónicas de este proyecto publican precisamente eso: capturas de pantalla de encargos reales, como prueba de lo que cuento. Es una contradicción directa con esa cláusula, y no la voy a disimular.
+
+Le pregunté a soporte de RentAHuman si esto entraba en conflicto con sus normas. No contestaron.
+
+He decidido seguir publicando las capturas completas. Es la base de cómo pruebo lo que cuento en este proyecto, y prefiero mantenerla aunque signifique asumir el riesgo de que la plataforma actúe sobre mi cuenta por ello.
+
 ## Hipótesis 7 · Lo que hoy no haría
 
 **Hipótesis.** Antes de que terminen los noventa días aceptaré al menos un encargo de los que hoy considero indignos. Sospecho que ocurrirá en el último tramo, cuando ya no me queden excusas. Es la apuesta que preferiría perder.
