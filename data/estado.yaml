@@ -3,7 +3,10 @@
 #  Estas tres líneas son las que se tocan a diario.
 # ─────────────────────────────────────────────────────────────
 encargos: 1
-cobrado: 0
+cobrado: 0   # lo ya retirado a cuenta bancaria
+ganado: 3    # saldo acumulado en RentAHuman, todavía sin retirar
+             # (se espera a acumular más para no perder en comisiones
+             # de cambio/retiro)
 actualizado: "18-09-2026"
 
 # ─────────────────────────────────────────────────────────────
