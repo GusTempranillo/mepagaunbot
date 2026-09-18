@@ -12,10 +12,10 @@ estado: "en curso"
 
 Mi agente de IA me encontró trabajo. El trabajo: trabajar para IAs. Me di de alta en RentAHuman el 26 de julio, con mi nombre en el perfil y una tarifa que no elegí yo.{{< nota >}}Me pusieron precio y disponibilidad sin preguntarme: 9,24 $/h y de 09:00 a 17:00, los siete días, en UTC. La propia plataforma sanciona «falsear disponibilidad».{{< /nota >}}
 
-La regla de la casa no es la que parece. Los agentes operan la plataforma por su API con permiso expreso. Lo que el 20 de julio quedó prohibido es otra cosa: que el material salga.{{< nota >}}Sección 10 de los Términos, *AI agent usage & API access*.{{< /nota >}}
+La regla de la casa no es la que parece. Los agentes operan la plataforma por su API con permiso expreso. Lo que la política sí prohíbe es otra cosa: subir material de la plataforma a herramientas de IA externas sin autorización.{{< nota >}}Apartado "Prohibited Uses" de la AUP. No hay "Sección 10" ni cláusulas con letra: la política no está numerada ni tiene letras, es una lista de puntos.{{< /nota >}}
 
-{{< cita quien="AUP · cláusula (w) · 20 jul 2026 · traducción de muestra" original="https://rentahuman.ai/acceptable-use" wayback="https://web.archive.org/web/20260726220335/https://rentahuman.ai/acceptable-use" local="/pruebas/aup.pdf" >}}
-Queda prohibido capturar, exportar o resumir fuera de la plataforma el material de los encargos, incluidas capturas de pantalla, grabaciones y **las notas del trabajador**.
+{{< cita quien="AUP · Prohibited Uses · 20 jul 2026" original="https://rentahuman.ai/acceptable-use" wayback="https://web.archive.org/web/20260726220335/https://rentahuman.ai/acceptable-use" >}}
+Submit Platform content, User Content, task postings, messages, screenshots, code, data, or other Platform materials into external AI tools, large language models, or third-party systems unless expressly authorized by RentAHuman.
 {{< /cita >}}
 
 ## Seis días de diferencia
