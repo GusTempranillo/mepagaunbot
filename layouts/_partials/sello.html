@@ -3,7 +3,8 @@
   <span>Día <b>{{ .Params.dia }}</b>/90</span>
   <span>Tarifa <b>${{ .Params.tarifa }}</b>/h</span>
   <span>Encargos <b>{{ .Params.encargos }}</b></span>
-  <span>Cobrado <b>{{ .Params.cobrado }}</b> €</span>
+  {{- if isset .Params "ganado" }}<span>Ganado <b>${{ .Params.ganado }}</b></span>{{ end }}
+  {{- if isset .Params "cobrado" }}<span>Cobrado <b>{{ .Params.cobrado }}</b> €</span>{{ end }}
   {{- with .Params.estado }}<span>{{ . }}</span>{{ end }}
 </p>
 {{- end }}
