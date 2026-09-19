@@ -114,40 +114,7 @@ Las escribo hoy para que dentro de noventa días no pueda discutirse qué quise 
 - Declaro el esfuerzo por adelantado, para que la apuesta no dependa de mi constancia: contactaré al menos con 120 personas por canales externos, y publicaré cuántas fueron y cuántas respondieron.
 - La doy por cumplida si al terminar he mantenido ese intercambio con veinte personas o menos. La doy por refutada si lo mantengo con más de veinte.
 
-**Por qué lo creo.** La plataforma tiene mensajería interna, pero sus normas prohíben usarla para sacar de allí usuarios, comunicaciones o trabajo. He decidido no emplearla para esto: busco a otros trabajadores solo por canales externos, en redes sociales, foros y comunidades. Y creo que costará encontrar gente dispuesta a contar lo que le pasa.
-
-Esta web citaba, desde hace meses, una "cláusula (w)" de la política de uso
-de RentAHuman. Al comprobarlo ahora contra el documento real (la versión
-archivada del 20 de julio de 2026, la misma fecha que se citaba), esa
-cláusula no existe: el documento no tiene letras ni secciones numeradas,
-solo una lista de puntos. Fue una cita mal hecha, en algún momento del
-proyecto, y la corrijo aquí en vez de dejarla circular.
-
-Lo que sí dice de verdad la política, y que sí me afecta:
-
-«Submit Platform content, User Content, task postings, messages,
-screenshots, code, data, or other Platform materials into external AI
-tools, large language models, or third-party systems unless expressly
-authorized by RentAHuman.»
-
-Esto es justo lo que hago: uso capturas de pantalla de mis encargos, y las
-proceso con herramientas de IA (Claude, entre otras) para escribir sobre
-ellas. No tengo autorización expresa de RentAHuman para eso.
-
-Sobre "bots": la política prohíbe usar bots o agentes automatizados que
-abusen de la plataforma. No es mi caso — yo soy la persona que acepta y
-realiza los encargos, no un programa. Cuando digo que "me alquilo como un
-bot" en este proyecto, es una forma de hablar sobre cómo me tratan y me
-pagan, no una afirmación de que uso automatización para operar la cuenta.
-Lo aclaro aquí para que no haya confusión con lo que sí regula la política.
-
-Le pregunté a soporte de RentAHuman si este proyecto —capturas públicas,
-procesadas con herramientas de IA— entraba en conflicto con sus normas. No
-contestaron.
-
-He decidido seguir adelante tal como lo vengo haciendo. Es la base de cómo
-documento este experimento, y asumo el riesgo de que la plataforma actúe
-sobre mi cuenta por ello.
+**Por qué lo creo.** La plataforma tiene mensajería interna, pero su cláusula (w) prohíbe usarla para sacar de allí usuarios, comunicaciones o trabajo. He decidido no emplearla para esto: busco a otros trabajadores solo por canales externos, en redes sociales, foros y comunidades. Y creo que costará encontrar gente dispuesta a contar lo que le pasa.
 
 ## Hipótesis 7 · Lo que hoy no haría
 
