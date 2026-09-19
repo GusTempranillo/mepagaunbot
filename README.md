@@ -70,7 +70,7 @@ publica): arráncala con `hugo server -D` y míralas funcionando.
 **Cita con su procedencia archivada** (chips original · wayback · copia local):
 
 ```
-{{</* cita quien="AUP · cláusula (w) · 20 jul 2026" original="https://…" wayback="https://…" local="/pruebas/aup.pdf" */>}}
+{{</* cita quien="AUP · Prohibited Uses · 20 jul 2026" original="https://…" wayback="https://…" local="/pruebas/aup.pdf" */>}}
 Texto citado.
 {{</* /cita */>}}
 ```
