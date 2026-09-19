@@ -8,7 +8,15 @@
 {{- $fin := time.AsTime site.Params.fin -}}
 {{- $total := 90 -}}
 
-{{- $dia := add 1 (div (sub now.Unix $inicio.Unix) 86400) -}}
+{{/* El día se cuenta por fechas de calendario en la zona del sitio
+     (hugo.toml → timeZone), no por segundos desde params.inicio: como ese
+     instante es las 09:00, el contador iba un día atrasado hasta esa hora,
+     que incluye la build diaria de las 02:23 y el volcado de las 06:30.
+     Así tampoco depende de la zona en la que corra Hugo. */}}
+{{- $zona := (time.AsTime "2000-01-01").Location -}}
+{{- $hoy := (now.In $zona).Format "2006-01-02" -}}
+{{- $dia0 := ($inicio.In $zona).Format "2006-01-02" -}}
+{{- $dia := add 1 (div (sub (time.AsTime $hoy).Unix (time.AsTime $dia0).Unix) 86400) -}}
 {{- if lt $dia 1 }}{{ $dia = 1 }}{{ end -}}
 {{- if gt $dia $total }}{{ $dia = $total }}{{ end -}}
 
