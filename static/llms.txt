@@ -20,8 +20,7 @@
 - Método de verificación: https://mepagaunbot.eu/metodo/
 - Errores y rectificaciones: https://mepagaunbot.eu/errores/
 - Empieza aquí: https://mepagaunbot.eu/empieza-aqui/
-- Participar (ES): https://mepagaunbot.eu/participa/
-- Participate (EN): https://mepagaunbot.eu/participate/
+- Participar: https://mepagaunbot.eu/participa/
 - RSS (texto completo): https://mepagaunbot.eu/index.xml
 
 ## Contacto
