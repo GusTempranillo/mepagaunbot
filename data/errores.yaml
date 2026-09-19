@@ -51,3 +51,28 @@ errores:
       los recuentos de antes y de después no se mezclan.
     fecha: 2026-07-26
     corregido: 2026-08-07
+
+  - id: E6
+    orden: 6
+    dije: >
+      La política de uso de RentAHuman tiene una cláusula (w) que prohíbe
+      usar la mensajería interna para sacar de allí usuarios,
+      comunicaciones o trabajo.
+    pasa: >
+      Esa cláusula no existe. Contrastada con la versión archivada del 20 de
+      julio de 2026, la misma fecha que citaba, la política no tiene letras
+      ni secciones numeradas: es una lista de puntos. Lo que sí dice, y me
+      afecta, es que no se pueden subir contenidos de la plataforma
+      (anuncios, mensajes, capturas, código, datos) a herramientas de IA
+      externas «unless expressly authorized by RentAHuman». Es lo que hago:
+      proceso capturas de mis encargos con IA (Claude, entre otras) para
+      escribir sobre ellas, y no tengo autorización expresa. Pregunté a
+      soporte si el proyecto entraba en conflicto con sus normas y no
+      contestaron. He decidido seguir como hasta ahora y asumo el riesgo de
+      que la plataforma actúe sobre mi cuenta.
+    como: >
+      Escribí la cita en la hipótesis 6 del registro previo sin contrastarla
+      con el documento. Ese registro está sellado y no se edita, así que la
+      cita sigue ahí, tal como se selló, y la corrección vive aquí.
+    fecha: 2026-07-28
+    corregido: 2026-09-18
