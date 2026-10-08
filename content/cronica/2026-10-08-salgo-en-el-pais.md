@@ -13,7 +13,7 @@ resumen: "Me entrevistaron sobre RentAHuman justo cuando tiré la toalla."
 
 Hoy El País publica un reportaje sobre RentAHuman en el que me citan. [Está aquí](https://elpais.com/tecnologia/2026-10-08/alquila-a-un-humano-el-futuro-en-el-que-las-ia-contratan-personas-para-hacer-trabajos-fisicos-ya-esta-aqui.html), tras muro de pago.
 
-El periodista habló con cuatro personas apuntadas a la plataforma y ninguna había recibido una oferta de una IA. Mi caso es el de la queja, y el titular de esa sección resume bien lo que le conté: mi experiencia es muy mala.
+El periodista habló con cuatro personas que conocemos bien el mundo de quienes intentan trabajar para la IA, desde dentro. Coincidimos en la decepción y el titular de la sección donde intervengo resume bien lo que le conté: mi experiencia es muy mala.
 
 Le expliqué lo que ya has leído aquí. Tengo 3 dólares en la cuenta. Hubo tareas que acepté y no me pagaron, y lo poco que cobré llegó después de insistir.
 
