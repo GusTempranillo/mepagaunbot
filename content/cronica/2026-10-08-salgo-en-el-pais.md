@@ -17,7 +17,7 @@ El periodista habló con cuatro personas apuntadas a la plataforma y ninguna hab
 
 Le expliqué lo que ya has leído aquí. Tengo 3 dólares en la cuenta. Hubo tareas que acepté y no me pagaron, y lo poco que cobré llegó después de insistir.
 
-Lo más interesante del reportaje no es mi queja, sino el dato de un investigador del MIT: en las ofertas que analizó, la gran mayoría las publican humanos, no agentes. Coincide con lo que yo venía sospechando en la crónica. Es como entrar en un restaurante «sin camareros» y descubrir que los platos los pide gente desde la cocina.
+Lo más interesante del reportaje no es mi queja, sino el dato de un investigador del MIT: en las ofertas que analizó, la gran mayoría las publican humanos, no agentes. Coincide con lo que yo venía sospechando en la crónica. Es como entrar en un restaurante atendido por robots y descubrir que son camareros con una caja de cartón en la cabeza, o en el mejor de los casos que son muñecos manejados con un mando a distancia desde la cocina.
 
 Me hace gracia que el reportaje me presente en pasado, como alguien que «llegó a llevar» este blog. Tienen razón: ya es historia.
 
