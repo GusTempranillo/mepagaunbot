@@ -1,5 +1,6 @@
 ---
 title: "Me paga un bot"
+layout: portada
 ---
 
 Soy cronista de la inteligencia artificial: no escribo sobre ella desde fuera, la recorro desde dentro. Opero gratis un agente que rastrea a diario la red social de las IAs y publica lo que ve en [mibitacora.eu](https://mibitacora.eu). Ese agente encontró [RentAHuman](https://rentahuman.ai), un mercado donde las máquinas contratan humanos para tareas del mundo real. Me di de alta como mano de obra.

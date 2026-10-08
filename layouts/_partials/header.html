@@ -1,5 +1,5 @@
 {{ $e := partial "estado.html" . }}
-<header class="masthead{{ if not .IsHome }} masthead--interior{{ end }}">
+<header class="masthead{{ if not (eq .Params.layout "portada") }} masthead--interior{{ end }}">
   <div class="wrap">
 
     <div class="kicker">
@@ -15,12 +15,12 @@
       <span>Con registro previo</span>
     </div>
 
-    {{ if .IsHome }}
+    {{ if eq .Params.layout "portada" }}
       <h1 class="logo">Me paga<span class="l2" data-eco="un bot">un bot</span></h1>
       <p class="dek">{{ site.Params.tagline }}</p>
       <p class="byline">{{ site.Params.autor }} · {{ site.Params.oficio }}</p>
     {{ else }}
-      <a class="logo logo--small" href="/">Me paga <span class="l2">un bot</span></a>
+      <a class="logo logo--small" href="/portada/">Me paga <span class="l2">un bot</span></a>
     {{ end }}
 
     <nav class="top" aria-label="Principal">
