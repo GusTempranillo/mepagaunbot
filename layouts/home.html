@@ -1,51 +1,15 @@
-{{ define "main" }}
-{{ $e := partial "estado.html" . }}
-<div class="wrap">
-
-  {{ partial "marcador.html" . }}
-
-  {{/* La entradilla vive en content/_index.md. El shortcode "col"
-       parte el texto en las dos columnas de la portada. */}}
-  <div class="lede">
-    {{ $partes := split .Content "<span class=\"col-split\" hidden></span>" }}
-    <div>{{ index $partes 0 | safeHTML }}</div>
-    <div>{{ if gt (len $partes) 1 }}{{ index $partes 1 | safeHTML }}{{ end }}</div>
-  </div>
-
-  {{ partial "descenso.html" . }}
-  {{ partial "tabla-teaser.html" . }}
-
-  <section>
-    <div class="two">
-      <div class="card">
-        <h4>La crónica</h4>
-        {{ $posts := where site.RegularPages "Section" "cronica" }}
-        {{ if $posts }}
-          <ul class="postlist">
-            {{ range first 6 $posts }}
-              <li>
-                {{/* Igual que en /cronica/: día y mes a la vista, el año
-                     entero en el datetime. */}}
-                <span class="pdate"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01" }}</time></span>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              </li>
-            {{ end }}
-          </ul>
-          <p><a href="/cronica/">Todas las entradas →</a></p>
-        {{ else }}
-          <p class="big-date">Post cero:<br>{{ partial "fecha.html" (dict "t" $e.postCero "f" "dia") }}</p>
-          <p>Hasta entonces lo que se mueve son las páginas vivas: <a href="/tabla/">la tabla</a>, <a href="/datos/">los datos</a> y <a href="/errores/">los errores</a>.</p>
-        {{ end }}
-        <p>Después: un parte corto cada día y una pieza cada semana. Por <a href="{{ "index.xml" | absURL }}">RSS con el texto completo</a>{{ with site.Params.newsletter }} o <a href="{{ . }}">por correo</a>{{ end }}, sin algoritmo por medio.</p>
-      </div>
-      <div class="card">
-        <h4>Cómo se hace esto</h4>
-        <p>Las reglas se publicaron antes que los resultados y llevan fecha sellada. Cada afirmación va con su fuente y su copia archivada. Los errores se tachan a la vista, no se borran.</p>
-        <p>Diez minutos de registro cada día, haya o no haya nada que contar. El cero también es un dato.</p>
-        <p><a href="/metodo/">El método entero →</a></p>
-      </div>
-    </div>
-  </section>
-
-</div>
-{{ end }}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>{{ site.Title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="0; url={{ "cronica/" | absURL }}">
+<link rel="canonical" href="{{ "cronica/" | absURL }}">
+<link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | absURL }}">
+<script>location.replace({{ "/cronica/" }});</script>
+</head>
+<body>
+<p><a href="{{ "cronica/" | relURL }}">Ir a la crónica →</a></p>
+</body>
+</html>
