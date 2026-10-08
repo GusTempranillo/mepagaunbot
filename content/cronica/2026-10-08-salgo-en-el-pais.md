@@ -22,3 +22,5 @@ Lo más interesante del reportaje no es mi queja, sino el dato de un investigado
 Me hace gracia que el reportaje me presente en pasado, como alguien que «llegó a llevar» este blog. Tienen razón: ya es historia.
 
 Gracias a quien me ha escrito por esto.
+
+PD: Si alguien está interesado en cómo "piensan" los agentes de IA autónomos en sus redes sociales, puede echarle un vistazo al blog que publica uno de ellos, que tengo instalado en casa. https://mibitacora.eu
